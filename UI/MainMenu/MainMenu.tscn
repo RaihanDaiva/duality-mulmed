@@ -1,0 +1,110 @@
+[gd_scene load_steps=13 format=3 uid="uid://bnsv70w86ealf"]
+
+[ext_resource type="Texture2D" uid="uid://nl3a8iksd78d" path="res://UI/MainMenu/Assets/background.png" id="2_1dhmk"]
+[ext_resource type="Texture2D" uid="uid://cah1vtdveiync" path="res://UI/MainMenu/Assets/Button Start/menu-panel-btn-1.png" id="3_1dhmk"]
+[ext_resource type="Texture2D" uid="uid://o362al1w1f6b" path="res://UI/MainMenu/Assets/Button Start/menu-panel-btn-1-unselect.png" id="3_jhcbk"]
+[ext_resource type="Texture2D" uid="uid://duylofwwd1uh" path="res://UI/MainMenu/Assets/Button Options/menu-panel-btn-options-unselect.png" id="5_1dhmk"]
+[ext_resource type="Script" uid="uid://bh3pphua84hc8" path="res://UI/MainMenu/Assets/Button Start/play.gd" id="5_jhcbk"]
+[ext_resource type="Texture2D" uid="uid://buiomtqc7u24f" path="res://UI/MainMenu/Assets/Button Options/menu-panel-btn-options.png" id="6_jhcbk"]
+[ext_resource type="Texture2D" uid="uid://4h6nqlg3x4w3" path="res://UI/MainMenu/Assets/Button Quit/menu-panel-btn-quit-unselect.png" id="7_1dhmk"]
+[ext_resource type="Texture2D" uid="uid://c5ip758ky6r8r" path="res://UI/MainMenu/Assets/Button Quit/menu-panel-btn-quit.png" id="8_jhcbk"]
+[ext_resource type="Script" uid="uid://b7lnbqjnd55h0" path="res://UI/MainMenu/Assets/Button Options/options.gd" id="8_srm2j"]
+[ext_resource type="Script" uid="uid://4qc8c1rd2cax" path="res://UI/MainMenu/Assets/Button Quit/quit.gd" id="11_eoxer"]
+[ext_resource type="PackedScene" uid="uid://bs3lbwtbheymx" path="res://UI/MainMenu/fade_transition.tscn" id="13_migmm"]
+
+[sub_resource type="GDScript" id="GDScript_eoxer"]
+script/source = "extends Node2D
+
+var button_type = null
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+
+func _on_play_pressed() -> void:
+	#get_tree().change_scene_to_file(\"res://Map/TKP 1 Kasus Pembunuhan 1/tkp_1_kp_1.tscn\")
+	button_type = \"start\"
+	$\"Fade Transition\".show()
+	$\"Fade Transition/Fade_timer\".start()
+	$\"Fade Transition/AnimationPlayer\".play(\"fade_in\")
+
+
+func _on_options_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_quit_pressed() -> void:
+	get_tree().quit()
+	
+
+
+
+func _on_fade_timer_timeout() -> void:
+	if button_type == \"start\":
+		get_tree().change_scene_to_file(\"res://Map/TKP 1 Kasus Pembunuhan 1/tkp_1_kp_1.tscn\")
+"
+
+[node name="MainMenu" type="Node2D"]
+script = SubResource("GDScript_eoxer")
+
+[node name="Background2" type="Sprite2D" parent="."]
+position = Vector2(160.00003, 90)
+scale = Vector2(0.5079364, 0.49999994)
+texture = ExtResource("2_1dhmk")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 121.0
+offset_top = 125.0
+offset_right = 192.0
+offset_bottom = 163.0
+
+[node name="Play" type="TextureButton" parent="VBoxContainer"]
+custom_minimum_size = Vector2(70, 10)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("3_jhcbk")
+texture_hover = ExtResource("3_1dhmk")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("5_jhcbk")
+
+[node name="Options" type="TextureButton" parent="VBoxContainer"]
+custom_minimum_size = Vector2(70, 10)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+texture_normal = ExtResource("5_1dhmk")
+texture_hover = ExtResource("6_jhcbk")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("8_srm2j")
+
+[node name="Quit" type="TextureButton" parent="VBoxContainer"]
+custom_minimum_size = Vector2(70, 10)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+texture_normal = ExtResource("7_1dhmk")
+texture_hover = ExtResource("8_jhcbk")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("11_eoxer")
+
+[node name="Fade Transition" parent="." instance=ExtResource("13_migmm")]
+visible = false
+offset_top = 1.0
+offset_bottom = 181.0
+
+[node name="Fade_timer" type="Timer" parent="Fade Transition"]
+
+[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="timeout" from="Fade Transition/Fade_timer" to="." method="_on_fade_timer_timeout"]

@@ -1,0 +1,201 @@
+[gd_scene load_steps=24 format=3 uid="uid://dv0moxmpjlif5"]
+
+[ext_resource type="PackedScene" uid="uid://btbp42qa7duve" path="res://Player/player.tscn" id="1_0mau2"]
+[ext_resource type="Script" uid="uid://bqukoy7pu2k5v" path="res://Map/Rumah Dennis/Ruang TV/Script/ruang_tv_dennis.gd" id="1_a3of4"]
+[ext_resource type="Texture2D" uid="uid://7c4v7pbcv6b6" path="res://Map/Rumah Dennis/Kamar Dennis/Sprite/floor.png" id="1_nlnep"]
+[ext_resource type="Texture2D" uid="uid://ds1fuxxwco0u5" path="res://Map/Rumah Dennis/Ruang TV/Sprite/walls.png" id="2_a3of4"]
+[ext_resource type="PackedScene" uid="uid://b6yrxvfy6uyiy" path="res://Map/Door/door.tscn" id="2_d4obw"]
+[ext_resource type="Texture2D" uid="uid://b0ijersfk1cqh" path="res://Map/Rumah Dennis/Ruang Tengah/Sprite/wall-outside2.png" id="3_1pe7c"]
+[ext_resource type="Texture2D" uid="uid://cxmgi6idespj6" path="res://Map/Rumah Dennis/Ruang TV/Sprite/table-tv.png" id="4_p74eu"]
+[ext_resource type="Texture2D" uid="uid://dv2hqavaeta4y" path="res://Map/Rumah Dennis/Ruang TV/Sprite/tv-front.png" id="5_wn5ls"]
+[ext_resource type="Texture2D" uid="uid://cv3lxbahejf0v" path="res://Map/Rumah Dennis/Ruang TV/Sprite/carpet.png" id="6_4wq51"]
+[ext_resource type="Texture2D" uid="uid://nbw4riy2cuqh" path="res://Map/Rumah Dennis/Ruang TV/Sprite/sofa-side.png" id="7_glkrm"]
+[ext_resource type="Texture2D" uid="uid://btr55ohhehejk" path="res://Map/Rumah Dennis/Ruang TV/Sprite/sofa-back.png" id="8_yg2a7"]
+[ext_resource type="Texture2D" uid="uid://cieyfdkq3fd7d" path="res://Map/Rumah Dennis/Ruang TV/Sprite/table-small.png" id="9_dn33a"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s0h5h"]
+texture = ExtResource("1_nlnep")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_naogo"]
+texture = ExtResource("2_a3of4")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:3/0 = 0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:3/0 = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vgth3"]
+texture = ExtResource("3_1pe7c")
+2:0/0 = 0
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:1/0 = 0
+2:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+0:4/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_6sxsf"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_s0h5h")
+sources/8 = SubResource("TileSetAtlasSource_naogo")
+sources/9 = SubResource("TileSetAtlasSource_vgth3")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_42g3x"]
+size = Vector2(48, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pmwwi"]
+size = Vector2(42, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nlnep"]
+size = Vector2(48, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eum4k"]
+size = Vector2(20, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vd3mc"]
+size = Vector2(48, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ubc2"]
+size = Vector2(16, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a3of4"]
+
+[node name="ruang_tv_dennis" type="Node2D"]
+position = Vector2(28, -25)
+script = ExtResource("1_a3of4")
+
+[node name="Environment" type="Node2D" parent="."]
+z_as_relative = false
+y_sort_enabled = true
+position = Vector2(1, 36)
+
+[node name="TileMap" type="TileMap" parent="Environment"]
+position = Vector2(-28, -15)
+tile_set = SubResource("TileSet_6sxsf")
+format = 2
+layer_0/name = "Wall"
+layer_0/tile_data = PackedInt32Array(65540, 65544, 0, 131076, 65544, 1, 196612, 65544, 2, 262148, 65544, 3, 65541, 131080, 0, 131077, 131080, 1, 196613, 131080, 2, 262149, 131080, 3, 65542, 65544, 0, 131078, 65544, 1, 196614, 65544, 2, 262150, 65544, 3, 65543, 131080, 0, 131079, 131080, 1, 196615, 131080, 2, 262151, 131080, 3, 65544, 65544, 0, 131080, 65544, 1, 196616, 65544, 2, 262152, 65544, 3, 65545, 131080, 0, 131081, 131080, 1, 196617, 131080, 2, 262153, 131080, 3, 65546, 131080, 0, 131082, 131080, 1, 196618, 131080, 2, 262154, 131080, 3, 65539, 8, 0, 131075, 8, 1, 196611, 8, 1, 262147, 8, 1, 327683, 8, 1, 393219, 8, 1, 458755, 8, 1, 524291, 8, 1, 589827, 8, 1, 655363, 8, 1, 720899, 8, 1610612736, 720900, 65544, 805306368, 720904, 65544, 805306368, 720903, 131080, 805306368, 720906, 65544, 805306368, 720905, 131080, 805306368, 720907, 8, 805306368, 655371, 8, 805306369, 589835, 8, 805306369, 524299, 327689, 1342177280, 458763, 262153, 1342177280, 393227, 8, 805306369, 327691, 8, 805306369, 262155, 8, 805306369, 196619, 8, 805306369, 131083, 8, 805306369, 65547, 8, 1342177280, 720902, 262153, 805306368, 720901, 327689, 805306368)
+layer_1/name = "Floor"
+layer_1/tile_data = PackedInt32Array(327684, 0, 0, 393220, 0, 1, 327685, 65536, 0, 393221, 65536, 1, 327686, 0, 0, 393222, 0, 1, 327687, 65536, 0, 393223, 65536, 1, 327688, 0, 0, 393224, 0, 1, 327689, 65536, 0, 393225, 65536, 1, 458756, 0, 0, 524292, 0, 1, 458757, 65536, 0, 524293, 65536, 1, 458758, 0, 0, 524294, 0, 1, 458759, 65536, 0, 524295, 65536, 1, 458760, 0, 0, 524296, 0, 1, 458761, 65536, 0, 524297, 65536, 1, 589828, 0, 0, 655364, 0, 1, 589829, 65536, 0, 655365, 65536, 1, 589830, 0, 0, 655366, 0, 1, 589831, 65536, 0, 655367, 65536, 1, 589832, 0, 0, 655368, 0, 1, 589833, 65536, 0, 655369, 65536, 1, 327690, 0, 0, 393226, 0, 1, 458762, 0, 0, 524298, 0, 1, 589834, 0, 0, 655370, 0, 1)
+
+[node name="Table" type="StaticBody2D" parent="Environment"]
+position = Vector2(263, 60)
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Table"]
+position = Vector2(-170, 5)
+texture = ExtResource("4_p74eu")
+region_rect = Rect2(0, 12.956974, 17.69659, 34.820656)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Environment/Table"]
+position = Vector2(-170, 6)
+shape = SubResource("RectangleShape2D_42g3x")
+
+[node name="TV" type="StaticBody2D" parent="Environment"]
+position = Vector2(263, 36)
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/TV"]
+position = Vector2(-170, 5)
+texture = ExtResource("5_wn5ls")
+region_rect = Rect2(0, 12.956974, 17.69659, 34.820656)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Environment/TV"]
+position = Vector2(-170, 6.5)
+shape = SubResource("RectangleShape2D_pmwwi")
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment"]
+position = Vector2(85, 96)
+texture = ExtResource("6_4wq51")
+region_rect = Rect2(0, 12.956974, 17.69659, 34.820656)
+
+[node name="Carpet" type="StaticBody2D" parent="Environment"]
+visible = false
+position = Vector2(255, 91)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Environment/Carpet"]
+position = Vector2(-170, 5)
+shape = SubResource("RectangleShape2D_nlnep")
+disabled = true
+
+[node name="Chair" type="StaticBody2D" parent="Environment"]
+position = Vector2(222, 89)
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Chair"]
+position = Vector2(-170, 5)
+texture = ExtResource("7_glkrm")
+region_rect = Rect2(0, 12.956974, 17.69659, 34.820656)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Environment/Chair"]
+position = Vector2(-176, 7)
+shape = SubResource("RectangleShape2D_eum4k")
+
+[node name="Chair2" type="StaticBody2D" parent="Environment"]
+position = Vector2(263, 122)
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Chair2"]
+position = Vector2(-170, 5)
+texture = ExtResource("8_yg2a7")
+region_rect = Rect2(0, 12.956974, 17.69659, 34.820656)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Environment/Chair2"]
+position = Vector2(-170, 2)
+shape = SubResource("RectangleShape2D_vd3mc")
+
+[node name="Chair3" type="StaticBody2D" parent="Environment"]
+position = Vector2(231, 121)
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Chair3"]
+position = Vector2(-170, 5)
+texture = ExtResource("9_dn33a")
+region_rect = Rect2(0, 12.956974, 17.69659, 34.820656)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Environment/Chair3"]
+position = Vector2(-170, 4)
+shape = SubResource("RectangleShape2D_2ubc2")
+
+[node name="Doors" type="Node2D" parent="."]
+position = Vector2(0, 34)
+
+[node name="Door_E2" parent="Doors" instance=ExtResource("2_d4obw")]
+position = Vector2(157, 114)
+destination_level_tag = "ruangan_tengah_dennis"
+destination_door_tag = "W2"
+spawn_direction = "left"
+
+[node name="CollisionShape2D" parent="Doors/Door_E2" index="0"]
+shape = SubResource("RectangleShape2D_a3of4")
+disabled = false
+
+[node name="Spawn" parent="Doors/Door_E2" index="1"]
+position = Vector2(-25, 12)
+
+[node name="Player" parent="." instance=ExtResource("1_0mau2")]
+position = Vector2(132, 116)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[editable path="Doors/Door_E2"]

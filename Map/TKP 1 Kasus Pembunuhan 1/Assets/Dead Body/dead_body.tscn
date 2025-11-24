@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://c8bgj4etwuot2"]
+
+[ext_resource type="Script" uid="uid://b5xg82wd5i6dc" path="res://Map/TKP 1 Kasus Pembunuhan 1/Assets/Dead Body/Scripts/dead_body.gd" id="1_il0o0"]
+[ext_resource type="Texture2D" uid="uid://b67dyxbdjb0th" path="res://Map/TKP 1 Kasus Pembunuhan 1/Assets/Dead Body/Sprite/dead-lyingdown.png" id="2_gdmoq"]
+[ext_resource type="PackedScene" uid="uid://dky5l4bmp636h" path="res://Interaction Manager/Interaction Area/interaction_area.tscn" id="3_xihmk"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vycjr"]
+radius = 7.0
+height = 34.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vyyn3"]
+radius = 23.0
+
+[node name="Dead Body" type="StaticBody2D"]
+script = ExtResource("1_il0o0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_gdmoq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 4)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_vycjr")
+
+[node name="InteractionArea" parent="." instance=ExtResource("3_xihmk")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(-2, 4)
+shape = SubResource("CircleShape2D_vyyn3")

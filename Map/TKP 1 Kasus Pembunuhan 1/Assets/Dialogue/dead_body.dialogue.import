@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://cqlrkfni1xysl"
+path="res://.godot/imported/dead_body.dialogue-e51b62a274148311e35e5a46115d61c6.tres"
+
+[deps]
+
+source_file="res://Map/TKP 1 Kasus Pembunuhan 1/Assets/Dialogue/dead_body.dialogue"
+dest_files=["res://.godot/imported/dead_body.dialogue-e51b62a274148311e35e5a46115d61c6.tres"]
+
+[params]
+
+defaults=true

@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://7lthwmsdxja"]
+
+[ext_resource type="Script" uid="uid://bam5f3ceccfbo" path="res://chest.gd" id="1_tiqq4"]
+[ext_resource type="Texture2D" uid="uid://ci6jrcrtukxgy" path="res://Indoor/Assets/RPG Chests.png" id="2_rpl1j"]
+[ext_resource type="PackedScene" uid="uid://dky5l4bmp636h" path="res://Interaction Manager/Interaction Area/interaction_area.tscn" id="3_iptg6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m7dvk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vm08i"]
+size = Vector2(39.5, 30)
+
+[node name="Chest" type="StaticBody2D"]
+script = ExtResource("1_tiqq4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_rpl1j")
+hframes = 9
+vframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_m7dvk")
+
+[node name="InteractionArea" parent="." instance=ExtResource("3_iptg6")]
+action_name = "Interact"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("RectangleShape2D_vm08i")
