@@ -1,6 +1,5 @@
 [gd_scene load_steps=25 format=3 uid="uid://bnsv70w86ealf"]
 
-[ext_resource type="Script" uid="uid://dqv8j8ykyhj6w" path="res://UI/MainMenu/Scripts/main_menu.gd" id="1_eoxer"]
 [ext_resource type="Texture2D" uid="uid://nl3a8iksd78d" path="res://UI/MainMenu/Assets/background.png" id="2_1dhmk"]
 [ext_resource type="Texture2D" uid="uid://cah1vtdveiync" path="res://UI/MainMenu/Assets/Button Start/menu-panel-btn-1.png" id="3_1dhmk"]
 [ext_resource type="Texture2D" uid="uid://o362al1w1f6b" path="res://UI/MainMenu/Assets/Button Start/menu-panel-btn-1-unselect.png" id="3_jhcbk"]
@@ -51,8 +50,11 @@ func _on_quit_pressed() -> void:
 
 func _on_fade_timer_timeout() -> void:
 	if button_type == \"start\":
-		get_tree().change_scene_to_file(\"res://Map/TKP 1 Kasus Pembunuhan 1/tkp_1_kp_1.tscn\")
+		get_tree().change_scene_to_file(\"res://Scene/Scene 1/scene_1.tscn\")
 "
+
+[sub_resource type="Animation" id="Animation_eoxer"]
+length = 0.001
 
 [sub_resource type="Animation" id="Animation_wdl18"]
 resource_name = "main-menu-grid"
@@ -71,29 +73,10 @@ tracks/0/keys = {
 "values": [null, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
 }
 
-[sub_resource type="Animation" id="Animation_eoxer"]
-length = 0.001
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_migmm"]
 _data = {
 &"RESET": SubResource("Animation_eoxer"),
 &"main-menu-grid": SubResource("Animation_wdl18")
-}
-
-[sub_resource type="Animation" id="Animation_migmm"]
-resource_name = "main-menu-title-rotate"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Title:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.43333334, 0.56666666, 0.8666667, 1),
-"transitions": PackedFloat32Array(0.9659365, 0.9659362, 1, 0.8705504, 1),
-"update": 0,
-"values": [-0.038397243543875054, 0.03490658503988659, 0.020943951023931755, -0.029670597283903404, -0.038397243543875054]
 }
 
 [sub_resource type="Animation" id="Animation_jt3i8"]
@@ -111,10 +94,41 @@ tracks/0/keys = {
 "values": [0.0]
 }
 
+[sub_resource type="Animation" id="Animation_migmm"]
+resource_name = "main-menu-title-rotate"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.43333334, 0.56666666, 0.8666667, 1),
+"transitions": PackedFloat32Array(0.9659365, 0.9659362, 1, 0.8705504, 1),
+"update": 0,
+"values": [-0.03839724354387505, 0.03490658503988659, 0.02094395102393175, -0.0296705972839034, -0.03839724354387505]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_q33u5"]
 _data = {
 &"RESET": SubResource("Animation_jt3i8"),
 &"main-menu-title-rotate": SubResource("Animation_migmm")
+}
+
+[sub_resource type="Animation" id="Animation_hvgpy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Lamp:self_modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.41568628]
 }
 
 [sub_resource type="Animation" id="Animation_q33u5"]
@@ -132,21 +146,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0.41568628, 0.2, 0.41568628, 0.2, 0.41568628, 0.2, 0.41568628, 0.2, 0.41568628, 0.2, 0.41568628, 0.2, 0.41568628]
-}
-
-[sub_resource type="Animation" id="Animation_hvgpy"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Lamp:self_modulate:a")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0.41568628]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4qf4k"]

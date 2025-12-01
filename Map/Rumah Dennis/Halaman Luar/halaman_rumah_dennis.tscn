@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://yigihdb1ge7l"]
+[gd_scene load_steps=22 format=3 uid="uid://yigihdb1ge7l"]
 
 [ext_resource type="Script" uid="uid://tcin6evw2n5k" path="res://Map/Rumah Dennis/Halaman Luar/Script/halaman_rumah_dennis.gd" id="1_b4vcv"]
 [ext_resource type="Texture2D" uid="uid://cybicyjg5l2tb" path="res://Map/Rumah Dennis/Halaman Luar/Sprite/stone-slab.png" id="3_b4vcv"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cbe8iecoiv15d" path="res://Map/Rumah Dennis/Halaman Luar/Sprite/roof.png" id="8_aqsbk"]
 [ext_resource type="Texture2D" uid="uid://c25tyfq0quqfj" path="res://Map/Rumah Dennis/Halaman Luar/Sprite/stone-path.png" id="9_3dgmd"]
 [ext_resource type="PackedScene" uid="uid://b6yrxvfy6uyiy" path="res://Map/Door/door.tscn" id="10_aw5ni"]
+[ext_resource type="Texture2D" uid="uid://7br1bqm47tr5" path="res://Map/Rumah Dennis/Halaman Luar/Sprite/rain-overlay.png" id="11_aw5ni"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_teeel"]
 texture = ExtResource("3_b4vcv")
@@ -183,6 +184,29 @@ sources/10 = SubResource("TileSetAtlasSource_teeel")
 sources/11 = SubResource("TileSetAtlasSource_iq6m0")
 sources/12 = SubResource("TileSetAtlasSource_6uno6")
 
+[sub_resource type="Animation" id="Animation_od26d"]
+resource_name = "rumah-dennis-hujan"
+length = 0.40001002
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [null, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r1owp"]
+_data = {
+&"rumah-dennis-hujan": SubResource("Animation_od26d")
+}
+
 [node name="Halaman Rumah Dennis" type="Node2D"]
 script = ExtResource("1_b4vcv")
 
@@ -220,5 +244,18 @@ disabled = false
 
 [node name="Spawn" parent="Doors/Door_N" index="1"]
 position = Vector2(0, 24)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(181, 98)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("11_aw5ni")
+hframes = 4
+frame = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_r1owp")
+}
+autoplay = "rumah-dennis-hujan"
 
 [editable path="Doors/Door_N"]
