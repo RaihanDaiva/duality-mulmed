@@ -1,5 +1,6 @@
-[gd_scene load_steps=40 format=3 uid="uid://bpttxkoxdf1dl"]
+[gd_scene load_steps=43 format=3 uid="uid://bpttxkoxdf1dl"]
 
+[ext_resource type="Script" uid="uid://cc51gknfa4no8" path="res://Map/Kantor Polisi/Kantor Main2/Script/kantor_ruangan_main_2.gd" id="1_6ifgf"]
 [ext_resource type="Texture2D" uid="uid://d1ugp8kv6m0kv" path="res://Map/Kantor Polisi/Kantor Main1/Sprite/bookshelf.png" id="1_jdbb6"]
 [ext_resource type="Texture2D" uid="uid://dubk6r8eq6ssy" path="res://Map/Kantor Polisi/Kantor Main1/Sprite/container_2x2.png" id="2_f1qan"]
 [ext_resource type="Texture2D" uid="uid://3e6eq28eyda" path="res://Map/Kantor Polisi/Kantor Main1/Sprite/Wall_main_room.png" id="3_q6m8x"]
@@ -18,6 +19,8 @@
 [ext_resource type="Texture2D" uid="uid://c18jcdkhdvymt" path="res://Map/Kantor Polisi/Kantor Ruangan Dennis/Sprite/Single_sofa.png" id="16_ac7cj"]
 [ext_resource type="Texture2D" uid="uid://c047dioiefkmd" path="res://Map/Kantor Polisi/Kantor Ruangan Dennis/Sprite/Double Sofa.png" id="17_yblq4"]
 [ext_resource type="Texture2D" uid="uid://ce5qy2blp5ea3" path="res://Map/Kantor Polisi/Kantor Ruangan Dennis/Sprite/table.png" id="18_r8x8p"]
+[ext_resource type="PackedScene" uid="uid://b6yrxvfy6uyiy" path="res://Map/Door/door.tscn" id="20_1en1i"]
+[ext_resource type="PackedScene" uid="uid://btbp42qa7duve" path="res://Player/player.tscn" id="21_jhwoh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jwnbc"]
 texture = ExtResource("1_jdbb6")
@@ -237,6 +240,7 @@ size = Vector2(20, 47)
 size = Vector2(32, 48)
 
 [node name="Kantor Ruangan Main 2" type="Node2D"]
+script = ExtResource("1_6ifgf")
 
 [node name="Environment" type="Node2D" parent="."]
 
@@ -306,3 +310,24 @@ texture = ExtResource("18_r8x8p")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Table2"]
 position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_uju66")
+
+[node name="Doors" type="Node2D" parent="."]
+
+[node name="Door_N" parent="Doors" instance=ExtResource("20_1en1i")]
+position = Vector2(144, 87)
+destination_level_tag = "kantor_ruangan_main_1"
+destination_door_tag = "S2"
+spawn_direction = "down"
+
+[node name="CollisionShape2D" parent="Doors/Door_N" index="0"]
+disabled = false
+
+[node name="Spawn" parent="Doors/Door_N" index="1"]
+position = Vector2(0, 21)
+
+[node name="Player" parent="." instance=ExtResource("21_jhwoh")]
+position = Vector2(169, 117)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[editable path="Doors/Door_N"]
