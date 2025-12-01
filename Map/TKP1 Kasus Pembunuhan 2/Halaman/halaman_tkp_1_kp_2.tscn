@@ -1,0 +1,299 @@
+[gd_scene load_steps=21 format=3 uid="uid://ddp2hg76nhwuy"]
+
+[ext_resource type="Texture2D" uid="uid://cen8tjx4pldhu" path="res://Map/TKP1 Kasus Pembunuhan 2/Halaman/Sprite/grass-stone.png" id="1_1vvsr"]
+[ext_resource type="Script" uid="uid://8574nxh2ggrd" path="res://Map/TKP1 Kasus Pembunuhan 2/Halaman/Script/halaman_tkp_1_kp_2.gd" id="1_671i4"]
+[ext_resource type="Texture2D" uid="uid://ce5r3ufee18cy" path="res://Map/TKP1 Kasus Pembunuhan 2/Halaman/Sprite/house-wall.png" id="2_yeclk"]
+[ext_resource type="Texture2D" uid="uid://bbell7wg7snyt" path="res://Map/TKP1 Kasus Pembunuhan 2/Halaman/Sprite/roof(1).png" id="3_l1a7o"]
+[ext_resource type="Texture2D" uid="uid://dlffj0wd26fx5" path="res://Map/TKP1 Kasus Pembunuhan 2/Halaman/Sprite/stone-floor.png" id="4_671i4"]
+[ext_resource type="Texture2D" uid="uid://jns2ylx3f7od" path="res://Map/Rumah Dennis/Halaman Luar/Sprite/trotoar-2.png" id="5_e837a"]
+[ext_resource type="Texture2D" uid="uid://cc8vuk016hmf5" path="res://Map/TKP 1 Kasus Pembunuhan 1/Assets/Environments/Sprite/trotoar-tileset.png" id="6_1lwhn"]
+[ext_resource type="PackedScene" uid="uid://btbp42qa7duve" path="res://Player/player.tscn" id="7_cow1f"]
+[ext_resource type="Texture2D" uid="uid://b0ijersfk1cqh" path="res://Map/Rumah Dennis/Ruang Tengah/Sprite/wall-outside2.png" id="7_yeclk"]
+[ext_resource type="PackedScene" uid="uid://b6yrxvfy6uyiy" path="res://Map/Door/door.tscn" id="9_l1a7o"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qdwt6"]
+texture = ExtResource("1_1vvsr")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_an47s"]
+texture = ExtResource("2_yeclk")
+0:0/0 = 0
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+12:1/0 = 0
+13:1/0 = 0
+14:1/0 = 0
+15:1/0 = 0
+16:1/0 = 0
+17:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:2/0 = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:2/0 = 0
+4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:2/0 = 0
+5:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:2/0 = 0
+6:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:2/0 = 0
+7:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:2/0 = 0
+8:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+9:2/0 = 0
+9:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+10:2/0 = 0
+11:2/0 = 0
+12:2/0 = 0
+13:2/0 = 0
+14:2/0 = 0
+15:2/0 = 0
+16:2/0 = 0
+16:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+17:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+9:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+10:3/0 = 0
+11:3/0 = 0
+12:3/0 = 0
+13:3/0 = 0
+14:3/0 = 0
+15:3/0 = 0
+16:3/0 = 0
+16:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+17:3/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+9:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+10:4/0 = 0
+10:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+11:4/0 = 0
+11:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+12:4/0 = 0
+12:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+13:4/0 = 0
+13:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+14:4/0 = 0
+14:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+15:4/0 = 0
+15:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+16:4/0 = 0
+16:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+17:4/0 = 0
+8:5/0 = 0
+9:5/0 = 0
+10:5/0 = 0
+11:5/0 = 0
+12:5/0 = 0
+13:5/0 = 0
+14:5/0 = 0
+15:5/0 = 0
+16:5/0 = 0
+17:5/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sdu2y"]
+texture = ExtResource("3_l1a7o")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:2/0 = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:2/0 = 0
+4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:3/0 = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:3/0 = 0
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:3/0 = 0
+4:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_adgln"]
+texture = ExtResource("4_671i4")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_phnnl"]
+texture = ExtResource("5_e837a")
+2:0/0 = 0
+3:0/0 = 0
+2:1/0 = 0
+2:3/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u285o"]
+texture = ExtResource("6_1lwhn")
+0:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+0:2/0 = 0
+0:3/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l1a7o"]
+texture = ExtResource("7_yeclk")
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+2:1/0 = 0
+2:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:3/0 = 0
+0:4/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_smjgb"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_qdwt6")
+sources/1 = SubResource("TileSetAtlasSource_an47s")
+sources/2 = SubResource("TileSetAtlasSource_sdu2y")
+sources/3 = SubResource("TileSetAtlasSource_adgln")
+sources/6 = SubResource("TileSetAtlasSource_phnnl")
+sources/7 = SubResource("TileSetAtlasSource_u285o")
+sources/8 = SubResource("TileSetAtlasSource_l1a7o")
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_yeclk"]
+b = Vector2(0, 192)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_l1a7o"]
+b = Vector2(1.4031356e-05, 321)
+
+[node name="Halaman TKP 1 KP 2" type="Node2D"]
+script = ExtResource("1_671i4")
+
+[node name="Environment" type="Node2D" parent="."]
+
+[node name="TileMap" type="TileMap" parent="Environment"]
+tile_set = SubResource("TileSet_smjgb")
+format = 2
+layer_0/name = "trotoar"
+layer_0/tile_data = PackedInt32Array(393223, 65542, 4, 458759, 65542, 4, 458760, 65542, 4, 393224, 65542, 4, 458761, 65542, 4, 458762, 65542, 4, 458763, 65542, 4, 458764, 65542, 4, 458765, 65542, 4, 458766, 65542, 4, 458767, 65542, 4, 458768, 65542, 4, 458769, 65542, 4, 458770, 65542, 4, 458771, 65542, 4, 524295, 6, 5, 524296, 65542, 5, 524297, 6, 5, 524298, 65542, 5, 524299, 6, 5, 524300, 65542, 5, 524301, 6, 5, 524302, 65542, 5, 524303, 6, 5, 524304, 65542, 5, 524305, 6, 5, 524306, 6, 5, 524307, 65542, 5)
+layer_1/name = "grass"
+layer_1/tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 0, 131072, 0, 0, 196608, 0, 0, 262144, 0, 0, 327680, 0, 0, 393216, 0, 0, 458752, 0, 0, 524288, 0, 0, 589824, 0, 0, 655360, 0, 0, 1, 0, 0, 65537, 0, 0, 131073, 0, 0, 196609, 0, 0, 262145, 0, 0, 327681, 0, 0, 393217, 0, 0, 458753, 0, 0, 524289, 0, 0, 589825, 0, 0, 655361, 0, 0, 18, 0, 0, 65554, 0, 0, 131090, 0, 0, 196626, 0, 0, 262162, 0, 0, 327698, 0, 0, 393234, 65536, 1342177280, 458770, 131072, 1342177280, 19, 0, 0, 65555, 0, 0, 131091, 0, 0, 196627, 0, 0, 262163, 0, 0, 327699, 0, 0, 393235, 65536, 1342177280, 458771, 131072, 1342177280, 393233, 65536, 1342177280, 458769, 131072, 1342177280, 393232, 65536, 1342177280, 458768, 131072, 1342177280, 393231, 65536, 1342177280, 458767, 131072, 1342177280, 393230, 65536, 1342177280, 458766, 131072, 1342177280, 393229, 65536, 1342177280, 458765, 131072, 1342177280, 393228, 65536, 1342177280, 458764, 131072, 1342177280, 393227, 65536, 1342177280, 458763, 131072, 1342177280, 393226, 65536, 1342177280, 458762, 131072, 1342177280, 393225, 65536, 1342177280, 458761, 131072, 1342177280, 393224, 131072, 805306369, 393223, 131072, 0, 458759, 131072, 0, 524295, 131072, 1, 393218, 0, 0, 458754, 0, 0, 524290, 0, 2, 393219, 0, 0, 458755, 0, 0, 524291, 65536, 2, 393220, 0, 0, 458756, 0, 0, 524292, 0, 2, 393221, 0, 0, 458757, 0, 0, 524293, 0, 2, 393222, 0, 0, 458758, 0, 0, 524294, 65536, 2, 720897, 65536, 0, 720896, 65536, 0)
+layer_2/name = "stone floor"
+layer_2/tile_data = PackedInt32Array(262146, 3, 0, 327682, 3, 1, 262147, 65539, 0, 327683, 65539, 1, 262148, 131075, 0, 327684, 131075, 1, 262149, 196611, 0, 327685, 196611, 1, 262150, 262147, 0, 327686, 262147, 1, 262151, 327683, 0, 327687, 327683, 1, 262152, 393219, 0, 327688, 393219, 1, 262153, 458755, 0, 327689, 458755, 1)
+layer_3/name = "wall"
+layer_3/tile_data = PackedInt32Array(65537, 1, 0, 131073, 1, 1, 196609, 1, 2, 262145, 1, 3, 65538, 65537, 0, 131074, 65537, 1, 196610, 65537, 2, 262146, 65537, 3, 65539, 131073, 0, 131075, 131073, 1, 196611, 131073, 2, 262147, 131073, 3, 65540, 196609, 0, 131076, 196609, 1, 196612, 196609, 2, 262148, 196609, 3, 65541, 262145, 0, 131077, 262145, 1, 196613, 262145, 2, 262149, 262145, 3, 65542, 327681, 0, 131078, 327681, 1, 196614, 327681, 2, 262150, 327681, 3, 65543, 393217, 0, 131079, 393217, 1, 196615, 393217, 2, 262151, 393217, 3, 65544, 458753, 0, 131080, 458753, 1, 196616, 458753, 2, 262152, 458753, 3, 65545, 524289, 0, 131081, 524289, 1, 196617, 524289, 2, 262153, 524289, 3, 327689, 524289, 4, 393225, 524289, 5, 65546, 589825, 0, 131082, 589825, 1, 196618, 589825, 2, 262154, 589825, 3, 327690, 589825, 4, 393226, 589825, 5, 131083, 655361, 1, 196619, 655361, 2, 262155, 655361, 3, 327691, 655361, 4, 393227, 655361, 5, 131084, 720897, 1, 196620, 720897, 2, 262156, 720897, 3, 327692, 720897, 4, 393228, 720897, 5, 131085, 786433, 1, 196621, 786433, 2, 262157, 786433, 3, 327693, 786433, 4, 393229, 786433, 5, 131086, 851969, 1, 196622, 851969, 2, 262158, 851969, 3, 327694, 851969, 4, 393230, 851969, 5, 131087, 917505, 1, 196623, 917505, 2, 262159, 917505, 3, 327695, 917505, 4, 393231, 917505, 5, 131088, 983041, 1, 196624, 983041, 2, 262160, 983041, 3, 327696, 983041, 4, 393232, 983041, 5, 131089, 1048577, 1, 196625, 1048577, 2, 262161, 1048577, 3, 327697, 1048577, 4, 393233, 1048577, 5, 131090, 1114113, 1, 196626, 1114113, 2, 262162, 1114113, 3, 327698, 1114113, 4, 393234, 1114113, 5)
+layer_4/name = "wall2"
+layer_4/tile_data = PackedInt32Array(1, 65544, 1610612739, 65537, 65544, 1610612739, 131073, 65544, 1610612739, 196609, 65544, 1610612739, 262145, 65544, 1610612739, 327681, 65544, 1610612739, 393217, 65544, 1610612739, 458753, 65544, 1610612739, 524289, 65544, 1610612739, 589825, 65544, 1610612739, 655361, 65544, 1610612739, 720897, 65544, 1610612739, 19, 65544, 1610612739, 65555, 65544, 1610612739, 131091, 65544, 1610612739, 196627, 65544, 1610612739, 262163, 65544, 1610612739, 327699, 65544, 1610612739, 393235, 65544, 1610612739)
+layer_5/name = "roof"
+layer_5/tile_data = PackedInt32Array(1, 2, 0, 65537, 2, 1, 2, 65538, 0, 65538, 65538, 1, 3, 65538, 0, 65539, 65538, 1, 4, 65538, 0, 65540, 65538, 1, 5, 65538, 0, 65541, 65538, 1, 6, 65538, 0, 65542, 65538, 1, 7, 65538, 0, 65543, 65538, 1, 8, 65538, 0, 65544, 65538, 1, 9, 131074, 0, 65545, 131074, 1, 131081, 131074, 2, 196617, 131074, 3, 196618, 196610, 3, 196619, 196610, 3, 196620, 196610, 3, 196621, 196610, 3, 196622, 196610, 3, 196623, 196610, 3, 196624, 196610, 3, 196625, 196610, 3, 18, 262146, 0, 65554, 262146, 1, 131090, 262146, 2, 196626, 262146, 3, 10, 196610, 0, 65546, 196610, 0, 131082, 196610, 0, 11, 196610, 0, 65547, 196610, 0, 131083, 196610, 0, 12, 196610, 0, 65548, 196610, 0, 131084, 196610, 0, 13, 196610, 0, 65549, 196610, 0, 131085, 196610, 0, 14, 196610, 0, 65550, 196610, 0, 131086, 196610, 0, 15, 196610, 0, 65551, 196610, 0, 131087, 196610, 0, 16, 196610, 0, 65552, 196610, 0, 131088, 196610, 0, 17, 196610, 0, 65553, 196610, 0, 131089, 196610, 0)
+layer_6/name = "road"
+layer_6/tile_data = PackedInt32Array(589826, 7, 2, 655362, 7, 3, 589828, 7, 2, 655364, 7, 3, 589830, 7, 2, 655366, 7, 3, 589832, 7, 2, 655368, 7, 3, 589834, 7, 2, 655370, 7, 3, 589836, 7, 2, 655372, 7, 3, 589838, 7, 2, 655374, 7, 3, 589840, 7, 2, 655376, 7, 3, 589842, 7, 2, 655378, 7, 3, 589827, 7, 2, 589829, 7, 2, 589831, 7, 2, 589833, 7, 2, 589835, 7, 2, 589837, 7, 2, 589839, 7, 2, 589841, 7, 2, 589843, 7, 2, 655363, 7, 2, 655365, 7, 2, 655367, 7, 2, 655369, 7, 2, 655371, 7, 2, 655373, 7, 2, 655375, 7, 2, 655377, 7, 2, 655379, 7, 2, 720898, 7, 2, 720899, 7, 2, 720900, 7, 2, 720901, 7, 2, 720902, 7, 2, 720903, 7, 2, 720904, 7, 2, 720905, 7, 2, 720906, 7, 2, 720907, 7, 2, 720908, 7, 2, 720909, 7, 2, 720910, 7, 2, 720911, 7, 2, 720912, 7, 2, 720913, 7, 2, 720914, 7, 2, 720915, 7, 2)
+
+[node name="Invisible Wall" type="StaticBody2D" parent="Environment"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Invisible Wall"]
+position = Vector2(-1, 0)
+shape = SubResource("SegmentShape2D_yeclk")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Environment/Invisible Wall"]
+position = Vector2(321, 0)
+shape = SubResource("SegmentShape2D_yeclk")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Environment/Invisible Wall"]
+position = Vector2(321, 0)
+rotation = 1.5707964
+shape = SubResource("SegmentShape2D_l1a7o")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Environment/Invisible Wall"]
+position = Vector2(321, 181)
+rotation = 1.5707964
+shape = SubResource("SegmentShape2D_l1a7o")
+
+[node name="Player" parent="." instance=ExtResource("7_cow1f")]
+position = Vector2(80, 137)
+
+[node name="Doors" type="Node2D" parent="."]
+
+[node name="Door_N2" parent="Doors" instance=ExtResource("9_l1a7o")]
+position = Vector2(128, 55)
+destination_level_tag = "ruang_tengah_tkp1_kp2"
+destination_door_tag = "S2"
+spawn_direction = "down"
+
+[node name="CollisionShape2D" parent="Doors/Door_N2" index="0"]
+disabled = false
+
+[node name="Spawn" parent="Doors/Door_N2" index="1"]
+position = Vector2(0, 22)
+
+[editable path="Doors/Door_N2"]

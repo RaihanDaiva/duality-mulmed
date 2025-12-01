@@ -321,7 +321,7 @@ shape = SubResource("RectangleShape2D_kdekp")
 texture = ExtResource("5_tb20s")
 
 [node name="Chair" type="StaticBody2D" parent="Environment"]
-position = Vector2(152, 83)
+position = Vector2(165, 106)
 
 [node name="Sprite2D" type="Sprite2D" parent="Environment/Chair"]
 texture = ExtResource("2_0gnfr")
@@ -331,7 +331,7 @@ position = Vector2(0, 7)
 shape = SubResource("RectangleShape2D_xlb3s")
 
 [node name="Table" type="StaticBody2D" parent="Environment"]
-position = Vector2(151, 98)
+position = Vector2(165, 123)
 
 [node name="Sprite2D" type="Sprite2D" parent="Environment/Table"]
 texture = ExtResource("7_yl0uo")

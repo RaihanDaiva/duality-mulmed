@@ -335,7 +335,7 @@ position = Vector2(96, 143)
 position = Vector2(191, 52)
 npc_name = "Dead Body"
 change_scene_after_dialogue = true
-next_scene = "uid://b77vxoaccijaq"
+next_scene = "uid://c40dflflmaxk8"
 
 [node name="Fade Transition" parent="Dead Body" instance=ExtResource("9_w1d4l")]
 visible = false

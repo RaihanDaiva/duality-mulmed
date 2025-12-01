@@ -1,0 +1,123 @@
+[gd_scene load_steps=6 format=3 uid="uid://c40dflflmaxk8"]
+
+[ext_resource type="Script" uid="uid://c68drisu4h31a" path="res://Scene/Puzzle Morse/Script/puzzle_morse_logic.gd" id="1_njstn"]
+[ext_resource type="Texture2D" uid="uid://blw3dhacitx63" path="res://Scene/Puzzle Morse/Sprite/puzzle-sprite.png" id="2_5xcd0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5png1"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iukj3"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_npkbb"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="Puzzle Morse" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Puzzle Morse Logic" type="Node2D" parent="." node_paths=PackedStringArray("answer_input", "submit_button", "hint_button", "feedback_label", "retry_button", "game_over_panel")]
+script = ExtResource("1_njstn")
+answer_input = NodePath("../Book Panel/Answer Input")
+submit_button = NodePath("../Book Panel/Submit Btn")
+hint_button = NodePath("../Book Panel/Hint Btn")
+feedback_label = NodePath("../Book Panel/Feedback Label")
+retry_button = NodePath("../Book Panel/Game Over Panel/Retry Btn")
+game_over_panel = NodePath("../Book Panel/Game Over Panel")
+next_scene = "uid://yigihdb1ge7l"
+
+[node name="Phone Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 33.0
+offset_right = 88.0
+offset_bottom = 164.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_5png1")
+
+[node name="Sprite2D" type="Sprite2D" parent="Phone Panel"]
+position = Vector2(42.999996, 65)
+scale = Vector2(0.43794325, 0.43794325)
+texture = ExtResource("2_5xcd0")
+region_enabled = true
+region_rect = Rect2(45.90868, 63.257957, 141.68385, 276.39938)
+
+[node name="Paper Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 113.0
+offset_top = 20.0
+offset_right = 146.18182
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_iukj3")
+
+[node name="Sprite2D" type="Sprite2D" parent="Paper Panel"]
+position = Vector2(16.000006, 32)
+scale = Vector2(0.5019531, 0.50195307)
+texture = ExtResource("2_5xcd0")
+region_enabled = true
+region_rect = Rect2(231.8895, 29.056133, 128.13928, 180.99167)
+
+[node name="Book Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 97.0
+offset_top = 108.0
+offset_right = 311.0
+offset_bottom = 180.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_npkbb")
+
+[node name="Sprite2D" type="Sprite2D" parent="Book Panel"]
+position = Vector2(107.00001, 36.999996)
+scale = Vector2(0.5018248, 0.5018248)
+texture = ExtResource("2_5xcd0")
+region_enabled = true
+region_rect = Rect2(197.0387, 222.62418, 409.1056, 137.49625)
+
+[node name="Answer Input" type="LineEdit" parent="Book Panel"]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 8.0
+offset_right = 76.29234
+offset_bottom = 33.0
+theme_override_font_sizes/font_size = 12
+
+[node name="Submit Btn" type="Button" parent="Book Panel"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 37.0
+offset_right = 72.0
+offset_bottom = 45.0
+
+[node name="Hint Btn" type="Button" parent="Book Panel"]
+visible = false
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="Feedback Label" type="Label" parent="Book Panel"]
+layout_mode = 0
+offset_left = 73.0
+offset_top = -103.0
+offset_right = 102.565216
+offset_bottom = -86.0
+theme_override_font_sizes/font_size = 8
+
+[node name="Game Over Panel" type="Control" parent="Book Panel"]
+visible = false
+anchors_preset = 0
+offset_left = -126.0
+offset_top = -96.0
+offset_right = 194.0
+offset_bottom = 84.0
+
+[node name="Game Over Label" type="Label" parent="Book Panel/Game Over Panel"]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 71.0
+offset_right = 176.0
+offset_bottom = 94.0
+
+[node name="Retry Btn" type="Button" parent="Book Panel/Game Over Panel"]
+layout_mode = 0
+offset_left = 303.0
+offset_top = 153.0
+offset_right = 311.0
+offset_bottom = 161.0

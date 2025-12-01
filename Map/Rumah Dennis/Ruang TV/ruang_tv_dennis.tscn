@@ -193,9 +193,21 @@ disabled = false
 [node name="Spawn" parent="Doors/Door_E2" index="1"]
 position = Vector2(-25, 12)
 
+[node name="Door_S" parent="Doors" instance=ExtResource("2_d4obw")]
+position = Vector2(69, 172)
+destination_level_tag = "halaman_rumah_dennis"
+destination_door_tag = "N"
+
+[node name="CollisionShape2D" parent="Doors/Door_S" index="0"]
+disabled = false
+
+[node name="Spawn" parent="Doors/Door_S" index="1"]
+position = Vector2(1, -17)
+
 [node name="Player" parent="." instance=ExtResource("1_0mau2")]
-position = Vector2(132, 116)
+position = Vector2(132, 190)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
 [editable path="Doors/Door_E2"]
+[editable path="Doors/Door_S"]

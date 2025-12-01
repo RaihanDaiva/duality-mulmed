@@ -1,0 +1,389 @@
+[gd_scene load_steps=40 format=3 uid="uid://o71kqbh5hqg0"]
+
+[ext_resource type="Texture2D" uid="uid://d1ugp8kv6m0kv" path="res://Map/Kantor Polisi/Kantor Main1/Sprite/bookshelf.png" id="1_ofkyl"]
+[ext_resource type="Texture2D" uid="uid://dubk6r8eq6ssy" path="res://Map/Kantor Polisi/Kantor Main1/Sprite/container_2x2.png" id="2_cy4id"]
+[ext_resource type="Texture2D" uid="uid://3e6eq28eyda" path="res://Map/Kantor Polisi/Kantor Main1/Sprite/Wall_main_room.png" id="3_88new"]
+[ext_resource type="Texture2D" uid="uid://cljr206mn4oge" path="res://Map/Kantor Polisi/Kantor Main1/Sprite/wall_topdown.png" id="4_udssi"]
+[ext_resource type="Texture2D" uid="uid://bsjmnioirbcu1" path="res://Map/Kantor Polisi/Kantor Main1/Sprite/wall_topdown_edge.png" id="5_02q77"]
+[ext_resource type="Texture2D" uid="uid://dmnn2qm1tiul2" path="res://Map/Kantor Polisi/Kantor Main1/Sprite/Water_gallon.png" id="6_yiv8a"]
+[ext_resource type="Texture2D" uid="uid://bkldefmo6tjxb" path="res://Map/Kantor Polisi/Kantor Main1/Sprite/Window_with_cover.png" id="7_8vprn"]
+[ext_resource type="Texture2D" uid="uid://bsfstk00gkigd" path="res://Map/Kantor Polisi/Kantor Main1/Sprite/door.png" id="8_vi6ff"]
+[ext_resource type="Texture2D" uid="uid://4bwb46sc6fd3" path="res://Map/Kantor Polisi/Kantor Main1/Sprite/door_topdown.png" id="9_a2l7a"]
+[ext_resource type="Texture2D" uid="uid://c0rd6b0ness73" path="res://Map/Kantor Polisi/Kantor Main1/Sprite/Main_room_floor_2x2.png" id="10_qkxgg"]
+[ext_resource type="Texture2D" uid="uid://2gb2kc6ome2d" path="res://Map/Kantor Polisi/Kantor Main1/Sprite/marked_board.png" id="11_ft0ip"]
+[ext_resource type="Texture2D" uid="uid://bf14y8r0ct4o4" path="res://Map/Kantor Polisi/Kantor Main1/Sprite/Office_table.png" id="12_v3t6f"]
+[ext_resource type="Texture2D" uid="uid://cib21xjcsmr8" path="res://Map/Kantor Polisi/Kantor Main1/Sprite/rack.png" id="13_fyat3"]
+[ext_resource type="Texture2D" uid="uid://bvg787bkr7vac" path="res://Map/Kantor Polisi/Kantor Main1/Sprite/Tablee_and_sofa.png" id="14_yaqvv"]
+[ext_resource type="Texture2D" uid="uid://pdpop5fdbco5" path="res://Map/Kantor Polisi/Kantor Main1/Sprite/Table_and_printer.png" id="15_hhb2v"]
+[ext_resource type="PackedScene" uid="uid://btbp42qa7duve" path="res://Player/player.tscn" id="16_cy4id"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cy4id"]
+texture = ExtResource("1_ofkyl")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_88new"]
+texture = ExtResource("2_cy4id")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_udssi"]
+texture = ExtResource("3_88new")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_02q77"]
+texture = ExtResource("4_udssi")
+0:0/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yiv8a"]
+texture = ExtResource("5_02q77")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8vprn"]
+texture = ExtResource("6_yiv8a")
+0:0/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vi6ff"]
+texture = ExtResource("7_8vprn")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a2l7a"]
+texture = ExtResource("8_vi6ff")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qkxgg"]
+texture = ExtResource("9_a2l7a")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ft0ip"]
+texture = ExtResource("10_qkxgg")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v3t6f"]
+texture = ExtResource("11_ft0ip")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fyat3"]
+texture = ExtResource("12_v3t6f")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yaqvv"]
+texture = ExtResource("13_fyat3")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hhb2v"]
+texture = ExtResource("14_yaqvv")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3xt43"]
+texture = ExtResource("15_hhb2v")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_xmr7i"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_cy4id")
+sources/1 = SubResource("TileSetAtlasSource_88new")
+sources/2 = SubResource("TileSetAtlasSource_a2l7a")
+sources/3 = SubResource("TileSetAtlasSource_qkxgg")
+sources/4 = SubResource("TileSetAtlasSource_ft0ip")
+sources/5 = SubResource("TileSetAtlasSource_v3t6f")
+sources/6 = SubResource("TileSetAtlasSource_fyat3")
+sources/7 = SubResource("TileSetAtlasSource_yaqvv")
+sources/8 = SubResource("TileSetAtlasSource_hhb2v")
+sources/9 = SubResource("TileSetAtlasSource_3xt43")
+sources/10 = SubResource("TileSetAtlasSource_udssi")
+sources/11 = SubResource("TileSetAtlasSource_02q77")
+sources/12 = SubResource("TileSetAtlasSource_yiv8a")
+sources/13 = SubResource("TileSetAtlasSource_8vprn")
+sources/14 = SubResource("TileSetAtlasSource_vi6ff")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_88new"]
+size = Vector2(121, 29)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_udssi"]
+size = Vector2(19, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cy4id"]
+size = Vector2(20.5, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_02q77"]
+size = Vector2(32, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yiv8a"]
+size = Vector2(32, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8vprn"]
+size = Vector2(15, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vi6ff"]
+size = Vector2(48, 21)
+
+[node name="Kantor Ruangan Main 1" type="Node2D"]
+z_as_relative = false
+y_sort_enabled = true
+
+[node name="Environment" type="Node2D" parent="."]
+z_as_relative = false
+y_sort_enabled = true
+position = Vector2(0, 1)
+
+[node name="TileMap" type="TileMap" parent="Environment"]
+position = Vector2(-304, 0)
+tile_set = SubResource("TileSet_xmr7i")
+format = 2
+layer_0/name = "floor"
+layer_0/tile_data = PackedInt32Array(-65536, 10, 2, 131093, 4, 0, 196629, 4, 1, 262165, 4, 0, 327701, 4, 1, 393237, 4, 0, 458773, 4, 1, 524309, 4, 0, 589845, 4, 1, 655381, 4, 0, 720917, 4, 1, 131094, 65540, 0, 196630, 65540, 1, 262166, 65540, 0, 327702, 65540, 1, 393238, 65540, 0, 458774, 65540, 1, 524310, 65540, 0, 589846, 65540, 1, 655382, 65540, 0, 720918, 65540, 1, 131095, 4, 0, 196631, 4, 1, 262167, 4, 0, 327703, 4, 1, 393239, 4, 0, 458775, 4, 1, 524311, 4, 0, 589847, 4, 1, 655383, 4, 0, 720919, 4, 1, 131096, 65540, 0, 196632, 65540, 1, 262168, 65540, 0, 327704, 65540, 1, 393240, 65540, 0, 458776, 65540, 1, 524312, 65540, 0, 589848, 65540, 1, 655384, 65540, 0, 720920, 65540, 1, 131097, 4, 0, 196633, 4, 1, 262169, 4, 0, 327705, 4, 1, 393241, 4, 0, 458777, 4, 1, 524313, 4, 0, 589849, 4, 1, 655385, 4, 0, 720921, 4, 1, 131098, 65540, 0, 196634, 65540, 1, 262170, 65540, 0, 327706, 65540, 1, 393242, 65540, 0, 458778, 65540, 1, 524314, 65540, 0, 589850, 65540, 1, 655386, 65540, 0, 720922, 65540, 1, 131099, 4, 0, 196635, 4, 1, 262171, 4, 0, 327707, 4, 1, 393243, 4, 0, 458779, 4, 1, 524315, 4, 0, 589851, 4, 1, 655387, 4, 0, 720923, 4, 1, 131100, 65540, 0, 196636, 65540, 1, 262172, 65540, 0, 327708, 65540, 1, 393244, 65540, 0, 458780, 65540, 1, 524316, 65540, 0, 589852, 65540, 1, 655388, 65540, 0, 720924, 65540, 1, 131101, 4, 0, 196637, 4, 1, 262173, 4, 0, 327709, 4, 1, 393245, 4, 0, 458781, 4, 1, 524317, 4, 0, 589853, 4, 1, 655389, 4, 0, 720925, 4, 1, 131102, 65540, 0, 196638, 65540, 1, 262174, 65540, 0, 327710, 65540, 1, 393246, 65540, 0, 458782, 65540, 1, 524318, 65540, 0, 589854, 65540, 1, 655390, 65540, 0, 720926, 65540, 1, 131103, 4, 0, 196639, 4, 1, 131104, 65540, 0, 196640, 65540, 1, 131105, 4, 0, 196641, 4, 1, 131106, 65540, 0, 196642, 65540, 1, 131107, 4, 0, 196643, 4, 1, 131108, 65540, 0, 196644, 65540, 1, 131109, 4, 0, 196645, 4, 1, 131110, 65540, 0, 196646, 65540, 1)
+layer_1/name = "wall"
+layer_1/z_index = -1
+layer_1/tile_data = PackedInt32Array(-131052, 12, 0, -65516, 12, 805306369, 20, 12, 805306369, 65556, 12, 805306369, 131092, 12, 805306369, 196628, 12, 805306369, 262164, 12, 805306369, 327700, 12, 805306369, 393236, 12, 805306369, 458772, 12, 805306369, 524308, 12, 805306369, 589844, 12, 805306369, 655380, 12, 805306369, 720916, 12, 805306369, 786452, 12, 1610612736, -131051, 12, 1342177281, -65515, 10, 0, 21, 10, 1, 65557, 10, 2, 786453, 12, 1342177281, -131050, 12, 1342177281, -65514, 65546, 0, 22, 65546, 1, 65558, 65546, 2, 786454, 12, 1342177281, -131049, 12, 1342177281, -65513, 10, 0, 23, 10, 1, 65559, 10, 2, 786455, 12, 1342177281, -131048, 12, 1342177281, -65512, 65546, 0, 24, 65546, 1, 65560, 65546, 2, 786456, 12, 1342177281, -131047, 12, 1342177281, -65511, 10, 0, 25, 10, 1, 65561, 10, 2, 786457, 12, 1342177281, -131046, 12, 1342177281, -65510, 65546, 0, 26, 65546, 1, 65562, 65546, 2, 786458, 12, 1342177281, -131045, 12, 1342177281, -65509, 10, 0, 27, 10, 1, 65563, 10, 2, 786459, 12, 1342177281, -131044, 12, 1342177281, -65508, 65546, 0, 28, 65546, 1, 65564, 65546, 2, 786460, 12, 1342177281, -131043, 12, 1342177281, -65507, 10, 0, 29, 10, 1, 65565, 10, 2, 786461, 3, 0, -131042, 12, 1342177281, -65506, 65546, 0, 30, 65546, 1, 65566, 65546, 2, 786462, 65539, 0, -131041, 12, 1342177281, -65505, 10, 0, 31, 10, 1, 65567, 10, 2, 262175, 12, 0, 327711, 12, 1, 393247, 12, 1, 458783, 12, 1, 524319, 12, 1, 589855, 12, 1, 655391, 12, 1, 720927, 12, 1, 786463, 12, 805306368, -131040, 12, 1342177281, -65504, 65546, 0, 32, 65546, 1, 65568, 65546, 2, 262176, 12, 1610612737, -131039, 12, 1342177281, -65503, 10, 0, 33, 10, 1, 65569, 10, 2, 262177, 12, 1610612737, -131038, 12, 1342177281, -65502, 65546, 0, 34, 65546, 1, 65570, 65546, 2, 262178, 12, 1610612737, -131037, 12, 1342177281, -65501, 10, 0, 35, 10, 1, 65571, 10, 2, -131036, 12, 1342177281, -65500, 65546, 0, 36, 65546, 1, 65572, 65546, 2, -131035, 12, 1342177281, -65499, 10, 0, 37, 10, 1, 65573, 10, 2, 262181, 12, 1610612737, -131034, 12, 1342177281, -65498, 65546, 0, 38, 65546, 1, 65574, 65546, 2, 262182, 12, 1610612737, -131033, 12, 1342177280, -65497, 12, 1, 39, 12, 805306369, 65575, 12, 805306369, 131111, 12, 805306369, 196647, 12, 805306369, 262183, 12, 805306368, 262179, 3, 0, 262180, 65539, 0)
+layer_2/name = "paint"
+layer_2/tile_data = PackedInt32Array(-65513, 5, 0, 23, 5, 1, 65559, 5, 2, -65512, 65541, 0, 24, 65541, 1, 65560, 65541, 2, -65511, 131077, 0, 25, 131077, 1, 65561, 131077, 2, -65510, 196613, 0, 26, 196613, 1, 65562, 196613, 2, -65509, 14, 0, 27, 14, 1, 65563, 14, 2, -65508, 65550, 0, 28, 65550, 1, 65564, 65550, 2, -65507, 131086, 0, 29, 131086, 1, 65565, 131086, 2, -65504, 14, 0, 32, 14, 1, 65568, 14, 2, -65503, 65550, 0, 33, 65550, 1, 65569, 65550, 2, -65502, 131086, 0, 34, 131086, 1, 65570, 131086, 2)
+
+[node name="Office Table" type="StaticBody2D" parent="Environment"]
+position = Vector2(62, 153)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Office Table"]
+position = Vector2(32, -7)
+texture = ExtResource("12_v3t6f")
+region_rect = Rect2(64, 4, 32, 60)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Office Table"]
+position = Vector2(31.5, -6.5)
+shape = SubResource("RectangleShape2D_88new")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Environment/Office Table"]
+position = Vector2(-7.5, 15.5)
+shape = SubResource("RectangleShape2D_udssi")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Environment/Office Table"]
+position = Vector2(32, 15)
+shape = SubResource("RectangleShape2D_udssi")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Environment/Office Table"]
+position = Vector2(72, 15)
+shape = SubResource("RectangleShape2D_udssi")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Environment/Office Table"]
+position = Vector2(-7, -21.5)
+shape = SubResource("RectangleShape2D_udssi")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Environment/Office Table"]
+position = Vector2(32.5, -22)
+shape = SubResource("RectangleShape2D_udssi")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Environment/Office Table"]
+position = Vector2(72.5, -22)
+shape = SubResource("RectangleShape2D_udssi")
+
+[node name="Office Table2" type="StaticBody2D" parent="Environment"]
+position = Vector2(62, 84)
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Office Table2"]
+position = Vector2(32, -7)
+texture = ExtResource("12_v3t6f")
+region_rect = Rect2(64, 4, 32, 60)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Office Table2"]
+position = Vector2(31.5, -6.5)
+shape = SubResource("RectangleShape2D_88new")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Environment/Office Table2"]
+position = Vector2(-7.5, 15.5)
+shape = SubResource("RectangleShape2D_udssi")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Environment/Office Table2"]
+position = Vector2(32, 15)
+shape = SubResource("RectangleShape2D_udssi")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Environment/Office Table2"]
+position = Vector2(72, 15)
+shape = SubResource("RectangleShape2D_udssi")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Environment/Office Table2"]
+position = Vector2(72.5, -22)
+shape = SubResource("RectangleShape2D_cy4id")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Environment/Office Table2"]
+position = Vector2(32.5, -22)
+shape = SubResource("RectangleShape2D_cy4id")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Environment/Office Table2"]
+position = Vector2(-7.25, -22)
+shape = SubResource("RectangleShape2D_cy4id")
+
+[node name="Container" type="StaticBody2D" parent="Environment"]
+position = Vector2(16, 33)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Container"]
+position = Vector2(32, -7)
+texture = ExtResource("2_cy4id")
+region_rect = Rect2(64, 4, 32, 60)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Container"]
+position = Vector2(32, -7)
+shape = SubResource("RectangleShape2D_02q77")
+
+[node name="Table & Printer" type="StaticBody2D" parent="Environment"]
+position = Vector2(48, 38)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Table & Printer"]
+position = Vector2(32, -7)
+texture = ExtResource("15_hhb2v")
+region_rect = Rect2(64, 4, 32, 60)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Table & Printer"]
+position = Vector2(32, 0)
+shape = SubResource("RectangleShape2D_yiv8a")
+
+[node name="Gallon" type="StaticBody2D" parent="Environment"]
+position = Vector2(120, 32)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Gallon"]
+position = Vector2(32, -7)
+texture = ExtResource("6_yiv8a")
+region_rect = Rect2(64, 4, 32, 60)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Gallon"]
+position = Vector2(31.5, 4.5)
+shape = SubResource("RectangleShape2D_8vprn")
+
+[node name="Rack" type="StaticBody2D" parent="Environment"]
+position = Vector2(200, 39)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Rack"]
+position = Vector2(32, -7)
+texture = ExtResource("13_fyat3")
+region_rect = Rect2(64, 4, 32, 60)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Rack"]
+position = Vector2(32, -3.5)
+shape = SubResource("RectangleShape2D_vi6ff")
+
+[node name="Player" parent="." instance=ExtResource("16_cy4id")]
+position = Vector2(183, 51)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
