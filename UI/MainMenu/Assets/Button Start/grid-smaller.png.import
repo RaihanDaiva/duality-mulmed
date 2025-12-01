@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://capxdowtrhlaf"
-path="res://.godot/imported/dennis-portrait.png-87d14a239cdd5b689055b2e8672231b4.ctex"
+uid="uid://dijxgtvk81igk"
+path="res://.godot/imported/grid-smaller.png-40f380fabcc07185740421f044ff75c0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Dialogue/assets/dennis-portrait.png"
-dest_files=["res://.godot/imported/dennis-portrait.png-87d14a239cdd5b689055b2e8672231b4.ctex"]
+source_file="res://UI/MainMenu/Assets/Button Start/grid-smaller.png"
+dest_files=["res://.godot/imported/grid-smaller.png-40f380fabcc07185740421f044ff75c0.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://capxdowtrhlaf"
-path="res://.godot/imported/dennis-portrait.png-87d14a239cdd5b689055b2e8672231b4.ctex"
+uid="uid://idjh76xjrmnd"
+path="res://.godot/imported/title-card-animated.png-df7572f7db998bf8ea0838a6f92f6936.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Dialogue/assets/dennis-portrait.png"
-dest_files=["res://.godot/imported/dennis-portrait.png-87d14a239cdd5b689055b2e8672231b4.ctex"]
+source_file="res://UI/MainMenu/Assets/title-card-animated.png"
+dest_files=["res://.godot/imported/title-card-animated.png-df7572f7db998bf8ea0838a6f92f6936.ctex"]
 
 [params]
 

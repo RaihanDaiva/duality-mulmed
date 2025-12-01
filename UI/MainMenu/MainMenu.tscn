@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bnsv70w86ealf"]
+[gd_scene load_steps=25 format=3 uid="uid://bnsv70w86ealf"]
 
 [ext_resource type="Texture2D" uid="uid://nl3a8iksd78d" path="res://UI/MainMenu/Assets/background.png" id="2_1dhmk"]
 [ext_resource type="Texture2D" uid="uid://cah1vtdveiync" path="res://UI/MainMenu/Assets/Button Start/menu-panel-btn-1.png" id="3_1dhmk"]
@@ -10,7 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://c5ip758ky6r8r" path="res://UI/MainMenu/Assets/Button Quit/menu-panel-btn-quit.png" id="8_jhcbk"]
 [ext_resource type="Script" uid="uid://b7lnbqjnd55h0" path="res://UI/MainMenu/Assets/Button Options/options.gd" id="8_srm2j"]
 [ext_resource type="Script" uid="uid://4qc8c1rd2cax" path="res://UI/MainMenu/Assets/Button Quit/quit.gd" id="11_eoxer"]
+[ext_resource type="Texture2D" uid="uid://b7dj74yrggb4j" path="res://UI/MainMenu/Assets/grid-smaller.png" id="12_eoxer"]
 [ext_resource type="PackedScene" uid="uid://bs3lbwtbheymx" path="res://UI/MainMenu/fade_transition.tscn" id="13_migmm"]
+[ext_resource type="Texture2D" uid="uid://idjh76xjrmnd" path="res://UI/MainMenu/Assets/title-card-animated.png" id="13_wdl18"]
+[ext_resource type="Texture2D" uid="uid://bg67lc4d7j8e1" path="res://UI/MainMenu/Assets/lamp.png" id="14_migmm"]
 
 [sub_resource type="GDScript" id="GDScript_eoxer"]
 script/source = "extends Node2D
@@ -50,8 +53,115 @@ func _on_fade_timer_timeout() -> void:
 		get_tree().change_scene_to_file(\"res://Map/TKP 1 Kasus Pembunuhan 1/tkp_1_kp_1.tscn\")
 "
 
+[sub_resource type="Animation" id="Animation_wdl18"]
+resource_name = "main-menu-grid"
+length = 0.55
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BGGrid:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333334, 0.16666667, 0.2, 0.23333333, 0.26666668, 0.3, 0.33333334, 0.36666667, 0.4, 0.43333334, 0.46666667, 0.5, 0.53333336),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [null, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+}
+
+[sub_resource type="Animation" id="Animation_eoxer"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_migmm"]
+_data = {
+&"RESET": SubResource("Animation_eoxer"),
+&"main-menu-grid": SubResource("Animation_wdl18")
+}
+
+[sub_resource type="Animation" id="Animation_migmm"]
+resource_name = "main-menu-title-rotate"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.43333334, 0.56666666, 0.8666667, 1),
+"transitions": PackedFloat32Array(0.9659365, 0.9659362, 1, 0.8705504, 1),
+"update": 0,
+"values": [-0.038397243543875054, 0.03490658503988659, 0.020943951023931755, -0.029670597283903404, -0.038397243543875054]
+}
+
+[sub_resource type="Animation" id="Animation_jt3i8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q33u5"]
+_data = {
+&"RESET": SubResource("Animation_jt3i8"),
+&"main-menu-title-rotate": SubResource("Animation_migmm")
+}
+
+[sub_resource type="Animation" id="Animation_q33u5"]
+resource_name = "main-menu-lamp-animation"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Lamp:self_modulate:a")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.43333334, 0.5, 0.6333333, 0.76666665, 0.8333333, 1.4, 1.4333333, 2.8666666, 3.0333333, 3.1666667, 3.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0.41568628, 0.2, 0.41568628, 0.2, 0.41568628, 0.2, 0.41568628, 0.2, 0.41568628, 0.2, 0.41568628, 0.2, 0.41568628]
+}
+
+[sub_resource type="Animation" id="Animation_hvgpy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Lamp:self_modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.41568628]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4qf4k"]
+_data = {
+&"RESET": SubResource("Animation_hvgpy"),
+&"main-menu-lamp-animation": SubResource("Animation_q33u5")
+}
+
 [node name="MainMenu" type="Node2D"]
 script = SubResource("GDScript_eoxer")
+
+[node name="BGGrid" type="Sprite2D" parent="."]
+position = Vector2(163, 90)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("12_eoxer")
+hframes = 17
 
 [node name="Background2" type="Sprite2D" parent="."]
 position = Vector2(160.00003, 90)
@@ -103,6 +213,38 @@ offset_top = 1.0
 offset_bottom = 181.0
 
 [node name="Fade_timer" type="Timer" parent="Fade Transition"]
+
+[node name="BGGridAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_migmm")
+}
+autoplay = "main-menu-grid"
+speed_scale = 0.4
+
+[node name="Title" type="Sprite2D" parent="."]
+position = Vector2(160, 51)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("13_wdl18")
+
+[node name="TitleRotateAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_q33u5")
+}
+autoplay = "main-menu-title-rotate"
+speed_scale = 0.15
+
+[node name="Lamp" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.41568628)
+position = Vector2(167, 60)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("14_migmm")
+
+[node name="LampAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_4qf4k")
+}
+autoplay = "main-menu-lamp-animation"
+speed_scale = 0.5
 
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]
