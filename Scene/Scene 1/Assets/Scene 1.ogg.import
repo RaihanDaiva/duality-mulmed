@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cs8rxrvuq8odh"
+path="res://.godot/imported/Scene 1.ogg-f8035af1450d101d97260b315447b597.oggvorbisstr"
+
+[deps]
+
+source_file="res://Scene/Scene 1/Assets/Scene 1.ogg"
+dest_files=["res://.godot/imported/Scene 1.ogg-f8035af1450d101d97260b315447b597.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

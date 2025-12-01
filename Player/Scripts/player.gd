@@ -1,5 +1,4 @@
 extends CharacterBody2D
-
 class_name Player 
 
 var cardinal_direction : Vector2 = Vector2.DOWN
@@ -10,15 +9,40 @@ var can_move: bool = true
 
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
 @onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var footstep_audio: AudioStreamPlayer = $FootstepAudio
+
+# Footstep configuration
+@export var footstep_sounds: Array[AudioStream] = []
+
+# Track which frame played sound
+var last_footstep_frame: int = -1
 
 func _ready() -> void:
-	add_to_group("player")  # Penting untuk referensi
+	add_to_group("player")
 	NavigationManager.on_trigger_player_spawn.connect(_on_spawn)
 	
+	if footstep_sounds.is_empty():
+		load_default_footsteps()
+	
+	# Connect ke animation player
+	animation_player.animation_finished.connect(_on_animation_finished)
+
+func load_default_footsteps():
+	var footstep_paths = [
+		"res://SFX/walking sound effect.wav",
+		"res://SFX/walking sound effect2.wav",
+		"res://SFX/walking sound effect3.wav",
+		"res://SFX/walking sound effect4.wav",
+		
+	]
+	
+	for path in footstep_paths:
+		if FileAccess.file_exists(path):
+			footstep_sounds.append(load(path))
+
 func _on_spawn(position: Vector2, direction: String):
 	global_position = position
 	
-	# Update cardinal_direction berdasarkan spawn direction
 	match direction:
 		"up":
 			cardinal_direction = Vector2.UP
@@ -31,10 +55,8 @@ func _on_spawn(position: Vector2, direction: String):
 			cardinal_direction = Vector2.RIGHT
 			sprite_2d.scale.x = 1
 	
-	# Set state ke idle
 	state = "idle"
 	
-	# Play animation yang benar
 	var anim_name = "idle_" + AnimDirection()
 	if animation_player.has_animation(anim_name):
 		animation_player.play(anim_name)
@@ -51,8 +73,34 @@ func _process(delta: float) -> void:
 	direction.x = Input.get_action_strength("right") - Input.get_action_strength("left")
 	direction.y = Input.get_action_strength("down") - Input.get_action_strength("up")
 	
+	# Check footstep pada frame tertentu
+	if state == "walk":
+		check_footstep_frame()
+	
 	if setState() == true || SetDirection() == true:
 		UpdateAnimation()
+
+func check_footstep_frame():
+	# Get current animation info
+	var current_anim = animation_player.current_animation
+	if not current_anim.begins_with("walk"):
+		return
+	
+	# Get animation time
+	var anim_position = animation_player.current_animation_position
+	var anim_length = animation_player.current_animation_length  # 0.8 detik
+	
+	# Calculate current frame (4 frames total)
+	var frame = int((anim_position / anim_length) * 4)
+	
+	# Play sound pada frame 0 dan 2 (saat kaki menyentuh tanah)
+	if (frame == 0 or frame == 2) and frame != last_footstep_frame:
+		play_footstep_sound()
+		last_footstep_frame = frame
+
+func _on_animation_finished(anim_name: String):
+	# Reset frame tracker saat animasi selesai
+	last_footstep_frame = -1
 
 func _physics_process(delta: float) -> void:
 	if !can_move:
@@ -64,6 +112,19 @@ func _physics_process(delta: float) -> void:
 	direction.y = Input.get_action_strength("down") - Input.get_action_strength("up")
 	velocity = direction.normalized() * move_speed
 	move_and_slide()
+
+func play_footstep_sound():
+	if footstep_sounds.is_empty() or not footstep_audio:
+		return
+	
+	# Random footstep untuk variasi
+	var random_sound = footstep_sounds[randi() % footstep_sounds.size()]
+	footstep_audio.stream = random_sound
+	
+	# Randomize pitch sedikit untuk variasi natural
+	footstep_audio.pitch_scale = randf_range(0.9, 1.1)
+	
+	footstep_audio.play()
 
 func SetDirection() -> bool:
 	var new_dir : Vector2 = cardinal_direction

@@ -15,9 +15,9 @@ func _process(delta: float) -> void:
 func _on_play_pressed() -> void:
 	#get_tree().change_scene_to_file("res://Map/TKP 1 Kasus Pembunuhan 1/tkp_1_kp_1.tscn")
 	button_type = "start"
-	$"../Fade Transition".show()
-	$"../Fade Transition/Fade_timer".start()
-	$"../Fade Transition/AnimationPlayer".play("fade_in")
+	$"Fade Transition".show()
+	$"Fade Transition/Fade_timer".start()
+	$"Fade Transition/AnimationPlayer".play("fade_in")
 
 
 func _on_options_pressed() -> void:
@@ -32,4 +32,4 @@ func _on_quit_pressed() -> void:
 
 func _on_fade_timer_timeout() -> void:
 	if button_type == "start":
-		get_tree().change_scene_to_file("res://Map/TKP 1 Kasus Pembunuhan 1/tkp_1_kp_1.tscn")
+		get_tree().change_scene_to_file("res://Scene/Scene 1/scene_1.tscn")

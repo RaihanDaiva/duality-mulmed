@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cd263b60mj6ty"
+path="res://.godot/imported/walking sound effect.wav-451b8538fef9af3c308bb1c670e835c0.sample"
+
+[deps]
+
+source_file="res://SFX/walking sound effect.wav"
+dest_files=["res://.godot/imported/walking sound effect.wav-451b8538fef9af3c308bb1c670e835c0.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

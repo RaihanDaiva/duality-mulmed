@@ -2,8 +2,12 @@
 
 @tool
 
+
 ## A RichTextLabel specifically for use with [b]Dialogue Manager[/b] dialogue.
 class_name DialogueLabel extends RichTextLabel
+@onready var talk_sound: AudioStreamPlayer = $"Talk Sound"
+
+
 
 
 ## Emitted for each letter typed out.
@@ -220,3 +224,8 @@ func _should_auto_pause() -> bool:
 		return false
 
 	return parsed_text[visible_characters - 1] in pause_at_characters.split()
+
+
+func _on_spoke(letter: String, letter_index: int, speed: float) -> void:
+	talk_sound.play()
+	print("Tes")

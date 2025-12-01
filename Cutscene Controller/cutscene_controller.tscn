@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbr0im5pplwjv"]
+
+[ext_resource type="Script" uid="uid://db461ffqwv51t" path="res://Scene/Scene 1/Script/cutscene_controller.gd" id="1_877mt"]
+
+[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_877mt"]
+
+[node name="Cutscene Controller" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 320.0
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_877mt")
+skip_enabled = false
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+stream = SubResource("VideoStreamTheora_877mt")
+expand = true
