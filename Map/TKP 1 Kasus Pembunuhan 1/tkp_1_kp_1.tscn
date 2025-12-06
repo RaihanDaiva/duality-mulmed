@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://vr5nfvkt2o68"]
+[gd_scene load_steps=23 format=3 uid="uid://vr5nfvkt2o68"]
 
 [ext_resource type="PackedScene" uid="uid://btbp42qa7duve" path="res://Player/player.tscn" id="1_2jcol"]
 [ext_resource type="Script" uid="uid://bj5bv0dqvx7un" path="res://Map/TKP 1 Kasus Pembunuhan 1/Script/tkp_1_kp_1.gd" id="1_3mm5y"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bs3lbwtbheymx" path="res://UI/MainMenu/fade_transition.tscn" id="9_w1d4l"]
 [ext_resource type="PackedScene" uid="uid://cj7epc3mv55qj" path="res://NPC/npc.tscn" id="10_w1d4l"]
 [ext_resource type="AudioStream" uid="uid://b1hl5pw6o2fqs" path="res://Scene/Scene 1/Assets/Police Siren Sound Effect.mp3" id="11_txed5"]
+[ext_resource type="PackedScene" uid="uid://c40dflflmaxk8" path="res://Scene/Puzzle Morse/puzzle_morse.tscn" id="12_4nt65"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xsc5u"]
 texture = ExtResource("6_txed5")
@@ -335,8 +336,6 @@ position = Vector2(96, 143)
 [node name="Dead Body" parent="." instance=ExtResource("7_eeqdf")]
 position = Vector2(191, 52)
 npc_name = "Dead Body"
-change_scene_after_dialogue = true
-next_scene = "uid://c40dflflmaxk8"
 
 [node name="Fade Transition" parent="Dead Body" instance=ExtResource("9_w1d4l")]
 visible = false
@@ -369,9 +368,14 @@ volume_db = -12.0
 autoplay = true
 parameters/looping = true
 
+[node name="Puzzle Morse" parent="." instance=ExtResource("12_4nt65")]
+visible = false
+z_index = 50
+
 [connection signal="timeout" from="Fade Transition2/Fade_timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Dead Body/Fade Transition/Fade_timer" to="." method="_on_timer_timeout"]
 
 [editable path="Fade Transition2"]
 [editable path="Dead Body/Fade Transition"]
 [editable path="NPC2"]
+[editable path="Puzzle Morse"]

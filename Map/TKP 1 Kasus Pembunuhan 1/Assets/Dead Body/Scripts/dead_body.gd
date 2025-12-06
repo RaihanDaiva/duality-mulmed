@@ -58,7 +58,9 @@ func _on_dialogue_finished(resource):
 	
 	if change_scene_after_dialogue and next_scene != "":
 		change_to_scene()
-
+		
+	$"../Puzzle Morse".visible = true
+	$"../Puzzle Morse/StartAnimation".play("puzzleStartAnimate")
 func change_to_scene():
 	if fade_transition:
 		fade_transition.show()

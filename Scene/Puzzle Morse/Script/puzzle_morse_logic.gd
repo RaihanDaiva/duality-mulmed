@@ -19,6 +19,9 @@ var max_attempts: int = 3
 var hint_used: bool = false
 var puzzle_solved: bool = false
 
+# Animation State
+var isHidden: bool = false
+
 # Signals
 signal puzzle_completed()
 signal puzzle_failed()
@@ -193,3 +196,12 @@ func get_remaining_attempts() -> int:
 
 func is_puzzle_solved() -> bool:
 	return puzzle_solved
+
+
+func _on_hide_show_book_pressed() -> void:
+	if isHidden:
+		isHidden = false
+		$"../ShowBookAnimation".play("hide_book_animation")
+	else:
+		isHidden = true
+		$"../ShowBookAnimation".play("show_book_animation")
