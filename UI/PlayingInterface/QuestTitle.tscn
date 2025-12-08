@@ -1,0 +1,94 @@
+[gd_scene load_steps=7 format=3 uid="uid://d2jfkvajqdxem"]
+
+[ext_resource type="Script" uid="uid://bvaxlnrkbo1nf" path="res://UI/PlayingInterface/quest_title.gd" id="1_nrbe1"]
+[ext_resource type="Texture2D" uid="uid://c5ta84htpf7pi" path="res://Scene/Puzzle Morse/Sprite/puzzle-title.png" id="1_t55bn"]
+
+[sub_resource type="Animation" id="Animation_nrbe1"]
+resource_name = "hide_quest_title"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [Vector2(56, 16), Vector2(-50, 16)]
+}
+
+[sub_resource type="Animation" id="Animation_7w5lv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(56, 16)]
+}
+
+[sub_resource type="Animation" id="Animation_2hg0k"]
+resource_name = "show_quest_title"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [Vector2(-50, 16), Vector2(56, 16)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2hg0k"]
+_data = {
+&"RESET": SubResource("Animation_7w5lv"),
+&"hide_quest_title": SubResource("Animation_nrbe1"),
+&"show_quest_title": SubResource("Animation_2hg0k")
+}
+
+[node name="QuestTitle" type="Node2D"]
+script = ExtResource("1_nrbe1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(56, 16)
+texture = ExtResource("1_t55bn")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Sprite2D"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -22.0
+offset_right = 88.0
+offset_bottom = -10.0
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="QuestName" type="Label" parent="Sprite2D/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8117647, 0.78431374, 0.62352943, 1)
+theme_override_font_sizes/font_size = 8
+text = "Quest Name"
+
+[node name="Label" type="Label" parent="Sprite2D/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8117647, 0.78431374, 0.62352943, 1)
+theme_override_font_sizes/font_size = 6
+text = "(Q)"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_2hg0k")
+}

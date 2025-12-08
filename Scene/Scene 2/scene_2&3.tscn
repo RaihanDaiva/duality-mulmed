@@ -1,12 +1,29 @@
-[gd_scene load_steps=10 format=3 uid="uid://rd8ocrprox6q"]
+[gd_scene load_steps=12 format=3 uid="uid://rd8ocrprox6q"]
 
+[ext_resource type="Script" uid="uid://crf5jqag1y0hf" path="res://Scene/Scene 2/scene_2&3.gd" id="1_ijets"]
 [ext_resource type="PackedScene" uid="uid://vr5nfvkt2o68" path="res://Map/TKP 1 Kasus Pembunuhan 1/tkp_1_kp_1.tscn" id="1_px4qs"]
 [ext_resource type="Script" uid="uid://cd23hbo13sr1f" path="res://Scene/Scene 2/Script/cars_2.gd" id="2_nefi2"]
 [ext_resource type="PackedScene" uid="uid://dky5l4bmp636h" path="res://Interaction Manager/Interaction Area/interaction_area.tscn" id="3_4alwb"]
 [ext_resource type="Texture2D" uid="uid://c5ta84htpf7pi" path="res://Scene/Puzzle Morse/Sprite/puzzle-title.png" id="4_nefi2"]
+[ext_resource type="PackedScene" uid="uid://d2jfkvajqdxem" path="res://UI/PlayingInterface/QuestTitle.tscn" id="5_4alwb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cu6uh"]
 radius = 13.152946
+
+[sub_resource type="Animation" id="Animation_ijets"]
+resource_name = "LabelEndAnimation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.53333336),
+"transitions": PackedFloat32Array(0.349, 1),
+"update": 0,
+"values": [Vector2(56, 16), Vector2(-54.615, 16)]
+}
 
 [sub_resource type="Animation" id="Animation_nefi2"]
 resource_name = "LabelStartAnimation"
@@ -39,21 +56,6 @@ tracks/0/keys = {
 "values": [Vector2(56, 16)]
 }
 
-[sub_resource type="Animation" id="Animation_ijets"]
-resource_name = "LabelEndAnimation"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Title:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.53333336),
-"transitions": PackedFloat32Array(0.349, 1),
-"update": 0,
-"values": [Vector2(56, 16), Vector2(-54.615, 16)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ijets"]
 _data = {
 &"LabelEndAnimation": SubResource("Animation_ijets"),
@@ -62,11 +64,11 @@ _data = {
 }
 
 [node name="Scene 2 & 3" type="Node2D"]
+script = ExtResource("1_ijets")
 
 [node name="TKP 1 KP 1" parent="." instance=ExtResource("1_px4qs")]
 
 [node name="Fade Transition2" parent="TKP 1 KP 1" index="0"]
-visible = true
 z_index = 50
 
 [node name="Cars" parent="TKP 1 KP 1/Environment" index="1"]
@@ -103,6 +105,7 @@ can_interact = false
 autoplay = false
 
 [node name="Objective" type="Node2D" parent="."]
+visible = false
 
 [node name="Title" type="Sprite2D" parent="Objective"]
 position = Vector2(56, 16)
@@ -118,11 +121,23 @@ theme_override_font_sizes/font_size = 9
 text = "Hampiri Mayat"
 metadata/_edit_use_anchors_ = true
 
+[node name="KeyLabel" type="Label" parent="Objective/Title"]
+offset_left = 56.0
+offset_top = -6.0
+offset_right = 68.0
+offset_bottom = 7.0
+theme_override_font_sizes/font_size = 8
+text = "(Q)"
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Objective"]
 libraries = {
 &"": SubResource("AnimationLibrary_ijets")
 }
 autoplay = "LabelStartAnimation"
+
+[node name="QuestTitle" parent="." instance=ExtResource("5_4alwb")]
+visible = false
+quest_name = "Hampiri Mayat"
 
 [editable path="TKP 1 KP 1"]
 [editable path="TKP 1 KP 1/Fade Transition2"]
@@ -131,3 +146,4 @@ autoplay = "LabelStartAnimation"
 [editable path="TKP 1 KP 1/Dead Body/Fade Transition"]
 [editable path="TKP 1 KP 1/NPC"]
 [editable path="TKP 1 KP 1/NPC2"]
+[editable path="QuestTitle"]

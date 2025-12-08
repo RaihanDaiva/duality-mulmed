@@ -16,7 +16,7 @@ extends StaticBody2D
 var dialogue_active: bool = false
 
 func _ready():
-	# Setup interaction
+	# Setup interaction 	
 	if interaction_area and can_interact:
 		interaction_area.interact = Callable(self, "_talk")
 	elif interaction_area and not can_interact:
@@ -77,6 +77,10 @@ func show_next_puzzle():
 
 	# Tambahkan ke parent (atau node lain sesuai kebutuhan)
 	get_parent().add_child(puzzle_scene)
+	
+	# Ubah Quest Title
+	var parent = get_parent().get_parent()
+	parent.change_quest_title("Berikan ke polisi")
 
 	# Aktifkan (visible)
 	puzzle_scene.visible = true

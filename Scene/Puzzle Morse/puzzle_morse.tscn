@@ -270,6 +270,21 @@ _data = {
 &"show_book_animation": SubResource("Animation_pu3lc")
 }
 
+[sub_resource type="Animation" id="Animation_ijets"]
+resource_name = "LabelEndAnimation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.53333336),
+"transitions": PackedFloat32Array(0.349, 1),
+"update": 0,
+"values": [Vector2(56, 16), Vector2(-54.615, 16)]
+}
+
 [sub_resource type="Animation" id="Animation_nefi2"]
 resource_name = "LabelStartAnimation"
 length = 2.0
@@ -299,21 +314,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(56, 16)]
-}
-
-[sub_resource type="Animation" id="Animation_ijets"]
-resource_name = "LabelEndAnimation"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Title:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.53333336),
-"transitions": PackedFloat32Array(0.349, 1),
-"update": 0,
-"values": [Vector2(56, 16), Vector2(-54.615, 16)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ijets"]
@@ -389,9 +389,9 @@ region_rect = Rect2(231.8895, 29.056133, 128.13928, 180.99167)
 [node name="Book Panel" type="Panel" parent="."]
 layout_mode = 0
 offset_left = 97.0
-offset_top = 108.0
+offset_top = 150.0
 offset_right = 311.0
-offset_bottom = 180.00035
+offset_bottom = 222.00035
 theme_override_styles/panel = SubResource("StyleBoxFlat_npkbb")
 
 [node name="HideShowBook" type="Button" parent="Book Panel"]
@@ -487,10 +487,12 @@ libraries = {
 visible = false
 
 [node name="Title" type="Sprite2D" parent="Objective"]
+visible = false
 position = Vector2(56, 16)
 texture = ExtResource("6_1iegc")
 
 [node name="Label" type="Label" parent="Objective/Title"]
+visible = false
 offset_left = -48.0
 offset_top = -8.0
 offset_right = 55.0

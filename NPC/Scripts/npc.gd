@@ -12,10 +12,15 @@ extends StaticBody2D
 @onready var sprite = $Sprite2D
 @onready var animation_player = $AnimationPlayer
 @onready var fade_transition = $"Fade Transition" if has_node("Fade Transition") else null
+@onready var quest_title = $"../../QuestTitle/Sprite2D/HBoxContainer/QuestName"
 
 var dialogue_active: bool = false
+var quest_title_instance
 
-func _ready():
+signal change_title(new_title)
+
+func _ready():	
+	
 	# Setup interaction
 	if interaction_area and can_interact:
 		interaction_area.interact = Callable(self, "_talk")
@@ -76,6 +81,11 @@ func _on_dialogue_finished(resource):
 		player.can_move = true
 		
 		if State.give_puzzle_to_police_scene_3 == "true":
+			
+			# Ubah Quest Title
+			var parent = get_parent().get_parent()
+			parent.change_quest_title("Kembali Ke Mobil")
+			
 			$"../../Objective/Title/Label".text = "Kembali ke mobil"
 			$"../../Objective/AnimationPlayer".play("LabelStartAnimation")
 			$"../Environment/Cars2/InteractionArea/CollisionShape2D".disabled = false
