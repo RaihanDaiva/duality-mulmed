@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c40dflflmaxk8"]
+[gd_scene load_steps=23 format=3 uid="uid://c40dflflmaxk8"]
 
 [ext_resource type="Script" uid="uid://c68drisu4h31a" path="res://Scene/Puzzle Morse/Script/puzzle_morse_logic.gd" id="1_njstn"]
 [ext_resource type="Texture2D" uid="uid://blw3dhacitx63" path="res://Scene/Puzzle Morse/Sprite/puzzle-sprite.png" id="2_5xcd0"]
@@ -17,6 +17,133 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_npkbb"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="Animation" id="Animation_ip43j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(56, 16)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Phone Panel:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 33)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Book Panel:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(97, 108)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("File Panel:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(40, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Paper Panel:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(113, 20)]
+}
+
+[sub_resource type="Animation" id="Animation_ti5iq"]
+resource_name = "puzzleEndAnimate"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(0.349, 1),
+"update": 0,
+"values": [Vector2(56, 16), Vector2(-56.065, 16)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Phone Panel:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(0.349, 1),
+"update": 0,
+"values": [Vector2(0, 33), Vector2(-83.09, 33)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Book Panel:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(0.349, 1),
+"update": 0,
+"values": [Vector2(97, 108), Vector2(97, 170.75)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("File Panel:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(0.349, 1),
+"update": 0,
+"values": [Vector2(40, 0), Vector2(40, -175)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Paper Panel:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(0.349, 1),
+"update": 0,
+"values": [Vector2(113, 20), Vector2(225, 20)]
+}
 
 [sub_resource type="Animation" id="Animation_1iegc"]
 resource_name = "puzzleStartAnimate"
@@ -82,72 +209,10 @@ tracks/4/keys = {
 "values": [Vector2(225, 20), Vector2(113, 20)]
 }
 
-[sub_resource type="Animation" id="Animation_ip43j"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Title:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(56, 16)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Phone Panel:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 33)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Book Panel:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(97, 108)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("File Panel:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(40, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Paper Panel:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(113, 20)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pu3lc"]
 _data = {
 &"RESET": SubResource("Animation_ip43j"),
+&"puzzleEndAnimate": SubResource("Animation_ti5iq"),
 &"puzzleStartAnimate": SubResource("Animation_1iegc")
 }
 
@@ -166,22 +231,6 @@ tracks/0/keys = {
 "values": [Vector2(97, 150)]
 }
 
-[sub_resource type="Animation" id="Animation_pu3lc"]
-resource_name = "hide_book_animation"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Book Panel:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(0.5, 1),
-"update": 0,
-"values": [Vector2(97, 108), Vector2(97, 50)]
-}
-
 [sub_resource type="Animation" id="Animation_6ymj8"]
 resource_name = "hide_book_animation"
 length = 0.5
@@ -198,6 +247,22 @@ tracks/0/keys = {
 "values": [Vector2(97, 50), Vector2(97, 108)]
 }
 
+[sub_resource type="Animation" id="Animation_pu3lc"]
+resource_name = "hide_book_animation"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Book Panel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(97, 108), Vector2(97, 50)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6ymj8"]
 _data = {
 &"RESET": SubResource("Animation_736qf"),
@@ -205,19 +270,72 @@ _data = {
 &"show_book_animation": SubResource("Animation_pu3lc")
 }
 
-[node name="Puzzle Morse" type="Control"]
+[sub_resource type="Animation" id="Animation_nefi2"]
+resource_name = "LabelStartAnimation"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.53333336),
+"transitions": PackedFloat32Array(0.349, 1),
+"update": 0,
+"values": [Vector2(-54.13, 16), Vector2(56, 16)]
+}
+
+[sub_resource type="Animation" id="Animation_4alwb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(56, 16)]
+}
+
+[sub_resource type="Animation" id="Animation_ijets"]
+resource_name = "LabelEndAnimation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.53333336),
+"transitions": PackedFloat32Array(0.349, 1),
+"update": 0,
+"values": [Vector2(56, 16), Vector2(-54.615, 16)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ijets"]
+_data = {
+&"LabelEndAnimation": SubResource("Animation_ijets"),
+&"LabelStartAnimation": SubResource("Animation_nefi2"),
+&"RESET": SubResource("Animation_4alwb")
+}
+
+[node name="Puzzle Morse" type="Control" groups=["puzzle_morse"]]
+z_index = 50
 layout_mode = 3
 anchors_preset = 0
 
-[node name="Puzzle Morse Logic" type="Node2D" parent="." node_paths=PackedStringArray("answer_input", "submit_button", "hint_button", "feedback_label", "retry_button", "game_over_panel")]
+[node name="Puzzle Morse Logic" type="Node2D" parent="."]
 script = ExtResource("1_njstn")
-answer_input = NodePath("../Book Panel/Answer Input")
-submit_button = NodePath("../Book Panel/Submit Btn")
-hint_button = NodePath("../Book Panel/Hint Btn")
-feedback_label = NodePath("../Book Panel/Feedback Label")
-retry_button = NodePath("../Book Panel/Game Over Panel/Retry Btn")
-game_over_panel = NodePath("../Book Panel/Game Over Panel")
-next_scene = "uid://yigihdb1ge7l"
+answer_input_path = NodePath("../Book Panel/Answer Input")
+submit_button_path = NodePath("../Book Panel/Submit Btn")
+hint_button_path = NodePath("../Book Panel/Hint Btn")
+feedback_label_path = NodePath("../Book Panel/Feedback Label")
+retry_button_path = NodePath("../Book Panel/Game Over Panel/Retry Btn")
+game_over_panel_path = NodePath("../Book Panel/Game Over Panel")
 
 [node name="File Panel" type="Panel" parent="."]
 layout_mode = 0
@@ -257,7 +375,7 @@ region_rect = Rect2(5, 4, 70, 137)
 layout_mode = 0
 offset_left = 113.0
 offset_top = 20.0
-offset_right = 146.18198
+offset_right = 146.182
 offset_bottom = 39.999996
 theme_override_styles/panel = SubResource("StyleBoxFlat_iukj3")
 
@@ -271,9 +389,9 @@ region_rect = Rect2(231.8895, 29.056133, 128.13928, 180.99167)
 [node name="Book Panel" type="Panel" parent="."]
 layout_mode = 0
 offset_left = 97.0
-offset_top = 150.0
+offset_top = 108.0
 offset_right = 311.0
-offset_bottom = 222.00034
+offset_bottom = 180.00035
 theme_override_styles/panel = SubResource("StyleBoxFlat_npkbb")
 
 [node name="HideShowBook" type="Button" parent="Book Panel"]
@@ -352,6 +470,7 @@ offset_bottom = 15.0
 theme_override_colors/font_color = Color(0.8117647, 0.78431374, 0.62352943, 1)
 theme_override_font_sizes/font_size = 9
 text = "Selesaikan Teka-Teki!"
+metadata/_edit_use_anchors_ = true
 
 [node name="StartAnimation" type="AnimationPlayer" parent="."]
 libraries = {
@@ -362,6 +481,28 @@ autoplay = "puzzleStartAnimate"
 [node name="ShowBookAnimation" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_6ymj8")
+}
+
+[node name="Objective" type="Node2D" parent="."]
+visible = false
+
+[node name="Title" type="Sprite2D" parent="Objective"]
+position = Vector2(56, 16)
+texture = ExtResource("6_1iegc")
+
+[node name="Label" type="Label" parent="Objective/Title"]
+offset_left = -48.0
+offset_top = -8.0
+offset_right = 55.0
+offset_bottom = 15.0
+theme_override_colors/font_color = Color(0.8117647, 0.78431374, 0.62352943, 1)
+theme_override_font_sizes/font_size = 9
+text = "Hampiri Mayat"
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Objective"]
+libraries = {
+&"": SubResource("AnimationLibrary_ijets")
 }
 
 [connection signal="pressed" from="Book Panel/HideShowBook" to="Puzzle Morse Logic" method="_on_hide_show_book_pressed"]

@@ -5,6 +5,14 @@ extends Node2D
 
 #Untuk navigasi ruangan harus menambahkan ini
 func _ready():
+	var anim = get_node_or_null("Fade Transition2/AnimationPlayer")
+	
+	if anim:
+		# Node ditemukan → aman digunakan
+		$"Fade Transition2/AnimationPlayer".play("fade_out")
+	else:
+		# Node tidak ditemukan → skip tanpa error
+		print("AnimationPlayer tidak ada, skip.")
 	auto_setup_camera_from_tilemap()
 	if NavigationManager.spawn_door_tag != null:
 		_on_level_spawn(NavigationManager.spawn_door_tag)

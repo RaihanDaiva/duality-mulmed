@@ -1,0 +1,133 @@
+[gd_scene load_steps=10 format=3 uid="uid://rd8ocrprox6q"]
+
+[ext_resource type="PackedScene" uid="uid://vr5nfvkt2o68" path="res://Map/TKP 1 Kasus Pembunuhan 1/tkp_1_kp_1.tscn" id="1_px4qs"]
+[ext_resource type="Script" uid="uid://cd23hbo13sr1f" path="res://Scene/Scene 2/Script/cars_2.gd" id="2_nefi2"]
+[ext_resource type="PackedScene" uid="uid://dky5l4bmp636h" path="res://Interaction Manager/Interaction Area/interaction_area.tscn" id="3_4alwb"]
+[ext_resource type="Texture2D" uid="uid://c5ta84htpf7pi" path="res://Scene/Puzzle Morse/Sprite/puzzle-title.png" id="4_nefi2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cu6uh"]
+radius = 13.152946
+
+[sub_resource type="Animation" id="Animation_nefi2"]
+resource_name = "LabelStartAnimation"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.53333336),
+"transitions": PackedFloat32Array(0.349, 1),
+"update": 0,
+"values": [Vector2(-54.13, 16), Vector2(56, 16)]
+}
+
+[sub_resource type="Animation" id="Animation_4alwb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(56, 16)]
+}
+
+[sub_resource type="Animation" id="Animation_ijets"]
+resource_name = "LabelEndAnimation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.53333336),
+"transitions": PackedFloat32Array(0.349, 1),
+"update": 0,
+"values": [Vector2(56, 16), Vector2(-54.615, 16)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ijets"]
+_data = {
+&"LabelEndAnimation": SubResource("Animation_ijets"),
+&"LabelStartAnimation": SubResource("Animation_nefi2"),
+&"RESET": SubResource("Animation_4alwb")
+}
+
+[node name="Scene 2 & 3" type="Node2D"]
+
+[node name="TKP 1 KP 1" parent="." instance=ExtResource("1_px4qs")]
+
+[node name="Fade Transition2" parent="TKP 1 KP 1" index="0"]
+visible = true
+z_index = 50
+
+[node name="Cars" parent="TKP 1 KP 1/Environment" index="1"]
+position = Vector2(89, 149)
+
+[node name="Cars2" parent="TKP 1 KP 1/Environment" index="2"]
+position = Vector2(201, 149)
+script = ExtResource("2_nefi2")
+npc_name = "Cars"
+idle_direction = "none"
+dialogue_file = "uid://bp7c8sfcy1cev"
+change_scene_after_dialogue = true
+next_scene = "uid://536yq3s4ao4p"
+
+[node name="InteractionArea" parent="TKP 1 KP 1/Environment/Cars2" index="2" instance=ExtResource("3_4alwb")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TKP 1 KP 1/Environment/Cars2/InteractionArea"]
+shape = SubResource("CircleShape2D_cu6uh")
+disabled = true
+
+[node name="Player" parent="TKP 1 KP 1" index="2"]
+position = Vector2(206, 143)
+
+[node name="NPC" parent="TKP 1 KP 1" index="4"]
+dialogue_file = "uid://cf0oeippca43e"
+
+[node name="NPC2" parent="TKP 1 KP 1" index="5"]
+dialogue_file = "uid://cf0oeippca43e"
+
+[node name="NPC3" parent="TKP 1 KP 1" index="6"]
+can_interact = false
+
+[node name="Sirine" parent="TKP 1 KP 1/SFX" index="0"]
+autoplay = false
+
+[node name="Objective" type="Node2D" parent="."]
+
+[node name="Title" type="Sprite2D" parent="Objective"]
+position = Vector2(56, 16)
+texture = ExtResource("4_nefi2")
+
+[node name="Label" type="Label" parent="Objective/Title"]
+offset_left = -48.0
+offset_top = -8.0
+offset_right = 55.0
+offset_bottom = 15.0
+theme_override_colors/font_color = Color(0.8117647, 0.78431374, 0.62352943, 1)
+theme_override_font_sizes/font_size = 9
+text = "Hampiri Mayat"
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Objective"]
+libraries = {
+&"": SubResource("AnimationLibrary_ijets")
+}
+autoplay = "LabelStartAnimation"
+
+[editable path="TKP 1 KP 1"]
+[editable path="TKP 1 KP 1/Fade Transition2"]
+[editable path="TKP 1 KP 1/Environment/Cars2/InteractionArea"]
+[editable path="TKP 1 KP 1/Dead Body"]
+[editable path="TKP 1 KP 1/Dead Body/Fade Transition"]
+[editable path="TKP 1 KP 1/NPC"]
+[editable path="TKP 1 KP 1/NPC2"]

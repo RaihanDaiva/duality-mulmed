@@ -3,7 +3,7 @@ extends StaticBody2D
 @export var npc_name: String = "NPC"
 @export var can_interact: bool = true
 @export_enum("none", "down", "up", "side_left", "side_right") var idle_direction: String = "down"
-@export_file("*.dialogue") var dialogue_file: String = "res://Dialogue/main.dialogue"
+@export_file("*.dialogue") var dialogue_file: String = "res://Dialogue/Main.dialogue"
 @export var dialogue_start: String = "start"
 @export var change_scene_after_dialogue: bool = false
 @export_file("*.tscn") var next_scene: String = ""
@@ -74,7 +74,12 @@ func _on_dialogue_finished(resource):
 	if player:
 		dialogue_active = false
 		player.can_move = true
-	
+		
+		if State.give_puzzle_to_police_scene_3 == "true":
+			$"../../Objective/Title/Label".text = "Kembali ke mobil"
+			$"../../Objective/AnimationPlayer".play("LabelStartAnimation")
+			$"../Environment/Cars2/InteractionArea/CollisionShape2D".disabled = false
+			$InteractionArea/CollisionShape2D.disabled = true
 	if change_scene_after_dialogue and next_scene != "":
 		change_to_scene()
 

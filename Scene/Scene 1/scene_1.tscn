@@ -5,5 +5,5 @@
 [node name="Scene 1" type="Node2D"]
 
 [node name="Cutscene Controller" parent="." instance=ExtResource("1_88tpy")]
-video_path = "uid://cs8rxrvuq8odh"
+video_path = "uid://b7oi704d4rfrw"
 next_scene = "uid://rd8ocrprox6q"

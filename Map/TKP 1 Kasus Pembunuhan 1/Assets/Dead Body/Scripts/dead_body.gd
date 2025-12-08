@@ -7,6 +7,7 @@ extends StaticBody2D
 @export var dialogue_start: String = "start"
 @export var change_scene_after_dialogue: bool = false
 @export_file("*.tscn") var next_scene: String = ""
+@export_file("*.tscn") var next_puzzle: String = ""
 
 @onready var interaction_area = $InteractionArea if has_node("InteractionArea") else null
 @onready var sprite = $Sprite2D
@@ -56,11 +57,34 @@ func _on_dialogue_finished(resource):
 		dialogue_active = false
 		player.can_move = true
 	
+	$InteractionArea/CollisionShape2D.disabled = true
+	
+	$"../../Objective/AnimationPlayer".play("LabelEndAnimation")
+	
 	if change_scene_after_dialogue and next_scene != "":
 		change_to_scene()
+	
+	show_next_puzzle()
 		
-	$"../Puzzle Morse".visible = true
-	$"../Puzzle Morse/StartAnimation".play("puzzleStartAnimate")
+func show_next_puzzle():
+	if next_puzzle == "":
+		print("next_puzzle belum dipilih di Inspector!")
+		return
+	print("puzzle morse")
+	# Load scene
+	var scene_res = load(next_puzzle)
+	var puzzle_scene = scene_res.instantiate()
+
+	# Tambahkan ke parent (atau node lain sesuai kebutuhan)
+	get_parent().add_child(puzzle_scene)
+
+	# Aktifkan (visible)
+	puzzle_scene.visible = true
+
+	# Mainkan animasinya
+	# Pastikan node StartAnimation ada di dalam puzzle .tscn
+	puzzle_scene.get_node("StartAnimation").play("puzzleStartAnimate")
+
 func change_to_scene():
 	if fade_transition:
 		fade_transition.show()

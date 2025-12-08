@@ -228,4 +228,4 @@ func _should_auto_pause() -> bool:
 
 func _on_spoke(letter: String, letter_index: int, speed: float) -> void:
 	talk_sound.play()
-	print("Tes")
+	#print("Tes")

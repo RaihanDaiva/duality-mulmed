@@ -1,0 +1,110 @@
+[gd_scene load_steps=8 format=3 uid="uid://536yq3s4ao4p"]
+
+[ext_resource type="PackedScene" uid="uid://yigihdb1ge7l" path="res://Map/Rumah Dennis/Halaman Luar/halaman_rumah_dennis.tscn" id="1_btdp3"]
+[ext_resource type="PackedScene" uid="uid://bs3lbwtbheymx" path="res://UI/MainMenu/fade_transition.tscn" id="2_y88i4"]
+[ext_resource type="Texture2D" uid="uid://c5ta84htpf7pi" path="res://Scene/Puzzle Morse/Sprite/puzzle-title.png" id="3_ewv0j"]
+
+[sub_resource type="Animation" id="Animation_ijets"]
+resource_name = "LabelEndAnimation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.53333336),
+"transitions": PackedFloat32Array(0.349, 1),
+"update": 0,
+"values": [Vector2(56, 16), Vector2(-54.615, 16)]
+}
+
+[sub_resource type="Animation" id="Animation_nefi2"]
+resource_name = "LabelStartAnimation"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.53333336),
+"transitions": PackedFloat32Array(0.349, 1),
+"update": 0,
+"values": [Vector2(-54.13, 16), Vector2(56, 16)]
+}
+
+[sub_resource type="Animation" id="Animation_4alwb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(56, 16)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ijets"]
+_data = {
+&"LabelEndAnimation": SubResource("Animation_ijets"),
+&"LabelStartAnimation": SubResource("Animation_nefi2"),
+&"RESET": SubResource("Animation_4alwb")
+}
+
+[node name="Scene 4" type="Node2D"]
+
+[node name="Halaman Rumah Dennis" parent="." instance=ExtResource("1_btdp3")]
+z_as_relative = false
+y_sort_enabled = true
+
+[node name="Environment" parent="Halaman Rumah Dennis" index="0"]
+z_as_relative = false
+y_sort_enabled = true
+
+[node name="Cars" type="StaticBody2D" parent="Halaman Rumah Dennis/Environment" index="1"]
+z_as_relative = false
+y_sort_enabled = true
+position = Vector2(74, 168)
+metadata/_edit_group_ = true
+
+[node name="Player" parent="Halaman Rumah Dennis" index="1"]
+position = Vector2(78, 160)
+
+[node name="Fade Transition2" parent="Halaman Rumah Dennis" instance=ExtResource("2_y88i4")]
+z_index = 50
+offset_top = -2.0
+offset_bottom = 240.0
+
+[node name="Fade_timer" type="Timer" parent="Halaman Rumah Dennis/Fade Transition2"]
+
+[node name="Objective" type="Node2D" parent="."]
+
+[node name="Title" type="Sprite2D" parent="Objective"]
+position = Vector2(56, 16)
+texture = ExtResource("3_ewv0j")
+
+[node name="Label" type="Label" parent="Objective/Title"]
+offset_left = -48.0
+offset_top = -8.0
+offset_right = 58.0
+offset_bottom = 15.0
+theme_override_colors/font_color = Color(0.8117647, 0.78431374, 0.62352943, 1)
+theme_override_font_sizes/font_size = 9
+text = "Pergi ke kamar"
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Objective"]
+libraries = {
+&"": SubResource("AnimationLibrary_ijets")
+}
+autoplay = "LabelStartAnimation"
+
+[editable path="Halaman Rumah Dennis"]
+[editable path="Halaman Rumah Dennis/Doors/Door_N"]
+[editable path="Halaman Rumah Dennis/Fade Transition2"]

@@ -1,141 +1,217 @@
-extends Node
+extends Node2D
 
-# Reference ke UI nodes (set di Inspector atau via code)
-@export var answer_input: LineEdit
-@export var submit_button: Button
-@export var hint_button: Button
-@export var feedback_label: Label
-@export var retry_button: Button
-@export var game_over_panel: Control
+# --- NODE PATHS (set di Inspector) ---
+@export var answer_input_path: NodePath
+@export var submit_button_path: NodePath
+@export var hint_button_path: NodePath
+@export var feedback_label_path: NodePath
+@export var retry_button_path: NodePath
+@export var game_over_panel_path: NodePath
 
-# Puzzle configuration
+# --- Puzzle configuration ---
 @export var correct_answer: String = "JAM"  # Jawaban yang benar
 @export var hint_text: String = "Ada di dinding, menunjukkan waktu"
 @export_file("*.tscn") var next_scene: String = ""  # Scene selanjutnya setelah berhasil
 
-# Game state
+# --- Game state ---
 var attempts: int = 0
 var max_attempts: int = 3
 var hint_used: bool = false
 var puzzle_solved: bool = false
 
-# Animation State
+# --- Animation State ---
 var isHidden: bool = false
 
-# Signals
+# --- Node refs (diisi di _ready) ---
+var answer_input: LineEdit = null
+var submit_button: Button = null
+var hint_button: Button = null
+var feedback_label: Label = null
+var retry_button: Button = null
+var game_over_panel: Control = null
+
+# --- Signals ---
 signal puzzle_completed()
 signal puzzle_failed()
 signal answer_correct()
 signal answer_wrong(remaining_attempts: int)
 
-func _ready():
+# ---------------------------
+func _ready() -> void:
+	# Resolve node references dari NodePath (jika diberikan)
+	if answer_input_path and answer_input_path != NodePath(""):
+		if has_node(answer_input_path):
+			answer_input = get_node(answer_input_path)
+	if submit_button_path and submit_button_path != NodePath(""):
+		if has_node(submit_button_path):
+			submit_button = get_node(submit_button_path)
+	if hint_button_path and hint_button_path != NodePath(""):
+		if has_node(hint_button_path):
+			hint_button = get_node(hint_button_path)
+	if feedback_label_path and feedback_label_path != NodePath(""):
+		if has_node(feedback_label_path):
+			feedback_label = get_node(feedback_label_path)
+	if retry_button_path and retry_button_path != NodePath(""):
+		if has_node(retry_button_path):
+			retry_button = get_node(retry_button_path)
+	if game_over_panel_path and game_over_panel_path != NodePath(""):
+		if has_node(game_over_panel_path):
+			game_over_panel = get_node(game_over_panel_path)
+
+	# Lock player movement saat puzzle muncul
+	var player = _get_player()
+	if player:
+		player.can_move = false
+		player.direction = Vector2.ZERO
+
 	setup_connections()
 	reset_puzzle()
 
-func setup_connections():
+# ---------------------------
+func setup_connections() -> void:
 	if submit_button:
-		submit_button.pressed.connect(_on_submit_pressed)
-	
+		# Connect safely menggunakan Callable
+		if not submit_button.pressed.is_connected(Callable(self, "_on_submit_pressed")):
+			submit_button.pressed.connect(Callable(self, "_on_submit_pressed"))
 	if answer_input:
-		answer_input.text_submitted.connect(_on_answer_submitted)
-	
+		# text_submitted signal
+		if not answer_input.text_submitted.is_connected(Callable(self, "_on_answer_submitted")):
+			answer_input.text_submitted.connect(Callable(self, "_on_answer_submitted"))
 	if hint_button:
-		hint_button.pressed.connect(_on_hint_pressed)
-	
+		if not hint_button.pressed.is_connected(Callable(self, "_on_hint_pressed")):
+			hint_button.pressed.connect(Callable(self, "_on_hint_pressed"))
 	if retry_button:
-		retry_button.pressed.connect(_on_retry_pressed)
+		if not retry_button.pressed.is_connected(Callable(self, "_on_retry_pressed")):
+			retry_button.pressed.connect(Callable(self, "_on_retry_pressed"))
 
-func reset_puzzle():
+# ---------------------------
+func reset_puzzle() -> void:
 	attempts = 0
 	hint_used = false
 	puzzle_solved = false
-	
+
 	if answer_input:
 		answer_input.text = ""
 		answer_input.editable = true
-	
+
 	if submit_button:
 		submit_button.disabled = false
-	
+
 	if hint_button:
 		hint_button.disabled = false
-	
+
 	if feedback_label:
 		feedback_label.text = ""
-	
+
 	if game_over_panel:
 		game_over_panel.visible = false
-	
+
 	if answer_input:
+		# Beri fokus ke input agar pemain bisa mengetik jawaban
 		answer_input.grab_focus()
 
-func _on_submit_pressed():
+# ---------------------------
+func _on_submit_pressed() -> void:
+	print("tes")
 	check_answer()
 
-func _on_answer_submitted(text: String):
+func _on_answer_submitted(text: String) -> void:
 	check_answer()
 
-func check_answer():
+# ---------------------------
+func check_answer() -> void:
 	if puzzle_solved:
 		return
-	
+
 	if not answer_input:
+		show_feedback("Tidak ada input jawaban terpasang!")
 		return
-	
+
 	var player_answer = answer_input.text.strip_edges().to_upper()
 	var correct = correct_answer.strip_edges().to_upper()
-	
+
 	if player_answer.is_empty():
 		show_feedback("Masukkan jawaban terlebih dahulu!")
 		return
-	
+
 	attempts += 1
-	
+
 	if player_answer == correct:
 		on_correct_answer()
 	else:
 		on_wrong_answer()
 
-func on_correct_answer():
+# ---------------------------
+func on_correct_answer() -> void:
+	var puzzle_scene = get_parent()
 	puzzle_solved = true
-	
+	State.puzzle_scene_2 = "done"
+
 	show_feedback("BENAR!")
 	
-	# Disable input
+	# Jika ada node StartAnimation di parent (konvensi sebelumnya), coba mainkan
+	if get_parent() and get_parent().has_node("StartAnimation"):
+		get_parent().get_node("StartAnimation").play("puzzleEndAnimate")
+
+	# tunggu sedikit lalu sembunyikan container puzzle (ini Control jadi aman)
+	if State.give_puzzle_to_police_scene_3 == "true":
+		$"../Objective/AnimationPlayer".play("LabelEndAnimation")
+		await get_tree().create_timer(1.0).timeout
+		puzzle_scene.visible = false
+
+	# Disable input UI
 	if answer_input:
 		answer_input.editable = false
 	if submit_button:
 		submit_button.disabled = true
 	if hint_button:
 		hint_button.disabled = true
-	
-	answer_correct.emit()
-	puzzle_completed.emit()
-	
-	# Pindah ke scene berikutnya setelah delay
+
+	# Emit signals yang benar
+	emit_signal("answer_correct")
+	emit_signal("puzzle_completed")
+
+	# Kembalikan kontrol ke player
+	var player = _get_player()
+	if player:
+		player.can_move = true
+
+	# visual akhir / animasi -> tunggu lalu play end animation jika ada
+	await get_tree().create_timer(2).timeout
+	$"../Objective".visible = true
+	$"../Objective/Title/Label".text = "Berikan kepada polisi"
+	$"../Objective/AnimationPlayer".play("LabelStartAnimation")
+	await get_tree().create_timer(5).timeout
+	$"../Objective/AnimationPlayer".play("LabelEndAnimation")
+	await get_tree().create_timer(1).timeout
+	$"..".visible = false
+
+	# Pindah ke scene berikutnya setelah delay (opsional)
 	if next_scene != "":
 		await get_tree().create_timer(2.0).timeout
 		go_to_next_scene()
 
-func on_wrong_answer():
+# ---------------------------
+func on_wrong_answer() -> void:
 	var remaining = max_attempts - attempts
-	
+
 	if remaining > 0:
 		show_feedback("SALAH! Tersisa %d kesempatan." % remaining)
-		
+
 		if answer_input:
 			answer_input.text = ""
 			answer_input.grab_focus()
-		
-		answer_wrong.emit(remaining)
+
+		emit_signal("answer_wrong", remaining)
 	else:
 		on_game_over()
 
-func on_game_over():
+# ---------------------------
+func on_game_over() -> void:
 	puzzle_solved = true
-	
+
 	show_feedback("GAME OVER!")
-	
+
 	# Disable input
 	if answer_input:
 		answer_input.editable = false
@@ -143,49 +219,70 @@ func on_game_over():
 		submit_button.disabled = true
 	if hint_button:
 		hint_button.disabled = true
-	
-	# Show game over panel with retry button
+
+	# Show game over panel dengan retry
 	if game_over_panel:
 		game_over_panel.visible = true
-	
-	puzzle_failed.emit()
 
-func _on_hint_pressed():
+	# Pastikan player bisa bergerak lagi setelah game over
+	var player = _get_player()
+	if player:
+		player.can_move = true
+
+	emit_signal("puzzle_failed")
+
+# ---------------------------
+func _on_hint_pressed() -> void:
 	if hint_used:
 		show_feedback("Petunjuk sudah digunakan!")
 		return
-	
+
 	if hint_text.is_empty():
 		show_feedback("Tidak ada petunjuk!")
 		return
-	
+
 	show_feedback("Petunjuk: " + hint_text)
 	hint_used = true
-	
+
 	if hint_button:
 		hint_button.disabled = true
 
-func _on_retry_pressed():
+# ---------------------------
+func _on_retry_pressed() -> void:
+	# Reset dan lock kembali player (karena puzzle muncul ulang)
 	reset_puzzle()
+	var player = _get_player()
+	if player:
+		player.can_move = false
+		player.direction = Vector2.ZERO
 
-func show_feedback(message: String):
+# ---------------------------
+func show_feedback(message: String) -> void:
 	if feedback_label:
 		feedback_label.text = message
 
-func go_to_next_scene():
+# ---------------------------
+func go_to_next_scene() -> void:
 	if next_scene != "":
 		get_tree().change_scene_to_file(next_scene)
 	else:
 		print("No next scene specified!")
 
-# Public methods untuk kontrol dari luar
-func set_answer(answer: String):
+# ---------------------------
+# Helper: cari node player dari group "player"
+func _get_player():
+	var p = get_tree().get_first_node_in_group("player")
+	return p
+
+# ---------------------------
+# Public helper methods
+func set_answer(answer: String) -> void:
 	correct_answer = answer
 
-func set_hint(hint: String):
+func set_hint(hint: String) -> void:
 	hint_text = hint
 
-func set_next_scene(scene_path: String):
+func set_next_scene(scene_path: String) -> void:
 	next_scene = scene_path
 
 func get_attempts() -> int:
@@ -197,11 +294,12 @@ func get_remaining_attempts() -> int:
 func is_puzzle_solved() -> bool:
 	return puzzle_solved
 
-
 func _on_hide_show_book_pressed() -> void:
 	if isHidden:
 		isHidden = false
-		$"../ShowBookAnimation".play("hide_book_animation")
+		if get_parent() and get_parent().has_node("ShowBookAnimation"):
+			get_parent().get_node("ShowBookAnimation").play("hide_book_animation")
 	else:
 		isHidden = true
-		$"../ShowBookAnimation".play("show_book_animation")
+		if get_parent() and get_parent().has_node("ShowBookAnimation"):
+			get_parent().get_node("ShowBookAnimation").play("show_book_animation")
