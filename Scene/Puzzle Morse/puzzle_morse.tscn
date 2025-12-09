@@ -330,8 +330,8 @@ anchors_preset = 0
 
 [node name="Puzzle Morse Logic" type="Node2D" parent="."]
 script = ExtResource("1_njstn")
-answer_input_path = NodePath("../Book Panel/Answer Input")
-submit_button_path = NodePath("../Book Panel/Submit Btn")
+answer_input_path = NodePath("../Book Panel/HAnswerContainer/Answer Input")
+submit_button_path = NodePath("../Book Panel/HAnswerContainer/Submit Btn")
 hint_button_path = NodePath("../Book Panel/Hint Btn")
 feedback_label_path = NodePath("../Book Panel/Feedback Label")
 retry_button_path = NodePath("../Book Panel/Game Over Panel/Retry Btn")
@@ -407,20 +407,27 @@ scale = Vector2(1.5, 1.5)
 texture = ExtResource("4_npkbb")
 region_rect = Rect2(197.0387, 222.62418, 409.1056, 137.49625)
 
-[node name="Answer Input" type="LineEdit" parent="Book Panel"]
-layout_mode = 0
+[node name="HAnswerContainer" type="HBoxContainer" parent="Book Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 0.44400004
+anchor_bottom = 0.5
 offset_left = -1.0
-offset_top = 35.0
-offset_right = 79.0
-offset_bottom = 59.0
+offset_top = -0.00018310547
+offset_right = -1.0160065
+offset_bottom = 21.999817
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Answer Input" type="LineEdit" parent="Book Panel/HAnswerContainer"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
 theme_override_font_sizes/font_size = 10
 
-[node name="Submit Btn" type="Button" parent="Book Panel"]
-layout_mode = 0
-offset_left = 87.0
-offset_top = 43.0
-offset_right = 95.0
-offset_bottom = 51.0
+[node name="Submit Btn" type="Button" parent="Book Panel/HAnswerContainer"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
 
 [node name="Hint Btn" type="Button" parent="Book Panel"]
 visible = false

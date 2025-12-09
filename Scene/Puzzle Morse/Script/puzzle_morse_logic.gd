@@ -9,7 +9,7 @@ extends Node2D
 @export var game_over_panel_path: NodePath
 
 # --- Puzzle configuration ---
-@export var correct_answer: String = "A"  # Jawaban yang benar
+@export var correct_answer: Array[String] = ["JAM", "JEM", "JOM"]  # Jawaban yang benar
 @export var hint_text: String = "Ada di dinding, menunjukkan waktu"
 @export_file("*.tscn") var next_scene: String = ""  # Scene selanjutnya setelah berhasil
 
@@ -18,6 +18,7 @@ var attempts: int = 0
 var max_attempts: int = 3
 var hint_used: bool = false
 var puzzle_solved: bool = false
+var level: int = 1
 
 # --- Animation State ---
 var isHidden: bool = false
@@ -63,6 +64,8 @@ func _ready() -> void:
 	if player:
 		player.can_move = false
 		player.direction = Vector2.ZERO
+		
+	var input_puzzle = preload("res://UI/PlayingInterface/puzzle_input.tscn")
 
 	setup_connections()
 	reset_puzzle()
@@ -128,7 +131,9 @@ func check_answer() -> void:
 		return
 
 	var player_answer = answer_input.text.strip_edges().to_upper()
-	var correct = correct_answer.strip_edges().to_upper()
+	var correct = correct_answer[level-1].strip_edges().to_upper()
+	print("PLAYER'S ANSWER: ", player_answer)
+	print("CORRECT ANSWER: ", correct)
 
 	if player_answer.is_empty():
 		show_feedback("Masukkan jawaban terlebih dahulu!")
@@ -137,6 +142,7 @@ func check_answer() -> void:
 	attempts += 1
 
 	if player_answer == correct:
+		print("PLAYER INPUT: CORRECT")
 		on_correct_answer()
 	else:
 		on_wrong_answer()
@@ -145,14 +151,9 @@ func check_answer() -> void:
 func on_correct_answer() -> void:
 	State.current_subscene = "scene3"
 	var puzzle_scene = get_parent()
-	puzzle_solved = true
 	State.puzzle_scene_2 = "done"
 
 	show_feedback("BENAR!")
-	
-	# Jika ada node StartAnimation di parent (konvensi sebelumnya), coba mainkan
-	if get_parent() and get_parent().has_node("StartAnimation"):
-		get_parent().get_node("StartAnimation").play("puzzleEndAnimate")
 
 	# tunggu sedikit lalu sembunyikan container puzzle (ini Control jadi aman)
 	if State.give_puzzle_to_police_scene_3 == "true":
@@ -161,36 +162,54 @@ func on_correct_answer() -> void:
 		puzzle_scene.visible = false
 
 	# Disable input UI
-	if answer_input:
-		answer_input.editable = false
-	if submit_button:
-		submit_button.disabled = true
-	if hint_button:
-		hint_button.disabled = true
+	#if answer_input:
+		#answer_input.editable = false
+	#if submit_button:
+		#submit_button.disabled = true
+	#if hint_button:
+		#hint_button.disabled = true
 
 	# Emit signals yang benar
 	emit_signal("answer_correct")
 	emit_signal("puzzle_completed")
+	
+	match level:
+		1:
+			print("Clue 1 DONE")
+			level += 1
+		2:
+			print("Clue 2 DONE")
+			level += 1
+		3:
+			print("Clue 3 DONE")
+			# Jika ada node StartAnimation di parent (konvensi sebelumnya), coba mainkan
+			puzzle_solved = true
+			if get_parent() and get_parent().has_node("StartAnimation"):
+				get_parent().get_node("StartAnimation").play("puzzleEndAnimate")
+			
+			# Kembalikan kontrol ke player
+			var player = _get_player()
+			if player:
+				player.can_move = true
 
-	# Kembalikan kontrol ke player
-	var player = _get_player()
-	if player:
-		player.can_move = true
-
-	# visual akhir / animasi -> tunggu lalu play end animation jika ada
-	await get_tree().create_timer(2).timeout
-	$"../Objective".visible = true
-	$"../Objective/Title/Label".text = "Berikan kepada polisi"
-	$"../Objective/AnimationPlayer".play("LabelStartAnimation")
-	await get_tree().create_timer(5).timeout
-	$"../Objective/AnimationPlayer".play("LabelEndAnimation")
-	await get_tree().create_timer(1).timeout
-	$"..".visible = false
-
+			# visual akhir / animasi -> tunggu lalu play end animation jika ada
+			await get_tree().create_timer(2).timeout
+			$"../Objective".visible = true
+			$"../Objective/Title/Label".text = "Berikan kepada polisi"
+			$"../Objective/AnimationPlayer".play("LabelStartAnimation")
+			await get_tree().create_timer(5).timeout
+			$"../Objective/AnimationPlayer".play("LabelEndAnimation")
+			await get_tree().create_timer(1).timeout
+			$"..".visible = false
+			
+			await get_tree().create_timer(2.0).timeout
+			go_to_next_scene()
+		_:
+			pass
 	# Pindah ke scene berikutnya setelah delay (opsional)
-	if next_scene != "":
-		await get_tree().create_timer(2.0).timeout
-		go_to_next_scene()
+	#if next_scene != "":
+		#await get_tree().create_timer(2.0).timeout
+		#go_to_next_scene()
 
 # ---------------------------
 func on_wrong_answer() -> void:
@@ -278,7 +297,7 @@ func _get_player():
 # ---------------------------
 # Public helper methods
 func set_answer(answer: String) -> void:
-	correct_answer = answer
+	correct_answer[0] = answer
 
 func set_hint(hint: String) -> void:
 	hint_text = hint
