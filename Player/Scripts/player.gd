@@ -45,13 +45,17 @@ func _on_spawn(position: Vector2, direction: String):
 	
 	match direction:
 		"up":
+			print("Player Movement: UP")
 			cardinal_direction = Vector2.UP
 		"down":
+			print("Player Movement: DOWN")
 			cardinal_direction = Vector2.DOWN
 		"left":
+			print("Player Movement: LEFT")
 			cardinal_direction = Vector2.LEFT
 			sprite_2d.scale.x = -1
 		"right":
+			print("Player Movement: RIGHT")
 			cardinal_direction = Vector2.RIGHT
 			sprite_2d.scale.x = 1
 	
@@ -104,6 +108,7 @@ func _on_animation_finished(anim_name: String):
 
 func _physics_process(delta: float) -> void:
 	if !can_move:
+		print("Is the player moving? ", can_move)
 		velocity = Vector2.ZERO
 		move_and_slide()
 		return

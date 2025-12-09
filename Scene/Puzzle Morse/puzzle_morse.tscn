@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://c40dflflmaxk8"]
+[gd_scene load_steps=41 format=3 uid="uid://c40dflflmaxk8"]
 
 [ext_resource type="Script" uid="uid://c68drisu4h31a" path="res://Scene/Puzzle Morse/Script/puzzle_morse_logic.gd" id="1_njstn"]
 [ext_resource type="Texture2D" uid="uid://blw3dhacitx63" path="res://Scene/Puzzle Morse/Sprite/puzzle-sprite.png" id="2_5xcd0"]
@@ -7,6 +7,12 @@
 [ext_resource type="Texture2D" uid="uid://d137lbe5b1dq0" path="res://Scene/Puzzle Morse/Sprite/puzzle-book.png" id="4_npkbb"]
 [ext_resource type="Script" uid="uid://bbbuswcn84smb" path="res://Scene/Puzzle Morse/book_panel.gd" id="5_ip43j"]
 [ext_resource type="Texture2D" uid="uid://c5ta84htpf7pi" path="res://Scene/Puzzle Morse/Sprite/puzzle-title.png" id="6_1iegc"]
+[ext_resource type="Texture2D" uid="uid://ce6jx5b845sav" path="res://UI/Assets/show-hide-arrow.png" id="6_pu3lc"]
+[ext_resource type="Texture2D" uid="uid://ccn6bjwi110ss" path="res://UI/Assets/checkbox-null.png" id="8_6ymj8"]
+[ext_resource type="Texture2D" uid="uid://yi3kxpsxux1f" path="res://UI/Assets/answer-container.png" id="8_736qf"]
+[ext_resource type="Texture2D" uid="uid://b4n10w48afvtm" path="res://UI/Assets/pencil.png" id="8_v4shi"]
+[ext_resource type="Texture2D" uid="uid://mkx8x4618i4t" path="res://UI/Assets/checkbox-true.png" id="9_ti5iq"]
+[ext_resource type="Texture2D" uid="uid://dy417o1kyai0j" path="res://UI/Assets/checkbox-false.png" id="10_yi4ij"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1iegc"]
 
@@ -18,6 +24,9 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_npkbb"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yi4ij"]
+bg_color = Color(0.8, 0.63706666, 0.424, 0.46666667)
 
 [sub_resource type="Animation" id="Animation_ip43j"]
 length = 0.001
@@ -231,6 +240,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(97, 150)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Book Panel/HideShowBook/Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_6ymj8"]
 resource_name = "hide_book_animation"
@@ -247,6 +268,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(97, 50), Vector2(97, 108)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Book Panel/HideShowBook/Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.03333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0.0, 3.141592653589793]
+}
 
 [sub_resource type="Animation" id="Animation_pu3lc"]
 resource_name = "hide_book_animation"
@@ -262,6 +295,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(0.5, 1),
 "update": 0,
 "values": [Vector2(97, 108), Vector2(97, 50)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Book Panel/HideShowBook/Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.03333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [3.141592653589793, 0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6ymj8"]
@@ -324,6 +369,21 @@ _data = {
 &"RESET": SubResource("Animation_4alwb")
 }
 
+[sub_resource type="Animation" id="Animation_v4shi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Book Panel/HAnswerContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, 35.999992)]
+}
+
 [sub_resource type="Animation" id="Animation_yi4ij"]
 resource_name = "move_answer_container"
 length = 0.5
@@ -340,25 +400,258 @@ tracks/0/keys = {
 "values": [Vector2(-1, 35.999992), Vector2(-1, 36)]
 }
 
-[sub_resource type="Animation" id="Animation_v4shi"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n0qce"]
+_data = {
+&"RESET": SubResource("Animation_v4shi"),
+&"move_answer_container": SubResource("Animation_yi4ij")
+}
+
+[sub_resource type="Animation" id="Animation_n0qce"]
+resource_name = "hide_btn_hover_in"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Book Panel/HideShowBook/Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.25, 1.25)]
+}
+
+[sub_resource type="Animation" id="Animation_7jjsa"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Book Panel/HAnswerContainer:position")
+tracks/0/path = NodePath("Book Panel/HideShowBook/Sprite2D:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-1, 35.999992)]
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Book Panel/HAnswerContainer/Submit Btn/Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(7, 5.9999237)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Book Panel/HAnswerContainer/Submit Btn/Sprite2D:modulate:a")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Book Panel/HAnswerContainer/Submit Btn/Sprite2D:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Book Panel/HAnswerContainer/Submit Btn/Wrong:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Book Panel/HAnswerContainer/Submit Btn/Wrong:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(5, 10.999924)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Book Panel/HAnswerContainer/Submit Btn/Wrong:modulate:a")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.0]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_n0qce"]
+[sub_resource type="Animation" id="Animation_lbaaj"]
+resource_name = "hide_book_btn_hover_out"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Book Panel/HideShowBook/Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(1.25, 1.25), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_scoib"]
+resource_name = "submit_hover_in"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Book Panel/HAnswerContainer/Submit Btn/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.25, 1),
+"update": 0,
+"values": [Vector2(10, 3), Vector2(7, 5.9999237)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Book Panel/HAnswerContainer/Submit Btn/Sprite2D:modulate:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 0.5),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Book Panel/HAnswerContainer/Submit Btn/Sprite2D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_5jmm6"]
+resource_name = "submit_hover_out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Book Panel/HAnswerContainer/Submit Btn/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [Vector2(7, 6), Vector2(10, 3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Book Panel/HAnswerContainer/Submit Btn/Sprite2D:modulate:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 0.5),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Book Panel/HAnswerContainer/Submit Btn/Sprite2D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_nl58u"]
+resource_name = "wrong_answer"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Book Panel/HAnswerContainer/Submit Btn/Wrong:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Book Panel/HAnswerContainer/Submit Btn/Wrong:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.20698549, 0.3069855, 0.5),
+"transitions": PackedFloat32Array(0.5, 0.5, 0.5, -2, 1),
+"update": 0,
+"values": [Vector2(8, 11), Vector2(2, 11), Vector2(6, 11), Vector2(4, 11), Vector2(5, 10.999924)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Book Panel/HAnswerContainer/Submit Btn/Wrong:modulate:a")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.3, 1),
+"transitions": PackedFloat32Array(1, -2),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lbaaj"]
 _data = {
-&"RESET": SubResource("Animation_v4shi"),
-&"move_answer_container": SubResource("Animation_yi4ij")
+&"RESET": SubResource("Animation_7jjsa"),
+&"hide_book_btn_hover_in": SubResource("Animation_n0qce"),
+&"hide_book_btn_hover_out": SubResource("Animation_lbaaj"),
+&"submit_hover_in": SubResource("Animation_scoib"),
+&"submit_hover_out": SubResource("Animation_5jmm6"),
+&"wrong_answer": SubResource("Animation_nl58u")
 }
 
 [node name="Puzzle Morse" type="Control" groups=["puzzle_morse"]]
@@ -429,7 +722,7 @@ layout_mode = 0
 offset_left = 97.0
 offset_top = 150.0
 offset_right = 311.0
-offset_bottom = 222.00035
+offset_bottom = 222.00063
 theme_override_styles/panel = SubResource("StyleBoxFlat_npkbb")
 script = ExtResource("5_ip43j")
 
@@ -439,6 +732,12 @@ offset_left = 103.0
 offset_top = 12.0
 offset_right = 127.0
 offset_bottom = 20.0
+focus_mode = 0
+flat = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Book Panel/HideShowBook"]
+position = Vector2(12, 4)
+texture = ExtResource("6_pu3lc")
 
 [node name="Sprite2D" type="Sprite2D" parent="Book Panel"]
 position = Vector2(111.00001, 99)
@@ -453,20 +752,38 @@ anchor_top = 0.5
 anchor_right = 0.44400004
 anchor_bottom = 0.5
 offset_left = -1.0
-offset_top = -0.00018310547
+offset_top = -0.00032043457
 offset_right = -1.0160065
-offset_bottom = 21.999817
+offset_bottom = 21.99968
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Answer Input" type="LineEdit" parent="Book Panel/HAnswerContainer"]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
+theme_override_colors/font_color = Color(0.08235294, 0.07058824, 0.2, 1)
 theme_override_font_sizes/font_size = 10
+theme_override_styles/focus = SubResource("StyleBoxFlat_yi4ij")
+placeholder_text = "...."
+flat = true
 
 [node name="Submit Btn" type="Button" parent="Book Panel/HAnswerContainer"]
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
+focus_mode = 0
+flat = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Book Panel/HAnswerContainer/Submit Btn"]
+visible = false
+z_index = 2
+position = Vector2(7, 5.9999237)
+texture = ExtResource("8_v4shi")
+
+[node name="Wrong" type="Sprite2D" parent="Book Panel/HAnswerContainer/Submit Btn"]
+visible = false
+z_index = 1
+position = Vector2(5, 10.999924)
+texture = ExtResource("10_yi4ij")
 
 [node name="Hint Btn" type="Button" parent="Book Panel"]
 visible = false
@@ -504,38 +821,116 @@ offset_top = 153.0
 offset_right = 311.0
 offset_bottom = 161.0
 
-[node name="FirstClue" type="Label" parent="Book Panel"]
-visible = false
-layout_mode = 0
-offset_left = -1.0
-offset_top = 39.0
-offset_right = 95.0
-offset_bottom = 53.0
-theme_override_colors/font_color = Color(0.083, 0.07000001, 0.2, 1)
-theme_override_font_sizes/font_size = 10
-text = "Clue #1: Jam"
+[node name="FirstClueSprite" type="Sprite2D" parent="Book Panel"]
+position = Vector2(39, 43)
+texture = ExtResource("8_736qf")
 
-[node name="SecondClue" type="Label" parent="Book Panel"]
-visible = false
-layout_mode = 0
-offset_left = -1.0
-offset_top = 63.0
-offset_right = 95.0
-offset_bottom = 77.0
-theme_override_colors/font_color = Color(0.083, 0.07000001, 0.2, 1)
-theme_override_font_sizes/font_size = 10
-text = "Clue #1: Jam"
+[node name="Null" type="Sprite2D" parent="Book Panel/FirstClueSprite"]
+position = Vector2(49, 4)
+texture = ExtResource("8_6ymj8")
 
-[node name="ThirdClue" type="Label" parent="Book Panel"]
+[node name="True" type="Sprite2D" parent="Book Panel/FirstClueSprite"]
 visible = false
-layout_mode = 0
-offset_left = -1.0
-offset_top = 87.0
-offset_right = 95.0
-offset_bottom = 101.0
+position = Vector2(49, 4)
+texture = ExtResource("9_ti5iq")
+
+[node name="False" type="Sprite2D" parent="Book Panel/FirstClueSprite"]
+visible = false
+position = Vector2(49, 4)
+texture = ExtResource("10_yi4ij")
+
+[node name="FirstClue" type="Label" parent="Book Panel/FirstClueSprite"]
+visible = false
+offset_left = -37.0
+offset_top = -4.0
+offset_right = 59.0
+offset_bottom = 10.0
 theme_override_colors/font_color = Color(0.083, 0.07000001, 0.2, 1)
 theme_override_font_sizes/font_size = 10
-text = "Clue #1: Jam"
+text = "Jam"
+
+[node name="Label" type="Label" parent="Book Panel/FirstClueSprite"]
+offset_left = -39.0
+offset_top = -18.0
+offset_right = -10.0
+offset_bottom = -6.0
+theme_override_colors/font_color = Color(0.12941177, 0.1254902, 0.1254902, 1)
+theme_override_font_sizes/font_size = 8
+text = "Clue #1"
+
+[node name="SecondClueSprite" type="Sprite2D" parent="Book Panel"]
+position = Vector2(39, 78)
+texture = ExtResource("8_736qf")
+
+[node name="Null" type="Sprite2D" parent="Book Panel/SecondClueSprite"]
+position = Vector2(49, 4)
+texture = ExtResource("8_6ymj8")
+
+[node name="True" type="Sprite2D" parent="Book Panel/SecondClueSprite"]
+visible = false
+position = Vector2(49, 4)
+texture = ExtResource("9_ti5iq")
+
+[node name="False" type="Sprite2D" parent="Book Panel/SecondClueSprite"]
+visible = false
+position = Vector2(49, 4)
+texture = ExtResource("10_yi4ij")
+
+[node name="SecondClue" type="Label" parent="Book Panel/SecondClueSprite"]
+visible = false
+offset_left = -36.0
+offset_top = -3.0
+offset_right = 60.0
+offset_bottom = 11.0
+theme_override_colors/font_color = Color(0.083, 0.07000001, 0.2, 1)
+theme_override_font_sizes/font_size = 10
+text = "Jam"
+
+[node name="Label" type="Label" parent="Book Panel/SecondClueSprite"]
+offset_left = -39.0
+offset_top = -18.0
+offset_right = -10.0
+offset_bottom = -6.0
+theme_override_colors/font_color = Color(0.12941177, 0.1254902, 0.1254902, 1)
+theme_override_font_sizes/font_size = 8
+text = "Clue #2"
+
+[node name="ThirdClueSprite" type="Sprite2D" parent="Book Panel"]
+position = Vector2(39, 113)
+texture = ExtResource("8_736qf")
+
+[node name="Null" type="Sprite2D" parent="Book Panel/ThirdClueSprite"]
+position = Vector2(49, 4)
+texture = ExtResource("8_6ymj8")
+
+[node name="True" type="Sprite2D" parent="Book Panel/ThirdClueSprite"]
+visible = false
+position = Vector2(49, 4)
+texture = ExtResource("9_ti5iq")
+
+[node name="False" type="Sprite2D" parent="Book Panel/ThirdClueSprite"]
+visible = false
+position = Vector2(49, 4)
+texture = ExtResource("10_yi4ij")
+
+[node name="ThirdClue" type="Label" parent="Book Panel/ThirdClueSprite"]
+visible = false
+offset_left = -36.0
+offset_top = -3.0
+offset_right = 60.0
+offset_bottom = 11.0
+theme_override_colors/font_color = Color(0.083, 0.07000001, 0.2, 1)
+theme_override_font_sizes/font_size = 10
+text = "Jam"
+
+[node name="Label" type="Label" parent="Book Panel/ThirdClueSprite"]
+offset_left = -39.0
+offset_top = -18.0
+offset_right = -10.0
+offset_bottom = -6.0
+theme_override_colors/font_color = Color(0.12941177, 0.1254902, 0.1254902, 1)
+theme_override_font_sizes/font_size = 8
+text = "Clue #3"
 
 [node name="Title" type="Sprite2D" parent="."]
 position = Vector2(56, 16)
@@ -591,4 +986,13 @@ libraries = {
 &"": SubResource("AnimationLibrary_n0qce")
 }
 
+[node name="UIAnimations" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_lbaaj")
+}
+
+[connection signal="mouse_entered" from="Book Panel/HideShowBook" to="Puzzle Morse Logic" method="_on_hide_show_book_mouse_entered"]
+[connection signal="mouse_exited" from="Book Panel/HideShowBook" to="Puzzle Morse Logic" method="_on_hide_show_book_mouse_exited"]
 [connection signal="pressed" from="Book Panel/HideShowBook" to="Puzzle Morse Logic" method="_on_hide_show_book_pressed"]
+[connection signal="mouse_entered" from="Book Panel/HAnswerContainer/Submit Btn" to="Puzzle Morse Logic" method="_on_submit_btn_mouse_entered"]
+[connection signal="mouse_exited" from="Book Panel/HAnswerContainer/Submit Btn" to="Puzzle Morse Logic" method="_on_submit_btn_mouse_exited"]

@@ -327,7 +327,7 @@ position = Vector2(328, 122)
 position = Vector2(0, 24)
 shape = SubResource("RectangleShape2D_txed5")
 
-[node name="Player" parent="." instance=ExtResource("1_2jcol")]
+[node name="Player" parent="." groups=["puzzle_morse"] instance=ExtResource("1_2jcol")]
 z_as_relative = true
 y_sort_enabled = false
 position = Vector2(96, 143)

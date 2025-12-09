@@ -18,7 +18,7 @@ extends Node2D
 @export_file("*.tscn") var next_scene: String = ""  # Scene selanjutnya setelah berhasil
 
 # --- Global game state
-var puzzle_progress = 1 # Start at one. It will progresses everytime this node is interacted
+var puzzle_progress = 1	 # Start at one. It will progresses everytime this node is interacted
 
 # --- Game state ---
 var attempts: int = 0
@@ -46,6 +46,7 @@ signal answer_wrong(remaining_attempts: int)
 
 # ---------------------------
 func _ready() -> void:
+	print("atas ",correct_answer)
 	await get_tree().process_frame
 	# Resolve node references dari NodePath (jika diberikan)
 	if answer_input_path and answer_input_path != NodePath(""):
@@ -70,7 +71,7 @@ func _ready() -> void:
 	# Lock player movement saat puzzle muncul
 	var player = _get_player()
 	if player:
-		player.can_move = false
+		player.can_move = true
 		player.direction = Vector2.ZERO
 		
 	
@@ -81,6 +82,7 @@ func _ready() -> void:
 
 	setup_connections()
 	reset_puzzle()
+	print("bawah ",correct_answer)
 
 # ---------------------------
 func setup_connections() -> void:
@@ -142,6 +144,12 @@ func check_answer() -> void:
 		show_feedback("Tidak ada input jawaban terpasang!")
 		return
 
+	print("progress =", puzzle_progress)
+	print("level =", level)
+	print("correct_answer =", correct_answer)
+	print("row =", correct_answer[puzzle_progress - 1])
+
+
 	var player_answer = answer_input.text.strip_edges().to_upper()
 	var correct = correct_answer[puzzle_progress-1][level-1].strip_edges().to_upper()
 	print("PLAYER'S ANSWER: ", player_answer)
@@ -188,25 +196,30 @@ func on_correct_answer() -> void:
 	match level:
 		1:
 			print("Clue 1 DONE")
-			$"../Book Panel/FirstClue".visible = true
+			$"../Book Panel/FirstClueSprite/FirstClue".visible = true
 			level += 1
-			var move_answer_panel_delta = Vector2(0, 24) # Move the HAnswerContainer + 0 in x and +15 in y
+			var move_answer_panel_delta = Vector2(0, 35) # Move the HAnswerContainer + 0 in x and +15 in y
 			move_answer_panel(move_answer_panel_delta)
 			_on_hide_show_book_pressed()
 			answer_input.text = ""
+			$"../Book Panel/FirstClueSprite/Null".visible = false
+			$"../Book Panel/FirstClueSprite/True".visible = true
 		2:
 			print("Clue 2 DONE")
-			$"../Book Panel/SecondClue".visible = true
+			$"../Book Panel/SecondClueSprite/SecondClue".visible = true
 			level += 1
-			var move_answer_panel_delta = Vector2(0, 24) # Move the HAnswerContainer + 0 in x and +15 in y
+			var move_answer_panel_delta = Vector2(0, 35) # Move the HAnswerContainer + 0 in x and +15 in y
 			move_answer_panel(move_answer_panel_delta)
 			answer_input.text = ""
+			$"../Book Panel/SecondClueSprite/Null".visible = false
+			$"../Book Panel/SecondClueSprite/True".visible = true
 		3:
 			print("Clue 3 DONE")
-			$"../Book Panel/ThirdClue".visible = true
-			var move_answer_panel_delta = Vector2(0, 24) # Move the HAnswerContainer + 0 in x and +15 in y
-			move_answer_panel(move_answer_panel_delta)
+			$"../Book Panel/ThirdClueSprite/ThirdClue".visible = true
+			$"../Book Panel/HAnswerContainer".visible = false
 			answer_input.text = ""
+			$"../Book Panel/ThirdClueSprite/Null".visible = false
+			$"../Book Panel/ThirdClueSprite/True".visible = true
 			
 			await get_tree().create_timer(1).timeout
 			
@@ -242,6 +255,9 @@ func on_correct_answer() -> void:
 # ---------------------------
 func on_wrong_answer() -> void:
 	var remaining = max_attempts - attempts
+	$"../UIAnimations".play("wrong_answer")
+	await $"../UIAnimations".animation_finished
+	
 
 	if remaining > 0:
 		show_feedback("SALAH! Tersisa %d kesempatan." % remaining)
@@ -376,3 +392,19 @@ func move_answer_panel(delta: Vector2) -> void:
 	
 	# Set 1st keyframe after moving
 	anim.track_set_key_value(0, 0, pos_value)
+
+
+func _on_hide_show_book_mouse_entered() -> void:
+	$"../UIAnimations".play("hide_book_btn_hover_in")
+
+
+func _on_hide_show_book_mouse_exited() -> void:
+	$"../UIAnimations".play("hide_book_btn_hover_out")
+
+
+func _on_submit_btn_mouse_entered() -> void:
+	$"../UIAnimations".play("submit_hover_in")
+
+
+func _on_submit_btn_mouse_exited() -> void:
+	$"../UIAnimations".play("submit_hover_out")
