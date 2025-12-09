@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmac837rp2he7"]
+
+[ext_resource type="PackedScene" uid="uid://dln8rm07i6pb3" path="res://Map/Rumah Dennis/Toilet/toilet_dennis.tscn" id="1_xqv34"]
+
+[node name="Scene 4_Toilet" type="Node2D"]
+
+[node name="Toilet Dennis" parent="." instance=ExtResource("1_xqv34")]
+
+[node name="Door_S" parent="Toilet Dennis/Doors" index="0"]
+destination_level_tag = "scene4_ruangan_tengah_dennis"
+
+[editable path="Toilet Dennis"]
+[editable path="Toilet Dennis/Doors/Door_S"]

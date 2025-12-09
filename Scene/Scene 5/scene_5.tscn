@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://drrox00g47wpi"]
+
+[ext_resource type="PackedScene" uid="uid://bbr0im5pplwjv" path="res://Cutscene Controller/cutscene_controller.tscn" id="1_liyv1"]
+
+[node name="Scene 5" type="Node2D"]
+
+[node name="Cutscene Controller" parent="." instance=ExtResource("1_liyv1")]
+video_path = "uid://ceh12e1spsmc0"
+next_scene = "uid://b77vxoaccijaq"

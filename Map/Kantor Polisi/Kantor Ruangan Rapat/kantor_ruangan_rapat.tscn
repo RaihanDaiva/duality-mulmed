@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://c0lsjmwjlioof"]
+[gd_scene load_steps=42 format=3 uid="uid://c0lsjmwjlioof"]
 
 [ext_resource type="Script" uid="uid://b8gdadxhi4okg" path="res://Map/Kantor Polisi/Kantor Ruangan Rapat/Script/kantor_ruangan_rapat.gd" id="1_jrcw8"]
 [ext_resource type="Texture2D" uid="uid://hk4o7emktn7v" path="res://Map/Kantor Polisi/Kantor Ruangan Rapat/Sprite/chest.png" id="1_nmck8"]
@@ -16,7 +16,10 @@
 [ext_resource type="Texture2D" uid="uid://kocg7ukvq40s" path="res://Map/Kantor Polisi/Kantor Ruangan Dennis/Sprite/lantai.png" id="11_hh3qu"]
 [ext_resource type="Texture2D" uid="uid://3vsouq2xthed" path="res://Map/Kantor Polisi/Kantor Ruangan Dennis/Sprite/visible_wall.png" id="12_7btkr"]
 [ext_resource type="PackedScene" uid="uid://btbp42qa7duve" path="res://Player/player.tscn" id="13_kdtc6"]
+[ext_resource type="Script" uid="uid://dvta05340qnj5" path="res://Map/Kantor Polisi/Kantor Ruangan Rapat/Script/chair.gd" id="16_sdw7t"]
+[ext_resource type="PackedScene" uid="uid://dky5l4bmp636h" path="res://Interaction Manager/Interaction Area/interaction_area.tscn" id="17_6h05e"]
 [ext_resource type="PackedScene" uid="uid://b6yrxvfy6uyiy" path="res://Map/Door/door.tscn" id="17_v2kw5"]
+[ext_resource type="PackedScene" uid="uid://cj7epc3mv55qj" path="res://NPC/npc.tscn" id="18_v2kw5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iiy82"]
 texture = ExtResource("1_nmck8")
@@ -181,6 +184,9 @@ size = Vector2(16, 30)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6vb1p"]
 size = Vector2(21, 27)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_hh3qu"]
+radius = 14.035668
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kw50t"]
 size = Vector2(32, 93)
 
@@ -222,7 +228,8 @@ shape = SubResource("RectangleShape2D_soeq2")
 
 [node name="Chair" type="StaticBody2D" parent="Environment"]
 position = Vector2(135, 93)
-metadata/_edit_group_ = true
+script = ExtResource("16_sdw7t")
+dialogue_file = "uid://rg5jxi4by07k"
 
 [node name="Sprite2D" type="Sprite2D" parent="Environment/Chair"]
 texture = ExtResource("5_vdisc")
@@ -230,6 +237,12 @@ texture = ExtResource("5_vdisc")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Chair"]
 position = Vector2(-5.5, 2.5)
 shape = SubResource("RectangleShape2D_6vb1p")
+
+[node name="InteractionArea" parent="Environment/Chair" instance=ExtResource("17_6h05e")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Chair/InteractionArea"]
+shape = SubResource("CircleShape2D_hh3qu")
+disabled = true
 
 [node name="Chair2" type="StaticBody2D" parent="Environment"]
 position = Vector2(135, 125)
@@ -328,4 +341,22 @@ disabled = false
 [node name="Spawn" parent="Doors/Door_W" index="1"]
 position = Vector2(24, 9)
 
+[node name="NPC2" parent="." instance=ExtResource("18_v2kw5")]
+visible = false
+position = Vector2(89, 84)
+can_interact = false
+idle_direction = "side_right"
+dialogue_file = "uid://cf0oeippca43e"
+metadata/_edit_group_ = true
+
+[node name="NPC3" parent="." instance=ExtResource("18_v2kw5")]
+visible = false
+position = Vector2(89, 116)
+can_interact = false
+idle_direction = "side_right"
+dialogue_file = "uid://cf0oeippca43e"
+metadata/_edit_group_ = true
+
 [editable path="Doors/Door_W"]
+[editable path="NPC2"]
+[editable path="NPC3"]

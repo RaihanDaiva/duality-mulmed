@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://b77vxoaccijaq"]
+[gd_scene load_steps=35 format=3 uid="uid://b77vxoaccijaq"]
 
 [ext_resource type="Script" uid="uid://654je0fson3i" path="res://Map/Rumah Dennis/Kamar Dennis/Scripts/kamar_dennis.gd" id="1_0jkl8"]
 [ext_resource type="Texture2D" uid="uid://bkjhma2pj112e" path="res://Map/Rumah Dennis/Kamar Dennis/Sprite/bed.png" id="1_m8nms"]
@@ -14,6 +14,9 @@
 [ext_resource type="Texture2D" uid="uid://dml4thwukiaec" path="res://Map/Rumah Dennis/Kamar Dennis/Sprite/window-side.png" id="10_m3exg"]
 [ext_resource type="PackedScene" uid="uid://btbp42qa7duve" path="res://Player/player.tscn" id="12_rvtlc"]
 [ext_resource type="PackedScene" uid="uid://b6yrxvfy6uyiy" path="res://Map/Door/door.tscn" id="13_rvtlc"]
+[ext_resource type="Script" uid="uid://dsna8fji3qeac" path="res://Scene/Scene 4/Script/bed.gd" id="15_p3d13"]
+[ext_resource type="PackedScene" uid="uid://dky5l4bmp636h" path="res://Interaction Manager/Interaction Area/interaction_area.tscn" id="16_2il5v"]
+[ext_resource type="PackedScene" uid="uid://bs3lbwtbheymx" path="res://UI/MainMenu/fade_transition.tscn" id="17_2il5v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ilb8h"]
 texture = ExtResource("1_m8nms")
@@ -159,6 +162,12 @@ size = Vector2(14, 21)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b5cq3"]
 size = Vector2(14, 14)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yi65m"]
+size = Vector2(32, 46)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m3exg"]
+radius = 28.071337
+
 [node name="Kamar Dennis" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_0jkl8")
@@ -191,7 +200,7 @@ layer_0/tile_data = PackedInt32Array(196609, 65539, 0, 262145, 65539, 1, 327681,
 layer_1/name = "Wall1"
 layer_1/tile_data = PackedInt32Array(131073, 7, 2, 131074, 7, 2, 131078, 7, 2, 131079, 7, 2, 131080, 7, 2, 5, 7, 0, 65541, 7, 1, 131077, 7, 2, 6, 7, 0, 65542, 7, 1, 7, 7, 0, 65543, 7, 1, 8, 7, 0, 65544, 7, 1, 0, 7, 0, 65536, 7, 1, 131072, 7, 2, 1, 7, 0, 65537, 7, 1, 2, 7, 0, 65538, 7, 1, 3, 7, 0, 65539, 7, 1, 131075, 7, 2, 4, 7, 0, 65540, 7, 1, 131076, 7, 2, 524296, 65544, 536870912, 524295, 65544, 536870912, 524294, 65544, 536870912, 524293, 65544, 536870912, 524292, 65544, 536870912, 524291, 65544, 536870912, 524290, 65544, 536870912, 524289, 65544, 536870912, 524288, 65544, 536870912, 589823, 8, 1610612736, 524287, 65544, 1610612736, 458751, 65544, 1610612736, 393215, 65544, 1610612736, 327679, 65544, 1610612736, 262143, 65544, 1610612736, 196607, 65544, 1610612736, 131071, 65544, 1610612736, 65535, 65544, 1610612736, -65536, 65544, 0, -65535, 65544, 0, -65534, 65544, 0, -65533, 65544, 0, -65532, 65544, 0, -65531, 65544, 0, -65530, 65544, 0, -65529, 65544, 0, -65528, 65544, 0, 9, 65544, 1342177280, 65545, 65544, 1342177280, 131081, 65544, 1342177280, 196617, 65544, 1342177280, 262153, 65544, 1342177280, -1, 8, 0, -65527, 8, 1342177280, 524297, 8, 805306368, 327689, 65544, 1342177280)
 layer_2/name = "Furniture"
-layer_2/tile_data = PackedInt32Array(262144, 65545, 0, 262145, 65536, 2, 196610, 131072, 1, 262146, 131072, 2, 327680, 65545, 1, 393216, 65545, 2, 327681, 65536, 3, 327682, 131072, 3, 458752, 65545, 3, 196609, 65536, 1, 131073, 65536, 0, 131074, 131072, 0, 131078, 6, 0, 131079, 65542, 0, 131080, 131078, 0, 393215, 9, 1, 458751, 9, 2, 196614, 6, 1, 196615, 65542, 1, 196616, 131078, 1)
+layer_2/tile_data = PackedInt32Array(327680, 65545, 1, 393216, 65545, 2, 458752, 65545, 3, 131078, 6, 0, 131079, 65542, 0, 131080, 131078, 0, 458751, 9, 2, 196614, 6, 1, 196615, 65542, 1, 196616, 131078, 1, 393215, 9, 1, 196610, 131072, 1, 262146, 131072, 2, 131074, 131072, 0, 327682, 131072, 3, 262144, 65545, 0, 131073, 65536, 0, 196609, 65536, 1, 262145, 65536, 2, 327681, 65536, 3)
 layer_3/name = "Wall2"
 layer_3/tile_data = PackedInt32Array(5, 5, 0, 65541, 5, 1, 131077, 5, 2, 6, 65541, 0, 65542, 65541, 1, 131078, 65541, 2, 7, 131077, 0, 65543, 131077, 1, 131079, 131077, 2, 8, 196613, 0, 65544, 196613, 1, 131080, 196613, 2)
 
@@ -235,4 +244,38 @@ position = Vector2(59, 75)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
+[node name="Bed" type="StaticBody2D" parent="."]
+position = Vector2(32, 64)
+script = ExtResource("15_p3d13")
+npc_name = "Bed"
+dialogue_file = "uid://21dcqnx78h4b"
+change_scene_after_dialogue = true
+next_scene = "uid://drrox00g47wpi"
+
+[node name="Sprite2D" type="Sprite2D" parent="Bed"]
+texture = ExtResource("1_m8nms")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bed"]
+position = Vector2(0, 7)
+shape = SubResource("RectangleShape2D_yi65m")
+
+[node name="InteractionArea" parent="Bed" instance=ExtResource("16_2il5v")]
+position = Vector2(0, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bed/InteractionArea"]
+shape = SubResource("CircleShape2D_m3exg")
+disabled = true
+
+[node name="Fade Transition2" parent="." instance=ExtResource("17_2il5v")]
+visible = false
+z_index = 50
+offset_left = -117.0
+offset_top = -33.0
+offset_right = 381.0
+offset_bottom = 210.0
+
+[node name="Fade_timer" type="Timer" parent="Fade Transition2"]
+
 [editable path="Doors/Door_E"]
+[editable path="Bed/InteractionArea"]
+[editable path="Fade Transition2"]

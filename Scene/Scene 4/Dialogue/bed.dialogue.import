@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://21dcqnx78h4b"
+path="res://.godot/imported/bed.dialogue-c6b4561ee17e2448b695d743f8d3c7da.tres"
+
+[deps]
+
+source_file="res://Scene/Scene 4/Dialogue/bed.dialogue"
+dest_files=["res://.godot/imported/bed.dialogue-c6b4561ee17e2448b695d743f8d3c7da.tres"]
+
+[params]
+
+defaults=true

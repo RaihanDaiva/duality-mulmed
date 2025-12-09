@@ -7,7 +7,7 @@ func _ready() -> void:
 	var quest_title = preload("res://UI/PlayingInterface/QuestTitle.tscn")
 	quest_title_instance = quest_title.instantiate()
 	add_child(quest_title_instance)
-	change_quest_title("Hampiri Mayatad")
+	change_quest_title("Hampiri Mayat")
 
 func change_quest_title(new_title: String) -> void:
-	quest_title_instance._update_quest_title(new_title)
+	quest_title_instance._update_quest_title(new_title, true)

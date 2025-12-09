@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://yigihdb1ge7l"]
+[gd_scene load_steps=28 format=3 uid="uid://yigihdb1ge7l"]
 
 [ext_resource type="Script" uid="uid://tcin6evw2n5k" path="res://Map/Rumah Dennis/Halaman Luar/Script/halaman_rumah_dennis.gd" id="1_b4vcv"]
 [ext_resource type="Texture2D" uid="uid://cybicyjg5l2tb" path="res://Map/Rumah Dennis/Halaman Luar/Sprite/stone-slab.png" id="3_b4vcv"]
@@ -9,8 +9,12 @@
 [ext_resource type="Texture2D" uid="uid://cc8vuk016hmf5" path="res://Map/TKP 1 Kasus Pembunuhan 1/Assets/Environments/Sprite/trotoar-tileset.png" id="7_wnwgg"]
 [ext_resource type="Texture2D" uid="uid://cbe8iecoiv15d" path="res://Map/Rumah Dennis/Halaman Luar/Sprite/roof.png" id="8_aqsbk"]
 [ext_resource type="Texture2D" uid="uid://c25tyfq0quqfj" path="res://Map/Rumah Dennis/Halaman Luar/Sprite/stone-path.png" id="9_3dgmd"]
+[ext_resource type="Script" uid="uid://cd23hbo13sr1f" path="res://Scene/Scene 2/Script/cars_2.gd" id="9_aqsbk"]
+[ext_resource type="Texture2D" uid="uid://bn3cuml3fac13" path="res://Map/TKP 1 Kasus Pembunuhan 1/Assets/Environments/Sprite/car-police.png" id="10_3dgmd"]
 [ext_resource type="PackedScene" uid="uid://b6yrxvfy6uyiy" path="res://Map/Door/door.tscn" id="10_aw5ni"]
 [ext_resource type="Texture2D" uid="uid://7br1bqm47tr5" path="res://Map/Rumah Dennis/Halaman Luar/Sprite/rain-overlay.png" id="11_aw5ni"]
+[ext_resource type="PackedScene" uid="uid://dky5l4bmp636h" path="res://Interaction Manager/Interaction Area/interaction_area.tscn" id="11_teeel"]
+[ext_resource type="PackedScene" uid="uid://bs3lbwtbheymx" path="res://UI/MainMenu/fade_transition.tscn" id="12_od26d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_teeel"]
 texture = ExtResource("3_b4vcv")
@@ -184,6 +188,12 @@ sources/10 = SubResource("TileSetAtlasSource_teeel")
 sources/11 = SubResource("TileSetAtlasSource_iq6m0")
 sources/12 = SubResource("TileSetAtlasSource_6uno6")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iq6m0"]
+size = Vector2(76, 15)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6uno6"]
+radius = 23.537205
+
 [sub_resource type="Animation" id="Animation_od26d"]
 resource_name = "rumah-dennis-hujan"
 length = 0.40001002
@@ -208,9 +218,13 @@ _data = {
 }
 
 [node name="Halaman Rumah Dennis" type="Node2D"]
+z_as_relative = false
+y_sort_enabled = true
 script = ExtResource("1_b4vcv")
 
 [node name="Environment" type="Node2D" parent="."]
+z_as_relative = false
+y_sort_enabled = true
 
 [node name="TileMap" type="TileMap" parent="Environment"]
 tile_set = SubResource("TileSet_3c6lm")
@@ -226,8 +240,35 @@ layer_3/tile_data = PackedInt32Array(65547, 65544, 2, 65548, 65544, 2, 65549, 65
 layer_4/name = "adRoof"
 layer_4/tile_data = PackedInt32Array(65538, 8, 0, 131074, 8, 1, 65539, 65544, 0, 131075, 65544, 1, 65540, 65544, 0, 131076, 65544, 1, 65541, 65544, 0, 131077, 65544, 1, 65542, 65544, 0, 131078, 65544, 1, 65543, 65544, 0, 131079, 65544, 1, 65544, 65544, 0, 131080, 65544, 1, 65545, 65544, 0, 131081, 65544, 1, 65546, 65544, 0, 131082, 65544, 1, 196610, 8, 2, 196611, 65544, 2, 196612, 65544, 2, 196613, 65544, 2, 196614, 65544, 2, 196615, 65544, 2, 196616, 65544, 2, 196617, 65544, 2, 196618, 65544, 2, 2, 8, 1, 3, 65544, 1, 4, 65544, 1, 5, 65544, 1, 6, 65544, 1, 7, 65544, 1, 8, 65544, 1, 9, 65544, 1, 10, 65544, 1, 65547, 131080, 1, 131083, 131080, 1, 196619, 131080, 2, 11, 131080, 0)
 
+[node name="Cars2" type="StaticBody2D" parent="Environment"]
+z_as_relative = false
+y_sort_enabled = true
+position = Vector2(69, 163)
+script = ExtResource("9_aqsbk")
+npc_name = "Cars"
+idle_direction = "none"
+dialogue_file = "uid://bme01glh0utee"
+change_scene_after_dialogue = true
+next_scene = "uid://q601p60bw4dm"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Cars2"]
+z_as_relative = false
+y_sort_enabled = true
+position = Vector2(1, 3)
+shape = SubResource("RectangleShape2D_iq6m0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Cars2"]
+position = Vector2(0, -5)
+texture = ExtResource("10_3dgmd")
+
+[node name="InteractionArea" parent="Environment/Cars2" instance=ExtResource("11_teeel")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Cars2/InteractionArea"]
+shape = SubResource("CircleShape2D_6uno6")
+disabled = true
+
 [node name="Player" parent="." instance=ExtResource("7_r1owp")]
-position = Vector2(52, 127)
+position = Vector2(77, 152)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
@@ -259,4 +300,16 @@ libraries = {
 }
 autoplay = "rumah-dennis-hujan"
 
+[node name="Fade Transition2" parent="." instance=ExtResource("12_od26d")]
+visible = false
+z_index = 50
+offset_left = -20.0
+offset_top = -27.0
+offset_right = 337.0
+offset_bottom = 204.0
+
+[node name="Fade_timer" type="Timer" parent="Fade Transition2"]
+
+[editable path="Environment/Cars2/InteractionArea"]
 [editable path="Doors/Door_N"]
+[editable path="Fade Transition2"]

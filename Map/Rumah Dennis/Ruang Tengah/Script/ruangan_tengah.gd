@@ -2,13 +2,40 @@ extends Node2D
 
 @onready var tilemap = $Environment/TileMap  # Path ke TileMap Anda
 @onready var camera = $Player/Camera2D
+var quest_title_instance
 
 #Untuk navigasi ruangan harus menambahkan ini
 func _ready():
+	#State.current_subscene = "scene6"
+	State.current_room = "ruang tengah"
+	State.quest_bed_done = "not yet"
+	print(State.current_room) 
+	var quest_title = preload("res://UI/PlayingInterface/QuestTitle.tscn")
+	quest_title_instance = quest_title.instantiate()
+	add_child(quest_title_instance)
+	
+	if State.current_subscene == "scene4" and State.current_room == "kamar":
+		change_quest_title("Ke kasur")
+	elif State.current_subscene == "scene4" and State.current_room == "ruang tengah" :
+		change_quest_title("Masuk ke kamar")
+	elif State.current_subscene == "scene6" :
+		change_quest_title("Ke luar rumah")
+	
 	auto_setup_camera_from_tilemap()
 	if NavigationManager.spawn_door_tag != null:
 		_on_level_spawn(NavigationManager.spawn_door_tag)
-		
+
+func change_quest_title(new_title: String) -> void:
+	var should_animate = (
+		State.current_room == "kamar"
+		and State.current_subscene == "scene4"
+		and State.quest_title == "ke kamar"
+	)
+
+	quest_title_instance._update_quest_title(new_title, should_animate)
+
+
+
 func _on_level_spawn(destination_tag: String):
 	var door_path = "Doors/Door_" + destination_tag
 	var door = get_node(door_path) as Door

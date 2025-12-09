@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://bf4j7j848j4i8"]
+[gd_scene load_steps=44 format=3 uid="uid://bf4j7j848j4i8"]
 
 [ext_resource type="Texture2D" uid="uid://gcv7h7wdp5u2" path="res://Map/Kantor Polisi/Kantor Ruangan Dennis/Sprite/bookshelf.png" id="1_4e70m"]
 [ext_resource type="Texture2D" uid="uid://4bwb46sc6fd3" path="res://Map/Kantor Polisi/Kantor Main1/Sprite/door_topdown.png" id="1_h6ifv"]
@@ -18,6 +18,8 @@
 [ext_resource type="Texture2D" uid="uid://c18jcdkhdvymt" path="res://Map/Kantor Polisi/Kantor Ruangan Dennis/Sprite/Single_sofa.png" id="13_16c3i"]
 [ext_resource type="PackedScene" uid="uid://btbp42qa7duve" path="res://Player/player.tscn" id="14_ufvo4"]
 [ext_resource type="PackedScene" uid="uid://b6yrxvfy6uyiy" path="res://Map/Door/door.tscn" id="17_6wui8"]
+[ext_resource type="Script" uid="uid://diqitsd3imq4i" path="res://Map/Kantor Polisi/Kantor Ruangan Dennis/Script/table_dennis.gd" id="17_61bjf"]
+[ext_resource type="PackedScene" uid="uid://dky5l4bmp636h" path="res://Interaction Manager/Interaction Area/interaction_area.tscn" id="17_pe60m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pe60m"]
 texture = ExtResource("1_h6ifv")
@@ -296,6 +298,9 @@ size = Vector2(32, 46)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_arrcu"]
 size = Vector2(50, 23)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_udo3a"]
+size = Vector2(44, 32)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7n4i2"]
 size = Vector2(16, 32)
 
@@ -337,6 +342,8 @@ shape = SubResource("RectangleShape2D_bmtox")
 
 [node name="Table" type="StaticBody2D" parent="Environment"]
 position = Vector2(126, 95)
+script = ExtResource("17_61bjf")
+dialogue_file = "uid://f1cdv0535fix"
 
 [node name="Sprite2D" type="Sprite2D" parent="Environment/Table"]
 texture = ExtResource("10_3a8ob")
@@ -344,6 +351,12 @@ texture = ExtResource("10_3a8ob")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Table"]
 position = Vector2(-1, 3.5)
 shape = SubResource("RectangleShape2D_arrcu")
+
+[node name="InteractionArea" parent="Environment/Table" instance=ExtResource("17_pe60m")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Table/InteractionArea"]
+position = Vector2(-1, -6)
+shape = SubResource("RectangleShape2D_udo3a")
 
 [node name="Shelf" type="StaticBody2D" parent="Environment"]
 position = Vector2(150, 50)

@@ -16,10 +16,6 @@ extends StaticBody2D
 var dialogue_active: bool = false
 
 func _ready():
-	if State.current_subscene == "scene4":
-		$InteractionArea/CollisionShape2D.disabled = true
-	elif State.current_subscene == "scene6":
-		$InteractionArea/CollisionShape2D.disabled = false
 	# Setup interaction
 	if interaction_area and can_interact:
 		interaction_area.interact = Callable(self, "_talk")
@@ -55,18 +51,16 @@ func _talk():
 	)
 
 func _on_dialogue_finished(resource):
-	if State.current_subscene == "scene3":
-		State.current_subscene = "scene4"
-	if State.current_subscene == "scene6":
-		State.current_subscene = "scene7"
+	State.quest_bed_done = "done"
+	State.current_subscene = "scene6"
 	print("Dialog selesai dengan: ", npc_name)
 	var player = get_tree().get_first_node_in_group("player")
 	if player:
 		dialogue_active = false
 		player.can_move = true
 	
-	$"../../Fade Transition2/AnimationPlayer".play("fade_in")
-	
+	$"../Fade Transition2".visible = true
+	$"../Fade Transition2/AnimationPlayer".play("fade_in")
 	await get_tree().create_timer(1.0).timeout
 	if change_scene_after_dialogue and next_scene != "":
 		change_to_scene()

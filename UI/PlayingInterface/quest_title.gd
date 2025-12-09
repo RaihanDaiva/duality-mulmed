@@ -1,4 +1,4 @@
-extends Node2D
+extends CanvasLayer
 
 var quest_is_hidden: bool = true
 @export var quest_name: String = "Quest Name"
@@ -15,8 +15,10 @@ func _input(event) -> void:
 			quest_is_hidden = true
 			$AnimationPlayer.play("show_quest_title")
 
-func _update_quest_title(title: String):
+func _update_quest_title(title: String, anim: bool):
 	$Sprite2D/HBoxContainer/QuestName.text = title
 	
 	quest_is_hidden = true
-	$AnimationPlayer.play("show_quest_title")
+	
+	if anim:
+		$AnimationPlayer.play("show_quest_title")

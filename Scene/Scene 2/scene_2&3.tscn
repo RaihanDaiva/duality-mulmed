@@ -81,7 +81,7 @@ npc_name = "Cars"
 idle_direction = "none"
 dialogue_file = "uid://bp7c8sfcy1cev"
 change_scene_after_dialogue = true
-next_scene = "uid://536yq3s4ao4p"
+next_scene = "uid://yigihdb1ge7l"
 
 [node name="InteractionArea" parent="TKP 1 KP 1/Environment/Cars2" index="2" instance=ExtResource("3_4alwb")]
 

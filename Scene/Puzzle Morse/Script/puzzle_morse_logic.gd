@@ -9,7 +9,7 @@ extends Node2D
 @export var game_over_panel_path: NodePath
 
 # --- Puzzle configuration ---
-@export var correct_answer: String = "JAM"  # Jawaban yang benar
+@export var correct_answer: String = "A"  # Jawaban yang benar
 @export var hint_text: String = "Ada di dinding, menunjukkan waktu"
 @export_file("*.tscn") var next_scene: String = ""  # Scene selanjutnya setelah berhasil
 
@@ -143,6 +143,7 @@ func check_answer() -> void:
 
 # ---------------------------
 func on_correct_answer() -> void:
+	State.current_subscene = "scene3"
 	var puzzle_scene = get_parent()
 	puzzle_solved = true
 	State.puzzle_scene_2 = "done"

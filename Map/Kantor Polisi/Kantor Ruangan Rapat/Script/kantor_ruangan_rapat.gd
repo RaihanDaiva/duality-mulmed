@@ -9,6 +9,11 @@ func _ready():
 	if NavigationManager.spawn_door_tag != null:
 		_on_level_spawn(NavigationManager.spawn_door_tag)
 		
+	if State.quest_title == "rapat":
+		$NPC2.visible = true
+		$NPC3.visible = true
+		$Environment/Chair/InteractionArea/CollisionShape2D.disabled = false
+	
 func _on_level_spawn(destination_tag: String):
 	var door_path = "Doors/Door_" + destination_tag
 	var door = get_node(door_path) as Door
