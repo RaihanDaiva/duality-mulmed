@@ -9,9 +9,16 @@ extends Node2D
 @export var game_over_panel_path: NodePath
 
 # --- Puzzle configuration ---
-@export var correct_answer: Array[String] = ["JAM", "JEM", "JOM"]  # Jawaban yang benar
+@export var correct_answer = [
+	["JAM", "JEM", "JOM"],   # Puzzle Answer for progress 1 and so on...
+	["CI", "KO", "NENG"],
+	["JAM", "JEM", "JOM"],
+]
 @export var hint_text: String = "Ada di dinding, menunjukkan waktu"
 @export_file("*.tscn") var next_scene: String = ""  # Scene selanjutnya setelah berhasil
+
+# --- Global game state
+var puzzle_progress = 1 # Start at one. It will progresses everytime this node is interacted
 
 # --- Game state ---
 var attempts: int = 0
@@ -39,6 +46,7 @@ signal answer_wrong(remaining_attempts: int)
 
 # ---------------------------
 func _ready() -> void:
+	await get_tree().process_frame
 	# Resolve node references dari NodePath (jika diberikan)
 	if answer_input_path and answer_input_path != NodePath(""):
 		if has_node(answer_input_path):
@@ -65,7 +73,11 @@ func _ready() -> void:
 		player.can_move = false
 		player.direction = Vector2.ZERO
 		
-	var input_puzzle = preload("res://UI/PlayingInterface/puzzle_input.tscn")
+	
+	var clues = correct_answer[puzzle_progress]
+	#$"../Book Panel/FirstClue".text = "Clue #1: " + str(clues[0])
+	#$"../Book Panel/SecondClue".text = "Clue #2: " + str(clues[1])
+	#$"../Book Panel/ThirdClue".text = "Clue #3: " + str(clues[2])
 
 	setup_connections()
 	reset_puzzle()
@@ -131,7 +143,7 @@ func check_answer() -> void:
 		return
 
 	var player_answer = answer_input.text.strip_edges().to_upper()
-	var correct = correct_answer[level-1].strip_edges().to_upper()
+	var correct = correct_answer[puzzle_progress-1][level-1].strip_edges().to_upper()
 	print("PLAYER'S ANSWER: ", player_answer)
 	print("CORRECT ANSWER: ", correct)
 
@@ -176,12 +188,28 @@ func on_correct_answer() -> void:
 	match level:
 		1:
 			print("Clue 1 DONE")
+			$"../Book Panel/FirstClue".visible = true
 			level += 1
+			var move_answer_panel_delta = Vector2(0, 24) # Move the HAnswerContainer + 0 in x and +15 in y
+			move_answer_panel(move_answer_panel_delta)
+			_on_hide_show_book_pressed()
+			answer_input.text = ""
 		2:
 			print("Clue 2 DONE")
+			$"../Book Panel/SecondClue".visible = true
 			level += 1
+			var move_answer_panel_delta = Vector2(0, 24) # Move the HAnswerContainer + 0 in x and +15 in y
+			move_answer_panel(move_answer_panel_delta)
+			answer_input.text = ""
 		3:
 			print("Clue 3 DONE")
+			$"../Book Panel/ThirdClue".visible = true
+			var move_answer_panel_delta = Vector2(0, 24) # Move the HAnswerContainer + 0 in x and +15 in y
+			move_answer_panel(move_answer_panel_delta)
+			answer_input.text = ""
+			
+			await get_tree().create_timer(1).timeout
+			
 			# Jika ada node StartAnimation di parent (konvensi sebelumnya), coba mainkan
 			puzzle_solved = true
 			if get_parent() and get_parent().has_node("StartAnimation"):
@@ -323,3 +351,28 @@ func _on_hide_show_book_pressed() -> void:
 		isHidden = true
 		if get_parent() and get_parent().has_node("ShowBookAnimation"):
 			get_parent().get_node("ShowBookAnimation").play("show_book_animation")
+
+func move_answer_panel(delta: Vector2) -> void:
+	var anim_player: AnimationPlayer = $"../MoveAnswerPanelAnim"
+	var anim: Animation = anim_player.get_animation("move_answer_container")
+
+	# Debug prints
+	print("Number of Keyframes: ", anim.track_get_key_count(0))
+
+	# Get the 2nd keyframe (index 1)
+	var pos_value: Vector2 = anim.track_get_key_value(0, 1)
+	print("Before changing the position value: ", pos_value)
+
+	# Apply delta
+	pos_value += delta
+
+	# Write new keyframe value
+	anim.track_set_key_value(0, 1, pos_value)
+	print("After changing the position value: ", pos_value)
+
+	# Play animation
+	anim_player.play("move_answer_container")
+	await anim_player.animation_finished
+	
+	# Set 1st keyframe after moving
+	anim.track_set_key_value(0, 0, pos_value)

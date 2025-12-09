@@ -19,9 +19,11 @@ config/icon="res://icon.svg"
 
 InteractionManager="*res://Interaction Manager/InteractionManager.tscn"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+SceneManager="res://Map/scene_manager.gd"
 NavigationManager="*res://Navigation Manager/navigation_manager.gd"
 State="*res://State Manager/state.gd"
 Hud="*res://HUD/Script/hud.gd"
+PuzzleMorseLogic="*res://Scene/Puzzle Morse/Script/puzzle_morse_logic.gd"
 
 [dialogue_manager]
 

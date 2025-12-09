@@ -1,10 +1,11 @@
-[gd_scene load_steps=23 format=3 uid="uid://c40dflflmaxk8"]
+[gd_scene load_steps=27 format=3 uid="uid://c40dflflmaxk8"]
 
 [ext_resource type="Script" uid="uid://c68drisu4h31a" path="res://Scene/Puzzle Morse/Script/puzzle_morse_logic.gd" id="1_njstn"]
 [ext_resource type="Texture2D" uid="uid://blw3dhacitx63" path="res://Scene/Puzzle Morse/Sprite/puzzle-sprite.png" id="2_5xcd0"]
 [ext_resource type="Texture2D" uid="uid://b020asigd3tlc" path="res://Scene/Puzzle Morse/Sprite/puzzle-phone.png" id="2_iukj3"]
 [ext_resource type="Texture2D" uid="uid://dr17t812f4qle" path="res://Scene/Puzzle Morse/Sprite/puzzle-file.png" id="2_npkbb"]
 [ext_resource type="Texture2D" uid="uid://d137lbe5b1dq0" path="res://Scene/Puzzle Morse/Sprite/puzzle-book.png" id="4_npkbb"]
+[ext_resource type="Script" uid="uid://bbbuswcn84smb" path="res://Scene/Puzzle Morse/book_panel.gd" id="5_ip43j"]
 [ext_resource type="Texture2D" uid="uid://c5ta84htpf7pi" path="res://Scene/Puzzle Morse/Sprite/puzzle-title.png" id="6_1iegc"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1iegc"]
@@ -323,6 +324,43 @@ _data = {
 &"RESET": SubResource("Animation_4alwb")
 }
 
+[sub_resource type="Animation" id="Animation_yi4ij"]
+resource_name = "move_answer_container"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Book Panel/HAnswerContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [Vector2(-1, 35.999992), Vector2(-1, 36)]
+}
+
+[sub_resource type="Animation" id="Animation_v4shi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Book Panel/HAnswerContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, 35.999992)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n0qce"]
+_data = {
+&"RESET": SubResource("Animation_v4shi"),
+&"move_answer_container": SubResource("Animation_yi4ij")
+}
+
 [node name="Puzzle Morse" type="Control" groups=["puzzle_morse"]]
 z_index = 50
 layout_mode = 3
@@ -393,6 +431,7 @@ offset_top = 150.0
 offset_right = 311.0
 offset_bottom = 222.00035
 theme_override_styles/panel = SubResource("StyleBoxFlat_npkbb")
+script = ExtResource("5_ip43j")
 
 [node name="HideShowBook" type="Button" parent="Book Panel"]
 layout_mode = 0
@@ -465,6 +504,39 @@ offset_top = 153.0
 offset_right = 311.0
 offset_bottom = 161.0
 
+[node name="FirstClue" type="Label" parent="Book Panel"]
+visible = false
+layout_mode = 0
+offset_left = -1.0
+offset_top = 39.0
+offset_right = 95.0
+offset_bottom = 53.0
+theme_override_colors/font_color = Color(0.083, 0.07000001, 0.2, 1)
+theme_override_font_sizes/font_size = 10
+text = "Clue #1: Jam"
+
+[node name="SecondClue" type="Label" parent="Book Panel"]
+visible = false
+layout_mode = 0
+offset_left = -1.0
+offset_top = 63.0
+offset_right = 95.0
+offset_bottom = 77.0
+theme_override_colors/font_color = Color(0.083, 0.07000001, 0.2, 1)
+theme_override_font_sizes/font_size = 10
+text = "Clue #1: Jam"
+
+[node name="ThirdClue" type="Label" parent="Book Panel"]
+visible = false
+layout_mode = 0
+offset_left = -1.0
+offset_top = 87.0
+offset_right = 95.0
+offset_bottom = 101.0
+theme_override_colors/font_color = Color(0.083, 0.07000001, 0.2, 1)
+theme_override_font_sizes/font_size = 10
+text = "Clue #1: Jam"
+
 [node name="Title" type="Sprite2D" parent="."]
 position = Vector2(56, 16)
 texture = ExtResource("6_1iegc")
@@ -512,6 +584,11 @@ metadata/_edit_use_anchors_ = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Objective"]
 libraries = {
 &"": SubResource("AnimationLibrary_ijets")
+}
+
+[node name="MoveAnswerPanelAnim" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_n0qce")
 }
 
 [connection signal="pressed" from="Book Panel/HideShowBook" to="Puzzle Morse Logic" method="_on_hide_show_book_pressed"]
