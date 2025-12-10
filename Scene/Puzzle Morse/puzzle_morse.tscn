@@ -1,23 +1,27 @@
-[gd_scene load_steps=41 format=3 uid="uid://c40dflflmaxk8"]
+[gd_scene load_steps=59 format=3 uid="uid://c40dflflmaxk8"]
 
 [ext_resource type="Script" uid="uid://c68drisu4h31a" path="res://Scene/Puzzle Morse/Script/puzzle_morse_logic.gd" id="1_njstn"]
 [ext_resource type="Texture2D" uid="uid://blw3dhacitx63" path="res://Scene/Puzzle Morse/Sprite/puzzle-sprite.png" id="2_5xcd0"]
 [ext_resource type="Texture2D" uid="uid://b020asigd3tlc" path="res://Scene/Puzzle Morse/Sprite/puzzle-phone.png" id="2_iukj3"]
 [ext_resource type="Texture2D" uid="uid://dr17t812f4qle" path="res://Scene/Puzzle Morse/Sprite/puzzle-file.png" id="2_npkbb"]
+[ext_resource type="Texture2D" uid="uid://rhuvqrv8ic4v" path="res://Scene/Puzzle Morse/Sprite/battery-100.png" id="4_n0qce"]
 [ext_resource type="Texture2D" uid="uid://d137lbe5b1dq0" path="res://Scene/Puzzle Morse/Sprite/puzzle-book.png" id="4_npkbb"]
 [ext_resource type="Script" uid="uid://bbbuswcn84smb" path="res://Scene/Puzzle Morse/book_panel.gd" id="5_ip43j"]
+[ext_resource type="Texture2D" uid="uid://c3oolhhbrg45" path="res://Scene/Puzzle Morse/Sprite/battery-75.png" id="5_lbaaj"]
 [ext_resource type="Texture2D" uid="uid://c5ta84htpf7pi" path="res://Scene/Puzzle Morse/Sprite/puzzle-title.png" id="6_1iegc"]
 [ext_resource type="Texture2D" uid="uid://ce6jx5b845sav" path="res://UI/Assets/show-hide-arrow.png" id="6_pu3lc"]
+[ext_resource type="Texture2D" uid="uid://e17wiot6rp2b" path="res://Scene/Puzzle Morse/Sprite/battery-50.png" id="6_scoib"]
+[ext_resource type="Texture2D" uid="uid://c55rxkckhpf2b" path="res://Scene/Puzzle Morse/Sprite/battery-25-export.png" id="7_scoib"]
+[ext_resource type="Texture2D" uid="uid://hjok6vskf31n" path="res://Scene/Puzzle Morse/Sprite/battery-0.png" id="8_5jmm6"]
 [ext_resource type="Texture2D" uid="uid://ccn6bjwi110ss" path="res://UI/Assets/checkbox-null.png" id="8_6ymj8"]
 [ext_resource type="Texture2D" uid="uid://yi3kxpsxux1f" path="res://UI/Assets/answer-container.png" id="8_736qf"]
 [ext_resource type="Texture2D" uid="uid://b4n10w48afvtm" path="res://UI/Assets/pencil.png" id="8_v4shi"]
+[ext_resource type="Texture2D" uid="uid://dtf32rfpdmn84" path="res://Scene/Puzzle Morse/Sprite/battery-charge.png" id="9_nl58u"]
 [ext_resource type="Texture2D" uid="uid://mkx8x4618i4t" path="res://UI/Assets/checkbox-true.png" id="9_ti5iq"]
 [ext_resource type="Texture2D" uid="uid://dy417o1kyai0j" path="res://UI/Assets/checkbox-false.png" id="10_yi4ij"]
+[ext_resource type="Texture2D" uid="uid://dbbpf0bnieskd" path="res://Scene/Puzzle Morse/Sprite/puzzle-phone-on.png" id="13_gdirq"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1iegc"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5png1"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iukj3"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -27,6 +31,116 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yi4ij"]
 bg_color = Color(0.8, 0.63706666, 0.424, 0.46666667)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5png1"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nl58u"]
+
+[sub_resource type="Animation" id="Animation_ijets"]
+resource_name = "LabelEndAnimation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.53333336),
+"transitions": PackedFloat32Array(0.349, 1),
+"update": 0,
+"values": [Vector2(56, 16), Vector2(-54.615, 16)]
+}
+
+[sub_resource type="Animation" id="Animation_nefi2"]
+resource_name = "LabelStartAnimation"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.53333336),
+"transitions": PackedFloat32Array(0.349, 1),
+"update": 0,
+"values": [Vector2(-54.13, 16), Vector2(56, 16)]
+}
+
+[sub_resource type="Animation" id="Animation_4alwb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(56, 16)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ijets"]
+_data = {
+&"LabelEndAnimation": SubResource("Animation_ijets"),
+&"LabelStartAnimation": SubResource("Animation_nefi2"),
+&"RESET": SubResource("Animation_4alwb")
+}
+
+[sub_resource type="Animation" id="Animation_bl12v"]
+resource_name = "phone_on"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PhoneOn:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_06fke"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PhoneOn:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_fres6"]
+resource_name = "phone_off"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PhoneOn:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_06fke"]
+_data = {
+&"RESET": SubResource("Animation_06fke"),
+&"phone_off": SubResource("Animation_fres6"),
+&"phone_on": SubResource("Animation_bl12v")
+}
 
 [sub_resource type="Animation" id="Animation_ip43j"]
 length = 0.001
@@ -316,59 +430,6 @@ _data = {
 &"show_book_animation": SubResource("Animation_pu3lc")
 }
 
-[sub_resource type="Animation" id="Animation_ijets"]
-resource_name = "LabelEndAnimation"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Title:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.53333336),
-"transitions": PackedFloat32Array(0.349, 1),
-"update": 0,
-"values": [Vector2(56, 16), Vector2(-54.615, 16)]
-}
-
-[sub_resource type="Animation" id="Animation_nefi2"]
-resource_name = "LabelStartAnimation"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Title:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.53333336),
-"transitions": PackedFloat32Array(0.349, 1),
-"update": 0,
-"values": [Vector2(-54.13, 16), Vector2(56, 16)]
-}
-
-[sub_resource type="Animation" id="Animation_4alwb"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Title:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(56, 16)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ijets"]
-_data = {
-&"LabelEndAnimation": SubResource("Animation_ijets"),
-&"LabelStartAnimation": SubResource("Animation_nefi2"),
-&"RESET": SubResource("Animation_4alwb")
-}
-
 [sub_resource type="Animation" id="Animation_v4shi"]
 length = 0.001
 tracks/0/type = "value"
@@ -654,6 +715,142 @@ _data = {
 &"wrong_answer": SubResource("Animation_nl58u")
 }
 
+[sub_resource type="Animation" id="Animation_0qn4g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Phone Panel/charge-animation:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Phone Panel/charge-animation:scale:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Phone Panel/BatteryPanel:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_17pk2"]
+resource_name = "charge_animation-end"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Phone Panel/charge-animation:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Phone Panel/charge-animation:scale:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [1.0, 1e-05]
+}
+
+[sub_resource type="Animation" id="Animation_gdirq"]
+resource_name = "BatteryAnimation"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Phone Panel/charge-animation:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.2, 0.26666668, 0.33333334, 0.4, 0.46666667, 0.53333336, 0.6, 0.6666667, 0.73333335, 0.8, 0.8666667, 0.93333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [null, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+}
+
+[sub_resource type="Animation" id="Animation_ql585"]
+resource_name = "charging_animation-start"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Phone Panel/charge-animation:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Phone Panel/charge-animation:scale:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_2b156"]
+resource_name = "battery-decrease"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Phone Panel/BatteryPanel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.1, 0.16666667, 0.23333333, 0.5),
+"transitions": PackedFloat32Array(1, 0.5, 0.5, 0.5, 0.5, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(5, 0), Vector2(-5, 0), Vector2(2, 0), Vector2(-2, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ql585"]
+_data = {
+&"RESET": SubResource("Animation_0qn4g"),
+&"battery-decrease": SubResource("Animation_2b156"),
+&"charging_animation-end": SubResource("Animation_17pk2"),
+&"charging_animation-loop": SubResource("Animation_gdirq"),
+&"charging_animation-start": SubResource("Animation_ql585")
+}
+
 [node name="Puzzle Morse" type="Control" groups=["puzzle_morse"]]
 z_index = 50
 layout_mode = 3
@@ -665,8 +862,8 @@ answer_input_path = NodePath("../Book Panel/HAnswerContainer/Answer Input")
 submit_button_path = NodePath("../Book Panel/HAnswerContainer/Submit Btn")
 hint_button_path = NodePath("../Book Panel/Hint Btn")
 feedback_label_path = NodePath("../Book Panel/Feedback Label")
-retry_button_path = NodePath("../Book Panel/Game Over Panel/Retry Btn")
-game_over_panel_path = NodePath("../Book Panel/Game Over Panel")
+retry_button_path = NodePath("../Phone Panel/Game Over Panel/Retry Btn")
+game_over_panel_path = NodePath("../Phone Panel/Game Over Panel")
 
 [node name="File Panel" type="Panel" parent="."]
 layout_mode = 0
@@ -688,19 +885,6 @@ offset_bottom = 22.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 10
 text = "Clue #1"
-
-[node name="Phone Panel" type="Panel" parent="."]
-layout_mode = 0
-offset_top = 33.0
-offset_right = 88.0
-offset_bottom = 176.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_5png1")
-
-[node name="Sprite2D" type="Sprite2D" parent="Phone Panel"]
-position = Vector2(45, 71)
-texture = ExtResource("2_iukj3")
-region_enabled = true
-region_rect = Rect2(5, 4, 70, 137)
 
 [node name="Paper Panel" type="Panel" parent="."]
 layout_mode = 0
@@ -798,28 +982,6 @@ offset_top = -103.0
 offset_right = 102.565216
 offset_bottom = -86.0
 theme_override_font_sizes/font_size = 8
-
-[node name="Game Over Panel" type="Control" parent="Book Panel"]
-visible = false
-anchors_preset = 0
-offset_left = -126.0
-offset_top = -96.0
-offset_right = 194.0
-offset_bottom = 84.0
-
-[node name="Game Over Label" type="Label" parent="Book Panel/Game Over Panel"]
-layout_mode = 0
-offset_left = 136.0
-offset_top = 71.0
-offset_right = 176.0
-offset_bottom = 94.0
-
-[node name="Retry Btn" type="Button" parent="Book Panel/Game Over Panel"]
-layout_mode = 0
-offset_left = 303.0
-offset_top = 153.0
-offset_right = 311.0
-offset_bottom = 161.0
 
 [node name="FirstClueSprite" type="Sprite2D" parent="Book Panel"]
 position = Vector2(39, 43)
@@ -932,6 +1094,93 @@ theme_override_colors/font_color = Color(0.12941177, 0.1254902, 0.1254902, 1)
 theme_override_font_sizes/font_size = 8
 text = "Clue #3"
 
+[node name="Phone Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_top = 33.0
+offset_right = 88.0
+offset_bottom = 176.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_5png1")
+
+[node name="Game Over Panel" type="Control" parent="Phone Panel"]
+visible = false
+anchors_preset = 0
+offset_left = -29.0
+offset_top = -21.0
+offset_right = 291.0
+offset_bottom = 159.0
+
+[node name="Game Over Label" type="Label" parent="Phone Panel/Game Over Panel"]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 71.0
+offset_right = 176.0
+offset_bottom = 94.0
+
+[node name="Retry Btn" type="Button" parent="Phone Panel/Game Over Panel"]
+z_index = 2
+layout_mode = 0
+offset_left = 37.0
+offset_top = 148.0
+offset_right = 101.0
+offset_bottom = 164.0
+
+[node name="Label" type="Label" parent="Phone Panel/Game Over Panel/Retry Btn"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 2.0
+offset_right = 48.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 8
+text = "Isi ulang"
+
+[node name="Sprite2D" type="Sprite2D" parent="Phone Panel"]
+position = Vector2(45, 71)
+texture = ExtResource("2_iukj3")
+region_enabled = true
+region_rect = Rect2(5, 4, 70, 137)
+
+[node name="PhoneOn" type="Sprite2D" parent="Phone Panel"]
+position = Vector2(45, 71)
+texture = ExtResource("13_gdirq")
+
+[node name="charge-animation" type="Sprite2D" parent="Phone Panel"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(48, 135)
+texture = ExtResource("9_nl58u")
+hframes = 15
+
+[node name="BatteryPanel" type="Panel" parent="Phone Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_nl58u")
+
+[node name="Battery100" type="Sprite2D" parent="Phone Panel/BatteryPanel"]
+position = Vector2(40, 135)
+texture = ExtResource("4_n0qce")
+
+[node name="Battery75" type="Sprite2D" parent="Phone Panel/BatteryPanel"]
+visible = false
+position = Vector2(40, 135)
+texture = ExtResource("5_lbaaj")
+
+[node name="Battery50" type="Sprite2D" parent="Phone Panel/BatteryPanel"]
+visible = false
+position = Vector2(40, 135)
+texture = ExtResource("6_scoib")
+
+[node name="Battery25" type="Sprite2D" parent="Phone Panel/BatteryPanel"]
+visible = false
+position = Vector2(40, 135)
+texture = ExtResource("7_scoib")
+
+[node name="Battery0" type="Sprite2D" parent="Phone Panel/BatteryPanel"]
+visible = false
+position = Vector2(40, 135)
+texture = ExtResource("8_5jmm6")
+
+[node name="ChargeBatteryTimer" type="Timer" parent="Phone Panel"]
+
 [node name="Title" type="Sprite2D" parent="."]
 position = Vector2(56, 16)
 texture = ExtResource("6_1iegc")
@@ -945,17 +1194,6 @@ theme_override_colors/font_color = Color(0.8117647, 0.78431374, 0.62352943, 1)
 theme_override_font_sizes/font_size = 9
 text = "Selesaikan Teka-Teki!"
 metadata/_edit_use_anchors_ = true
-
-[node name="StartAnimation" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_pu3lc")
-}
-autoplay = "puzzleStartAnimate"
-
-[node name="ShowBookAnimation" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_6ymj8")
-}
 
 [node name="Objective" type="Node2D" parent="."]
 visible = false
@@ -981,6 +1219,23 @@ libraries = {
 &"": SubResource("AnimationLibrary_ijets")
 }
 
+[node name="PhoneAnimation" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Phone Panel")
+libraries = {
+&"": SubResource("AnimationLibrary_06fke")
+}
+
+[node name="StartAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_pu3lc")
+}
+autoplay = "puzzleStartAnimate"
+
+[node name="ShowBookAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_6ymj8")
+}
+
 [node name="MoveAnswerPanelAnim" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_n0qce")
@@ -991,8 +1246,15 @@ libraries = {
 &"": SubResource("AnimationLibrary_lbaaj")
 }
 
+[node name="BatteryAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ql585")
+}
+autoplay = "charging_animation-loop"
+
 [connection signal="mouse_entered" from="Book Panel/HideShowBook" to="Puzzle Morse Logic" method="_on_hide_show_book_mouse_entered"]
 [connection signal="mouse_exited" from="Book Panel/HideShowBook" to="Puzzle Morse Logic" method="_on_hide_show_book_mouse_exited"]
 [connection signal="pressed" from="Book Panel/HideShowBook" to="Puzzle Morse Logic" method="_on_hide_show_book_pressed"]
 [connection signal="mouse_entered" from="Book Panel/HAnswerContainer/Submit Btn" to="Puzzle Morse Logic" method="_on_submit_btn_mouse_entered"]
 [connection signal="mouse_exited" from="Book Panel/HAnswerContainer/Submit Btn" to="Puzzle Morse Logic" method="_on_submit_btn_mouse_exited"]
+[connection signal="timeout" from="Phone Panel/ChargeBatteryTimer" to="Puzzle Morse Logic" method="_on_charge_battery_timer_timeout"]

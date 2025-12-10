@@ -22,7 +22,7 @@ var puzzle_progress = 1	 # Start at one. It will progresses everytime this node 
 
 # --- Game state ---
 var attempts: int = 0
-var max_attempts: int = 3
+var max_attempts: int = 4
 var hint_used: bool = false
 var puzzle_solved: bool = false
 var level: int = 1
@@ -43,6 +43,12 @@ signal puzzle_completed()
 signal puzzle_failed()
 signal answer_correct()
 signal answer_wrong(remaining_attempts: int)
+
+# --- Battery Charge variable ---
+var total_time := 10.0       # change to 30.0, 4.0, etc.
+var elapsed_time := 0.0
+var battery_value := 4
+@onready var battery_timer = $"../Phone Panel/ChargeBatteryTimer"
 
 # ---------------------------
 func _ready() -> void:
@@ -74,11 +80,6 @@ func _ready() -> void:
 		player.can_move = true
 		player.direction = Vector2.ZERO
 		
-	
-	var clues = correct_answer[puzzle_progress]
-	#$"../Book Panel/FirstClue".text = "Clue #1: " + str(clues[0])
-	#$"../Book Panel/SecondClue".text = "Clue #2: " + str(clues[1])
-	#$"../Book Panel/ThirdClue".text = "Clue #3: " + str(clues[2])
 
 	setup_connections()
 	reset_puzzle()
@@ -158,8 +159,6 @@ func check_answer() -> void:
 	if player_answer.is_empty():
 		show_feedback("Masukkan jawaban terlebih dahulu!")
 		return
-
-	attempts += 1
 
 	if player_answer == correct:
 		print("PLAYER INPUT: CORRECT")
@@ -254,9 +253,12 @@ func on_correct_answer() -> void:
 
 # ---------------------------
 func on_wrong_answer() -> void:
-	var remaining = max_attempts - attempts
-	#$"../UIAnimations".play("wrong_answer")
-	#await $"../UIAnimations".animation_finished
+	var remaining = max_attempts
+	if $"../Phone Panel/ChargeBatteryTimer".is_stopped():
+		attempts += 1
+		remaining = max_attempts - attempts
+		set_battery(remaining)
+		$"../BatteryAnimation".play("battery-decrease")
 	
 	var tween = create_tween()
 	var tween_alpha = create_tween()
@@ -288,6 +290,7 @@ func on_wrong_answer() -> void:
 
 # ---------------------------
 func on_game_over() -> void:
+	$"../PhoneAnimation".play("phone_off")
 	puzzle_solved = true
 
 	show_feedback("GAME OVER!")
@@ -331,6 +334,14 @@ func _on_hint_pressed() -> void:
 func _on_retry_pressed() -> void:
 	# Reset dan lock kembali player (karena puzzle muncul ulang)
 	reset_puzzle()
+	
+	battery_value = 4
+	elapsed_time = 0.0
+	# Start timer
+	battery_timer.start()
+	$"../BatteryAnimation".play("RESET")
+	$"../BatteryAnimation".play("charging_animation-start")
+	$"../BatteryAnimation".queue("charging_animation-loop")
 	var player = _get_player()
 	if player:
 		player.can_move = false
@@ -424,3 +435,62 @@ func _on_submit_btn_mouse_entered() -> void:
 
 func _on_submit_btn_mouse_exited() -> void:
 	$"../UIAnimations".play("submit_hover_out")
+
+func set_battery(battery_remaining):
+	match battery_remaining:
+		4:
+			$"../Phone Panel/BatteryPanel/Battery100".visible = true
+			$"../Phone Panel/BatteryPanel/Battery75".visible = false
+			$"../Phone Panel/BatteryPanel/Battery50".visible = false
+			$"../Phone Panel/BatteryPanel/Battery25".visible = false
+			$"../Phone Panel/BatteryPanel/Battery0".visible = false
+		3:
+			$"../Phone Panel/BatteryPanel/Battery100".visible = false
+			$"../Phone Panel/BatteryPanel/Battery75".visible = true
+			$"../Phone Panel/BatteryPanel/Battery50".visible = false
+			$"../Phone Panel/BatteryPanel/Battery25".visible = false
+			$"../Phone Panel/BatteryPanel/Battery0".visible = false
+		2:
+			$"../Phone Panel/BatteryPanel/Battery100".visible = false
+			$"../Phone Panel/BatteryPanel/Battery75".visible = false
+			$"../Phone Panel/BatteryPanel/Battery50".visible = true
+			$"../Phone Panel/BatteryPanel/Battery25".visible = false
+			$"../Phone Panel/BatteryPanel/Battery0".visible = false
+		1:
+			$"../Phone Panel/BatteryPanel/Battery100".visible = false
+			$"../Phone Panel/BatteryPanel/Battery75".visible = false
+			$"../Phone Panel/BatteryPanel/Battery50".visible = false
+			$"../Phone Panel/BatteryPanel/Battery25".visible = true
+			$"../Phone Panel/BatteryPanel/Battery0".visible = false
+		0:
+			$"../Phone Panel/BatteryPanel/Battery100".visible = false
+			$"../Phone Panel/BatteryPanel/Battery75".visible = false
+			$"../Phone Panel/BatteryPanel/Battery50".visible = false
+			$"../Phone Panel/BatteryPanel/Battery25".visible = false
+			$"../Phone Panel/BatteryPanel/Battery0".visible = true
+	pass
+
+
+func _on_charge_battery_timer_timeout() -> void:
+	elapsed_time += battery_timer.wait_time   # usually +1 second
+
+	var ratio := elapsed_time / total_time    # 0.0 → 1.0 (0% → 100%)
+
+	# Change battery based on percentage
+	if ratio >= 1.0:
+		battery_value = 4
+		set_battery(battery_value)
+		battery_timer.stop()
+		$"../BatteryAnimation".play("charging_animation-end")
+		$"../PhoneAnimation".play("phone_on")
+		return
+	elif ratio >= 0.75:
+		battery_value = 3
+	elif ratio >= 0.50:
+		battery_value = 2
+	elif ratio >= 0.25:
+		battery_value = 1
+	else:
+		battery_value = 0
+
+	set_battery(battery_value)
