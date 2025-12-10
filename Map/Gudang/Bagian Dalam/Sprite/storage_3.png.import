@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8befh3fo08x5"
-path="res://.godot/imported/box.png-5a2993efd3c6eea223aa7b201c8920e1.ctex"
+uid="uid://b8hqllvwjs61b"
+path="res://.godot/imported/storage_3.png-3373460921cb23a2b07c2db64ddf2561.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Map/Gudang/Sprite/box.png"
-dest_files=["res://.godot/imported/box.png-5a2993efd3c6eea223aa7b201c8920e1.ctex"]
+source_file="res://Map/Gudang/Bagian Dalam/Sprite/storage_3.png"
+dest_files=["res://.godot/imported/storage_3.png-3373460921cb23a2b07c2db64ddf2561.ctex"]
 
 [params]
 

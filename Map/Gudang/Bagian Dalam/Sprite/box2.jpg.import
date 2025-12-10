@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c38pv1hq82dof"
-path="res://.godot/imported/forklift.png-3ea38c2e4c4d6c506b85a0c84c3622f4.ctex"
+uid="uid://dwi87gqbjyyoc"
+path="res://.godot/imported/box2.jpg-6018fd0a7b00882c0634ceedef2da9e7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Map/Gudang/Sprite/forklift.png"
-dest_files=["res://.godot/imported/forklift.png-3ea38c2e4c4d6c506b85a0c84c3622f4.ctex"]
+source_file="res://Map/Gudang/Bagian Dalam/Sprite/box2.jpg"
+dest_files=["res://.godot/imported/box2.jpg-6018fd0a7b00882c0634ceedef2da9e7.ctex"]
 
 [params]
 

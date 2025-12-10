@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6d4j4dolgmpj"
-path="res://.godot/imported/Wooden_rack.png-c5979ee3960b34695943fb737a5cb8e2.ctex"
+uid="uid://c4g4ydqf1s2lh"
+path="res://.godot/imported/Wall_edge_left.png-716f05aaf74b33dfd80d46979e01b5a9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Map/Gudang/Sprite/Wooden_rack.png"
-dest_files=["res://.godot/imported/Wooden_rack.png-c5979ee3960b34695943fb737a5cb8e2.ctex"]
+source_file="res://Map/Gudang/Bagian Luar/Sprite/Wall_edge_left.png"
+dest_files=["res://.godot/imported/Wall_edge_left.png-716f05aaf74b33dfd80d46979e01b5a9.ctex"]
 
 [params]
 

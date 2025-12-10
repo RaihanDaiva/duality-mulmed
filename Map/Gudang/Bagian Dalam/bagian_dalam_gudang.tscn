@@ -1,22 +1,23 @@
-[gd_scene load_steps=37 format=3 uid="uid://bocvx72mlvc1h"]
+[gd_scene load_steps=39 format=3 uid="uid://bocvx72mlvc1h"]
 
-[ext_resource type="Texture2D" uid="uid://dk0q3s3206ffo" path="res://Map/Gudang/Sprite/Broken_wall.png" id="2_eatkx"]
-[ext_resource type="Texture2D" uid="uid://bfn3pynajjtkg" path="res://Map/Gudang/Sprite/storage_4.png" id="3_n765f"]
-[ext_resource type="Texture2D" uid="uid://dpkaqckxtoy7m" path="res://Map/Gudang/Sprite/wall_edge.png" id="4_01m7o"]
-[ext_resource type="Texture2D" uid="uid://b8awvldwbs548" path="res://Map/Gudang/Sprite/Wall_topdown.png" id="5_cy143"]
-[ext_resource type="Texture2D" uid="uid://6d4j4dolgmpj" path="res://Map/Gudang/Sprite/Wooden_rack.png" id="6_32t14"]
-[ext_resource type="Texture2D" uid="uid://1pb1j82sq5ys" path="res://Map/Gudang/Sprite/bunch_wooden_rack.png" id="7_5hflf"]
-[ext_resource type="Texture2D" uid="uid://b8befh3fo08x5" path="res://Map/Gudang/Sprite/box.png" id="7_eatkx"]
-[ext_resource type="Texture2D" uid="uid://dwi87gqbjyyoc" path="res://Map/Gudang/Sprite/box2.jpg" id="8_01m7o"]
-[ext_resource type="Texture2D" uid="uid://cdblh2lsce6eb" path="res://Map/Gudang/Sprite/door_topdown.png" id="8_ssqdp"]
-[ext_resource type="Texture2D" uid="uid://b1y5fkbr23tcg" path="res://Map/Gudang/Sprite/feet.png" id="9_47p2y"]
-[ext_resource type="Texture2D" uid="uid://v023bky3ua2t" path="res://Map/Gudang/Sprite/Floor.png" id="10_i7c88"]
-[ext_resource type="Texture2D" uid="uid://c38pv1hq82dof" path="res://Map/Gudang/Sprite/forklift.png" id="11_4fnjw"]
-[ext_resource type="Texture2D" uid="uid://d062apiw6gcmq" path="res://Map/Gudang/Sprite/storage_1.png" id="12_sii1i"]
-[ext_resource type="Texture2D" uid="uid://dgklweceypyew" path="res://Map/Gudang/Sprite/storage_2.png" id="13_gf1oa"]
-[ext_resource type="Texture2D" uid="uid://b8hqllvwjs61b" path="res://Map/Gudang/Sprite/storage_3.png" id="14_qxfev"]
-[ext_resource type="PackedScene" uid="uid://btbp42qa7duve" path="res://Player/player.tscn" id="15_hprcx"]
-[ext_resource type="PackedScene" uid="uid://b6yrxvfy6uyiy" path="res://Map/Door/door.tscn" id="16_vpxyd"]
+[ext_resource type="Script" uid="uid://ccqf0uinkgsbi" path="res://Map/Gudang/Bagian Dalam/Script/bagian_dalam_gudang.gd" id="1_gf7st"]
+[ext_resource type="Texture2D" uid="uid://dk0q3s3206ffo" path="res://Map/Gudang/Bagian Dalam/Sprite/Broken_wall.png" id="1_oyesb"]
+[ext_resource type="Texture2D" uid="uid://bfn3pynajjtkg" path="res://Map/Gudang/Bagian Dalam/Sprite/storage_4.png" id="2_sk5yn"]
+[ext_resource type="Texture2D" uid="uid://dpkaqckxtoy7m" path="res://Map/Gudang/Bagian Dalam/Sprite/wall_edge.png" id="3_gn1og"]
+[ext_resource type="Texture2D" uid="uid://b8awvldwbs548" path="res://Map/Gudang/Bagian Dalam/Sprite/Wall_topdown.png" id="4_in68f"]
+[ext_resource type="Texture2D" uid="uid://6d4j4dolgmpj" path="res://Map/Gudang/Bagian Dalam/Sprite/Wooden_rack.png" id="5_6pt0w"]
+[ext_resource type="Texture2D" uid="uid://dwi87gqbjyyoc" path="res://Map/Gudang/Bagian Dalam/Sprite/box2.jpg" id="6_6t7k0"]
+[ext_resource type="Texture2D" uid="uid://b8befh3fo08x5" path="res://Map/Gudang/Bagian Dalam/Sprite/box.png" id="7_ydo63"]
+[ext_resource type="Texture2D" uid="uid://1pb1j82sq5ys" path="res://Map/Gudang/Bagian Dalam/Sprite/bunch_wooden_rack.png" id="8_rnlgq"]
+[ext_resource type="Texture2D" uid="uid://cdblh2lsce6eb" path="res://Map/Gudang/Bagian Dalam/Sprite/door_topdown.png" id="9_js0cq"]
+[ext_resource type="Texture2D" uid="uid://b1y5fkbr23tcg" path="res://Map/Gudang/Bagian Dalam/Sprite/feet.png" id="10_a2t7c"]
+[ext_resource type="Texture2D" uid="uid://v023bky3ua2t" path="res://Map/Gudang/Bagian Dalam/Sprite/Floor.png" id="11_yhnf6"]
+[ext_resource type="Texture2D" uid="uid://c38pv1hq82dof" path="res://Map/Gudang/Bagian Dalam/Sprite/forklift.png" id="12_7xyii"]
+[ext_resource type="Texture2D" uid="uid://d062apiw6gcmq" path="res://Map/Gudang/Bagian Dalam/Sprite/storage_1.png" id="13_6qhbx"]
+[ext_resource type="Texture2D" uid="uid://dgklweceypyew" path="res://Map/Gudang/Bagian Dalam/Sprite/storage_2.png" id="14_skew5"]
+[ext_resource type="Texture2D" uid="uid://b8hqllvwjs61b" path="res://Map/Gudang/Bagian Dalam/Sprite/storage_3.png" id="15_cs8ks"]
+[ext_resource type="PackedScene" uid="uid://b6yrxvfy6uyiy" path="res://Map/Door/door.tscn" id="16_ubh8t"]
+[ext_resource type="PackedScene" uid="uid://btbp42qa7duve" path="res://Player/player.tscn" id="17_oynwp"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_eatkx"]
 load_path = "res://.godot/imported/box.png-5a2993efd3c6eea223aa7b201c8920e1.ctex"
@@ -27,7 +28,7 @@ texture = SubResource("CompressedTexture2D_eatkx")
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g3p0j"]
-texture = ExtResource("2_eatkx")
+texture = ExtResource("1_oyesb")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -238,7 +239,7 @@ texture = ExtResource("2_eatkx")
 25:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2lqkv"]
-texture = ExtResource("3_n765f")
+texture = ExtResource("2_sk5yn")
 0:0/0 = 0
 0:0/0/z_index = 1
 1:0/0 = 0
@@ -301,7 +302,7 @@ texture = ExtResource("3_n765f")
 5:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 1.0791531, -8, 1.2590122)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xt61l"]
-texture = ExtResource("4_01m7o")
+texture = ExtResource("3_gn1og")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -310,14 +311,14 @@ texture = ExtResource("4_01m7o")
 0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1i4yv"]
-texture = ExtResource("5_cy143")
+texture = ExtResource("4_in68f")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
 1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_den14"]
-texture = ExtResource("6_32t14")
+texture = ExtResource("5_6pt0w")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -512,26 +513,26 @@ texture = ExtResource("6_32t14")
 12:13/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_32t14"]
-texture = ExtResource("8_01m7o")
+texture = ExtResource("6_6t7k0")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:1/0 = 0
 0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n765f"]
-texture = ExtResource("7_eatkx")
+texture = ExtResource("7_ydo63")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_20ulb"]
-texture = ExtResource("7_5hflf")
+texture = ExtResource("8_rnlgq")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
 1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_75am4"]
-texture = ExtResource("8_ssqdp")
+texture = ExtResource("9_js0cq")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -546,12 +547,12 @@ texture = ExtResource("8_ssqdp")
 5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0v5lv"]
-texture = ExtResource("9_47p2y")
+texture = ExtResource("10_a2t7c")
 0:0/0 = 0
 1:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ki0o6"]
-texture = ExtResource("10_i7c88")
+texture = ExtResource("11_yhnf6")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -814,7 +815,7 @@ texture = ExtResource("10_i7c88")
 25:9/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y1gyo"]
-texture = ExtResource("11_4fnjw")
+texture = ExtResource("12_7xyii")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -829,7 +830,7 @@ texture = ExtResource("11_4fnjw")
 1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iil24"]
-texture = ExtResource("12_sii1i")
+texture = ExtResource("13_6qhbx")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -892,7 +893,7 @@ texture = ExtResource("12_sii1i")
 5:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oiegv"]
-texture = ExtResource("13_gf1oa")
+texture = ExtResource("14_skew5")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -985,7 +986,7 @@ texture = ExtResource("13_gf1oa")
 8:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8rv5q"]
-texture = ExtResource("14_qxfev")
+texture = ExtResource("15_cs8ks")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -1067,7 +1068,11 @@ sources/14 = SubResource("TileSetAtlasSource_cy143")
 sources/15 = SubResource("TileSetAtlasSource_32t14")
 sources/16 = SubResource("TileSetAtlasSource_n765f")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gf7st"]
+size = Vector2(96, 20)
+
 [node name="Gudang" type="Node2D"]
+script = ExtResource("1_gf7st")
 
 [node name="Environment" type="Node2D" parent="."]
 
@@ -1085,12 +1090,24 @@ layer_2/name = "Environment"
 layer_2/y_sort_enabled = true
 layer_2/tile_data = PackedInt32Array(458774, 15, 0, 524310, 15, 1, 458775, 15, 0, 524311, 15, 1, 458776, 15, 0, 524312, 15, 1, 458777, 15, 0, 524313, 15, 1, 589825, 15, 0, 589826, 15, 0, 589827, 15, 0, 589828, 15, 0, 655361, 15, 1, 655362, 15, 1, 655363, 15, 1, 655364, 15, 1, 655367, 0, 0, 655365, 13, 1, 655366, 65549, 1, 589829, 13, 0, 589830, 65549, 0, 589840, 65549, 805306369, 589841, 13, 805306369, 655376, 65538, 805306368, 655377, 2, 805306368, 131091, 10, 1, 196627, 10, 2, 262163, 10, 3, 327699, 10, 4, 131092, 65546, 1, 196628, 65546, 2, 262164, 65546, 3, 327700, 65546, 4, 131093, 131082, 1, 196629, 131082, 2, 262165, 131082, 3, 327701, 131082, 4, 131094, 196618, 1, 196630, 196618, 2, 262166, 196618, 3, 327702, 196618, 4, 131095, 262154, 1, 196631, 262154, 2, 262167, 262154, 3, 327703, 262154, 4, 131096, 327690, 1, 196632, 327690, 2, 262168, 327690, 3, 327704, 327690, 4, 65555, 10, 0, 65556, 65546, 0, 65557, 131082, 0, 65558, 196618, 0, 65559, 262154, 0, 65560, 327690, 0, -262125, 9, 1, -196589, 9, 2, -131053, 9, 3, -65517, 9, 4, -262124, 65545, 1, -196588, 65545, 2, -131052, 65545, 3, -65516, 65545, 4, -262123, 131081, 1, -196587, 131081, 2, -131051, 131081, 3, -65515, 131081, 4, -262122, 196617, 1, -196586, 196617, 2, -131050, 196617, 3, -65514, 196617, 4, -262121, 262153, 1, -196585, 262153, 2, -131049, 262153, 3, -65513, 262153, 4, -262120, 327689, 1, -196584, 327689, 2, -131048, 327689, 3, -65512, 327689, 4, -327661, 9, 0, -327660, 65545, 0, -327659, 131081, 0, -327658, 196617, 0, -327657, 262153, 0, -327656, 327689, 0, -262143, 8, 1, -196607, 8, 2, -131071, 8, 3, -65535, 8, 4, -262142, 65544, 1, -196606, 65544, 2, -131070, 65544, 3, -65534, 65544, 4, -262141, 131080, 1, -196605, 131080, 2, -131069, 131080, 3, -65533, 131080, 4, -262140, 196616, 1, -196604, 196616, 2, -131068, 196616, 3, -65532, 196616, 4, -262139, 262152, 1, -196603, 262152, 2, -131067, 262152, 3, -65531, 262152, 4, -262138, 327688, 1, -196602, 327688, 2, -131066, 327688, 3, -65530, 327688, 4, -262137, 393224, 1, -196601, 393224, 2, -131065, 393224, 3, -65529, 393224, 4, -262136, 458760, 1, -196600, 458760, 2, -131064, 458760, 3, -65528, 458760, 4, -262135, 524296, 1, -196599, 524296, 2, -131063, 524296, 3, -65527, 524296, 4, -327679, 8, 0, -327678, 65544, 0, -327677, 131080, 0, -327676, 196616, 0, -327675, 262152, 0, -327674, 327688, 0, -327673, 393224, 0, -327672, 458760, 0, -327671, 524296, 0, 131073, 7, 1, 196609, 7, 2, 262145, 7, 3, 327681, 7, 4, 131074, 65543, 1, 196610, 65543, 2, 262146, 65543, 3, 327682, 65543, 4, 131075, 131079, 1, 196611, 131079, 2, 262147, 131079, 3, 327683, 131079, 4, 131076, 196615, 1, 196612, 196615, 2, 262148, 196615, 3, 327684, 196615, 4, 131077, 262151, 1, 196613, 262151, 2, 262149, 262151, 3, 327685, 262151, 4, 131078, 327687, 1, 196614, 327687, 2, 262150, 327687, 3, 327686, 327687, 4, 262152, 6, 1, 327688, 6, 2, 262153, 65542, 1, 327689, 65542, 2, 65537, 7, 0, 65538, 65543, 0, 65539, 131079, 0, 65540, 196615, 0, 65541, 262151, 0, 65542, 327687, 0, 196616, 6, 0, 196617, 65542, 0, -131061, 0, 0, -131060, 0, 0, -131059, 13, 1, -131058, 65549, 1, -196592, 6, 1, -131056, 6, 2, -196591, 65542, 1, -131055, 65542, 2, -196597, 0, 0, -196596, 0, 0, -196595, 2, 0, -196594, 65538, 0, -262128, 6, 0, -262127, 65542, 0, 655385, 65540, 0, 589848, 0, 0, 655384, 16, 0)
 
-[node name="Player" parent="." instance=ExtResource("15_hprcx")]
-position = Vector2(231, 69)
+[node name="Doors" type="Node2D" parent="."]
+
+[node name="Door_S" parent="Doors" instance=ExtResource("16_ubh8t")]
+position = Vector2(207, 182)
+destination_level_tag = "gudang_bagian_luar"
+destination_door_tag = "N"
+
+[node name="CollisionShape2D" parent="Doors/Door_S" index="0"]
+position = Vector2(1, 2)
+shape = SubResource("RectangleShape2D_gf7st")
+disabled = false
+
+[node name="Spawn" parent="Doors/Door_S" index="1"]
+position = Vector2(1, -19)
+
+[node name="Player" parent="." instance=ExtResource("17_oynwp")]
+position = Vector2(208, 87)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
-[node name="Doors" type="Node2D" parent="."]
-
-[node name="Door" parent="Doors" instance=ExtResource("16_vpxyd")]
-position = Vector2(212, 182)
+[editable path="Doors/Door_S"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dgklweceypyew"
-path="res://.godot/imported/storage_2.png-f2ce3f5e9c0e7943ff94c1036eb82098.ctex"
+uid="uid://d187fis60lko8"
+path="res://.godot/imported/Asphalt.png-b642c65353c503104d1caf8c3b73267f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Map/Gudang/Sprite/storage_2.png"
-dest_files=["res://.godot/imported/storage_2.png-f2ce3f5e9c0e7943ff94c1036eb82098.ctex"]
+source_file="res://Map/Gudang/Bagian Luar/Sprite/Asphalt.png"
+dest_files=["res://.godot/imported/Asphalt.png-b642c65353c503104d1caf8c3b73267f.ctex"]
 
 [params]
 

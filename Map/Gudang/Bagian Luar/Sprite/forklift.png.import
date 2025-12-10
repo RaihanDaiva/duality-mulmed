@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8awvldwbs548"
-path="res://.godot/imported/Wall_topdown.png-53e06d66c56c3e05d90056a01449c247.ctex"
+uid="uid://cbholgtogt3fd"
+path="res://.godot/imported/forklift.png-f2fb77a8434b5bac53cb61cb5b8f06a9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Map/Gudang/Sprite/Wall_topdown.png"
-dest_files=["res://.godot/imported/Wall_topdown.png-53e06d66c56c3e05d90056a01449c247.ctex"]
+source_file="res://Map/Gudang/Bagian Luar/Sprite/forklift.png"
+dest_files=["res://.godot/imported/forklift.png-f2fb77a8434b5bac53cb61cb5b8f06a9.ctex"]
 
 [params]
 

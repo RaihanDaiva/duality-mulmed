@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1pb1j82sq5ys"
-path="res://.godot/imported/bunch_wooden_rack.png-77a0a0b81039e6e20e4dad28c663e321.ctex"
+uid="uid://d0kmsnlxpcvfi"
+path="res://.godot/imported/Cardboard_small.png-b2e2ee1bdc5d8c168a9678e76d3c1f71.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Map/Gudang/Sprite/bunch_wooden_rack.png"
-dest_files=["res://.godot/imported/bunch_wooden_rack.png-77a0a0b81039e6e20e4dad28c663e321.ctex"]
+source_file="res://Map/Gudang/Bagian Luar/Sprite/Cardboard_small.png"
+dest_files=["res://.godot/imported/Cardboard_small.png-b2e2ee1bdc5d8c168a9678e76d3c1f71.ctex"]
 
 [params]
 

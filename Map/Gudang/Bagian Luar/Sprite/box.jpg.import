@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdblh2lsce6eb"
-path="res://.godot/imported/door_topdown.png-184d4694ad2d3902ef820eb88111ebc6.ctex"
+uid="uid://cwlb8rp4gpplx"
+path="res://.godot/imported/box.jpg-0767b13af0050dd3154785a2ef3aa4c4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Map/Gudang/Sprite/door_topdown.png"
-dest_files=["res://.godot/imported/door_topdown.png-184d4694ad2d3902ef820eb88111ebc6.ctex"]
+source_file="res://Map/Gudang/Bagian Luar/Sprite/box.jpg"
+dest_files=["res://.godot/imported/box.jpg-0767b13af0050dd3154785a2ef3aa4c4.ctex"]
 
 [params]
 

@@ -28,6 +28,10 @@ const scene_halaman_tkp1_kp2 = preload("res://Map/TKP1 Kasus Pembunuhan 2/Halama
 const scene_ruangan_rahasia_main_dennis = preload("res://Map/Rumah Dennis/Ruangan Rahasia/Main Room/ruang_rahasia_dennis_main.tscn")
 const scene_ruangan_rahasia_operating_dennis = preload("res://Map/Rumah Dennis/Ruangan Rahasia/Operating Room/ruang_rahasia_dennis_operating.tscn")
 
+#Gudang Bagian
+const scene_bagian_dalam_gudang = preload("res://Map/Gudang/Bagian Dalam/bagian_dalam_gudang.tscn")
+const scene_bagian_luar_gudang = preload("res://Map/Gudang/Bagian Luar/bagian_luar_gudang.tscn")
+
 signal on_trigger_player_spawn
 
 var spawn_door_tag
@@ -72,6 +76,10 @@ func go_to_level(level_tag, destination_tag):
 			scene_to_load = scene_kantor_ruangan_main_1
 		"kantor_ruangan_main_2":
 			scene_to_load = scene_kantor_ruangan_main_2
+		"gudang_bagian_dalam":
+			scene_to_load = scene_bagian_dalam_gudang
+		"gudang_bagian_luar":
+			scene_to_load = scene_bagian_luar_gudang
 			
 	if scene_to_load != null:
 		print("Changing to: ", level_tag)

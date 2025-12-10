@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwi87gqbjyyoc"
-path="res://.godot/imported/box2.jpg-e4f0c2618bc39e79563258e3ca75e77d.ctex"
+uid="uid://6d4j4dolgmpj"
+path="res://.godot/imported/Wooden_rack.png-0fe512d6d9b6cc7d7f53b903c59969fb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Map/Gudang/Sprite/box2.jpg"
-dest_files=["res://.godot/imported/box2.jpg-e4f0c2618bc39e79563258e3ca75e77d.ctex"]
+source_file="res://Map/Gudang/Bagian Dalam/Sprite/Wooden_rack.png"
+dest_files=["res://.godot/imported/Wooden_rack.png-0fe512d6d9b6cc7d7f53b903c59969fb.ctex"]
 
 [params]
 

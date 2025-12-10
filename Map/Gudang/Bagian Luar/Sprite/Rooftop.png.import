@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1y5fkbr23tcg"
-path="res://.godot/imported/feet.png-30110f5eaf7d3f5d4f74efe8b2ae7214.ctex"
+uid="uid://dgu4ijdr0gsg7"
+path="res://.godot/imported/Rooftop.png-d61aea00ea649c3aa3f90453b35023c3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Map/Gudang/Sprite/feet.png"
-dest_files=["res://.godot/imported/feet.png-30110f5eaf7d3f5d4f74efe8b2ae7214.ctex"]
+source_file="res://Map/Gudang/Bagian Luar/Sprite/Rooftop.png"
+dest_files=["res://.godot/imported/Rooftop.png-d61aea00ea649c3aa3f90453b35023c3.ctex"]
 
 [params]
 

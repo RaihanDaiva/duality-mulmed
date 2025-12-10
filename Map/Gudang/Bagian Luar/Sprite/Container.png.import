@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpkaqckxtoy7m"
-path="res://.godot/imported/wall_edge.png-1c2b4f1a71b18327286b6d5e8f990c36.ctex"
+uid="uid://bruois6wwgahw"
+path="res://.godot/imported/Container.png-670f685f1935365670abeddc68ed63e8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Map/Gudang/Sprite/wall_edge.png"
-dest_files=["res://.godot/imported/wall_edge.png-1c2b4f1a71b18327286b6d5e8f990c36.ctex"]
+source_file="res://Map/Gudang/Bagian Luar/Sprite/Container.png"
+dest_files=["res://.godot/imported/Container.png-670f685f1935365670abeddc68ed63e8.ctex"]
 
 [params]
 

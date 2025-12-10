@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://v023bky3ua2t"
-path="res://.godot/imported/Floor.png-cf952947541d9531701514f37b871fe5.ctex"
+path="res://.godot/imported/Floor.png-75dc4797e8e44a5dbbce8afddabfd915.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Map/Gudang/Sprite/Floor.png"
-dest_files=["res://.godot/imported/Floor.png-cf952947541d9531701514f37b871fe5.ctex"]
+source_file="res://Map/Gudang/Bagian Dalam/Sprite/Floor.png"
+dest_files=["res://.godot/imported/Floor.png-75dc4797e8e44a5dbbce8afddabfd915.ctex"]
 
 [params]
 
