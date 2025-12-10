@@ -8,6 +8,7 @@ func _ready() -> void:
 	quest_title_instance = quest_title.instantiate()
 	add_child(quest_title_instance)
 	change_quest_title("Hampiri Mayat")
+	$"TKP 1 KP 1/Environment/Cars2/InteractionArea/CollisionShape2D".disabled = true
 
 func change_quest_title(new_title: String) -> void:
 	quest_title_instance._update_quest_title(new_title, true)

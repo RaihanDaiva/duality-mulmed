@@ -235,8 +235,8 @@ speed_scale = 0.15
 
 [node name="Lamp" type="Sprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0.41568628)
-position = Vector2(167, 60)
-scale = Vector2(0.6, 0.6)
+position = Vector2(163.00002, 92.00001)
+scale = Vector2(0.73333335, 0.8185185)
 texture = ExtResource("14_migmm")
 
 [node name="LampAnimation" type="AnimationPlayer" parent="."]

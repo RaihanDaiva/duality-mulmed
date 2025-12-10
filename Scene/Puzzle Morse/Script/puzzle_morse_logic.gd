@@ -255,8 +255,24 @@ func on_correct_answer() -> void:
 # ---------------------------
 func on_wrong_answer() -> void:
 	var remaining = max_attempts - attempts
-	$"../UIAnimations".play("wrong_answer")
-	await $"../UIAnimations".animation_finished
+	#$"../UIAnimations".play("wrong_answer")
+	#await $"../UIAnimations".animation_finished
+	
+	var tween = create_tween()
+	var tween_alpha = create_tween()
+	tween.set_ease(Tween.EASE_OUT)
+	tween.set_trans(Tween.TRANS_BACK)
+	$"../Book Panel/HAnswerContainer/Submit Btn/Wrong".visible = true
+	tween.tween_property($"../Book Panel/HAnswerContainer/Submit Btn/Wrong", "position", Vector2(8,11), 0.1)
+	tween.tween_property($"../Book Panel/HAnswerContainer/Submit Btn/Wrong", "position", Vector2(2,11), 0.1)
+	tween.tween_property($"../Book Panel/HAnswerContainer/Submit Btn/Wrong", "position", Vector2(6,11), 0.1)
+	tween.tween_property($"../Book Panel/HAnswerContainer/Submit Btn/Wrong", "position", Vector2(4,11), 0.1)
+	tween.set_ease(Tween.EASE_IN_OUT)
+	tween.tween_property($"../Book Panel/HAnswerContainer/Submit Btn/Wrong", "position", Vector2(5,11), 0.25)
+	
+	tween_alpha.tween_property($"../Book Panel/HAnswerContainer/Submit Btn/Wrong", "modulate:a", 1, 0.1)
+	tween_alpha.tween_interval(0.3)
+	tween_alpha.tween_property($"../Book Panel/HAnswerContainer/Submit Btn/Wrong", "modulate:a", 0, 0.5)
 	
 
 	if remaining > 0:
