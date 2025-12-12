@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://kneo0ht4f5gx"
+path="res://.godot/imported/grey.dialogue-858cb981d10112b790a7764cee8bd347.tres"
+
+[deps]
+
+source_file="res://Scene/Scene 9/Dialogue/grey.dialogue"
+dest_files=["res://.godot/imported/grey.dialogue-858cb981d10112b790a7764cee8bd347.tres"]
+
+[params]
+
+defaults=true

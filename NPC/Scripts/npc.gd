@@ -12,7 +12,6 @@ extends StaticBody2D
 @onready var sprite = $Sprite2D
 @onready var animation_player = $AnimationPlayer
 @onready var fade_transition = $"Fade Transition" if has_node("Fade Transition") else null
-@onready var quest_title = $"../../QuestTitle/Sprite2D/HBoxContainer/QuestName"
 
 var dialogue_active: bool = false
 var quest_title_instance
@@ -20,7 +19,7 @@ var quest_title_instance
 signal change_title(new_title)
 
 func _ready():	
-	
+	print(State.quest_severed_done)
 	# Setup interaction
 	if interaction_area and can_interact:
 		interaction_area.interact = Callable(self, "_talk")
@@ -74,22 +73,27 @@ func _talk():
 	)
 
 func _on_dialogue_finished(resource):
+	print(State.current_subscene)
+	NavigationManager.spawn_door_tag = null
+	if State.quest_severed_done == "done":
+		$"../Environment/Cars4/InteractionArea/CollisionShape2D".disabled = false
+		print("masuk mobil")
+	
 	print("Dialog selesai dengan: ", npc_name)
 	var player = get_tree().get_first_node_in_group("player")
 	if player:
 		dialogue_active = false
 		player.can_move = true
-		
 		if State.give_puzzle_to_police_scene_3 == "true":
-			
 			# Ubah Quest Title
 			var parent = get_parent().get_parent()
-			parent.change_quest_title("Kembali Ke Mobil")
-			
-			$"../../Objective/Title/Label".text = "Kembali ke mobil"
-			$"../../Objective/AnimationPlayer".play("LabelStartAnimation")
-			$"../Environment/Cars2/InteractionArea/CollisionShape2D".disabled = false
-			$InteractionArea/CollisionShape2D.disabled = true
+			if State.current_subscene == "scene3":
+				print("===> masuk if else")
+				parent.change_quest_title("Kembali Ke Mobil")			
+				$"../../Objective/Title/Label".text = "Kembali ke mobil"
+				$"../../Objective/AnimationPlayer".play("LabelStartAnimation")
+				$"../Environment/Cars2/InteractionArea/CollisionShape2D".disabled = false
+				$InteractionArea/CollisionShape2D.disabled = true
 	if change_scene_after_dialogue and next_scene != "":
 		change_to_scene()
 

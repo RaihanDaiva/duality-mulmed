@@ -229,7 +229,9 @@ shape = SubResource("RectangleShape2D_soeq2")
 [node name="Chair" type="StaticBody2D" parent="Environment"]
 position = Vector2(135, 93)
 script = ExtResource("16_sdw7t")
-dialogue_file = "uid://rg5jxi4by07k"
+dialogue_file = "uid://dn7n4jf55pa7s"
+change_scene_after_dialogue = true
+next_scene = "uid://ddp2hg76nhwuy"
 
 [node name="Sprite2D" type="Sprite2D" parent="Environment/Chair"]
 texture = ExtResource("5_vdisc")
@@ -323,7 +325,7 @@ position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_sgiey")
 
 [node name="Player" parent="." instance=ExtResource("13_kdtc6")]
-position = Vector2(86, 54)
+position = Vector2(132, 65)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 

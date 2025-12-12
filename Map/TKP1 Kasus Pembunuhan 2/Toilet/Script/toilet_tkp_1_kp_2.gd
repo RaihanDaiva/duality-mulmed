@@ -5,9 +5,16 @@ extends Node2D
 
 #Untuk navigasi ruangan harus menambahkan ini
 func _ready():
+	var severed = $Environment/Severed
+	severed.dialogue_finished.connect(_on_severed_dialogue_finished)
+	
 	auto_setup_camera_from_tilemap()
 	if NavigationManager.spawn_door_tag != null:
 		_on_level_spawn(NavigationManager.spawn_door_tag)
+		
+func _on_severed_dialogue_finished():
+	$Environment/Severed/InteractionArea/CollisionShape2D.disabled = true
+	State.quest_severed_done = "done"
 		
 func _on_level_spawn(destination_tag: String):
 	var door_path = "Doors/Door_" + destination_tag

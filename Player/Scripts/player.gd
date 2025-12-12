@@ -41,6 +41,7 @@ func load_default_footsteps():
 			footstep_sounds.append(load(path))
 
 func _on_spawn(position: Vector2, direction: String):
+	print("=======================================")
 	global_position = position
 	
 	match direction:
@@ -66,6 +67,7 @@ func _on_spawn(position: Vector2, direction: String):
 		animation_player.play(anim_name)
 	
 	print("Player spawned at: ", position, " facing: ", direction)
+	print("=======================================")
 
 func _process(delta: float) -> void:
 	if !can_move:

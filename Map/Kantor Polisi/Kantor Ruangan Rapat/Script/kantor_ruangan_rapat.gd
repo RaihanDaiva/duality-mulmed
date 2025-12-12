@@ -5,6 +5,7 @@ extends Node2D
 
 #Untuk navigasi ruangan harus menambahkan ini
 func _ready():
+	State.quest_title = "rapat"
 	auto_setup_camera_from_tilemap()
 	if NavigationManager.spawn_door_tag != null:
 		_on_level_spawn(NavigationManager.spawn_door_tag)

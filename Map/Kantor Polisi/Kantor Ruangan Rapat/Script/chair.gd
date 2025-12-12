@@ -16,7 +16,7 @@ extends StaticBody2D
 var dialogue_active: bool = false
 
 func _ready():
-		
+	print("ready ==> ", NavigationManager.spawn_door_tag)
 	# Setup interaction
 	if interaction_area and can_interact:
 		interaction_area.interact = Callable(self, "_talk")
@@ -52,6 +52,7 @@ func _talk():
 	)
 
 func _on_dialogue_finished(resource):
+	NavigationManager.spawn_door_tag = null
 	State.quest_table_done = "done"
 	if State.current_subscene == "scene7":
 		if State.quest_table_done == "done":

@@ -1,0 +1,10 @@
+~ start
+if State.quest_severed_done != "done":
+	Grey: Selamat siang pak, ini ada kasus pembunuhan. harus anda cari
+	Dennis: Oke baik laksanakan
+elif State.quest_severed_done == "done":
+	Dennis: Ini saya menemukan 2 lengan dan sebuah notes
+	Grey: Yaallah ngeri banget
+	Dennis: Kamu ambil lengannya untuk tes forensik, lalu notesnya akan saya bawa ke kantor untuk di cari teka-tekinya ya
+	Grey: Siap pak
+=> END

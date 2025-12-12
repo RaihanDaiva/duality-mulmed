@@ -6,7 +6,7 @@ var quest_title_instance
 
 #Untuk navigasi ruangan harus menambahkan ini
 func _ready():
-	#State.current_subscene = "scene7"
+	#State.current_subscene = "scene10"
 	var table = $Environment/Table
 	table.dialogue_finished.connect(_on_table_dialogue_finished)
 	
@@ -19,19 +19,24 @@ func _ready():
 	if State.current_subscene == "scene7":
 		if State.quest_table_done == "start":
 			change_quest_title("Ke meja kerja")
+	elif State.current_subscene == "scene10":
+		$Environment/Table/InteractionArea/CollisionShape2D.disabled = false
+		change_quest_title("Ke meja kerja")
 	
 	auto_setup_camera_from_tilemap()
 	if NavigationManager.spawn_door_tag != null:
 		_on_level_spawn(NavigationManager.spawn_door_tag)
 		
 func _on_table_dialogue_finished():
-	if State.quest_table_done == "done":
-		print("halooooo")
-		change_quest_title("Ke ruang rapat")
+	#if State.quest_table_done == "done":
+	print("halooooo")
+	change_quest_title("Ke ruang rapat")
 
 		
 func change_quest_title(new_title: String) -> void:
 	if State.current_subscene == "scene7":
+		quest_title_instance._update_quest_title(new_title, true)
+	elif State.current_subscene == "scene10":
 		quest_title_instance._update_quest_title(new_title, true)
 		
 func _on_level_spawn(destination_tag: String):

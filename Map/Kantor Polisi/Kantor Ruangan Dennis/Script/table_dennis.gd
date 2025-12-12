@@ -28,8 +28,6 @@ func _ready():
 	if fade_transition:
 		fade_transition.hide()
 	
-
-
 func _talk():
 	if not can_interact:
 		return
@@ -57,6 +55,8 @@ func _on_dialogue_finished(resource):
 	State.quest_table_done = "done"
 	if State.current_subscene == "scene7":
 		$InteractionArea/CollisionShape2D.disabled = true
+	elif State.current_subscene == "scene10": 
+		$InteractionArea/CollisionShape2D.disabled = true
 	print("Dialog selesai dengan: ", npc_name)
 	var player = get_tree().get_first_node_in_group("player")
 	if player:
@@ -69,7 +69,12 @@ func _on_dialogue_finished(resource):
 	if change_scene_after_dialogue and next_scene != "":
 		change_to_scene()
 	
-	show_next_puzzle()
+	if State.current_subscene == "scene7":
+		pass
+	elif State.current_subscene == "scene10":
+		$InteractionArea/CollisionShape2D.disabled = true
+		show_next_puzzle()
+	#show_next_puzzle()
 		
 func show_next_puzzle():
 	if next_puzzle == "":
@@ -82,6 +87,10 @@ func show_next_puzzle():
 
 	# Tambahkan ke parent (atau node lain sesuai kebutuhan)
 	get_parent().add_child(puzzle_scene)
+	
+	# Ubah Quest Title
+	var parent = get_parent().get_parent()
+	parent.change_quest_title("Berikan ke polisi")
 
 	# Aktifkan (visible)
 	puzzle_scene.visible = true

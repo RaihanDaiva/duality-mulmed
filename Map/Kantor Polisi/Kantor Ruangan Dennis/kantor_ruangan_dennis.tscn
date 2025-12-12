@@ -344,6 +344,7 @@ shape = SubResource("RectangleShape2D_bmtox")
 position = Vector2(126, 95)
 script = ExtResource("17_61bjf")
 dialogue_file = "uid://f1cdv0535fix"
+next_puzzle = "uid://c40dflflmaxk8"
 
 [node name="Sprite2D" type="Sprite2D" parent="Environment/Table"]
 texture = ExtResource("10_3a8ob")

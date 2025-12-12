@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://dfvh8o5cfubi"
+path="res://.godot/imported/tangan_terputus.dialogue-8e3e0afe80c51613f29a05fc409ffa8a.tres"
+
+[deps]
+
+source_file="res://Scene/Scene 9/Dialogue/tangan_terputus.dialogue"
+dest_files=["res://.godot/imported/tangan_terputus.dialogue-8e3e0afe80c51613f29a05fc409ffa8a.tres"]
+
+[params]
+
+defaults=true

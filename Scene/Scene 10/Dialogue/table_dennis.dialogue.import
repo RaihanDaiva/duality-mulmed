@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://b1024v62idyip"
+path="res://.godot/imported/table_dennis.dialogue-1bb34e41732682bd4b880aa715638a75.tres"
+
+[deps]
+
+source_file="res://Scene/Scene 10/Dialogue/table_dennis.dialogue"
+dest_files=["res://.godot/imported/table_dennis.dialogue-1bb34e41732682bd4b880aa715638a75.tres"]
+
+[params]
+
+defaults=true

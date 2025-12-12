@@ -1,5 +1,8 @@
 ~ start
-Dennis: Haduh tadi aku mimpi apa ya
-Dennis: Hari ini ada rapat lagi
-Dennis: Aku harus ke ruang rapat
+if State.current_subscene == "scene7":
+	Dennis: Haduh tadi aku mimpi apa ya
+	Dennis: Hari ini ada rapat lagi
+	Dennis: Aku harus ke ruang rapat
+elif State.current_subscene == "scene10":
+	Dennis: Aduhh kayanya malem ini aku bakal begadang
 => END

@@ -11,3 +11,6 @@ var quest_title: String = ""
 
 #scene 7
 var quest_table_done: String = ""
+
+#scene 9
+var quest_severed_done: String = ""
