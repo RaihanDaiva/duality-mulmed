@@ -17,7 +17,7 @@ var dialogue_active: bool = false
 signal dialogue_finished
 
 func _ready():
-	State.current_subscene = "scene12"
+		
 	# Setup interaction
 	if interaction_area and can_interact:
 		interaction_area.interact = Callable(self, "_talk")
@@ -52,14 +52,11 @@ func _talk():
 
 func _on_dialogue_finished(resource):
 	emit_signal("dialogue_finished")
-	State.quest_table_done = "done"
-	if State.current_subscene == "scene7":
-		$InteractionArea/CollisionShape2D.disabled = true
-	if State.current_subscene == "scene12":
-		State.have_feet = true
-		$InteractionArea/CollisionShape2D.disabled = true
-		$CollisionShape2D.disabled = true
-		$".".visible = false
+	State.have_key = true
+	$".".visible = false
+	$InteractionArea/CollisionShape2D.disabled = true
+	$CollisionShape2D.disabled = true
+	
 	print("Dialog selesai dengan: ", npc_name)
 	var player = get_tree().get_first_node_in_group("player")
 	if player:
@@ -85,13 +82,18 @@ func show_next_puzzle():
 
 	# Tambahkan ke parent (atau node lain sesuai kebutuhan)
 	get_parent().add_child(puzzle_scene)
+	
+	# Ubah Quest Title
+	#if State.current_subscene == "scene2":
+		#var parent = get_parent().get_parent()
+		#parent.change_quest_title("Berikan ke polisi")
 
 	# Aktifkan (visible)
 	puzzle_scene.visible = true
 
 	# Mainkan animasinya
 	# Pastikan node StartAnimation ada di dalam puzzle .tscn
-	puzzle_scene.get_node("StartAnimation").play("puzzleStartAnimate")
+	puzzle_scene.get_node("CanvasLayer/StartAnimation").play("puzzleStartAnimate")
 
 func change_to_scene():
 	if fade_transition:

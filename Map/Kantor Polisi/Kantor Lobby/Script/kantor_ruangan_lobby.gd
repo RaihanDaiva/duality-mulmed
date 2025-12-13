@@ -16,6 +16,8 @@ func _ready():
 			State.quest_table_done = "start"
 		elif State.quest_table_done != "done":
 				change_quest_title("Ke Ruangan Dennis")
+	elif State.current_subscene == "scene9":
+		State.current_subscene = "scene10"
 	elif State.current_subscene == "scene10":
 		change_quest_title("Ke Ruangan Dennis")
 	

@@ -52,6 +52,7 @@ func _talk():
 	)
 
 func _on_dialogue_finished(resource):
+	State.current_subscene = "scene8"
 	NavigationManager.spawn_door_tag = null
 	State.quest_table_done = "done"
 	if State.current_subscene == "scene7":

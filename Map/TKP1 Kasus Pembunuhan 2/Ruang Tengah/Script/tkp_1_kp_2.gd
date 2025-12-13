@@ -5,6 +5,7 @@ extends Node2D
 
 #Untuk navigasi ruangan harus menambahkan ini
 func _ready():
+	State.current_subscene = "scene9"
 	#State.quest_title = "tangan terputus" #nanti dihapus
 	auto_setup_camera_from_tilemap()
 	if NavigationManager.spawn_door_tag != null:

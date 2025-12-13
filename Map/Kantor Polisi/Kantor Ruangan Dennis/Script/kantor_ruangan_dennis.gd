@@ -6,12 +6,12 @@ var quest_title_instance
 
 #Untuk navigasi ruangan harus menambahkan ini
 func _ready():
-	#State.current_subscene = "scene10"
+	#State.current_subscene = "scene10" #nanti dihapus
+	
 	var table = $Environment/Table
 	table.dialogue_finished.connect(_on_table_dialogue_finished)
 	
 	print(State.current_subscene)
-	print(State.quest_table_done)
 	var quest_title = preload("res://UI/PlayingInterface/QuestTitle.tscn")
 	quest_title_instance = quest_title.instantiate()
 	add_child(quest_title_instance)
@@ -29,8 +29,8 @@ func _ready():
 		
 func _on_table_dialogue_finished():
 	#if State.quest_table_done == "done":
-	print("halooooo")
-	change_quest_title("Ke ruang rapat")
+	if State.current_subscene == "scene7":
+		change_quest_title("Ke ruang rapat")
 
 		
 func change_quest_title(new_title: String) -> void:

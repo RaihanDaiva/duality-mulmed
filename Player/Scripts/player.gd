@@ -6,6 +6,9 @@ var direction : Vector2 = Vector2.ZERO
 var move_speed: float = 80 
 var state : String = "idle"
 var can_move: bool = true
+var grabbing_box: PushBox = null
+var is_grabbing := false
+
 
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
 @onready var sprite_2d: Sprite2D = $Sprite2D
@@ -108,17 +111,19 @@ func _on_animation_finished(anim_name: String):
 	# Reset frame tracker saat animasi selesai
 	last_footstep_frame = -1
 
-func _physics_process(delta: float) -> void:
+func _physics_process(delta):
 	if !can_move:
-		print("Is the player moving? ", can_move)
 		velocity = Vector2.ZERO
 		move_and_slide()
 		return
-	
+
 	direction.x = Input.get_action_strength("right") - Input.get_action_strength("left")
 	direction.y = Input.get_action_strength("down") - Input.get_action_strength("up")
 	velocity = direction.normalized() * move_speed
 	move_and_slide()
+
+	handle_push_box()   # ← INI PENTING
+
 
 func play_footstep_sound():
 	if footstep_sounds.is_empty() or not footstep_audio:
@@ -167,3 +172,36 @@ func AnimDirection() -> String:
 		return "up"
 	else:
 		return "side"
+
+func _input(event):
+	if event.is_action_pressed("push"):
+		is_grabbing = true
+	elif event.is_action_released("push"):
+		is_grabbing = false
+		grabbing_box = null
+
+
+func handle_push_box():
+	if not is_grabbing or direction == Vector2.ZERO:
+		return
+
+	for i in range(get_slide_collision_count()):
+		var collision = get_slide_collision(i)
+		var box := collision.get_collider() as PushBox
+		if box == null:
+			continue
+
+		var box_dir: Vector2 = (box.global_position - global_position).normalized()
+		var move_dir: Vector2 = direction.normalized()
+
+		var dot := move_dir.dot(box_dir)
+
+		# PUSH → maju ke arah box
+		if dot > 0.6:
+			box.push_direction = move_dir
+			grabbing_box = box
+
+		# PULL → mundur dari box
+		elif dot < -0.6:
+			box.push_direction = move_dir
+			grabbing_box = box

@@ -14,3 +14,9 @@ var quest_table_done: String = ""
 
 #scene 9
 var quest_severed_done: String = ""
+
+#scene 11
+var have_key: bool
+
+#scene 12
+var have_feet: bool

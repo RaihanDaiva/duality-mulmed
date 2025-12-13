@@ -89,15 +89,16 @@ func show_next_puzzle():
 	get_parent().add_child(puzzle_scene)
 	
 	# Ubah Quest Title
-	var parent = get_parent().get_parent()
-	parent.change_quest_title("Berikan ke polisi")
+	if State.current_subscene == "scene2":
+		var parent = get_parent().get_parent()
+		parent.change_quest_title("Berikan ke polisi")
 
 	# Aktifkan (visible)
 	puzzle_scene.visible = true
 
 	# Mainkan animasinya
 	# Pastikan node StartAnimation ada di dalam puzzle .tscn
-	puzzle_scene.get_node("StartAnimation").play("puzzleStartAnimate")
+	puzzle_scene.get_node("CanvasLayer/StartAnimation").play("puzzleStartAnimate")
 
 func change_to_scene():
 	if fade_transition:

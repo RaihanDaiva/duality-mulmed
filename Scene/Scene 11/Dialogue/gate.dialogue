@@ -1,0 +1,6 @@
+~ start
+if State.have_key:
+	Dennis: akhirnya bisa dibuka
+else:
+	Dennis: aduh gaada kuncinya
+=> END

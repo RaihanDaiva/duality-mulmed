@@ -8,7 +8,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/path = NodePath("CanvasLayer/Sprite2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -24,7 +24,7 @@ length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/path = NodePath("CanvasLayer/Sprite2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -40,7 +40,7 @@ length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/path = NodePath("CanvasLayer/Sprite2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -57,14 +57,16 @@ _data = {
 &"show_quest_title": SubResource("Animation_2hg0k")
 }
 
-[node name="QuestTitle" type="CanvasLayer"]
+[node name="QuestTitle" type="Node2D"]
 script = ExtResource("1_nrbe1")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
 position = Vector2(56, 16)
 texture = ExtResource("1_t55bn")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Sprite2D"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Sprite2D"]
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
@@ -75,20 +77,21 @@ offset_bottom = -10.0
 grow_vertical = 2
 size_flags_horizontal = 3
 
-[node name="QuestName" type="Label" parent="Sprite2D/HBoxContainer"]
+[node name="QuestName" type="Label" parent="CanvasLayer/Sprite2D/HBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.8117647, 0.78431374, 0.62352943, 1)
 theme_override_font_sizes/font_size = 8
 text = "Quest Name"
 
-[node name="Label" type="Label" parent="Sprite2D/HBoxContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/Sprite2D/HBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.8117647, 0.78431374, 0.62352943, 1)
 theme_override_font_sizes/font_size = 6
 text = "(Q)"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
+root_node = NodePath("../..")
 libraries = {
 &"": SubResource("AnimationLibrary_2hg0k")
 }

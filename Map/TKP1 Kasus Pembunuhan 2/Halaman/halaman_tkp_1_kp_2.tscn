@@ -353,6 +353,7 @@ texture = ExtResource("9_e837a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Cars4/InteractionArea"]
 shape = SubResource("CircleShape2D_phnnl")
+disabled = true
 
 [node name="Player" parent="." instance=ExtResource("7_cow1f")]
 position = Vector2(131, 128)

@@ -79,6 +79,11 @@ func _on_dialogue_finished(resource):
 		$"../Environment/Cars4/InteractionArea/CollisionShape2D".disabled = false
 		print("masuk mobil")
 	
+	if State.current_subscene == "scene12":
+		if State.have_feet:
+			$"../Cars4/InteractionArea/CollisionShape2D".disabled = false
+	
+	
 	print("Dialog selesai dengan: ", npc_name)
 	var player = get_tree().get_first_node_in_group("player")
 	if player:

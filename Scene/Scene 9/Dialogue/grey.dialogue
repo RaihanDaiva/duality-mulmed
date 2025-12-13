@@ -1,10 +1,18 @@
 ~ start
-if State.quest_severed_done != "done":
-	Grey: Selamat siang pak, ini ada kasus pembunuhan. harus anda cari
-	Dennis: Oke baik laksanakan
-elif State.quest_severed_done == "done":
-	Dennis: Ini saya menemukan 2 lengan dan sebuah notes
-	Grey: Yaallah ngeri banget
-	Dennis: Kamu ambil lengannya untuk tes forensik, lalu notesnya akan saya bawa ke kantor untuk di cari teka-tekinya ya
-	Grey: Siap pak
+if State.current_subscene == "scene9":
+	if State.quest_severed_done != "done":
+		Grey: Selamat siang pak, ini ada kasus pembunuhan. harus anda cari
+		Dennis: Oke baik laksanakan
+	elif State.quest_severed_done == "done":
+		Dennis: Ini saya menemukan 2 lengan dan sebuah notes
+		Grey: Yaallah ngeri banget
+		Dennis: Kamu ambil lengannya untuk tes forensik, lalu notesnya akan saya bawa ke kantor untuk di cari teka-tekinya ya
+		Grey: Siap pak
+elif State.current_subscene == "scene11":
+	if State.have_key == false:
+		Grey: kau harus cari sesuatu untuk bisa masuk ke dalam
+elif State.current_subscene == "scene12":
+	if State.have_feet:
+		Dennis: aku menemukan sepasang kaki
+		Grey: Ih yaudah ayo ke kantor
 => END

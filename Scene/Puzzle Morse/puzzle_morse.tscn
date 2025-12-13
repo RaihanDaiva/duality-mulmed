@@ -135,6 +135,21 @@ tracks/0/keys = {
 "values": [0.0, 1.0]
 }
 
+[sub_resource type="Animation" id="Animation_bl12v"]
+resource_name = "phone_on"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PhoneOn:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_06fke"]
 _data = {
 &"RESET": SubResource("Animation_06fke"),
@@ -770,6 +785,22 @@ tracks/0/keys = {
 "values": [Vector2(0, 0), Vector2(5, 0), Vector2(-5, 0), Vector2(2, 0), Vector2(-2, 0), Vector2(0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_2b156"]
+resource_name = "battery-decrease"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Phone Panel/BatteryPanel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.1, 0.16666667, 0.23333333, 0.5),
+"transitions": PackedFloat32Array(1, 0.5, 0.5, 0.5, 0.5, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(5, 0), Vector2(-5, 0), Vector2(2, 0), Vector2(-2, 0), Vector2(0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_17pk2"]
 resource_name = "charge_animation-end"
 length = 0.5
@@ -852,12 +883,14 @@ _data = {
 }
 
 [node name="Puzzle Morse" type="Control" groups=["puzzle_morse"]]
-z_index = 50
+z_index = 200
 layout_mode = 3
 anchors_preset = 0
 mouse_filter = 2
 
-[node name="Puzzle Morse Logic" type="Node2D" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Puzzle Morse Logic" type="Node2D" parent="CanvasLayer"]
 script = ExtResource("1_njstn")
 answer_input_path = NodePath("../Book Panel/HAnswerContainer/Answer Input")
 submit_button_path = NodePath("../Book Panel/HAnswerContainer/Submit Btn")
@@ -875,11 +908,11 @@ offset_bottom = 176.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_1iegc")
 
-[node name="FileSprite" type="Sprite2D" parent="File Panel"]
+[node name="FileSprite" type="Sprite2D" parent="CanvasLayer/File Panel"]
 position = Vector2(144, 88)
 texture = ExtResource("2_npkbb")
 
-[node name="ClueLabel" type="Label" parent="File Panel"]
+[node name="ClueLabel" type="Label" parent="CanvasLayer/File Panel"]
 layout_mode = 0
 offset_left = 216.0
 offset_top = 8.0
@@ -889,8 +922,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 10
 text = "Clue #1"
 
-[node name="Paper Panel" type="Panel" parent="."]
-layout_mode = 0
+[node name="Paper Panel" type="Panel" parent="CanvasLayer"]
 offset_left = 113.0
 offset_top = 20.0
 offset_right = 146.182
@@ -906,8 +938,7 @@ texture = ExtResource("2_5xcd0")
 region_enabled = true
 region_rect = Rect2(231.8895, 29.056133, 128.13928, 180.99167)
 
-[node name="Book Panel" type="Panel" parent="."]
-layout_mode = 0
+[node name="Book Panel" type="Panel" parent="CanvasLayer"]
 offset_left = 97.0
 offset_top = 150.0
 offset_right = 311.0
@@ -916,7 +947,7 @@ mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_npkbb")
 script = ExtResource("5_ip43j")
 
-[node name="HideShowBook" type="Button" parent="Book Panel"]
+[node name="HideShowBook" type="Button" parent="CanvasLayer/Book Panel"]
 layout_mode = 0
 offset_left = 103.0
 offset_top = 12.0
@@ -925,17 +956,17 @@ offset_bottom = 20.0
 focus_mode = 0
 flat = true
 
-[node name="Sprite2D" type="Sprite2D" parent="Book Panel/HideShowBook"]
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Book Panel/HideShowBook"]
 position = Vector2(12, 4)
 texture = ExtResource("6_pu3lc")
 
-[node name="Sprite2D" type="Sprite2D" parent="Book Panel"]
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Book Panel"]
 position = Vector2(111.00001, 99)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("4_npkbb")
 region_rect = Rect2(197.0387, 222.62418, 409.1056, 137.49625)
 
-[node name="HAnswerContainer" type="HBoxContainer" parent="Book Panel"]
+[node name="HAnswerContainer" type="HBoxContainer" parent="CanvasLayer/Book Panel"]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.5
@@ -948,7 +979,7 @@ offset_bottom = 21.99968
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Answer Input" type="LineEdit" parent="Book Panel/HAnswerContainer"]
+[node name="Answer Input" type="LineEdit" parent="CanvasLayer/Book Panel/HAnswerContainer"]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.08235294, 0.07058824, 0.2, 1)
@@ -957,25 +988,25 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_yi4ij")
 placeholder_text = "...."
 flat = true
 
-[node name="Submit Btn" type="Button" parent="Book Panel/HAnswerContainer"]
+[node name="Submit Btn" type="Button" parent="CanvasLayer/Book Panel/HAnswerContainer"]
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
 focus_mode = 0
 flat = true
 
-[node name="Sprite2D" type="Sprite2D" parent="Book Panel/HAnswerContainer/Submit Btn"]
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Book Panel/HAnswerContainer/Submit Btn"]
 visible = false
 z_index = 2
 position = Vector2(7, 5.9999237)
 texture = ExtResource("8_v4shi")
 
-[node name="Wrong" type="Sprite2D" parent="Book Panel/HAnswerContainer/Submit Btn"]
+[node name="Wrong" type="Sprite2D" parent="CanvasLayer/Book Panel/HAnswerContainer/Submit Btn"]
 visible = false
 z_index = 1
 position = Vector2(5, 10.999924)
 texture = ExtResource("10_yi4ij")
 
-[node name="Hint Btn" type="Button" parent="Book Panel"]
+[node name="Hint Btn" type="Button" parent="CanvasLayer/Book Panel"]
 visible = false
 layout_mode = 0
 offset_right = 8.0
@@ -990,25 +1021,25 @@ offset_right = 102.565216
 offset_bottom = -86.0
 theme_override_font_sizes/font_size = 8
 
-[node name="FirstClueSprite" type="Sprite2D" parent="Book Panel"]
+[node name="FirstClueSprite" type="Sprite2D" parent="CanvasLayer/Book Panel"]
 position = Vector2(39, 43)
 texture = ExtResource("8_736qf")
 
-[node name="Null" type="Sprite2D" parent="Book Panel/FirstClueSprite"]
+[node name="Null" type="Sprite2D" parent="CanvasLayer/Book Panel/FirstClueSprite"]
 position = Vector2(49, 4)
 texture = ExtResource("8_6ymj8")
 
-[node name="True" type="Sprite2D" parent="Book Panel/FirstClueSprite"]
+[node name="True" type="Sprite2D" parent="CanvasLayer/Book Panel/FirstClueSprite"]
 visible = false
 position = Vector2(49, 4)
 texture = ExtResource("9_ti5iq")
 
-[node name="False" type="Sprite2D" parent="Book Panel/FirstClueSprite"]
+[node name="False" type="Sprite2D" parent="CanvasLayer/Book Panel/FirstClueSprite"]
 visible = false
 position = Vector2(49, 4)
 texture = ExtResource("10_yi4ij")
 
-[node name="FirstClue" type="Label" parent="Book Panel/FirstClueSprite"]
+[node name="FirstClue" type="Label" parent="CanvasLayer/Book Panel/FirstClueSprite"]
 visible = false
 offset_left = -37.0
 offset_top = -4.0
@@ -1018,7 +1049,7 @@ theme_override_colors/font_color = Color(0.083, 0.07000001, 0.2, 1)
 theme_override_font_sizes/font_size = 10
 text = "Jam"
 
-[node name="Label" type="Label" parent="Book Panel/FirstClueSprite"]
+[node name="Label" type="Label" parent="CanvasLayer/Book Panel/FirstClueSprite"]
 offset_left = -39.0
 offset_top = -18.0
 offset_right = -10.0
@@ -1027,25 +1058,25 @@ theme_override_colors/font_color = Color(0.12941177, 0.1254902, 0.1254902, 1)
 theme_override_font_sizes/font_size = 8
 text = "Clue #1"
 
-[node name="SecondClueSprite" type="Sprite2D" parent="Book Panel"]
+[node name="SecondClueSprite" type="Sprite2D" parent="CanvasLayer/Book Panel"]
 position = Vector2(39, 78)
 texture = ExtResource("8_736qf")
 
-[node name="Null" type="Sprite2D" parent="Book Panel/SecondClueSprite"]
+[node name="Null" type="Sprite2D" parent="CanvasLayer/Book Panel/SecondClueSprite"]
 position = Vector2(49, 4)
 texture = ExtResource("8_6ymj8")
 
-[node name="True" type="Sprite2D" parent="Book Panel/SecondClueSprite"]
+[node name="True" type="Sprite2D" parent="CanvasLayer/Book Panel/SecondClueSprite"]
 visible = false
 position = Vector2(49, 4)
 texture = ExtResource("9_ti5iq")
 
-[node name="False" type="Sprite2D" parent="Book Panel/SecondClueSprite"]
+[node name="False" type="Sprite2D" parent="CanvasLayer/Book Panel/SecondClueSprite"]
 visible = false
 position = Vector2(49, 4)
 texture = ExtResource("10_yi4ij")
 
-[node name="SecondClue" type="Label" parent="Book Panel/SecondClueSprite"]
+[node name="SecondClue" type="Label" parent="CanvasLayer/Book Panel/SecondClueSprite"]
 visible = false
 offset_left = -36.0
 offset_top = -3.0
@@ -1055,7 +1086,7 @@ theme_override_colors/font_color = Color(0.083, 0.07000001, 0.2, 1)
 theme_override_font_sizes/font_size = 10
 text = "Jam"
 
-[node name="Label" type="Label" parent="Book Panel/SecondClueSprite"]
+[node name="Label" type="Label" parent="CanvasLayer/Book Panel/SecondClueSprite"]
 offset_left = -39.0
 offset_top = -18.0
 offset_right = -10.0
@@ -1064,25 +1095,25 @@ theme_override_colors/font_color = Color(0.12941177, 0.1254902, 0.1254902, 1)
 theme_override_font_sizes/font_size = 8
 text = "Clue #2"
 
-[node name="ThirdClueSprite" type="Sprite2D" parent="Book Panel"]
+[node name="ThirdClueSprite" type="Sprite2D" parent="CanvasLayer/Book Panel"]
 position = Vector2(39, 113)
 texture = ExtResource("8_736qf")
 
-[node name="Null" type="Sprite2D" parent="Book Panel/ThirdClueSprite"]
+[node name="Null" type="Sprite2D" parent="CanvasLayer/Book Panel/ThirdClueSprite"]
 position = Vector2(49, 4)
 texture = ExtResource("8_6ymj8")
 
-[node name="True" type="Sprite2D" parent="Book Panel/ThirdClueSprite"]
+[node name="True" type="Sprite2D" parent="CanvasLayer/Book Panel/ThirdClueSprite"]
 visible = false
 position = Vector2(49, 4)
 texture = ExtResource("9_ti5iq")
 
-[node name="False" type="Sprite2D" parent="Book Panel/ThirdClueSprite"]
+[node name="False" type="Sprite2D" parent="CanvasLayer/Book Panel/ThirdClueSprite"]
 visible = false
 position = Vector2(49, 4)
 texture = ExtResource("10_yi4ij")
 
-[node name="ThirdClue" type="Label" parent="Book Panel/ThirdClueSprite"]
+[node name="ThirdClue" type="Label" parent="CanvasLayer/Book Panel/ThirdClueSprite"]
 visible = false
 offset_left = -36.0
 offset_top = -3.0
@@ -1092,7 +1123,7 @@ theme_override_colors/font_color = Color(0.083, 0.07000001, 0.2, 1)
 theme_override_font_sizes/font_size = 10
 text = "Jam"
 
-[node name="Label" type="Label" parent="Book Panel/ThirdClueSprite"]
+[node name="Label" type="Label" parent="CanvasLayer/Book Panel/ThirdClueSprite"]
 offset_left = -39.0
 offset_top = -18.0
 offset_right = -10.0
@@ -1101,15 +1132,14 @@ theme_override_colors/font_color = Color(0.12941177, 0.1254902, 0.1254902, 1)
 theme_override_font_sizes/font_size = 8
 text = "Clue #3"
 
-[node name="Phone Panel" type="Panel" parent="."]
-layout_mode = 0
+[node name="Phone Panel" type="Panel" parent="CanvasLayer"]
 offset_top = 33.0
 offset_right = 88.0
 offset_bottom = 176.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_5png1")
 
-[node name="Game Over Panel" type="Control" parent="Phone Panel"]
+[node name="Game Over Panel" type="Control" parent="CanvasLayer/Phone Panel"]
 visible = false
 anchors_preset = 0
 offset_left = -29.0
@@ -1117,14 +1147,14 @@ offset_top = -21.0
 offset_right = 291.0
 offset_bottom = 159.0
 
-[node name="Game Over Label" type="Label" parent="Phone Panel/Game Over Panel"]
+[node name="Game Over Label" type="Label" parent="CanvasLayer/Phone Panel/Game Over Panel"]
 layout_mode = 0
 offset_left = 136.0
 offset_top = 71.0
 offset_right = 176.0
 offset_bottom = 94.0
 
-[node name="Retry Btn" type="Button" parent="Phone Panel/Game Over Panel"]
+[node name="Retry Btn" type="Button" parent="CanvasLayer/Phone Panel/Game Over Panel"]
 z_index = 2
 layout_mode = 0
 offset_left = 37.0
@@ -1132,7 +1162,7 @@ offset_top = 148.0
 offset_right = 101.0
 offset_bottom = 164.0
 
-[node name="Label" type="Label" parent="Phone Panel/Game Over Panel/Retry Btn"]
+[node name="Label" type="Label" parent="CanvasLayer/Phone Panel/Game Over Panel/Retry Btn"]
 layout_mode = 0
 offset_left = 15.0
 offset_top = 2.0
@@ -1141,59 +1171,59 @@ offset_bottom = 14.0
 theme_override_font_sizes/font_size = 8
 text = "Isi ulang"
 
-[node name="Sprite2D" type="Sprite2D" parent="Phone Panel"]
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Phone Panel"]
 position = Vector2(45, 71)
 texture = ExtResource("2_iukj3")
 region_enabled = true
 region_rect = Rect2(5, 4, 70, 137)
 
-[node name="PhoneOn" type="Sprite2D" parent="Phone Panel"]
+[node name="PhoneOn" type="Sprite2D" parent="CanvasLayer/Phone Panel"]
 position = Vector2(45, 71)
 texture = ExtResource("13_gdirq")
 
-[node name="charge-animation" type="Sprite2D" parent="Phone Panel"]
+[node name="charge-animation" type="Sprite2D" parent="CanvasLayer/Phone Panel"]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(48, 135)
 texture = ExtResource("9_nl58u")
 hframes = 15
 
-[node name="BatteryPanel" type="Panel" parent="Phone Panel"]
+[node name="BatteryPanel" type="Panel" parent="CanvasLayer/Phone Panel"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_nl58u")
 
-[node name="Battery100" type="Sprite2D" parent="Phone Panel/BatteryPanel"]
+[node name="Battery100" type="Sprite2D" parent="CanvasLayer/Phone Panel/BatteryPanel"]
 position = Vector2(40, 135)
 texture = ExtResource("4_n0qce")
 
-[node name="Battery75" type="Sprite2D" parent="Phone Panel/BatteryPanel"]
+[node name="Battery75" type="Sprite2D" parent="CanvasLayer/Phone Panel/BatteryPanel"]
 visible = false
 position = Vector2(40, 135)
 texture = ExtResource("5_lbaaj")
 
-[node name="Battery50" type="Sprite2D" parent="Phone Panel/BatteryPanel"]
+[node name="Battery50" type="Sprite2D" parent="CanvasLayer/Phone Panel/BatteryPanel"]
 visible = false
 position = Vector2(40, 135)
 texture = ExtResource("6_scoib")
 
-[node name="Battery25" type="Sprite2D" parent="Phone Panel/BatteryPanel"]
+[node name="Battery25" type="Sprite2D" parent="CanvasLayer/Phone Panel/BatteryPanel"]
 visible = false
 position = Vector2(40, 135)
 texture = ExtResource("7_scoib")
 
-[node name="Battery0" type="Sprite2D" parent="Phone Panel/BatteryPanel"]
+[node name="Battery0" type="Sprite2D" parent="CanvasLayer/Phone Panel/BatteryPanel"]
 visible = false
 position = Vector2(40, 135)
 texture = ExtResource("8_5jmm6")
 
-[node name="ChargeBatteryTimer" type="Timer" parent="Phone Panel"]
+[node name="ChargeBatteryTimer" type="Timer" parent="CanvasLayer/Phone Panel"]
 
-[node name="Title" type="Sprite2D" parent="."]
+[node name="Title" type="Sprite2D" parent="CanvasLayer"]
 position = Vector2(56, 16)
 texture = ExtResource("6_1iegc")
 
-[node name="Label" type="Label" parent="Title"]
+[node name="Label" type="Label" parent="CanvasLayer/Title"]
 offset_left = -48.0
 offset_top = -8.0
 offset_right = 55.0
@@ -1203,15 +1233,15 @@ theme_override_font_sizes/font_size = 9
 text = "Selesaikan Teka-Teki!"
 metadata/_edit_use_anchors_ = true
 
-[node name="Objective" type="Node2D" parent="."]
+[node name="Objective" type="Node2D" parent="CanvasLayer"]
 visible = false
 
-[node name="Title" type="Sprite2D" parent="Objective"]
+[node name="Title" type="Sprite2D" parent="CanvasLayer/Objective"]
 visible = false
 position = Vector2(56, 16)
 texture = ExtResource("6_1iegc")
 
-[node name="Label" type="Label" parent="Objective/Title"]
+[node name="Label" type="Label" parent="CanvasLayer/Objective/Title"]
 visible = false
 offset_left = -48.0
 offset_top = -8.0
@@ -1222,47 +1252,40 @@ theme_override_font_sizes/font_size = 9
 text = "Hampiri Mayat"
 metadata/_edit_use_anchors_ = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Objective"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Objective"]
 libraries = {
 &"": SubResource("AnimationLibrary_ijets")
 }
 
-[node name="PhoneAnimation" type="AnimationPlayer" parent="."]
+[node name="PhoneAnimation" type="AnimationPlayer" parent="CanvasLayer"]
 root_node = NodePath("../Phone Panel")
 libraries = {
 &"": SubResource("AnimationLibrary_06fke")
 }
 
-[node name="StartAnimation" type="AnimationPlayer" parent="."]
+[node name="StartAnimation" type="AnimationPlayer" parent="CanvasLayer"]
 libraries = {
 &"": SubResource("AnimationLibrary_pu3lc")
 }
 autoplay = "puzzleStartAnimate"
 
-[node name="ShowBookAnimation" type="AnimationPlayer" parent="."]
+[node name="ShowBookAnimation" type="AnimationPlayer" parent="CanvasLayer"]
 libraries = {
 &"": SubResource("AnimationLibrary_6ymj8")
 }
 
-[node name="MoveAnswerPanelAnim" type="AnimationPlayer" parent="."]
+[node name="MoveAnswerPanelAnim" type="AnimationPlayer" parent="CanvasLayer"]
 libraries = {
 &"": SubResource("AnimationLibrary_n0qce")
 }
 
-[node name="UIAnimations" type="AnimationPlayer" parent="."]
+[node name="UIAnimations" type="AnimationPlayer" parent="CanvasLayer"]
 libraries = {
 &"": SubResource("AnimationLibrary_lbaaj")
 }
 
-[node name="BatteryAnimation" type="AnimationPlayer" parent="."]
+[node name="BatteryAnimation" type="AnimationPlayer" parent="CanvasLayer"]
 libraries = {
 &"": SubResource("AnimationLibrary_ql585")
 }
 autoplay = "charging_animation-loop"
-
-[connection signal="mouse_entered" from="Book Panel/HideShowBook" to="Puzzle Morse Logic" method="_on_hide_show_book_mouse_entered"]
-[connection signal="mouse_exited" from="Book Panel/HideShowBook" to="Puzzle Morse Logic" method="_on_hide_show_book_mouse_exited"]
-[connection signal="pressed" from="Book Panel/HideShowBook" to="Puzzle Morse Logic" method="_on_hide_show_book_pressed"]
-[connection signal="mouse_entered" from="Book Panel/HAnswerContainer/Submit Btn" to="Puzzle Morse Logic" method="_on_submit_btn_mouse_entered"]
-[connection signal="mouse_exited" from="Book Panel/HAnswerContainer/Submit Btn" to="Puzzle Morse Logic" method="_on_submit_btn_mouse_exited"]
-[connection signal="timeout" from="Phone Panel/ChargeBatteryTimer" to="Puzzle Morse Logic" method="_on_charge_battery_timer_timeout"]

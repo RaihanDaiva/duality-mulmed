@@ -5,6 +5,17 @@ extends Node2D
 
 #Untuk navigasi ruangan harus menambahkan ini
 func _ready():
+	#State.current_subscene = "scene11"
+	if State.have_key:
+		$Doors/Door_N/CollisionShape2D.disabled = false
+		$Environment/Gate/InteractionArea/CollisionShape2D.disabled = true
+		
+		$Environment/Key.visible = false
+		$Environment/Key/CollisionShape2D.disabled = true
+		$Environment/Key/InteractionArea/CollisionShape2D.disabled = true
+		
+	else:
+		$Doors/Door_N/CollisionShape2D.disabled = true
 	auto_setup_camera_from_tilemap()
 	if NavigationManager.spawn_door_tag != null:
 		_on_level_spawn(NavigationManager.spawn_door_tag)

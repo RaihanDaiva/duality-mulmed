@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://d4mykpdiq3ph1"
+path="res://.godot/imported/feet.dialogue-593cb594aae2c24cbd57bb41b9fced90.tres"
+
+[deps]
+
+source_file="res://Scene/Scene 12/Dialogue/feet.dialogue"
+dest_files=["res://.godot/imported/feet.dialogue-593cb594aae2c24cbd57bb41b9fced90.tres"]
+
+[params]
+
+defaults=true
