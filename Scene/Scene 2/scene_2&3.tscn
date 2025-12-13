@@ -81,7 +81,7 @@ npc_name = "Cars"
 idle_direction = "none"
 dialogue_file = "uid://bp7c8sfcy1cev"
 change_scene_after_dialogue = true
-next_scene = "uid://yigihdb1ge7l"
+next_scene = "uid://q601p60bw4dm"
 
 [node name="InteractionArea" parent="TKP 1 KP 1/Environment/Cars2" index="2" instance=ExtResource("3_4alwb")]
 
@@ -91,6 +91,9 @@ disabled = true
 
 [node name="Player" parent="TKP 1 KP 1" index="2"]
 position = Vector2(206, 143)
+
+[node name="Dead Body" parent="TKP 1 KP 1" index="3"]
+dialogue_file = "uid://cqlrkfni1xysl"
 
 [node name="NPC" parent="TKP 1 KP 1" index="4"]
 dialogue_file = "uid://cf0oeippca43e"

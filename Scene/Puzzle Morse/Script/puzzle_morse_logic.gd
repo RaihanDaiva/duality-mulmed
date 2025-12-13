@@ -12,14 +12,14 @@ extends Node2D
 @export var correct_answer = [
 	["JAM", "JEM", "JOM"],   # Puzzle Answer for progress 1 and so on...
 	["CI", "KO", "NENG"],
-	["JAM", "JEM", "JOM"],
+	["JA", "JE", "JO"],
 ]
 @export var hint_text: String = "Ada di dinding, menunjukkan waktu"
 @export_file("*.tscn") var next_scene: String = ""  # Scene selanjutnya setelah berhasil
 
 # --- Global game state
-var puzzle_progress = 1	 # Start at one. It will progresses everytime this node is interacted
-
+#var puzzle_progress = 1 if State.current_subscene == "scene2" else 3	 # Start at one. It will progresses everytime this node is interacted
+var puzzle_progress = 1
 # --- Game state ---
 var attempts: int = 0
 var max_attempts: int = 4
@@ -27,7 +27,7 @@ var hint_used: bool = false
 var puzzle_solved: bool = false
 var level: int = 1
 var clue_solved: int = 0
-var total_clue: int = 4
+var total_clue: int = 3
 
 # --- Animation State ---
 var isHidden: bool = false
@@ -52,8 +52,24 @@ var elapsed_time := 0.0
 var battery_value := 4
 @onready var battery_timer = $"../Phone Panel/ChargeBatteryTimer"
 
+var load_jigsaw_level = preload("res://Scene/Puzzle Morse/jigsaw-level/level1.tscn")
+var jigsaw_level = load_jigsaw_level.instantiate()
+
 # ---------------------------
 func _ready() -> void:
+	#print(State.current_subscene)
+	if State.quest_dead_body_done == false:
+		puzzle_progress = 1
+		level = 1
+		print("puzzle progress nya 1")
+	else:
+		puzzle_progress = 3
+		level = 3
+		print("puzzle progress nya 3")
+	#State.current_subscene = "scene10" #nanti dihapus
+	print(" ")
+	print($"..")
+	print(" ")
 	print("atas ",correct_answer)
 	await get_tree().process_frame
 	# Resolve node references dari NodePath (jika diberikan)
@@ -84,11 +100,10 @@ func _ready() -> void:
 
 	setup_connections()
 	reset_puzzle()
-	
-	var load_jigsaw_level = preload("res://Scene/Puzzle Morse/jigsaw-level/level1.tscn")
-	var jigsaw_level = load_jigsaw_level.instantiate()
+	print(jigsaw_level.get_child(0))
 	jigsaw_level.get_child(0).puzzle_finished.connect(jigsaw_finished)
-	$"..".add_child(jigsaw_level)
+	if State.current_subscene == "scene14":
+		$"..".add_child(jigsaw_level)
 	
 	print("bawah ",correct_answer)
 
@@ -175,7 +190,9 @@ func check_answer() -> void:
 
 # ---------------------------
 func on_correct_answer() -> void:
-	State.current_subscene = "scene3"
+	if State.current_subscene == "scene2":
+		State.quest_dead_body_done = true
+		State.current_subscene = "scene3"
 	var puzzle_scene = get_parent()
 	State.puzzle_scene_2 = "done"
 
@@ -198,7 +215,7 @@ func on_correct_answer() -> void:
 	# Emit signals yang benar
 	emit_signal("answer_correct")
 	emit_signal("puzzle_completed")
-	
+	print(level)
 	match level:
 		1:
 			print("Clue 1 DONE")
@@ -385,12 +402,20 @@ func get_remaining_attempts() -> int:
 	return max_attempts - attempts
 
 func check_puzzle_solved() -> void:
+	
 	if clue_solved == total_clue:
 		print("Puzzle is solved")
+		#PuzzleMorseLogic.puzzle_progress += 1
 		# Jika ada node StartAnimation di parent (konvensi sebelumnya), coba mainkan
 		puzzle_solved = true
-		var jigsaw_animationplayer: AnimationPlayer = $"..".get_child(13).get_child(1)
-		jigsaw_animationplayer.play("out")
+		
+		if State.current_subscene == "scene14":
+			print("Parent Children: ", $"../..".get_child(0).get_children())
+			var jigsaw_animationplayer: AnimationPlayer = $"../..".get_child(0).get_child(12).get_child(1)
+			jigsaw_animationplayer.play("out")
+			#$"..".get_child(0).remove_child(get_child(12))
+			remove_child(get_parent())
+		
 		#$"..".get_child(13).visible = false
 		if get_parent() and get_parent().has_node("StartAnimation"):
 			get_parent().get_node("StartAnimation").play("puzzleEndAnimate")

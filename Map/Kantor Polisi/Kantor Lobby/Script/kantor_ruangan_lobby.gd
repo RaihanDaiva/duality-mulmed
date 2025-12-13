@@ -6,7 +6,8 @@ var quest_title_instance
 
 #Untuk navigasi ruangan harus menambahkan ini
 func _ready():
-	#State.current_subscene = "scene7" #nanti dihapus
+	State.quest_dead_body_done = true #nanti dihapus
+	State.current_subscene = "scene10" #nanti dihapus
 	print(State.current_subscene)
 	var quest_title = preload("res://UI/PlayingInterface/QuestTitle.tscn")
 	quest_title_instance = quest_title.instantiate()

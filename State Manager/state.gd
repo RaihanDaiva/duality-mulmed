@@ -9,6 +9,10 @@ var quest_bed_done: String = "" #start, not yet, done
 var quest_car_done: String = ""
 var quest_title: String = ""
 
+
+#scene 2
+var quest_dead_body_done: bool
+
 #scene 7
 var quest_table_done: String = ""
 

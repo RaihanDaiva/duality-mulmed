@@ -21,8 +21,6 @@
 [ext_resource type="Texture2D" uid="uid://dy417o1kyai0j" path="res://UI/Assets/checkbox-false.png" id="10_yi4ij"]
 [ext_resource type="Texture2D" uid="uid://dbbpf0bnieskd" path="res://Scene/Puzzle Morse/Sprite/puzzle-phone-on.png" id="13_gdirq"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1iegc"]
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iukj3"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
@@ -135,21 +133,6 @@ tracks/0/keys = {
 "values": [0.0, 1.0]
 }
 
-[sub_resource type="Animation" id="Animation_bl12v"]
-resource_name = "phone_on"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PhoneOn:modulate:a")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(-2, 1),
-"update": 0,
-"values": [0.0, 1.0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_06fke"]
 _data = {
 &"RESET": SubResource("Animation_06fke"),
@@ -198,26 +181,26 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("File Panel:position")
+tracks/3/path = NodePath("Paper Panel:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(40, 0)]
+"values": [Vector2(113, 20)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Paper Panel:position")
+tracks/4/path = NodePath("../File Panel:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(113, 20)]
+"values": [Vector2(40, -175)]
 }
 
 [sub_resource type="Animation" id="Animation_ti5iq"]
@@ -262,26 +245,26 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("File Panel:position")
+tracks/3/path = NodePath("Paper Panel:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.6),
 "transitions": PackedFloat32Array(0.349, 1),
 "update": 0,
-"values": [Vector2(40, 0), Vector2(40, -175)]
+"values": [Vector2(113, 20), Vector2(225, 20)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Paper Panel:position")
+tracks/4/path = NodePath("../File Panel:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.6),
 "transitions": PackedFloat32Array(0.349, 1),
 "update": 0,
-"values": [Vector2(113, 20), Vector2(225, 20)]
+"values": [Vector2(40, 0), Vector2(40, -175)]
 }
 
 [sub_resource type="Animation" id="Animation_1iegc"]
@@ -326,26 +309,26 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("File Panel:position")
+tracks/3/path = NodePath("Paper Panel:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.5, 1.25),
-"transitions": PackedFloat32Array(-2, 1),
-"update": 0,
-"values": [Vector2(40, -175), Vector2(40, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Paper Panel:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
 "times": PackedFloat32Array(1, 2),
 "transitions": PackedFloat32Array(0.5, 1),
 "update": 0,
 "values": [Vector2(225, 20), Vector2(113, 20)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../File Panel:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.5, 1.2666667),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [Vector2(40, -175), Vector2(40, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pu3lc"]
@@ -785,22 +768,6 @@ tracks/0/keys = {
 "values": [Vector2(0, 0), Vector2(5, 0), Vector2(-5, 0), Vector2(2, 0), Vector2(-2, 0), Vector2(0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_2b156"]
-resource_name = "battery-decrease"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Phone Panel/BatteryPanel:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.033333335, 0.1, 0.16666667, 0.23333333, 0.5),
-"transitions": PackedFloat32Array(1, 0.5, 0.5, 0.5, 0.5, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(5, 0), Vector2(-5, 0), Vector2(2, 0), Vector2(-2, 0), Vector2(0, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_17pk2"]
 resource_name = "charge_animation-end"
 length = 0.5
@@ -882,6 +849,8 @@ _data = {
 &"charging_animation-start": SubResource("Animation_ql585")
 }
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1iegc"]
+
 [node name="Puzzle Morse" type="Control" groups=["puzzle_morse"]]
 z_index = 200
 layout_mode = 3
@@ -899,50 +868,19 @@ feedback_label_path = NodePath("../Book Panel/Feedback Label")
 retry_button_path = NodePath("../Phone Panel/Game Over Panel/Retry Btn")
 game_over_panel_path = NodePath("../Phone Panel/Game Over Panel")
 
-[node name="File Panel" type="Panel" parent="."]
-z_index = -2
-layout_mode = 0
-offset_left = 40.0
-offset_right = 320.0
-offset_bottom = 176.0
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxEmpty_1iegc")
-
-[node name="FileSprite" type="Sprite2D" parent="CanvasLayer/File Panel"]
-position = Vector2(144, 88)
-texture = ExtResource("2_npkbb")
-
-[node name="ClueLabel" type="Label" parent="CanvasLayer/File Panel"]
-layout_mode = 0
-offset_left = 216.0
-offset_top = 8.0
-offset_right = 256.0
-offset_bottom = 22.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 10
-text = "Clue #1"
-
 [node name="Paper Panel" type="Panel" parent="CanvasLayer"]
 offset_left = 113.0
 offset_top = 20.0
-offset_right = 146.182
+offset_right = 146.18213
 offset_bottom = 39.999996
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_iukj3")
-
-[node name="Sprite2D" type="Sprite2D" parent="Paper Panel"]
-visible = false
-position = Vector2(143, 52)
-scale = Vector2(0.5019531, 0.50195307)
-texture = ExtResource("2_5xcd0")
-region_enabled = true
-region_rect = Rect2(231.8895, 29.056133, 128.13928, 180.99167)
 
 [node name="Book Panel" type="Panel" parent="CanvasLayer"]
 offset_left = 97.0
 offset_top = 150.0
 offset_right = 311.0
-offset_bottom = 222.00063
+offset_bottom = 222.0007
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_npkbb")
 script = ExtResource("5_ip43j")
@@ -973,9 +911,9 @@ anchor_top = 0.5
 anchor_right = 0.44400004
 anchor_bottom = 0.5
 offset_left = -1.0
-offset_top = -0.00032043457
+offset_top = -0.00035858154
 offset_right = -1.0160065
-offset_bottom = 21.99968
+offset_bottom = 21.999641
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -1011,15 +949,6 @@ visible = false
 layout_mode = 0
 offset_right = 8.0
 offset_bottom = 8.0
-
-[node name="Feedback Label" type="Label" parent="Book Panel"]
-visible = false
-layout_mode = 0
-offset_left = 73.0
-offset_top = -103.0
-offset_right = 102.565216
-offset_bottom = -86.0
-theme_override_font_sizes/font_size = 8
 
 [node name="FirstClueSprite" type="Sprite2D" parent="CanvasLayer/Book Panel"]
 position = Vector2(39, 43)
@@ -1289,3 +1218,51 @@ libraries = {
 &"": SubResource("AnimationLibrary_ql585")
 }
 autoplay = "charging_animation-loop"
+
+[node name="File Panel" type="Panel" parent="."]
+z_index = -2
+layout_mode = 0
+offset_left = 40.0
+offset_top = -175.0
+offset_right = 320.0
+offset_bottom = 1.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_1iegc")
+
+[node name="CanvasLayer_File Panel#FileSprite" type="Sprite2D" parent="File Panel"]
+position = Vector2(104, 88)
+texture = ExtResource("2_npkbb")
+
+[node name="CanvasLayer_File Panel#ClueLabel" type="Label" parent="File Panel"]
+layout_mode = 0
+offset_left = 176.0
+offset_top = 8.0
+offset_right = 216.0
+offset_bottom = 22.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+text = "Clue #1"
+
+[node name="Paper Panel#Sprite2D" type="Sprite2D" parent="File Panel"]
+visible = false
+position = Vector2(103, 52)
+scale = Vector2(0.5019531, 0.50195307)
+texture = ExtResource("2_5xcd0")
+region_enabled = true
+region_rect = Rect2(231.8895, 29.056133, 128.13928, 180.99167)
+
+[node name="Book Panel#Feedback Label" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 73.0
+offset_top = -103.0
+offset_right = 102.565216
+offset_bottom = -86.0
+theme_override_font_sizes/font_size = 8
+
+[connection signal="mouse_entered" from="CanvasLayer/Book Panel/HideShowBook" to="CanvasLayer/Puzzle Morse Logic" method="_on_hide_show_book_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Book Panel/HideShowBook" to="CanvasLayer/Puzzle Morse Logic" method="_on_hide_show_book_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/Book Panel/HideShowBook" to="CanvasLayer/Puzzle Morse Logic" method="_on_hide_show_book_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Book Panel/HAnswerContainer/Submit Btn" to="CanvasLayer/Puzzle Morse Logic" method="_on_submit_btn_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Book Panel/HAnswerContainer/Submit Btn" to="CanvasLayer/Puzzle Morse Logic" method="_on_submit_btn_mouse_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/Book Panel/Hint Btn" to="CanvasLayer/Puzzle Morse Logic" method="_on_hint_btn_mouse_entered"]

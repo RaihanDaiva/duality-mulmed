@@ -2648,7 +2648,7 @@ disabled = false
 position = Vector2(0, 23)
 
 [node name="Player" parent="." instance=ExtResource("2_dxls2")]
-position = Vector2(-107, 191)
+position = Vector2(110, 28)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 

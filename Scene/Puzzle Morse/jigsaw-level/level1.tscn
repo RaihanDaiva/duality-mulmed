@@ -7,6 +7,21 @@
 [ext_resource type="Texture2D" uid="uid://d00ow668amiur" path="res://Scene/Puzzle Morse/Sprite/jigsaw-1-piece3.png" id="4_2g7ir"]
 [ext_resource type="Texture2D" uid="uid://bd3hsibglghw5" path="res://Scene/Puzzle Morse/Sprite/jigsaw-1-piece4.png" id="5_i8k4n"]
 
+[sub_resource type="Animation" id="Animation_cqb6s"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PuzzleJigsaw:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(192, 48)]
+}
+
 [sub_resource type="Animation" id="Animation_p388k"]
 resource_name = "in"
 length = 1.5
@@ -21,21 +36,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(-2, 1),
 "update": 0,
 "values": [Vector2(192, -152), Vector2(192, 48)]
-}
-
-[sub_resource type="Animation" id="Animation_cqb6s"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PuzzleJigsaw:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(192, 48)]
 }
 
 [sub_resource type="Animation" id="Animation_sdud2"]

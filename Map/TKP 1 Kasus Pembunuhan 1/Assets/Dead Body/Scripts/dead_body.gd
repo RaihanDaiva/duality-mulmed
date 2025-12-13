@@ -54,6 +54,7 @@ func _talk():
 
 func _on_dialogue_finished(resource):
 	print("Dialog selesai dengan: ", npc_name)
+	print(State.current_subscene)
 	var player = get_tree().get_first_node_in_group("player")
 	if player:
 		dialogue_active = false

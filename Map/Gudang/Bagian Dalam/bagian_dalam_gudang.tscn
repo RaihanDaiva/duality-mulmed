@@ -1108,8 +1108,9 @@ layer_2/y_sort_enabled = true
 layer_2/tile_data = PackedInt32Array(589825, 15, 0, 589826, 15, 0, 589827, 15, 0, 589828, 15, 0, 655361, 15, 1, 655362, 15, 1, 655363, 15, 1, 655364, 15, 1, 655367, 0, 0, 655365, 13, 1, 655366, 65549, 1, 589829, 13, 0, 589830, 65549, 0, 589840, 65549, 805306369, 589841, 13, 805306369, 655376, 65538, 805306368, 655377, 2, 805306368, 131091, 10, 1, 196627, 10, 2, 262163, 10, 3, 327699, 10, 4, 131092, 65546, 1, 196628, 65546, 2, 262164, 65546, 3, 327700, 65546, 4, 131093, 131082, 1, 196629, 131082, 2, 262165, 131082, 3, 327701, 131082, 4, 131094, 196618, 1, 196630, 196618, 2, 262166, 196618, 3, 327702, 196618, 4, 131095, 262154, 1, 196631, 262154, 2, 262167, 262154, 3, 327703, 262154, 4, 131096, 327690, 1, 196632, 327690, 2, 262168, 327690, 3, 327704, 327690, 4, 65555, 10, 0, 65556, 65546, 0, 65557, 131082, 0, 65558, 196618, 0, 65559, 262154, 0, 65560, 327690, 0, -262125, 9, 1, -196589, 9, 2, -131053, 9, 3, -65517, 9, 4, -262124, 65545, 1, -196588, 65545, 2, -131052, 65545, 3, -65516, 65545, 4, -262123, 131081, 1, -196587, 131081, 2, -131051, 131081, 3, -65515, 131081, 4, -262122, 196617, 1, -196586, 196617, 2, -131050, 196617, 3, -65514, 196617, 4, -262121, 262153, 1, -196585, 262153, 2, -131049, 262153, 3, -65513, 262153, 4, -262120, 327689, 1, -196584, 327689, 2, -131048, 327689, 3, -65512, 327689, 4, -327661, 9, 0, -327660, 65545, 0, -327659, 131081, 0, -327658, 196617, 0, -327657, 262153, 0, -327656, 327689, 0, -262143, 8, 1, -196607, 8, 2, -131071, 8, 3, -65535, 8, 4, -262142, 65544, 1, -196606, 65544, 2, -131070, 65544, 3, -65534, 65544, 4, -262141, 131080, 1, -196605, 131080, 2, -131069, 131080, 3, -65533, 131080, 4, -262140, 196616, 1, -196604, 196616, 2, -131068, 196616, 3, -65532, 196616, 4, -262139, 262152, 1, -196603, 262152, 2, -131067, 262152, 3, -65531, 262152, 4, -262138, 327688, 1, -196602, 327688, 2, -131066, 327688, 3, -65530, 327688, 4, -262137, 393224, 1, -196601, 393224, 2, -131065, 393224, 3, -65529, 393224, 4, -262136, 458760, 1, -196600, 458760, 2, -131064, 458760, 3, -65528, 458760, 4, -262135, 524296, 1, -196599, 524296, 2, -131063, 524296, 3, -65527, 524296, 4, -327679, 8, 0, -327678, 65544, 0, -327677, 131080, 0, -327676, 196616, 0, -327675, 262152, 0, -327674, 327688, 0, -327673, 393224, 0, -327672, 458760, 0, -327671, 524296, 0, 131073, 7, 1, 196609, 7, 2, 262145, 7, 3, 327681, 7, 4, 131074, 65543, 1, 196610, 65543, 2, 262146, 65543, 3, 327682, 65543, 4, 131075, 131079, 1, 196611, 131079, 2, 262147, 131079, 3, 327683, 131079, 4, 131076, 196615, 1, 196612, 196615, 2, 262148, 196615, 3, 327684, 196615, 4, 131077, 262151, 1, 196613, 262151, 2, 262149, 262151, 3, 327685, 262151, 4, 131078, 327687, 1, 196614, 327687, 2, 262150, 327687, 3, 327686, 327687, 4, 262152, 6, 1, 327688, 6, 2, 262153, 65542, 1, 327689, 65542, 2, 65537, 7, 0, 65538, 65543, 0, 65539, 131079, 0, 65540, 196615, 0, 65541, 262151, 0, 65542, 327687, 0, 196616, 6, 0, 196617, 65542, 0, -131061, 0, 0, -131060, 0, 0, -131059, 13, 1, -131058, 65549, 1, -196592, 6, 1, -131056, 6, 2, -196591, 65542, 1, -131055, 65542, 2, -196597, 0, 0, -196596, 0, 0, -196595, 2, 0, -196594, 65538, 0, -262128, 6, 0, -262127, 65542, 0, 393232, 15, 0, 458768, 15, 1, 393233, 15, 0, 458769, 15, 1, 393234, 15, 0, 458770, 15, 1, 393235, 15, 0, 458771, 15, 1)
 
 [node name="Cardboard" type="CharacterBody2D" parent="Environment"]
-position = Vector2(368, 164)
+position = Vector2(364, 165)
 script = ExtResource("17_jtmtq")
+metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Environment/Cardboard"]
 texture = ExtResource("18_jtmtq")
@@ -1119,8 +1120,9 @@ position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_jtmtq")
 
 [node name="Cardboard2" type="CharacterBody2D" parent="Environment"]
-position = Vector2(368, 148)
+position = Vector2(364, 149)
 script = ExtResource("17_jtmtq")
+metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Environment/Cardboard2"]
 texture = ExtResource("18_jtmtq")
@@ -1130,8 +1132,9 @@ position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_jtmtq")
 
 [node name="Cardboard3" type="CharacterBody2D" parent="Environment"]
-position = Vector2(344, 148)
+position = Vector2(340, 149)
 script = ExtResource("17_jtmtq")
+metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Environment/Cardboard3"]
 texture = ExtResource("18_jtmtq")
@@ -1141,8 +1144,9 @@ position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_jtmtq")
 
 [node name="Cardboard4" type="CharacterBody2D" parent="Environment"]
-position = Vector2(344, 164)
+position = Vector2(340, 165)
 script = ExtResource("17_jtmtq")
+metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Environment/Cardboard4"]
 texture = ExtResource("18_jtmtq")
@@ -1152,13 +1156,26 @@ position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_jtmtq")
 
 [node name="Cardboard5" type="CharacterBody2D" parent="Environment"]
-position = Vector2(368, 132)
+position = Vector2(382, 137)
 script = ExtResource("17_jtmtq")
+metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Environment/Cardboard5"]
 texture = ExtResource("18_jtmtq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Cardboard5"]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_jtmtq")
+
+[node name="Cardboard6" type="CharacterBody2D" parent="Environment"]
+position = Vector2(402, 137)
+script = ExtResource("17_jtmtq")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Cardboard6"]
+texture = ExtResource("18_jtmtq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Cardboard6"]
 position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_jtmtq")
 
@@ -1178,7 +1195,7 @@ disabled = false
 position = Vector2(1, -21)
 
 [node name="Player" parent="." instance=ExtResource("17_oynwp")]
-position = Vector2(397, 140)
+position = Vector2(336, 125)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
