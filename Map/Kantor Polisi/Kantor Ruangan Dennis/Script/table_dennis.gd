@@ -12,12 +12,12 @@ extends StaticBody2D
 @onready var interaction_area = $InteractionArea if has_node("InteractionArea") else null
 @onready var sprite = $Sprite2D
 @onready var fade_transition = $"Fade Transition" if has_node("Fade Transition") else null
+@onready var parent = get_parent().get_parent()
 
 var dialogue_active: bool = false
 signal dialogue_finished
 
-func _ready():
-		
+func _ready():		
 	# Setup interaction
 	if interaction_area and can_interact:
 		interaction_area.interact = Callable(self, "_talk")
@@ -69,6 +69,8 @@ func _on_dialogue_finished(resource):
 	if change_scene_after_dialogue and next_scene != "":
 		change_to_scene()
 	
+	#State.debug_current_scene()
+	
 	if State.current_subscene == "scene7":
 		pass
 	elif State.current_subscene == "scene10":
@@ -77,21 +79,20 @@ func _on_dialogue_finished(resource):
 	#show_next_puzzle()
 		
 func show_next_puzzle():
+	print("\nShowing Puzzle....\n")
 	if next_puzzle == "":
 		print("next_puzzle belum dipilih di Inspector!")
 		return
 	print("puzzle morse")
 	# Load scene
 	var scene_res = load(next_puzzle)
-	var puzzle_scene = scene_res.instantiate()
+	var puzzle_scene: Control = scene_res.instantiate()
+	var puzzle_logic: Node2D = puzzle_scene.get_child(0).get_child(0) # Check puzzle_morse.tscn untuk referensi child node
 
+	# Connnect ke signal puzzle_completed dari puzzle_morse_logic
+	puzzle_logic.puzzle_completed.connect(on_puzzle_completed)
 	# Tambahkan ke parent (atau node lain sesuai kebutuhan)
 	get_parent().add_child(puzzle_scene)
-	
-	# Ubah Quest Title
-	if State.current_subscene == "scene2":
-		var parent = get_parent().get_parent()
-		parent.change_quest_title("Berikan ke polisi")
 
 	# Aktifkan (visible)
 	puzzle_scene.visible = true
@@ -112,3 +113,7 @@ func change_to_scene():
 		get_tree().change_scene_to_file(next_scene)
 	else:
 		get_tree().change_scene_to_file(next_scene)
+
+func on_puzzle_completed():
+	print("<==================== PUZZLE COMPLETED IN SUBSCENE: ", State.current_subscene)
+	parent.change_quest_title("BERHASILILASIFJIL")

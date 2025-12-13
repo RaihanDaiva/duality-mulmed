@@ -58,13 +58,15 @@ var jigsaw_level = load_jigsaw_level.instantiate()
 # ---------------------------
 func _ready() -> void:
 	#print(State.current_subscene)
-	if State.quest_dead_body_done == false:
+	State.debug_current_scene()
+	
+	if State.quest_dead_body_done == false:	
 		puzzle_progress = 1
 		level = 1
 		print("puzzle progress nya 1")
 	else:
 		puzzle_progress = 3
-		level = 3
+		level = 1
 		print("puzzle progress nya 3")
 	#State.current_subscene = "scene10" #nanti dihapus
 	print(" ")
@@ -198,12 +200,6 @@ func on_correct_answer() -> void:
 
 	show_feedback("BENAR!")
 
-	# tunggu sedikit lalu sembunyikan container puzzle (ini Control jadi aman)
-	if State.give_puzzle_to_police_scene_3 == "true":
-		$"../Objective/AnimationPlayer".play("LabelEndAnimation")
-		#await get_tree().create_timer(1.0).timeout
-		puzzle_scene.visible = false
-
 	# Disable input UI
 	#if answer_input:
 		#answer_input.editable = false
@@ -214,8 +210,6 @@ func on_correct_answer() -> void:
 
 	# Emit signals yang benar
 	emit_signal("answer_correct")
-	emit_signal("puzzle_completed")
-	print(level)
 	match level:
 		1:
 			print("Clue 1 DONE")
@@ -228,7 +222,6 @@ func on_correct_answer() -> void:
 			$"../Book Panel/FirstClueSprite/Null".visible = false
 			$"../Book Panel/FirstClueSprite/True".visible = true
 			clue_solved += 1
-			print("Clue Solved: ", clue_solved)
 		2:
 			print("Clue 2 DONE")
 			$"../Book Panel/SecondClueSprite/SecondClue".visible = true
@@ -265,6 +258,7 @@ func on_correct_answer() -> void:
 			go_to_next_scene()
 		_:
 			pass
+	debug_puzzle_var()
 	# Pindah ke scene berikutnya setelah delay (opsional)
 	#if next_scene != "":
 		#await get_tree().create_timer(2.0).timeout
@@ -405,6 +399,11 @@ func check_puzzle_solved() -> void:
 	
 	if clue_solved == total_clue:
 		print("Puzzle is solved")
+		emit_signal("puzzle_completed")
+		
+		# Reset Puzzle
+		level = 1
+		
 		#PuzzleMorseLogic.puzzle_progress += 1
 		# Jika ada node StartAnimation di parent (konvensi sebelumnya), coba mainkan
 		puzzle_solved = true
@@ -546,3 +545,16 @@ func jigsaw_finished():
 	clue_solved += 1
 	print("Clue Solved: ", clue_solved)
 	check_puzzle_solved()
+
+func debug_puzzle_var():
+	print("\n<===== Puzzle Variable START =====>")
+	print("progress =", puzzle_progress)
+	print("level =", level)
+	print("correct_answer =", correct_answer)
+
+	print("Selected set of answers = ", correct_answer[puzzle_progress-1])
+	print("Clue Solved: ", clue_solved)
+	print("Total Clue: ", total_clue)
+	
+	print("Phone Panel: ", $"../Phone Panel".global_position)
+	print("<===== Puzzle Variable END =====>\n")

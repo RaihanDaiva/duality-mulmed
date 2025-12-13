@@ -24,3 +24,9 @@ var have_key: bool
 
 #scene 12
 var have_feet: bool
+
+func debug_current_scene():
+	print("<===== Debugging Current Level/Scene Position START =====>")
+	print("current_subscene", current_subscene)
+	print("current_room", current_room)
+	print("<===== Debugging Current Level/Scene Position END =====>")
