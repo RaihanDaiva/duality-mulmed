@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dp44intplinpl"]
+
+[ext_resource type="Script" uid="uid://bjwjyopyd0pe6" path="res://Scene/Puzzle Morse/puzzle_jigsaw.gd" id="1_ujyn4"]
+[ext_resource type="Texture2D" uid="uid://dkcj7kwtkepx8" path="res://Scene/Puzzle Morse/Sprite/jigsaw-1-placeholder.png" id="3_3gnbb"]
+
+[node name="PuzzleJigsaw" type="Node2D"]
+script = ExtResource("1_ujyn4")
+jigsaw_holder = ExtResource("3_3gnbb")
+
+[node name="Answer" type="Sprite2D" parent="."]
+visible = false
+
+[node name="Container" type="Node2D" parent="."]
+
+[node name="JigsawHolder" type="Sprite2D" parent="Container"]

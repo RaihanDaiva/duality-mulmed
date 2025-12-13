@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bnr5f775i6x8y"]
+
+[ext_resource type="Script" uid="uid://o6cueq6wdt7r" path="res://Scene/Puzzle Morse/puzzle_piece.gd" id="1_3sp2k"]
+[ext_resource type="Texture2D" uid="uid://cljinfmgb0ygx" path="res://Scene/Puzzle Morse/Sprite/jigsaw-1-piece1.png" id="2_x3o2g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x3o2g"]
+
+[node name="PuzzlePiece" type="Node2D"]
+script = ExtResource("1_3sp2k")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_x3o2g")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_x3o2g")

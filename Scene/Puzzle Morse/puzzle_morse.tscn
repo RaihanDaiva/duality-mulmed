@@ -90,21 +90,6 @@ _data = {
 &"RESET": SubResource("Animation_4alwb")
 }
 
-[sub_resource type="Animation" id="Animation_bl12v"]
-resource_name = "phone_on"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PhoneOn:modulate:a")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(-2, 1),
-"update": 0,
-"values": [0.0, 1.0]
-}
-
 [sub_resource type="Animation" id="Animation_06fke"]
 length = 0.001
 tracks/0/type = "value"
@@ -133,6 +118,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_bl12v"]
+resource_name = "phone_on"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PhoneOn:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [0.0, 1.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_06fke"]
@@ -754,6 +754,22 @@ tracks/2/keys = {
 "values": [Vector2(0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_2b156"]
+resource_name = "battery-decrease"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Phone Panel/BatteryPanel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.1, 0.16666667, 0.23333333, 0.5),
+"transitions": PackedFloat32Array(1, 0.5, 0.5, 0.5, 0.5, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(5, 0), Vector2(-5, 0), Vector2(2, 0), Vector2(-2, 0), Vector2(0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_17pk2"]
 resource_name = "charge_animation-end"
 length = 0.5
@@ -826,22 +842,6 @@ tracks/1/keys = {
 "values": [0.0, 1.0]
 }
 
-[sub_resource type="Animation" id="Animation_2b156"]
-resource_name = "battery-decrease"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Phone Panel/BatteryPanel:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.033333335, 0.1, 0.16666667, 0.23333333, 0.5),
-"transitions": PackedFloat32Array(1, 0.5, 0.5, 0.5, 0.5, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(5, 0), Vector2(-5, 0), Vector2(2, 0), Vector2(-2, 0), Vector2(0, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ql585"]
 _data = {
 &"RESET": SubResource("Animation_0qn4g"),
@@ -855,6 +855,7 @@ _data = {
 z_index = 50
 layout_mode = 3
 anchors_preset = 0
+mouse_filter = 2
 
 [node name="Puzzle Morse Logic" type="Node2D" parent="."]
 script = ExtResource("1_njstn")
@@ -866,10 +867,12 @@ retry_button_path = NodePath("../Phone Panel/Game Over Panel/Retry Btn")
 game_over_panel_path = NodePath("../Phone Panel/Game Over Panel")
 
 [node name="File Panel" type="Panel" parent="."]
+z_index = -2
 layout_mode = 0
 offset_left = 40.0
 offset_right = 320.0
 offset_bottom = 176.0
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_1iegc")
 
 [node name="FileSprite" type="Sprite2D" parent="File Panel"]
@@ -892,9 +895,11 @@ offset_left = 113.0
 offset_top = 20.0
 offset_right = 146.182
 offset_bottom = 39.999996
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_iukj3")
 
 [node name="Sprite2D" type="Sprite2D" parent="Paper Panel"]
+visible = false
 position = Vector2(143, 52)
 scale = Vector2(0.5019531, 0.50195307)
 texture = ExtResource("2_5xcd0")
@@ -907,6 +912,7 @@ offset_left = 97.0
 offset_top = 150.0
 offset_right = 311.0
 offset_bottom = 222.00063
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_npkbb")
 script = ExtResource("5_ip43j")
 
@@ -976,6 +982,7 @@ offset_right = 8.0
 offset_bottom = 8.0
 
 [node name="Feedback Label" type="Label" parent="Book Panel"]
+visible = false
 layout_mode = 0
 offset_left = 73.0
 offset_top = -103.0
@@ -1099,6 +1106,7 @@ layout_mode = 0
 offset_top = 33.0
 offset_right = 88.0
 offset_bottom = 176.0
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_5png1")
 
 [node name="Game Over Panel" type="Control" parent="Phone Panel"]

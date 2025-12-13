@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://d3fib1l7p0o7w"]
+
+[ext_resource type="PackedScene" uid="uid://dp44intplinpl" path="res://Scene/Puzzle Morse/puzzle_jigsaw.tscn" id="1_1ntbo"]
+[ext_resource type="PackedScene" uid="uid://bnr5f775i6x8y" path="res://Scene/Puzzle Morse/puzzle_piece.tscn" id="2_wkqnn"]
+[ext_resource type="Texture2D" uid="uid://dwcb76waanw0c" path="res://Scene/Puzzle Morse/Sprite/jigsaw-1-piece2.png" id="3_wkqnn"]
+[ext_resource type="Texture2D" uid="uid://d00ow668amiur" path="res://Scene/Puzzle Morse/Sprite/jigsaw-1-piece3.png" id="4_2g7ir"]
+[ext_resource type="Texture2D" uid="uid://bd3hsibglghw5" path="res://Scene/Puzzle Morse/Sprite/jigsaw-1-piece4.png" id="5_i8k4n"]
+
+[node name="Level1" type="Node2D"]
+
+[node name="PuzzleJigsaw" parent="." node_paths=PackedStringArray("jigsaw_pieces") instance=ExtResource("1_1ntbo")]
+position = Vector2(77, 44)
+jigsaw_pieces = [NodePath("PuzzlePiece"), NodePath("PuzzlePiece2"), NodePath("PuzzlePiece3"), NodePath("PuzzlePiece4")]
+
+[node name="PuzzlePiece" parent="PuzzleJigsaw" instance=ExtResource("2_wkqnn")]
+position = Vector2(178, -14)
+index = 0
+
+[node name="PuzzlePiece2" parent="PuzzleJigsaw" instance=ExtResource("2_wkqnn")]
+position = Vector2(189, 50)
+index = 1
+
+[node name="Sprite2D" parent="PuzzleJigsaw/PuzzlePiece2" index="0"]
+texture = ExtResource("3_wkqnn")
+
+[node name="PuzzlePiece3" parent="PuzzleJigsaw" instance=ExtResource("2_wkqnn")]
+position = Vector2(-17, 70)
+index = 2
+
+[node name="Sprite2D" parent="PuzzleJigsaw/PuzzlePiece3" index="0"]
+texture = ExtResource("4_2g7ir")
+
+[node name="PuzzlePiece4" parent="PuzzleJigsaw" instance=ExtResource("2_wkqnn")]
+position = Vector2(105, 51)
+index = 3
+
+[node name="Sprite2D" parent="PuzzleJigsaw/PuzzlePiece4" index="0"]
+texture = ExtResource("5_i8k4n")
+
+[editable path="PuzzleJigsaw"]
+[editable path="PuzzleJigsaw/PuzzlePiece"]
+[editable path="PuzzleJigsaw/PuzzlePiece2"]
+[editable path="PuzzleJigsaw/PuzzlePiece3"]
+[editable path="PuzzleJigsaw/PuzzlePiece4"]

@@ -26,6 +26,8 @@ var max_attempts: int = 4
 var hint_used: bool = false
 var puzzle_solved: bool = false
 var level: int = 1
+var clue_solved: int = 0
+var total_clue: int = 4
 
 # --- Animation State ---
 var isHidden: bool = false
@@ -79,10 +81,15 @@ func _ready() -> void:
 	if player:
 		player.can_move = true
 		player.direction = Vector2.ZERO
-		
 
 	setup_connections()
 	reset_puzzle()
+	
+	var load_jigsaw_level = preload("res://Scene/Puzzle Morse/jigsaw-level/level1.tscn")
+	var jigsaw_level = load_jigsaw_level.instantiate()
+	jigsaw_level.get_child(0).puzzle_finished.connect(jigsaw_finished)
+	$"..".add_child(jigsaw_level)
+	
 	print("bawah ",correct_answer)
 
 # ---------------------------
@@ -177,7 +184,7 @@ func on_correct_answer() -> void:
 	# tunggu sedikit lalu sembunyikan container puzzle (ini Control jadi aman)
 	if State.give_puzzle_to_police_scene_3 == "true":
 		$"../Objective/AnimationPlayer".play("LabelEndAnimation")
-		await get_tree().create_timer(1.0).timeout
+		#await get_tree().create_timer(1.0).timeout
 		puzzle_scene.visible = false
 
 	# Disable input UI
@@ -203,6 +210,8 @@ func on_correct_answer() -> void:
 			answer_input.text = ""
 			$"../Book Panel/FirstClueSprite/Null".visible = false
 			$"../Book Panel/FirstClueSprite/True".visible = true
+			clue_solved += 1
+			print("Clue Solved: ", clue_solved)
 		2:
 			print("Clue 2 DONE")
 			$"../Book Panel/SecondClueSprite/SecondClue".visible = true
@@ -212,6 +221,8 @@ func on_correct_answer() -> void:
 			answer_input.text = ""
 			$"../Book Panel/SecondClueSprite/Null".visible = false
 			$"../Book Panel/SecondClueSprite/True".visible = true
+			clue_solved += 1
+			print("Clue Solved: ", clue_solved)
 		3:
 			print("Clue 3 DONE")
 			$"../Book Panel/ThirdClueSprite/ThirdClue".visible = true
@@ -219,30 +230,21 @@ func on_correct_answer() -> void:
 			answer_input.text = ""
 			$"../Book Panel/ThirdClueSprite/Null".visible = false
 			$"../Book Panel/ThirdClueSprite/True".visible = true
+			clue_solved += 1
+			print("Clue Solved: ", clue_solved)
+			
+			check_puzzle_solved()
 			
 			await get_tree().create_timer(1).timeout
 			
-			# Jika ada node StartAnimation di parent (konvensi sebelumnya), coba mainkan
-			puzzle_solved = true
-			if get_parent() and get_parent().has_node("StartAnimation"):
-				get_parent().get_node("StartAnimation").play("puzzleEndAnimate")
+			
 			
 			# Kembalikan kontrol ke player
 			var player = _get_player()
 			if player:
 				player.can_move = true
-
-			# visual akhir / animasi -> tunggu lalu play end animation jika ada
-			await get_tree().create_timer(2).timeout
-			$"../Objective".visible = true
-			$"../Objective/Title/Label".text = "Berikan kepada polisi"
-			$"../Objective/AnimationPlayer".play("LabelStartAnimation")
-			await get_tree().create_timer(5).timeout
-			$"../Objective/AnimationPlayer".play("LabelEndAnimation")
-			await get_tree().create_timer(1).timeout
-			$"..".visible = false
 			
-			await get_tree().create_timer(2.0).timeout
+			#await get_tree().create_timer(2.0).timeout
 			go_to_next_scene()
 		_:
 			pass
@@ -382,8 +384,27 @@ func get_attempts() -> int:
 func get_remaining_attempts() -> int:
 	return max_attempts - attempts
 
-func is_puzzle_solved() -> bool:
-	return puzzle_solved
+func check_puzzle_solved() -> void:
+	if clue_solved == total_clue:
+		print("Puzzle is solved")
+		# Jika ada node StartAnimation di parent (konvensi sebelumnya), coba mainkan
+		puzzle_solved = true
+		var jigsaw_animationplayer: AnimationPlayer = $"..".get_child(13).get_child(1)
+		jigsaw_animationplayer.play("out")
+		#$"..".get_child(13).visible = false
+		if get_parent() and get_parent().has_node("StartAnimation"):
+			get_parent().get_node("StartAnimation").play("puzzleEndAnimate")
+			
+		# visual akhir / animasi -> tunggu lalu play end animation jika ada
+		#await get_tree().create_timer(2).timeout
+		#$"../Objective".visible = true
+		#$"../Objective/Title/Label".text = "Berikan kepada polisi"
+		#$"../Objective/AnimationPlayer".play("LabelStartAnimation")
+		##await get_tree().create_timer(5).timeout
+		#$"../Objective/AnimationPlayer".play("LabelEndAnimation")
+		#await get_tree().create_timer(1).timeout
+	else:
+		print("Puzzle is not solved")
 
 func _on_hide_show_book_pressed() -> void:
 	if isHidden:
@@ -494,3 +515,9 @@ func _on_charge_battery_timer_timeout() -> void:
 		battery_value = 0
 
 	set_battery(battery_value)
+
+func jigsaw_finished():
+	print("Signal Received from Level 1: ")
+	clue_solved += 1
+	print("Clue Solved: ", clue_solved)
+	check_puzzle_solved()
