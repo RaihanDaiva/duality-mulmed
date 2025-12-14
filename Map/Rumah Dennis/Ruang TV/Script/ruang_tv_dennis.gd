@@ -35,10 +35,10 @@ func change_quest_title(new_title: String) -> void:
 		if State.quest_bed_done == "start":
 			quest_title_instance._update_quest_title(new_title, true)
 		elif State.quest_bed_done == "not yet":
-			quest_title_instance._update_quest_title(new_title, false)
+			quest_title_instance._update_quest_title(new_title, true)
 	elif State.current_subscene == "scene6":
 		if State.current_room == "ruang tv":
-			quest_title_instance._update_quest_title(new_title, false)
+			quest_title_instance._update_quest_title(new_title, true)
 		
 		
 func _on_level_spawn(destination_tag: String):

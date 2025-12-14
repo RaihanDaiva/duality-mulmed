@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://lrhej0kx7t0l"
+path="res://.godot/imported/police_gang.dialogue-994f8f3d93835f9ab162706597715d93.tres"
+
+[deps]
+
+source_file="res://Scene/Scene 2/Dialogue/police_gang.dialogue"
+dest_files=["res://.godot/imported/police_gang.dialogue-994f8f3d93835f9ab162706597715d93.tres"]
+
+[params]
+
+defaults=true

@@ -65,6 +65,9 @@ func _on_dialogue_finished(resource):
 	
 	if change_scene_after_dialogue and next_scene != "":
 		change_to_scene()
+	var parent = get_parent().get_parent().get_child(1)
+	print("===========>parentnya: ",parent)
+	parent.visible = false
 	
 	show_next_puzzle()
 		
@@ -76,7 +79,12 @@ func show_next_puzzle():
 	# Load scene
 	var scene_res = load(next_puzzle)
 	var puzzle_scene = scene_res.instantiate()
+	
+	var puzzle_logic: Node2D = puzzle_scene.get_child(0).get_child(0) # Check puzzle_morse.tscn untuk referensi child node
 
+	# Connnect ke signal puzzle_completed dari puzzle_morse_logic
+	puzzle_logic.puzzle_completed.connect(on_puzzle_completed)
+	
 	# Tambahkan ke parent (atau node lain sesuai kebutuhan)
 	get_parent().add_child(puzzle_scene)
 	
@@ -91,6 +99,12 @@ func show_next_puzzle():
 	# Mainkan animasinya
 	# Pastikan node StartAnimation ada di dalam puzzle .tscn
 	puzzle_scene.get_node("CanvasLayer/StartAnimation").play("puzzleStartAnimate")
+
+func on_puzzle_completed():
+	#var parent = get_parent().get_parent().get_child(1)
+	print("<==================== PUZZLE COMPLETED IN SUBSCENE: ", State.current_subscene)
+	#print("===========>parentnya: ",parent)
+	#parent.visible = false
 
 func change_to_scene():
 	if fade_transition:

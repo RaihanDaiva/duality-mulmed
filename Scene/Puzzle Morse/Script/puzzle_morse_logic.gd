@@ -57,17 +57,26 @@ var jigsaw_level = load_jigsaw_level.instantiate()
 
 # ---------------------------
 func _ready() -> void:
-	#print(State.current_subscene)
+	print(State.current_subscene)
 	State.debug_current_scene()
 	
-	if State.quest_dead_body_done == false:	
-		puzzle_progress = 1
-		level = 1
-		print("puzzle progress nya 1")
-	else:
-		puzzle_progress = 3
-		level = 1
-		print("puzzle progress nya 3")
+	if State.current_subscene == "scene2":
+		if State.quest_dead_body_done == false:	
+			puzzle_progress = 1
+			level = 1
+			print("puzzle progress nya 1")
+	
+	elif State.current_subscene == "scene10":
+		if State.puzzle_scene10 == false:
+			puzzle_progress = 2
+			level = 1
+			print("puzzle progress nya 2")
+	
+	elif State.current_subscene == "scene14":
+		if State.puzzle_scene14 == false:
+			puzzle_progress = 3
+			level = 1
+			print("puzzle progress nya 3")
 	#State.current_subscene = "scene10" #nanti dihapus
 	print(" ")
 	print($"..")
@@ -96,9 +105,31 @@ func _ready() -> void:
 
 	# Lock player movement saat puzzle muncul
 	var player = _get_player()
-	if player:
-		player.can_move = true
-		player.direction = Vector2.ZERO
+	print("dead body: ",State.quest_dead_body_done)
+	
+	#if player:
+		#player.can_move = true
+		#player.direction = Vector2.ZERO
+	if State.current_subscene == "scene2":
+		print("dead body: ",State.quest_dead_body_done)
+		if !State.quest_dead_body_done:
+			print("lom beres")
+			if player:
+				player.can_move = false
+				player.direction = Vector2.ZERO
+	elif State.current_subscene == "scene10":
+		print("lengan: ", State.puzzle_scene10)
+		if !State.puzzle_scene10:
+			print("scene 10 lom beres")
+			if player:
+				player.can_move = false
+				player.direction = Vector2.ZERO
+	elif State.current_subscene == "scene14":
+		if !State.puzzle_scene14:
+			print("lom beres")
+			if player:
+				player.can_move = false
+				player.direction = Vector2.ZERO
 
 	setup_connections()
 	reset_puzzle()
@@ -196,17 +227,8 @@ func on_correct_answer() -> void:
 		State.quest_dead_body_done = true
 		State.current_subscene = "scene3"
 	var puzzle_scene = get_parent()
-	State.puzzle_scene_2 = "done"
 
 	show_feedback("BENAR!")
-
-	# Disable input UI
-	#if answer_input:
-		#answer_input.editable = false
-	#if submit_button:
-		#submit_button.disabled = true
-	#if hint_button:
-		#hint_button.disabled = true
 
 	# Emit signals yang benar
 	emit_signal("answer_correct")

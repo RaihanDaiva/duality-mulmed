@@ -44,7 +44,7 @@ func change_quest_title(new_title: String) -> void:
 		if State.current_room == "kamar" and State.quest_car_done == "start":
 			quest_title_instance._update_quest_title(new_title, true)
 		else:
-			quest_title_instance._update_quest_title(new_title, false)
+			quest_title_instance._update_quest_title(new_title, true)
 		
 func _on_level_spawn(destination_tag: String):
 	var door_path = "Doors/Door_" + destination_tag

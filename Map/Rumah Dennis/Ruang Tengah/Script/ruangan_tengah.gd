@@ -32,7 +32,7 @@ func change_quest_title(new_title: String) -> void:
 		and State.quest_title == "ke kamar"
 	)
 
-	quest_title_instance._update_quest_title(new_title, should_animate)
+	quest_title_instance._update_quest_title(new_title, true)
 
 
 

@@ -76,6 +76,9 @@ func _on_dialogue_finished(resource):
 	elif State.current_subscene == "scene10":
 		$InteractionArea/CollisionShape2D.disabled = true
 		show_next_puzzle()
+	elif State.current_subscene == "scene14":
+		$InteractionArea/CollisionShape2D.disabled = true
+		show_next_puzzle()
 	#show_next_puzzle()
 		
 func show_next_puzzle():

@@ -1,12 +1,18 @@
 ~ start
 
-if State.puzzle_scene_2 == "":
-	Polisi: Selamat siang pak
-	Dennis: Siang juga bawahan
-elif State.puzzle_scene_2 == "done":
-	Dennis: Ini hasil teka-tekinya
-	Dennis: Tolong berikan ke atasan ya
-	Polisi: Laksanakan pak
-	set State.give_puzzle_to_police_scene_3 = "true"
-
+if State.police_left_talked == false:
+	Polisi: Selamat sore, Detektif
+	Dennis: Ahhhh, kamu.
+	Dennis: Kamu yang berjaga di restoran pizza yang berisikan robot-robot hewan itu ya? Di kasus kehilangan 5 anak itu?
+	Polisi: Ah iya, betul, pak.
+	Dennis: Jadi bagaimana dengan kelanjutan kasus itu singkatnya?
+	Polisi: Kita belum menemukan kelima anak itu satupun
+	Polisi: Namun, adapun tersangka berbaju ungu dengan kostum kelinci emasnya.
+	Polisi: Hanya saja, kita belum memiliki cukup bukti untuk menangkapnya.
+	Dennis: Begitu ya, sayang sekali.
+	Dennis: Ngomong-ngomong, lanjutkan tugasmu. Aku juga akan melanjutkan tugasku.
+	Dennis: Tenang saja, Kami sudah blokir area ini. Tidak ada yang bisa menerobos dari pandangan kami.
+	set State.police_left_talked = true
+else: 
+	Polisi: Kami akan mengawasi TKP. Bapak lakukan saja tugas bapak.
 => END

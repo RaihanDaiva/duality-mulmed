@@ -89,7 +89,7 @@ func _on_dialogue_finished(resource):
 	if player:
 		dialogue_active = false
 		player.can_move = true
-		if State.give_puzzle_to_police_scene_3 == "true":
+		if State.give_puzzle_to_police_scene_3 == true:
 			# Ubah Quest Title
 			var parent = get_parent().get_parent()
 			if State.current_subscene == "scene3":
@@ -98,7 +98,7 @@ func _on_dialogue_finished(resource):
 				$"../../Objective/Title/Label".text = "Kembali ke mobil"
 				$"../../Objective/AnimationPlayer".play("LabelStartAnimation")
 				$"../Environment/Cars2/InteractionArea/CollisionShape2D".disabled = false
-				$InteractionArea/CollisionShape2D.disabled = true
+				#$InteractionArea/CollisionShape2D.disabled = true
 	if change_scene_after_dialogue and next_scene != "":
 		change_to_scene()
 

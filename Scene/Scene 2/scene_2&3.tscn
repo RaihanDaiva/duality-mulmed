@@ -1,11 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://rd8ocrprox6q"]
+[gd_scene load_steps=11 format=3 uid="uid://rd8ocrprox6q"]
 
 [ext_resource type="Script" uid="uid://crf5jqag1y0hf" path="res://Scene/Scene 2/scene_2&3.gd" id="1_ijets"]
 [ext_resource type="PackedScene" uid="uid://vr5nfvkt2o68" path="res://Map/TKP 1 Kasus Pembunuhan 1/tkp_1_kp_1.tscn" id="1_px4qs"]
 [ext_resource type="Script" uid="uid://cd23hbo13sr1f" path="res://Scene/Scene 2/Script/cars_2.gd" id="2_nefi2"]
 [ext_resource type="PackedScene" uid="uid://dky5l4bmp636h" path="res://Interaction Manager/Interaction Area/interaction_area.tscn" id="3_4alwb"]
 [ext_resource type="Texture2D" uid="uid://c5ta84htpf7pi" path="res://Scene/Puzzle Morse/Sprite/puzzle-title.png" id="4_nefi2"]
-[ext_resource type="PackedScene" uid="uid://d2jfkvajqdxem" path="res://UI/PlayingInterface/QuestTitle.tscn" id="5_4alwb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cu6uh"]
 radius = 13.152946
@@ -81,7 +80,7 @@ npc_name = "Cars"
 idle_direction = "none"
 dialogue_file = "uid://bp7c8sfcy1cev"
 change_scene_after_dialogue = true
-next_scene = "uid://q601p60bw4dm"
+next_scene = "uid://yigihdb1ge7l"
 
 [node name="InteractionArea" parent="TKP 1 KP 1/Environment/Cars2" index="2" instance=ExtResource("3_4alwb")]
 
@@ -99,10 +98,11 @@ dialogue_file = "uid://cqlrkfni1xysl"
 dialogue_file = "uid://cf0oeippca43e"
 
 [node name="NPC2" parent="TKP 1 KP 1" index="5"]
-dialogue_file = "uid://cf0oeippca43e"
+can_interact = true
+dialogue_file = "uid://besrkkhtisu6g"
 
 [node name="NPC3" parent="TKP 1 KP 1" index="6"]
-can_interact = false
+dialogue_file = "uid://lrhej0kx7t0l"
 
 [node name="Sirine" parent="TKP 1 KP 1/SFX" index="0"]
 autoplay = false
@@ -138,10 +138,6 @@ libraries = {
 }
 autoplay = "LabelStartAnimation"
 
-[node name="QuestTitle" parent="." instance=ExtResource("5_4alwb")]
-visible = false
-quest_name = "Hampiri Mayat"
-
 [editable path="TKP 1 KP 1"]
 [editable path="TKP 1 KP 1/Fade Transition2"]
 [editable path="TKP 1 KP 1/Environment/Cars2/InteractionArea"]
@@ -149,4 +145,4 @@ quest_name = "Hampiri Mayat"
 [editable path="TKP 1 KP 1/Dead Body/Fade Transition"]
 [editable path="TKP 1 KP 1/NPC"]
 [editable path="TKP 1 KP 1/NPC2"]
-[editable path="QuestTitle"]
+[editable path="TKP 1 KP 1/NPC3"]

@@ -1,0 +1,9 @@
+~ start
+if State.police_right_talked == false:
+	Polisi: ... kol goreng... aku ingin kol goreng...
+	Dennis: (Sepertinya... dia belum sarapan)
+	Dennis: (Tapi jujur... aku mengerti, kawan. Maksudku posmu dekat dengan Kol-mart...)
+	Dennis: (Yaampun, aku jg jd mw:b)
+else:
+	Dennis: (Sebaiknya aku kembali bekerja sebelum aku tergoda dengan kol goreng seperti dia)
+=> END

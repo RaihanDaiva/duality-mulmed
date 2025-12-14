@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://besrkkhtisu6g"
+path="res://.godot/imported/police_right.dialogue-384019b10bb958c18ead8f519a7fa9bd.tres"
+
+[deps]
+
+source_file="res://Scene/Scene 2/Dialogue/police_right.dialogue"
+dest_files=["res://.godot/imported/police_right.dialogue-384019b10bb958c18ead8f519a7fa9bd.tres"]
+
+[params]
+
+defaults=true
