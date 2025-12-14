@@ -8,7 +8,6 @@ extends Control
 @export_file("*.tscn") var next_scene: String = ""
 
 func _ready():
-	State.current_subscene = "scene5"
 	size = get_viewport_rect().size
 	
 	if video_path != "":
@@ -57,7 +56,9 @@ func skip_cutscene():
 	go_to_next_scene()
 
 func _on_video_finished():
-	State.current_subscene = "scene6"
+	if State.current_subscene == "scene6":
+		State.quest_bed = true
+	
 	go_to_next_scene()
 
 func go_to_next_scene():

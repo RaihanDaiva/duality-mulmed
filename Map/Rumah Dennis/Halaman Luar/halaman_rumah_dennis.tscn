@@ -249,7 +249,7 @@ npc_name = "Cars"
 idle_direction = "none"
 dialogue_file = "uid://bme01glh0utee"
 change_scene_after_dialogue = true
-next_scene = "uid://q601p60bw4dm"
+next_scene = "uid://cem6hp7riqudu"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Cars2"]
 z_as_relative = false
@@ -265,7 +265,6 @@ texture = ExtResource("10_3dgmd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Cars2/InteractionArea"]
 shape = SubResource("CircleShape2D_6uno6")
-disabled = true
 
 [node name="Player" parent="." instance=ExtResource("7_r1owp")]
 position = Vector2(77, 152)
@@ -292,7 +291,6 @@ position = Vector2(181, 98)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("11_aw5ni")
 hframes = 4
-frame = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

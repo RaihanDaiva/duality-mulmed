@@ -25,12 +25,19 @@ var dialogue_active: bool = false
 
 func _ready():
 
+
 	# Contoh kondisi disable interaction by state (punyamu)
 	if State.current_subscene == "scene4":
 		$InteractionArea/CollisionShape2D.disabled = true
 	elif State.current_subscene == "scene6":
 		$InteractionArea/CollisionShape2D.disabled = false
-
+	elif State.current_subscene == "scene10":
+		$".".visible = false
+		$InteractionArea/CollisionShape2D.disabled = true
+		#
+		#$"../Cars3".visible = true
+		#$"../Cars3/InteractionArea/CollisionShape2D".disabled = false
+		
 	# --- SETUP INTERACTION ---
 	if interaction_area and can_interact:
 
@@ -83,10 +90,12 @@ func _on_dialogue_finished(resource):
 	# Contoh update state punyamu
 	if State.current_subscene == "scene3":
 		State.current_subscene = "scene4"
-	if State.current_subscene == "scene6":
+	elif State.current_subscene == "scene6":
 		State.current_subscene = "scene7"
-	if State.current_subscene == "scene9":
+	elif State.current_subscene == "scene9":
 		State.current_subscene = "scene10"
+	elif State.current_subscene == "scene12":
+		State.current_subscene = "scene13"
 	
 	print("Dialog selesai dengan:", npc_name)
 	

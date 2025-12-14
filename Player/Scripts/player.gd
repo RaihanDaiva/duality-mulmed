@@ -3,7 +3,8 @@ class_name Player
 
 var cardinal_direction : Vector2 = Vector2.DOWN
 var direction : Vector2 = Vector2.ZERO
-var move_speed: float = 80 
+#var move_speed: float = 80
+var move_speed: float = 150 
 var state : String = "idle"
 var can_move: bool = true
 var grabbing_box: PushBox = null

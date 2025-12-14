@@ -230,8 +230,6 @@ shape = SubResource("RectangleShape2D_soeq2")
 position = Vector2(135, 93)
 script = ExtResource("16_sdw7t")
 dialogue_file = "uid://dn7n4jf55pa7s"
-change_scene_after_dialogue = true
-next_scene = "uid://ddp2hg76nhwuy"
 
 [node name="Sprite2D" type="Sprite2D" parent="Environment/Chair"]
 texture = ExtResource("5_vdisc")
@@ -344,7 +342,6 @@ disabled = false
 position = Vector2(24, 9)
 
 [node name="NPC2" parent="." instance=ExtResource("18_v2kw5")]
-visible = false
 position = Vector2(89, 84)
 can_interact = false
 idle_direction = "side_right"
@@ -352,7 +349,6 @@ dialogue_file = "uid://cf0oeippca43e"
 metadata/_edit_group_ = true
 
 [node name="NPC3" parent="." instance=ExtResource("18_v2kw5")]
-visible = false
 position = Vector2(89, 116)
 can_interact = false
 idle_direction = "side_right"

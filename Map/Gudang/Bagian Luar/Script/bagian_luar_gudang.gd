@@ -5,7 +5,11 @@ extends Node2D
 
 #Untuk navigasi ruangan harus menambahkan ini
 func _ready():
-	#State.current_subscene = "scene11"
+	print(State.current_subscene)
+	#State.current_subscene = "scene12"
+	if State.current_subscene == "scene10":
+		State.current_subscene = "scene11"
+	
 	if State.have_key:
 		$Doors/Door_N/CollisionShape2D.disabled = false
 		$Environment/Gate/InteractionArea/CollisionShape2D.disabled = true

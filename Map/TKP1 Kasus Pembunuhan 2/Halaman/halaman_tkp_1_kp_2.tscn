@@ -337,7 +337,7 @@ npc_name = "Cars"
 use_dialogue = false
 idle_direction = "none"
 change_scene_after_dialogue = true
-next_scene = "uid://q601p60bw4dm"
+next_scene = "uid://cem6hp7riqudu"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Cars4"]
 z_as_relative = false
@@ -356,7 +356,7 @@ shape = SubResource("CircleShape2D_phnnl")
 disabled = true
 
 [node name="Player" parent="." instance=ExtResource("7_cow1f")]
-position = Vector2(131, 128)
+position = Vector2(78, 165)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 

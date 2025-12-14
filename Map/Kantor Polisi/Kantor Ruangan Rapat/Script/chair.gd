@@ -14,6 +14,7 @@ extends StaticBody2D
 @onready var fade_transition = $"Fade Transition" if has_node("Fade Transition") else null
 
 var dialogue_active: bool = false
+signal dialogue_finished
 
 func _ready():
 	print("ready ==> ", NavigationManager.spawn_door_tag)
@@ -26,7 +27,8 @@ func _ready():
 	
 	if fade_transition:
 		fade_transition.hide()
-	
+	if State.current_subscene == "scene8":
+		$InteractionArea/CollisionShape2D.disabled = false
 
 
 func _talk():
@@ -52,12 +54,14 @@ func _talk():
 	)
 
 func _on_dialogue_finished(resource):
-	State.current_subscene = "scene8"
+	emit_signal("dialogue_finished")
 	NavigationManager.spawn_door_tag = null
 	State.quest_table_done = "done"
 	if State.current_subscene == "scene7":
 		if State.quest_table_done == "done":
 			$InteractionArea/CollisionShape2D.disabled = true
+	
+			
 	print("Dialog selesai dengan: ", npc_name)
 	var player = get_tree().get_first_node_in_group("player")
 	if player:

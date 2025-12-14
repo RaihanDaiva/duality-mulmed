@@ -7,34 +7,44 @@ var quest_title_instance
 #Untuk navigasi ruangan harus menambahkan ini
 func _ready():
 	#State.quest_dead_body_done = true #nanti dihapus
-	#State.current_subscene = "scene10" #nanti dihapus
+	#State.current_subscene = "scene7" #nanti dihapus
 	print(State.current_subscene)
 	var quest_title = preload("res://UI/PlayingInterface/QuestTitle.tscn")
 	quest_title_instance = quest_title.instantiate()
 	add_child(quest_title_instance)
 	if State.current_subscene == "scene7":
-		if State.quest_table_done != "start" and State.quest_table_done != "done":
-			State.quest_table_done = "start"
-		elif State.quest_table_done != "done":
-				change_quest_title("Ke Ruangan Dennis")
+		change_quest_title("Ke Ruang Dennis")
+	elif State.current_subscene == "scene8":
+		if !State.quest_chair_done:
+			change_quest_title("Ke Ruang Rapat")
+		else:
+			change_quest_title("Ke Luar Kantor")
 	elif State.current_subscene == "scene9":
 		State.current_subscene = "scene10"
-	elif State.current_subscene == "scene10":
-		change_quest_title("Ke Ruangan Dennis")
+	elif State.current_subscene == "scene13":
+		State.current_subscene = "scene14"
 	
+	if State.current_subscene == "scene10":
+		if !State.puzzle_scene10:
+			change_quest_title("Ke Ruangan Dennis")
+		else:
+			change_quest_title("Ke Luar Kantor")
+	elif State.current_subscene == "scene14":
+		if !State.puzzle_scene14:
+			change_quest_title("Ke Ruangan Dennis")
+		else:
+			change_quest_title("Ke Luar Kantor")
 	auto_setup_camera_from_tilemap()
-	if State.current_subscene == "scene7":
-		if NavigationManager.spawn_door_tag != null:
-			_on_level_spawn(NavigationManager.spawn_door_tag)
-	else:
-		pass
-	
+	#if State.current_subscene == "scene7" or "":
+		#if NavigationManager.spawn_door_tag != null:
+			#_on_level_spawn(NavigationManager.spawn_door_tag)
+	#else:
+		#pass
+	if NavigationManager.spawn_door_tag != null:
+		_on_level_spawn(NavigationManager.spawn_door_tag)
 		
 func change_quest_title(new_title: String) -> void:
-	if State.current_subscene == "scene7":
-		quest_title_instance._update_quest_title(new_title, true)
-	elif State.current_subscene == "scene10": 
-		quest_title_instance._update_quest_title(new_title, true)
+	quest_title_instance._update_quest_title(new_title, true)
 				
 func _on_level_spawn(destination_tag: String):
 	var door_path = "Doors/Door_" + destination_tag

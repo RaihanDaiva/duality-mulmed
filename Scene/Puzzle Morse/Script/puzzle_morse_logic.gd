@@ -76,6 +76,7 @@ func _ready() -> void:
 		if State.puzzle_scene14 == false:
 			puzzle_progress = 3
 			level = 1
+			total_clue = 4
 			print("puzzle progress nya 3")
 	#State.current_subscene = "scene10" #nanti dihapus
 	print(" ")
@@ -135,6 +136,7 @@ func _ready() -> void:
 	reset_puzzle()
 	print(jigsaw_level.get_child(0))
 	jigsaw_level.get_child(0).puzzle_finished.connect(jigsaw_finished)
+	
 	if State.current_subscene == "scene14":
 		$"..".add_child(jigsaw_level)
 	
@@ -426,7 +428,7 @@ func check_puzzle_solved() -> void:
 	if clue_solved == total_clue:
 		print("Puzzle is solved")
 		emit_signal("puzzle_completed")
-		
+		$"../Phone Panel/MorseButton".button_pressed = false
 		# Reset Puzzle
 		level = 1
 		

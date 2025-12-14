@@ -2,18 +2,49 @@ extends Node2D
 
 @onready var tilemap = $Environment/TileMap  # Path ke TileMap Anda
 @onready var camera = $Player/Camera2D
+var quest_title_instance
 
 #Untuk navigasi ruangan harus menambahkan ini
 func _ready():
+	var chair = $Environment/Chair
+	chair.dialogue_finished.connect(_on_chair_dialogue_finished)
+	
+	print(State.current_subscene)
+	var quest_title = preload("res://UI/PlayingInterface/QuestTitle.tscn")
+	quest_title_instance = quest_title.instantiate()
+	add_child(quest_title_instance)
+	
+	if State.current_subscene == "scene7":
+		change_quest_title("Ke Ruang Dennis")
+	elif State.current_subscene == "scene8":
+		if !State.quest_chair_done:
+			change_quest_title("Ke Kursi")
+		else:
+			change_quest_title("Ke Luar Kantor")
+	elif State.current_subscene == "scene10":
+		#change_quest_title("ke Ruang Dennis")
+		if !State.puzzle_scene10:
+			change_quest_title("Ke Ruangan Dennis")
+		else:
+			change_quest_title("Ke Luar Kantor")
+	elif State.current_subscene == "scene14":
+		if !State.puzzle_scene14:
+			change_quest_title("Ke Ruangan Dennis")
+		else:
+			change_quest_title("Ke Luar Kantor")
+	
 	State.quest_title = "rapat"
 	auto_setup_camera_from_tilemap()
 	if NavigationManager.spawn_door_tag != null:
 		_on_level_spawn(NavigationManager.spawn_door_tag)
-		
-	if State.quest_title == "rapat":
-		$NPC2.visible = true
-		$NPC3.visible = true
-		$Environment/Chair/InteractionArea/CollisionShape2D.disabled = false
+
+func _on_chair_dialogue_finished():
+	if State.current_subscene == "scene8":
+		change_quest_title("Ke Luar Kantor")
+		State.quest_chair_done = true
+
+func change_quest_title(new_title: String) -> void:
+	quest_title_instance._update_quest_title(new_title, true)
 	
 func _on_level_spawn(destination_tag: String):
 	var door_path = "Doors/Door_" + destination_tag

@@ -34,7 +34,9 @@ func _ready():
 		if NavigationManager.spawn_door_tag != null:
 			_on_level_spawn(NavigationManager.spawn_door_tag)
 	elif State.current_subscene == "scene6":
-		$"Fade Transition2/AnimationPlayer".play("fade_out")
+		if State.quest_bed:
+			$"Fade Transition2".visible = true
+			$"Fade Transition2/AnimationPlayer".play("fade_out")
 		
 func change_quest_title(new_title: String) -> void:
 	if State.current_subscene == "scene4":

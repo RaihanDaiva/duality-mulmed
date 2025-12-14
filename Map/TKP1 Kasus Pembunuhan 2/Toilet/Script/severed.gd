@@ -51,6 +51,7 @@ func _talk():
 	)
 
 func _on_dialogue_finished(resource):
+	State.quest_lengan_done = true
 	emit_signal("dialogue_finished")
 	State.quest_table_done = "done"
 	if State.current_subscene == "scene7":

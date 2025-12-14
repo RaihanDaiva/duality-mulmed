@@ -14,6 +14,7 @@ const scene_kantor_ruangan_lobby = preload("res://Map/Kantor Polisi/Kantor Lobby
 const scene_kantor_ruangan_meeting = preload("res://Map/Kantor Polisi/Kantor Ruangan Rapat/kantor_ruangan_rapat.tscn")
 const scene_kantor_ruangan_main_1 = preload("res://Map/Kantor Polisi/Kantor Main1/kantor_ruangan_main_1.tscn")
 const scene_kantor_ruangan_main_2 = preload("res://Map/Kantor Polisi/Kantor Main2/kantor_ruangan_main_2.tscn")
+const scene_kantor_luar = preload("res://Map/Kantor Polisi/Bagian luar/kantor_luar.tscn")
 
 
 #Rumah TKP 1 KP 2
@@ -76,6 +77,8 @@ func go_to_level(level_tag, destination_tag):
 			scene_to_load = scene_kantor_ruangan_main_1
 		"kantor_ruangan_main_2":
 			scene_to_load = scene_kantor_ruangan_main_2
+		"kantor_luar":
+			scene_to_load = scene_kantor_luar
 		"gudang_bagian_dalam":
 			scene_to_load = scene_bagian_dalam_gudang
 		"gudang_bagian_luar":

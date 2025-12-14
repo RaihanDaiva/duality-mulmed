@@ -17,11 +17,24 @@ func _ready():
 	add_child(quest_title_instance)
 	
 	if State.current_subscene == "scene7":
-		if State.quest_table_done == "start":
-			change_quest_title("Ke meja kerja")
+		change_quest_title("Ke Meja Kerja")
+	elif State.current_subscene == "scene8":
+		if !State.quest_chair_done:
+			change_quest_title("Ke Ruang Rapat")
+		else:
+			change_quest_title("Ke Luar Kantor")
 	elif State.current_subscene == "scene10":
-		$Environment/Table/InteractionArea/CollisionShape2D.disabled = false
-		change_quest_title("Ke meja kerja")
+		if !State.puzzle_scene10:
+			$Environment/Table/InteractionArea/CollisionShape2D.disabled = false
+			change_quest_title("Ke Meja Kerja")
+		else:
+			change_quest_title("Ke Luar Kantor")
+	elif State.current_subscene == "scene14":
+		if !State.puzzle_scene14:
+			change_quest_title("Ke Meja Kerja")
+		else:
+			change_quest_title("Ke Luar Kantor")
+			
 	
 	auto_setup_camera_from_tilemap()
 	if NavigationManager.spawn_door_tag != null:
@@ -30,14 +43,12 @@ func _ready():
 func _on_table_dialogue_finished():
 	#if State.quest_table_done == "done":
 	if State.current_subscene == "scene7":
-		change_quest_title("Ke ruang rapat")
+		change_quest_title("Ke Ruang Rapat")
+		State.current_subscene = "scene8"
 
 		
 func change_quest_title(new_title: String) -> void:
-	if State.current_subscene == "scene7":
-		quest_title_instance._update_quest_title(new_title, true)
-	elif State.current_subscene == "scene10":
-		quest_title_instance._update_quest_title(new_title, true)
+	quest_title_instance._update_quest_title(new_title, true)
 		
 func _on_level_spawn(destination_tag: String):
 	var door_path = "Doors/Door_" + destination_tag

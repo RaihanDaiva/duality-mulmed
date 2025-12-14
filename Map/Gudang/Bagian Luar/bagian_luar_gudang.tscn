@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://fe5fpfs2hqcp"]
+[gd_scene load_steps=45 format=3 uid="uid://fe5fpfs2hqcp"]
 
 [ext_resource type="Texture2D" uid="uid://d187fis60lko8" path="res://Map/Gudang/Bagian Luar/Sprite/Asphalt.png" id="1_0daor"]
 [ext_resource type="Script" uid="uid://csdndu7iw7jjr" path="res://Map/Gudang/Bagian Luar/Script/bagian_luar_gudang.gd" id="1_bpe88"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://cv3j313aviacu" path="res://Map/Gudang/Bagian Luar/Sprite/Wall_outside.png" id="11_4q1nl"]
 [ext_resource type="Script" uid="uid://bg14wscf6ccmo" path="res://Scene/Scene 11/key.gd" id="14_fchdr"]
 [ext_resource type="Texture2D" uid="uid://35khv2wm3ugl" path="res://icon.svg" id="15_fchdr"]
+[ext_resource type="Texture2D" uid="uid://c06tas6ynkuum" path="res://Map/Gudang/Bagian Luar/Sprite/key.png" id="15_plw1e"]
 [ext_resource type="PackedScene" uid="uid://dky5l4bmp636h" path="res://Interaction Manager/Interaction Area/interaction_area.tscn" id="16_5txe1"]
 [ext_resource type="Script" uid="uid://moocr1aovegi" path="res://Scene/Scene 11/gate.gd" id="17_fchdr"]
 [ext_resource type="Script" uid="uid://cd23hbo13sr1f" path="res://Scene/Scene 2/Script/cars_2.gd" id="18_4q1nl"]
@@ -2525,10 +2526,10 @@ sources/11 = SubResource("TileSetAtlasSource_bpe88")
 sources/12 = SubResource("TileSetAtlasSource_ldo1d")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8wiap"]
-radius = 2.236068
+radius = 1.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_av8u0"]
-radius = 15.132746
+radius = 8.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ijij7"]
 size = Vector2(92, 30)
@@ -2565,15 +2566,17 @@ dialogue_file = "uid://mk6a4p7uhqc2"
 
 [node name="Sprite2D" type="Sprite2D" parent="Environment/Key"]
 position = Vector2(-2, -7.6293945e-06)
-scale = Vector2(0.1953125, 0.1328125)
-texture = ExtResource("15_fchdr")
+scale = Vector2(0.555, 0.379)
+texture = ExtResource("15_plw1e")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Key"]
+position = Vector2(-2, 0)
 shape = SubResource("CircleShape2D_8wiap")
 
 [node name="InteractionArea" parent="Environment/Key" instance=ExtResource("16_5txe1")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Key/InteractionArea"]
+position = Vector2(-2, 0)
 shape = SubResource("CircleShape2D_av8u0")
 
 [node name="Gate" type="StaticBody2D" parent="Environment"]
@@ -2606,7 +2609,7 @@ npc_name = "Cars"
 use_dialogue = false
 idle_direction = "none"
 change_scene_after_dialogue = true
-next_scene = "uid://q601p60bw4dm"
+next_scene = "uid://cem6hp7riqudu"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Cars4"]
 z_as_relative = false
@@ -2648,7 +2651,7 @@ disabled = false
 position = Vector2(0, 23)
 
 [node name="Player" parent="." instance=ExtResource("2_dxls2")]
-position = Vector2(110, 28)
+position = Vector2(88, 32)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 

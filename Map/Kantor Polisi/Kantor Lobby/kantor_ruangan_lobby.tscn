@@ -321,6 +321,18 @@ disabled = false
 [node name="Spawn" parent="Doors/Door_N" index="1"]
 position = Vector2(0, 22)
 
+[node name="Door_S" parent="Doors" instance=ExtResource("19_fsbix")]
+position = Vector2(160, 184)
+destination_level_tag = "kantor_luar"
+destination_door_tag = "N"
+
+[node name="CollisionShape2D" parent="Doors/Door_S" index="0"]
+disabled = false
+
+[node name="Spawn" parent="Doors/Door_S" index="1"]
+position = Vector2(0, -25)
+
 [editable path="Doors/Door_W"]
 [editable path="Doors/Door_E"]
 [editable path="Doors/Door_N"]
+[editable path="Doors/Door_S"]

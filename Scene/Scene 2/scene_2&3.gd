@@ -5,14 +5,12 @@ var dialogue_active = false
 
 func _ready() -> void:
 	await get_tree().process_frame
-	#_talk()
+	_talk()
 	State.current_subscene = "scene2"
 	
 	#	Setup quest_title
 	var quest_title = preload("res://UI/PlayingInterface/QuestTitle.tscn")
 	quest_title_instance = quest_title.instantiate()
-	add_child(quest_title_instance)
-	change_quest_title("Hampiri Mayat")
 	$"TKP 1 KP 1/Environment/Cars2/InteractionArea/CollisionShape2D".disabled = true
 	
 func _talk():
@@ -33,6 +31,9 @@ func _talk():
 	)
 
 func _on_dialogue_finished(resource):
+	add_child(quest_title_instance)
+	change_quest_title("Hampiri Mayat")
+	
 	print("before",NavigationManager.spawn_door_tag)
 	NavigationManager.spawn_door_tag = null
 	print("after",NavigationManager.spawn_door_tag)

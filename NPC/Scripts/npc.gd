@@ -18,7 +18,8 @@ var quest_title_instance
 
 signal change_title(new_title)
 
-func _ready():	
+func _ready():
+	#State.current_subscene = "scene9"
 	print(State.quest_severed_done)
 	# Setup interaction
 	if interaction_area and can_interact:
@@ -73,12 +74,20 @@ func _talk():
 	)
 
 func _on_dialogue_finished(resource):
+	print(State.quest_severed_done)
 	print(State.current_subscene)
 	NavigationManager.spawn_door_tag = null
-	if State.quest_severed_done == "done":
-		$"../Environment/Cars4/InteractionArea/CollisionShape2D".disabled = false
-		print("masuk mobil")
-	
+	if State.current_subscene == "scene9":
+		print("ini scene 9 yaaaaaaaaaaaaaaaaaaaaa")
+		if State.quest_severed_done == "done":
+			$"../Environment/Cars4/InteractionArea/CollisionShape2D".disabled = false
+			print("masuk mobil")
+	elif State.current_subscene == "scene12":
+		print("ini scene 12 yaaaaaaaaaaaaaaaaaaaaa")
+		if State.quest_severed_done == "done":
+			$"../Cars4/InteractionArea/CollisionShape2D".disabled = false
+			print("masuk mobil")
+		
 	if State.current_subscene == "scene12":
 		if State.have_feet:
 			$"../Cars4/InteractionArea/CollisionShape2D".disabled = false

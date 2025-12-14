@@ -4,14 +4,14 @@ if State.police_gang_talked == false and State.quest_dead_body_done == false:
 	Dennis: Selamat sore, bagaimana keadaannya?
 	Polisi: Sebuah potongan mayat ditemukan sore ini, namun hasil forensik mengatakan bahwa mayat ini sudah mulai kaku sedari malam sebelumnya
 	Dennis: Oh begitu ya- tunggu, Grey ada di sini?
-	Polisi: "Dia sedang membeli kol goreng di sebelah"
+	Polisi: Dia sedang membeli kol goreng di sebelah
 	Dennis: (Sudah kuduga dia pasti tergoda)
 	Dennis: Bagaimanapun, apa lagi selain itu?
-	Polisi: "Ada sebuah petunjuk yang mungkin bisa kau pecahkan, Detektif. Petunjuk tersebut berada di potongan mayat itu."
+	Polisi: Ada sebuah petunjuk yang mungkin bisa kau pecahkan, Detektif. Petunjuk tersebut berada di potongan mayat itu.
 	Dennis: Akan kucoba.
 	set State.police_gang_talked = true
 elif State.police_gang_talked == true and State.quest_dead_body_done == false:
-	Polisi: "Ada sebuah petunjuk yang mungkin bisa kau pecahkan, Detektif. Petunjuk tersebut berada di potongan mayat itu."
+	Polisi: Ada sebuah petunjuk yang mungkin bisa kau pecahkan, Detektif. Petunjuk tersebut berada di potongan mayat itu.
 elif State.quest_dead_body_done == true and State.give_puzzle_to_police_scene_3 == false:
 	Dennis: Ini, sudah kupecahkan petunjuknya.
 	Polisi: Ah, terima kasih atas kerja samanya, Detektif.

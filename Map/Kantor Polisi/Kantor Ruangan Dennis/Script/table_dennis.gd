@@ -51,12 +51,13 @@ func _talk():
 	)
 
 func _on_dialogue_finished(resource):
-	emit_signal("dialogue_finished")
-	State.quest_table_done = "done"
+	print(State.current_subscene)
 	if State.current_subscene == "scene7":
 		$InteractionArea/CollisionShape2D.disabled = true
-	elif State.current_subscene == "scene10": 
-		$InteractionArea/CollisionShape2D.disabled = true
+		
+	emit_signal("dialogue_finished")
+	State.quest_table_done = "done"
+
 	print("Dialog selesai dengan: ", npc_name)
 	var player = get_tree().get_first_node_in_group("player")
 	if player:
@@ -69,17 +70,12 @@ func _on_dialogue_finished(resource):
 	if change_scene_after_dialogue and next_scene != "":
 		change_to_scene()
 	
-	#State.debug_current_scene()
-	
-	if State.current_subscene == "scene7":
-		pass
-	elif State.current_subscene == "scene10":
+	if State.current_subscene == "scene10":
 		$InteractionArea/CollisionShape2D.disabled = true
 		show_next_puzzle()
 	elif State.current_subscene == "scene14":
 		$InteractionArea/CollisionShape2D.disabled = true
 		show_next_puzzle()
-	#show_next_puzzle()
 		
 func show_next_puzzle():
 	print("\nShowing Puzzle....\n")
@@ -93,7 +89,10 @@ func show_next_puzzle():
 	var puzzle_logic: Node2D = puzzle_scene.get_child(0).get_child(0) # Check puzzle_morse.tscn untuk referensi child node
 
 	# Connnect ke signal puzzle_completed dari puzzle_morse_logic
-	puzzle_logic.puzzle_completed.connect(on_puzzle_completed)
+	if State.current_subscene == "scene10":
+		puzzle_logic.puzzle_completed.connect(on_puzzle_completed)
+	elif State.current_subscene == "scene14":
+		puzzle_logic.puzzle_completed.connect(on_puzzle_completed)
 	# Tambahkan ke parent (atau node lain sesuai kebutuhan)
 	get_parent().add_child(puzzle_scene)
 
@@ -119,4 +118,10 @@ func change_to_scene():
 
 func on_puzzle_completed():
 	print("<==================== PUZZLE COMPLETED IN SUBSCENE: ", State.current_subscene)
-	parent.change_quest_title("BERHASILILASIFJIL")
+	parent.change_quest_title("ke luar kantor")
+	
+	if State.current_subscene == "scene10":
+		State.puzzle_scene10 = true
+	elif State.current_subscene == "scene14":
+		State.puzzle_scene14 = true
+	

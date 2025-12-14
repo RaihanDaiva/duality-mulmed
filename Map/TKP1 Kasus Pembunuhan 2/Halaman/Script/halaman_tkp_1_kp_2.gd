@@ -5,11 +5,21 @@ extends Node2D
 
 #Untuk navigasi ruangan harus menambahkan ini
 func _ready():
+	print(State.quest_lengan_done)
+	if State.quest_chair_done:
+		print("kontooooooooooooooollllllllllll")
+		State.current_subscene = "scene9"
+	
+	if State.current_subscene == "scene9":
+		if !State.quest_lengan_done:
+			NavigationManager.spawn_door_tag = null
+		else:
+			if NavigationManager.spawn_door_tag != null:
+				_on_level_spawn(NavigationManager.spawn_door_tag)
 	#State.current_subscene = "scene9" #nanti dihapus
 	auto_setup_camera_from_tilemap()
 	
-	if NavigationManager.spawn_door_tag != null:
-		_on_level_spawn(NavigationManager.spawn_door_tag)
+
 		
 func _on_level_spawn(destination_tag: String):
 	var door_path = "Doors/Door_" + destination_tag
