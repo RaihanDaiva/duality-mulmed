@@ -13,6 +13,11 @@ func _ready() -> void:
 	elif State.current_subscene == "scene14":
 		puzzle_progress = 3
 		answers = PuzzleMorseLogic.correct_answer[puzzle_progress-1]
+	
+	if puzzle_progress == null :
+		puzzle_progress = 1
+		answers = ["JAM", "JEM", "JOM"]
+	
 	print("==============>", puzzle_progress)
 	$FirstClueSprite/FirstClue.text = str(answers[0])
 	$SecondClueSprite/SecondClue.text = str(answers[1])

@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://c40dflflmaxk8"]
+[gd_scene load_steps=61 format=3 uid="uid://c40dflflmaxk8"]
 
 [ext_resource type="Script" uid="uid://c68drisu4h31a" path="res://Scene/Puzzle Morse/Script/puzzle_morse_logic.gd" id="1_njstn"]
 [ext_resource type="Texture2D" uid="uid://blw3dhacitx63" path="res://Scene/Puzzle Morse/Sprite/puzzle-sprite.png" id="2_5xcd0"]
@@ -20,6 +20,8 @@
 [ext_resource type="Texture2D" uid="uid://mkx8x4618i4t" path="res://UI/Assets/checkbox-true.png" id="9_ti5iq"]
 [ext_resource type="Texture2D" uid="uid://dy417o1kyai0j" path="res://UI/Assets/checkbox-false.png" id="10_yi4ij"]
 [ext_resource type="Texture2D" uid="uid://dbbpf0bnieskd" path="res://Scene/Puzzle Morse/Sprite/puzzle-phone-on.png" id="13_gdirq"]
+[ext_resource type="Texture2D" uid="uid://bm6wdgx3betad" path="res://Scene/Puzzle Morse/Sprite/hint-morse-btn.png" id="18_ql585"]
+[ext_resource type="Texture2D" uid="uid://dpeb70uex4m63" path="res://Scene/Puzzle Morse/Sprite/hint-morse-display.png" id="19_0qn4g"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iukj3"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -176,7 +178,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(97, 108)]
+"values": [Vector2(97, 140)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -304,7 +306,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(0.35, 1),
 "update": 0,
-"values": [Vector2(97, 150), Vector2(97, 108)]
+"values": [Vector2(97, 150), Vector2(97, 140)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -378,7 +380,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(0.5, 1),
 "update": 0,
-"values": [Vector2(97, 50), Vector2(97, 108)]
+"values": [Vector2(97, 50), Vector2(97, 140)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -406,7 +408,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(0.5, 1),
 "update": 0,
-"values": [Vector2(97, 108), Vector2(97, 50)]
+"values": [Vector2(97, 140), Vector2(97, 50)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -877,10 +879,11 @@ mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_iukj3")
 
 [node name="Book Panel" type="Panel" parent="CanvasLayer"]
+z_index = 1
 offset_left = 97.0
 offset_top = 150.0
 offset_right = 311.0
-offset_bottom = 222.0007
+offset_bottom = 222.00078
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_npkbb")
 script = ExtResource("5_ip43j")
@@ -911,9 +914,9 @@ anchor_top = 0.5
 anchor_right = 0.44400004
 anchor_bottom = 0.5
 offset_left = -1.0
-offset_top = -0.00035858154
+offset_top = -0.00039672852
 offset_right = -1.0160065
-offset_bottom = 21.999641
+offset_bottom = 21.999603
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -1116,6 +1119,15 @@ position = Vector2(48, 135)
 texture = ExtResource("9_nl58u")
 hframes = 15
 
+[node name="MorseButton" type="Button" parent="CanvasLayer/Phone Panel"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 31.0
+offset_right = 71.0
+offset_bottom = 53.0
+toggle_mode = true
+icon = ExtResource("18_ql585")
+
 [node name="BatteryPanel" type="Panel" parent="CanvasLayer/Phone Panel"]
 layout_mode = 0
 offset_right = 40.0
@@ -1148,7 +1160,12 @@ texture = ExtResource("8_5jmm6")
 
 [node name="ChargeBatteryTimer" type="Timer" parent="CanvasLayer/Phone Panel"]
 
+[node name="MorseHint" type="Sprite2D" parent="CanvasLayer/Phone Panel"]
+position = Vector2(200, -100)
+texture = ExtResource("19_0qn4g")
+
 [node name="Title" type="Sprite2D" parent="CanvasLayer"]
+z_index = 2
 position = Vector2(56, 16)
 texture = ExtResource("6_1iegc")
 
@@ -1230,15 +1247,15 @@ mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_1iegc")
 
 [node name="CanvasLayer_File Panel#FileSprite" type="Sprite2D" parent="File Panel"]
-position = Vector2(104, 88)
+position = Vector2(145, 84)
 texture = ExtResource("2_npkbb")
 
 [node name="CanvasLayer_File Panel#ClueLabel" type="Label" parent="File Panel"]
 layout_mode = 0
-offset_left = 176.0
-offset_top = 8.0
-offset_right = 216.0
-offset_bottom = 22.0
+offset_left = 217.0
+offset_top = 4.0
+offset_right = 257.0
+offset_bottom = 18.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 10
 text = "Clue #1"
@@ -1266,3 +1283,5 @@ theme_override_font_sizes/font_size = 8
 [connection signal="mouse_entered" from="CanvasLayer/Book Panel/HAnswerContainer/Submit Btn" to="CanvasLayer/Puzzle Morse Logic" method="_on_submit_btn_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/Book Panel/HAnswerContainer/Submit Btn" to="CanvasLayer/Puzzle Morse Logic" method="_on_submit_btn_mouse_exited"]
 [connection signal="mouse_entered" from="CanvasLayer/Book Panel/Hint Btn" to="CanvasLayer/Puzzle Morse Logic" method="_on_hint_btn_mouse_entered"]
+[connection signal="toggled" from="CanvasLayer/Phone Panel/MorseButton" to="CanvasLayer/Puzzle Morse Logic" method="_on_morse_button_toggled"]
+[connection signal="timeout" from="CanvasLayer/Phone Panel/ChargeBatteryTimer" to="CanvasLayer/Puzzle Morse Logic" method="_on_charge_battery_timer_timeout"]

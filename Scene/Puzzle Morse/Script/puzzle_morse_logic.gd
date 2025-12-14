@@ -326,6 +326,9 @@ func on_wrong_answer() -> void:
 # ---------------------------
 func on_game_over() -> void:
 	$"../PhoneAnimation".play("phone_off")
+	$"../Phone Panel/MorseButton".disabled = true
+	$"../Phone Panel/MorseButton".visible = false
+	$"../Phone Panel/MorseButton".button_pressed = false
 	puzzle_solved = true
 
 	show_feedback("GAME OVER!")
@@ -374,6 +377,7 @@ func _on_retry_pressed() -> void:
 	elapsed_time = 0.0
 	# Start timer
 	battery_timer.start()
+	print("<== BATTERY TIMER STARTED ==> ", battery_timer)
 	$"../BatteryAnimation".play("RESET")
 	$"../BatteryAnimation".play("charging_animation-start")
 	$"../BatteryAnimation".queue("charging_animation-loop")
@@ -540,6 +544,9 @@ func set_battery(battery_remaining):
 
 func _on_charge_battery_timer_timeout() -> void:
 	elapsed_time += battery_timer.wait_time   # usually +1 second
+	print("<== PHONE IS CHARGING START ==>")
+	print("Battery Value: ", battery_value)
+	print("<== PHONE IS CHARGING END ==>")
 
 	var ratio := elapsed_time / total_time    # 0.0 → 1.0 (0% → 100%)
 
@@ -548,6 +555,8 @@ func _on_charge_battery_timer_timeout() -> void:
 		battery_value = 4
 		set_battery(battery_value)
 		battery_timer.stop()
+		$"../Phone Panel/MorseButton".disabled = false
+		$"../Phone Panel/MorseButton".visible = true
 		$"../BatteryAnimation".play("charging_animation-end")
 		$"../PhoneAnimation".play("phone_on")
 		return
@@ -580,3 +589,15 @@ func debug_puzzle_var():
 	
 	print("Phone Panel: ", $"../Phone Panel".global_position)
 	print("<===== Puzzle Variable END =====>\n")
+
+
+func _on_morse_button_toggled(toggled_on: bool) -> void:
+	var morse_hint = $"../Phone Panel/MorseHint"
+	var tween = create_tween()
+	tween.set_ease(Tween.EASE_OUT)
+	tween.set_trans(Tween.TRANS_BACK)
+	
+	if toggled_on:
+		tween.tween_property(morse_hint, "position", Vector2(200,39), 0.5)
+	else:
+		tween.tween_property(morse_hint, "position", Vector2(200,-100), 0.5)
