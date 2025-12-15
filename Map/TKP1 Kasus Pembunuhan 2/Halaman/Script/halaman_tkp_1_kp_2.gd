@@ -3,6 +3,8 @@ extends Node2D
 @onready var tilemap = $Environment/TileMap  # Path ke TileMap Anda
 @onready var camera = $Player/Camera2D
 
+var quest_title_node: Node2D
+
 #Untuk navigasi ruangan harus menambahkan ini
 func _ready():
 	print(State.quest_lengan_done)
@@ -19,6 +21,12 @@ func _ready():
 	#State.current_subscene = "scene9" #nanti dihapus
 	auto_setup_camera_from_tilemap()
 	
+	State.debug_current_scene()
+	
+	State.setup_quest_title($".")
+	if State.quest_severed_done != "done":
+		State.quest_title = "Masuk Ke Rumah TKP"
+	State.set_quest_title($".", false)
 
 		
 func _on_level_spawn(destination_tag: String):

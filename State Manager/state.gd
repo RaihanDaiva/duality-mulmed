@@ -1,6 +1,5 @@
 extends Node
 
-
 var current_subscene: String = "" #scene(angka)
 var current_room: String = "" #nama ruangan
 var quest_bed_done: String = "" #start, not yet, done
@@ -60,7 +59,25 @@ var first_dialogue: bool
 var quest_half_body: bool
 
 func debug_current_scene():
-	print("<===== Debugging Current Level/Scene Position START =====>")
-	print("current_subscene", current_subscene)
-	print("current_room", current_room)
-	print("<===== Debugging Current Level/Scene Position END =====>")
+	print("\n<===== Debugging Current Level/Scene Position START =====>")
+	print("current_subscene : ", current_subscene)
+	print("current_room : ", current_room)
+	print("<===== Debugging Current Level/Scene Position END =====>\n")
+
+# Quest Title Global Test
+var load_quest_title = preload("res://UI/PlayingInterface/QuestTitle.tscn")
+var quest_title_instance_global = load_quest_title.instantiate()
+
+
+func setup_quest_title(target_node: Node):
+	#	Setup quest_title
+	var load_quest_title = preload("res://UI/PlayingInterface/QuestTitle.tscn")
+	var instance = load_quest_title.instantiate()
+	quest_title_instance_global = instance
+	target_node.add_child(instance)
+
+func set_quest_title(root_node:Node, animate: bool):
+	for node in root_node.get_children():
+		if node == quest_title_instance_global:
+			var quest_title_node = node
+			quest_title_node._update_quest_title(quest_title, animate)

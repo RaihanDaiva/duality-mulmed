@@ -13,6 +13,13 @@ func _ready():
 	if NavigationManager.spawn_door_tag != null:
 		_on_level_spawn(NavigationManager.spawn_door_tag)
 		
+	State.setup_quest_title($".")
+	if !State.have_feet:
+		State.quest_title = "Cari Barang Bukti"
+	State.set_quest_title($".", true)
+	
+	State.debug_current_scene()
+		
 func _on_level_spawn(destination_tag: String):
 	var door_path = "Doors/Door_" + destination_tag
 	var door = get_node(door_path) as Door

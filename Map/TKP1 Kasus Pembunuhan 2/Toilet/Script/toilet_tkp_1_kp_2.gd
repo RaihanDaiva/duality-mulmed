@@ -11,10 +11,22 @@ func _ready():
 	auto_setup_camera_from_tilemap()
 	if NavigationManager.spawn_door_tag != null:
 		_on_level_spawn(NavigationManager.spawn_door_tag)
+	State.setup_quest_title($".")
+	
+	if State.quest_severed_done != "done":
+		State.quest_title = "Ambil Barang Bukti"
+	else:
+		$Environment/Severed/InteractionArea/CollisionShape2D.disabled = true
+		$Environment/Severed.visible = false
+	State.set_quest_title($".", false)
+	
+	State.debug_current_scene()
 		
 func _on_severed_dialogue_finished():
 	$Environment/Severed/InteractionArea/CollisionShape2D.disabled = true
 	State.quest_severed_done = "done"
+	State.quest_title = "Berikan Bukti ke Grey"
+	State.set_quest_title($".", true)
 		
 func _on_level_spawn(destination_tag: String):
 	var door_path = "Doors/Door_" + destination_tag

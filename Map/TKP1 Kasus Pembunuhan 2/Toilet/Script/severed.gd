@@ -28,6 +28,7 @@ func _ready():
 	if fade_transition:
 		fade_transition.hide()
 	
+	
 func _talk():
 	if not can_interact:
 		return
@@ -61,6 +62,8 @@ func _on_dialogue_finished(resource):
 		$InteractionArea/CollisionShape2D.disabled = true
 		$CollisionShape2D.disabled = true
 		$".".visible = false
+		State.quest_title = "Kembali ke Grey"
+		State.set_quest_title($"../..", true)
 	print("Dialog selesai dengan: ", npc_name)
 	var player = get_tree().get_first_node_in_group("player")
 	if player:

@@ -81,11 +81,15 @@ func _on_dialogue_finished(resource):
 		print("ini scene 9 yaaaaaaaaaaaaaaaaaaaaa")
 		if State.quest_severed_done == "done":
 			$"../Environment/Cars4/InteractionArea/CollisionShape2D".disabled = false
+			State.quest_title = "Masuk Ke Mobil"
+			State.set_quest_title($"..", true)
 			print("masuk mobil")
 	elif State.current_subscene == "scene12":
 		print("ini scene 12 yaaaaaaaaaaaaaaaaaaaaa")
 		if State.quest_severed_done == "done":
 			$"../Cars4/InteractionArea/CollisionShape2D".disabled = false
+			State.quest_title = "Masuk Mobil"
+			State.set_quest_title($"../..", true)
 			print("masuk mobil")
 		
 	if State.current_subscene == "scene12":

@@ -8,6 +8,11 @@ func _ready():
 	auto_setup_camera_from_tilemap()
 	if NavigationManager.spawn_door_tag != null:
 		_on_level_spawn(NavigationManager.spawn_door_tag)
+	State.setup_quest_title($".")
+	
+	if State.quest_severed_done != "done":
+		State.quest_title = "Cari Barang Bukti"
+	State.set_quest_title($".", false)
 		
 func _on_level_spawn(destination_tag: String):
 	var door_path = "Doors/Door_" + destination_tag
