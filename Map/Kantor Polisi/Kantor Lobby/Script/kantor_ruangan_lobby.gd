@@ -7,7 +7,7 @@ var quest_title_instance
 #Untuk navigasi ruangan harus menambahkan ini
 func _ready():
 	#State.quest_dead_body_done = true #nanti dihapus
-	#State.current_subscene = "scene7" #nanti dihapus
+	#State.current_subscene = "scene15" #nanti dihapus
 	print(State.current_subscene)
 	var quest_title = preload("res://UI/PlayingInterface/QuestTitle.tscn")
 	quest_title_instance = quest_title.instantiate()
@@ -34,6 +34,7 @@ func _ready():
 			change_quest_title("Ke Ruangan Dennis")
 		else:
 			change_quest_title("Ke Luar Kantor")
+			State.current_subscene = "scene15"
 	auto_setup_camera_from_tilemap()
 	#if State.current_subscene == "scene7" or "":
 		#if NavigationManager.spawn_door_tag != null:

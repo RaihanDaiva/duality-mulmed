@@ -6,7 +6,10 @@ var quest_title_instance
 
 #Untuk navigasi ruangan harus menambahkan ini
 func _ready():
-	#State.current_subscene = "scene8"
+	#State.current_subscene = "scene15"
+	#State.puzzle_scene14 = true
+	print("status mobil awal bgt ",$Environment/Cars3/InteractionArea/CollisionShape2D.disabled)
+	print(State.puzzle_scene14)
 	print(State.current_subscene)
 	var quest_title = preload("res://UI/PlayingInterface/QuestTitle.tscn")
 	quest_title_instance = quest_title.instantiate()
@@ -38,6 +41,12 @@ func _ready():
 		else:
 			change_quest_title("Masuk Ke Mobil")
 			$Environment/Cars3/InteractionArea/CollisionShape2D.disabled = false
+	elif State.current_subscene == "scene15":
+		print("status mobil before ",$Environment/Cars3/InteractionArea/CollisionShape2D.disabled)
+		change_quest_title("Masuk Ke Mobil")
+		print("telfon grey")
+		$Environment/Cars3/InteractionArea/CollisionShape2D.disabled = false
+		print("status mobil after ",$Environment/Cars3/InteractionArea/CollisionShape2D.disabled)
 
 	
 	var anim = get_node_or_null("Fade Transition2/AnimationPlayer")

@@ -123,5 +123,6 @@ func on_puzzle_completed():
 	if State.current_subscene == "scene10":
 		State.puzzle_scene10 = true
 	elif State.current_subscene == "scene14":
+		print("puzzle scene 14 done")
 		State.puzzle_scene14 = true
 	

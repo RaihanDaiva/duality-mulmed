@@ -41,6 +41,13 @@ var have_feet: bool
 #scene 14
 var puzzle_scene14: bool
 
+#scene 15 part 2
+var grey_entering_car: bool
+
+#scene 16
+var last_quest: bool
+var entered_house: bool
+
 func debug_current_scene():
 	print("<===== Debugging Current Level/Scene Position START =====>")
 	print("current_subscene", current_subscene)

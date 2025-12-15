@@ -25,20 +25,16 @@ func _ready():
 			change_quest_title("Masuk ke mobil")
 		elif State.current_room == "ruang tv":
 			change_quest_title("Ke luar rumah")
-	
+	elif State.current_subscene == "scene16":
+		State.entered_house = true
+		change_quest_title("Masuk ke kamar")
+		print("masuk kamar woi")
 	auto_setup_camera_from_tilemap()
 	if NavigationManager.spawn_door_tag != null:
 		_on_level_spawn(NavigationManager.spawn_door_tag)
 		
 func change_quest_title(new_title: String) -> void:
-	if State.current_subscene == "scene4":
-		if State.quest_bed_done == "start":
-			quest_title_instance._update_quest_title(new_title, true)
-		elif State.quest_bed_done == "not yet":
-			quest_title_instance._update_quest_title(new_title, true)
-	elif State.current_subscene == "scene6":
-		if State.current_room == "ruang tv":
-			quest_title_instance._update_quest_title(new_title, true)
+	quest_title_instance._update_quest_title(new_title, true)
 		
 		
 func _on_level_spawn(destination_tag: String):

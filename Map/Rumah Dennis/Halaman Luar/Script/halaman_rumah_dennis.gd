@@ -18,7 +18,10 @@ func _ready():
 		change_quest_title("Masuk Ke Rumah")
 	elif State.current_subscene == "scene6":
 		change_quest_title("Masuk ke mobil")
-	
+	elif State.current_subscene == "scene16":
+		change_quest_title("Masuk ke rumah")
+		if !State.entered_house:
+			NavigationManager.spawn_door_tag = null
 	var anim = get_node_or_null("Fade Transition2/AnimationPlayer")
 	if anim:
 		# Node ditemukan → aman digunakan
