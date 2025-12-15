@@ -241,7 +241,6 @@ func on_correct_answer() -> void:
 			level += 1
 			var move_answer_panel_delta = Vector2(0, 35) # Move the HAnswerContainer + 0 in x and +15 in y
 			move_answer_panel(move_answer_panel_delta)
-			_on_hide_show_book_pressed()
 			answer_input.text = ""
 			$"../Book Panel/FirstClueSprite/Null".visible = false
 			$"../Book Panel/FirstClueSprite/True".visible = true
@@ -429,6 +428,7 @@ func check_puzzle_solved() -> void:
 		print("Puzzle is solved")
 		emit_signal("puzzle_completed")
 		$"../Phone Panel/MorseButton".button_pressed = false
+		$"../PuzzleCompleteAnimation".play("complete")
 		# Reset Puzzle
 		level = 1
 		
@@ -438,7 +438,7 @@ func check_puzzle_solved() -> void:
 		
 		if State.current_subscene == "scene14":
 			print("Parent Children: ", $"../..".get_child(0).get_children())
-			var jigsaw_animationplayer: AnimationPlayer = $"../..".get_child(0).get_child(12).get_child(1)
+			var jigsaw_animationplayer: AnimationPlayer = $"../..".get_child(0).get_child(14).get_child(1)
 			jigsaw_animationplayer.play("out")
 			#$"..".get_child(0).remove_child(get_child(12))
 			remove_child(get_parent())
@@ -603,3 +603,10 @@ func _on_morse_button_toggled(toggled_on: bool) -> void:
 		tween.tween_property(morse_hint, "position", Vector2(200,39), 0.5)
 	else:
 		tween.tween_property(morse_hint, "position", Vector2(200,-100), 0.5)
+
+
+func _on_puzzle_complete_animation_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "complete":
+		var tween_alpha = create_tween()
+		tween_alpha.tween_interval(1)
+		tween_alpha.tween_property($"../PuzzleCompleted", "modulate:a", 0, 0.5)

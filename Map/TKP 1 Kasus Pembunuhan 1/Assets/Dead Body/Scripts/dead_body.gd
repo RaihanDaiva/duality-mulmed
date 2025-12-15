@@ -80,7 +80,7 @@ func show_next_puzzle():
 	var scene_res = load(next_puzzle)
 	var puzzle_scene = scene_res.instantiate()
 	
-	var puzzle_logic: Node2D = puzzle_scene.get_child(0).get_child(0) # Check puzzle_morse.tscn untuk referensi child node
+	var puzzle_logic: Node2D = puzzle_scene.get_child(0).get_child(1) # Check puzzle_morse.tscn untuk referensi child node
 
 	# Connnect ke signal puzzle_completed dari puzzle_morse_logic
 	puzzle_logic.puzzle_completed.connect(on_puzzle_completed)

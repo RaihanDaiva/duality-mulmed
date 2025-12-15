@@ -1,5 +1,6 @@
-[gd_scene load_steps=61 format=3 uid="uid://c40dflflmaxk8"]
+[gd_scene load_steps=65 format=3 uid="uid://c40dflflmaxk8"]
 
+[ext_resource type="Texture2D" uid="uid://bh25wx864s5o3" path="res://Scene/Puzzle Morse/Sprite/puzzle-completed.png" id="1_17pk2"]
 [ext_resource type="Script" uid="uid://c68drisu4h31a" path="res://Scene/Puzzle Morse/Script/puzzle_morse_logic.gd" id="1_njstn"]
 [ext_resource type="Texture2D" uid="uid://blw3dhacitx63" path="res://Scene/Puzzle Morse/Sprite/puzzle-sprite.png" id="2_5xcd0"]
 [ext_resource type="Texture2D" uid="uid://b020asigd3tlc" path="res://Scene/Puzzle Morse/Sprite/puzzle-phone.png" id="2_iukj3"]
@@ -851,6 +852,55 @@ _data = {
 &"charging_animation-start": SubResource("Animation_ql585")
 }
 
+[sub_resource type="Animation" id="Animation_3o3sq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PuzzleCompleted:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_bj0rl"]
+resource_name = "complete"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PuzzleCompleted:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333334, 0.16666667, 0.2, 0.23333333, 0.26666668, 0.3, 0.33333334, 0.36666667, 0.4, 0.43333334, 0.46666667, 0.5, 0.53333336, 0.56666666, 0.6, 0.6333333, 0.6666667, 0.7, 0.73333335, 0.76666665, 0.8, 0.8333333, 0.8666667, 0.9, 0.93333334, 0.96666664, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PuzzleCompleted:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.1999999),
+"transitions": PackedFloat32Array(0.25, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3o3sq"]
+_data = {
+&"RESET": SubResource("Animation_3o3sq"),
+&"complete": SubResource("Animation_bj0rl")
+}
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1iegc"]
 
 [node name="Puzzle Morse" type="Control" groups=["puzzle_morse"]]
@@ -860,6 +910,13 @@ anchors_preset = 0
 mouse_filter = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PuzzleCompleted" type="Sprite2D" parent="CanvasLayer"]
+z_index = 8
+position = Vector2(160, 88)
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("1_17pk2")
+hframes = 11
 
 [node name="Puzzle Morse Logic" type="Node2D" parent="CanvasLayer"]
 script = ExtResource("1_njstn")
@@ -1236,6 +1293,11 @@ libraries = {
 }
 autoplay = "charging_animation-loop"
 
+[node name="PuzzleCompleteAnimation" type="AnimationPlayer" parent="CanvasLayer"]
+libraries = {
+&"": SubResource("AnimationLibrary_3o3sq")
+}
+
 [node name="File Panel" type="Panel" parent="."]
 z_index = -2
 layout_mode = 0
@@ -1285,3 +1347,4 @@ theme_override_font_sizes/font_size = 8
 [connection signal="mouse_entered" from="CanvasLayer/Book Panel/Hint Btn" to="CanvasLayer/Puzzle Morse Logic" method="_on_hint_btn_mouse_entered"]
 [connection signal="toggled" from="CanvasLayer/Phone Panel/MorseButton" to="CanvasLayer/Puzzle Morse Logic" method="_on_morse_button_toggled"]
 [connection signal="timeout" from="CanvasLayer/Phone Panel/ChargeBatteryTimer" to="CanvasLayer/Puzzle Morse Logic" method="_on_charge_battery_timer_timeout"]
+[connection signal="animation_finished" from="CanvasLayer/PuzzleCompleteAnimation" to="CanvasLayer/Puzzle Morse Logic" method="_on_puzzle_complete_animation_animation_finished"]
