@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bnsv70w86ealf"]
+[gd_scene load_steps=26 format=3 uid="uid://bnsv70w86ealf"]
 
 [ext_resource type="Texture2D" uid="uid://nl3a8iksd78d" path="res://UI/MainMenu/Assets/background.png" id="2_1dhmk"]
 [ext_resource type="Texture2D" uid="uid://cah1vtdveiync" path="res://UI/MainMenu/Assets/Button Start/menu-panel-btn-1.png" id="3_1dhmk"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bs3lbwtbheymx" path="res://UI/MainMenu/fade_transition.tscn" id="13_migmm"]
 [ext_resource type="Texture2D" uid="uid://idjh76xjrmnd" path="res://UI/MainMenu/Assets/title-card-animated.png" id="13_wdl18"]
 [ext_resource type="Texture2D" uid="uid://bg67lc4d7j8e1" path="res://UI/MainMenu/Assets/lamp.png" id="14_migmm"]
+[ext_resource type="AudioStream" uid="uid://ck6i3fgodh4ix" path="res://UI/MainMenu/Assets/main-menu.mp3" id="15_jt3i8"]
 
 [sub_resource type="GDScript" id="GDScript_eoxer"]
 script/source = "extends Node2D
@@ -245,6 +246,10 @@ libraries = {
 }
 autoplay = "main-menu-lamp-animation"
 speed_scale = 0.5
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_jt3i8")
+autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]
