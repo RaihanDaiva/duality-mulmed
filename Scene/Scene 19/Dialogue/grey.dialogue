@@ -1,0 +1,24 @@
+~ start
+if State.entered_operating_room == false:
+	Grey: "Dennis... sejak kapan kau merenovasi rumah?" 
+	Grey: "Kenapa ada rongga kosong di balik lemari ini?"
+	Dennis: "Jangan konyol. Itu tembok beton biasa."
+	Grey: "Tidak, suaranya kopong. Kemarilah, bantu aku mendorongnya."
+else:
+	Grey: "Dennis..."
+	Grey: "...bukankah ini... mayat?"
+	Dennis: "A- Aku... tidak tahu harus berkata apa..."
+	Grey: "Dennis..."
+	Dennis: "GR- GREY PERCAYALAH PADAKU! AKU TIDAK TAHU APA-APA SAMA SEKALI MENGENAI RUANGAN INI!"
+	Grey: "DENNIS, TENANGLAH! LIHAT MATAKU! AKU PERCAYA PADAMU! KAU SENDIRI YANG BILANG BAHWA KAU BARU PINDAH KE RUMAH INI, BUKAN?"
+	Dennis: "I- iya.."
+	Grey: "Kalau begitu bisa dipastikan kalau kau tidak terlibat dalam hal ini"
+	Grey: "Selagi aku mencari 'tempat tersembunyi' yang dikatakan di foto itu tadi, aku tidak sengaja menemukan surat kepemilikan tanah mu dan tanggal kepemilikannya jauh sekali setelah foto itu diambil"
+	Grey: "Jadi ya, itu sesuai dengan apa yang kau bilang"
+	Dennis: "Sy- Syukurlah..."
+	Grey: "Lagipula jika kau meyadari kalau kau terlibat dalam hal ini, sudah sedari awal seharusnya kau tidak menelepon dan memintaku untuk menginvestigasi rumah ini, bukan?"
+	Dennis: "Ah, iya, benar juga"
+	Grey: "Baiklah kalau begitu, sekarang... ayok kita lanjutkan investigasi kita. Aku akan mengecek mayat, sementara kau akan mengecek sekitar"
+	Dennis: "Ba- Baiklah..."
+	Dennis: (Aku lega Grey percaya padaku. Tapi... perasaan ini... Kenapa ruangan ini terasa begitu akrab?)
+=> END

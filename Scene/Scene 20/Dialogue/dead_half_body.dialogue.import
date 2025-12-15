@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://dcxm7o5wkrje1"
+path="res://.godot/imported/dead_half_body.dialogue-42121a4812854bce962b3edf8826f6f4.tres"
+
+[deps]
+
+source_file="res://Scene/Scene 20/Dialogue/dead_half_body.dialogue"
+dest_files=["res://.godot/imported/dead_half_body.dialogue-42121a4812854bce962b3edf8826f6f4.tres"]
+
+[params]
+
+defaults=true

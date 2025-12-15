@@ -43,7 +43,7 @@ func _process(delta: float) -> void:
 	#print("dialogue: ", dialogue_active)
 	# Tampilkan label hanya jika bisa interact DAN tidak ada dialogue aktif
 	if active_areas.size() > 0 && can_interact && not dialogue_active:
-		print("area aktif")
+		#print("area aktif")
 		# Bersihkan null areas sebelum sort
 		active_areas = active_areas.filter(func(area): return is_instance_valid(area))
 		

@@ -25,7 +25,23 @@ func _ready():
 		State.quest_car_done = "start"
 		State.quest_title = "ke luar rumah"
 		change_quest_title("Ke luar rumah")
-		
+	elif State.current_subscene == "scene17":
+		change_quest_title("Cari Sesuatu")
+		print("quest hole ",State.quest_hole)
+		if !State.quest_hole:
+			$Environment/Hole.visible = false
+			$Environment/Hole/CollisionShape2D.disabled = true
+			$Doors/Door_S/CollisionShape2D.disabled = true
+			$"Environment/Hole Interaction/InteractionArea/CollisionShape2D".disabled = false
+		else:
+			$Environment/Hole.visible = true
+			$Environment/Hole/CollisionShape2D.disabled = false
+			$Doors/Door_S/CollisionShape2D.disabled = false
+	elif State.current_subscene == "scene18" or "scene19":
+		$"Environment/Hole Interaction/InteractionArea/CollisionShape2D".disabled = true
+		$Environment/Hole.visible = true
+		$Environment/Hole/CollisionShape2D.disabled = false
+		$Doors/Door_S/CollisionShape2D.disabled = false
 		
 	print(State.current_room)
 	update_interactables()
@@ -39,14 +55,7 @@ func _ready():
 			$"Fade Transition2/AnimationPlayer".play("fade_out")
 		
 func change_quest_title(new_title: String) -> void:
-	if State.current_subscene == "scene4":
-		if State.current_room == "kamar":
-			quest_title_instance._update_quest_title(new_title, true)
-	elif State.current_subscene == "scene6":
-		if State.current_room == "kamar" and State.quest_car_done == "start":
-			quest_title_instance._update_quest_title(new_title, true)
-		else:
-			quest_title_instance._update_quest_title(new_title, true)
+	quest_title_instance._update_quest_title(new_title, true)
 		
 func _on_level_spawn(destination_tag: String):
 	var door_path = "Doors/Door_" + destination_tag

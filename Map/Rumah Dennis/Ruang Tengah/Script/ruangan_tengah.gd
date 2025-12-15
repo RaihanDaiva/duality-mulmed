@@ -18,8 +18,10 @@ func _ready():
 		change_quest_title("Ke kasur")
 	elif State.current_subscene == "scene4" and State.current_room == "ruang tengah" :
 		change_quest_title("Masuk ke kamar")
-	elif State.current_subscene == "scene6" :
+	elif State.current_subscene == "scene6":
 		change_quest_title("Ke luar rumah")
+	elif State.current_subscene == "scene17":
+		change_quest_title("Cari Sesuatu")
 	
 	auto_setup_camera_from_tilemap()
 	if NavigationManager.spawn_door_tag != null:

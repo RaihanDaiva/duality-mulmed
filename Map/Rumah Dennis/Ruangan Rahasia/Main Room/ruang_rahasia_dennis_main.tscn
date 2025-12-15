@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://b2frs74kq1guf"]
+[gd_scene load_steps=29 format=3 uid="uid://b2frs74kq1guf"]
 
 [ext_resource type="Texture2D" uid="uid://drwqeethujg2l" path="res://Map/Rumah Dennis/Ruangan Rahasia/Main Room/Sprite/cabinet-open.png" id="1_6hlpn"]
 [ext_resource type="Script" uid="uid://cvbqbyiot0p4t" path="res://Map/Rumah Dennis/Ruangan Rahasia/Main Room/Script/ruang_rahasia_dennis_main.gd" id="1_rla01"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://cdcjtciq0hiwh" path="res://Map/Rumah Dennis/Ruangan Rahasia/Main Room/Sprite/workbench.png" id="7_cc3j6"]
 [ext_resource type="PackedScene" uid="uid://btbp42qa7duve" path="res://Player/player.tscn" id="8_c1m6b"]
 [ext_resource type="PackedScene" uid="uid://b6yrxvfy6uyiy" path="res://Map/Door/door.tscn" id="9_rb8rg"]
+[ext_resource type="PackedScene" uid="uid://cj7epc3mv55qj" path="res://NPC/npc.tscn" id="11_h3nwx"]
+[ext_resource type="Texture2D" uid="uid://2ij6b2mivna4" path="res://NPC/Sprite/silas-full-animate.png" id="12_cc3j6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k0bh6"]
 texture = ExtResource("1_6hlpn")
@@ -345,25 +347,35 @@ disabled = false
 [node name="Spawn" parent="Doors/Door_N" index="1"]
 position = Vector2(0, 22)
 
-[node name="Door" parent="Doors" instance=ExtResource("9_rb8rg")]
+[node name="Door_S" parent="Doors" instance=ExtResource("9_rb8rg")]
 position = Vector2(-32, 65)
+destination_level_tag = "kamar_dennis"
+destination_door_tag = "S"
+spawn_direction = "down"
 
-[node name="CollisionShape2D" parent="Doors/Door" index="0"]
-visible = false
+[node name="CollisionShape2D" parent="Doors/Door_S" index="0"]
 position = Vector2(0, -3)
 disabled = false
 
-[node name="Spawn" parent="Doors/Door" index="1"]
-position = Vector2(0, 16)
+[node name="Spawn" parent="Doors/Door_S" index="1"]
+position = Vector2(0, 19)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Doors/Door"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Doors/Door_S"]
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_h3nwx")
 
 [node name="Player" parent="." instance=ExtResource("8_c1m6b")]
-position = Vector2(72, 129)
+position = Vector2(121, 140)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Grey" parent="." instance=ExtResource("11_h3nwx")]
+position = Vector2(130, 95)
+npc_name = "Grey"
+can_interact = false
+dialogue_file = "uid://kneo0ht4f5gx"
+
+[node name="Sprite2D" parent="Grey" index="1"]
+texture = ExtResource("12_cc3j6")
 
 [editable path="Doors/Door_N"]
-[editable path="Doors/Door"]
+[editable path="Doors/Door_S"]
+[editable path="Grey"]

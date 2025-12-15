@@ -7,7 +7,7 @@ var quest_title_instance
 #Untuk navigasi ruangan harus menambahkan ini
 func _ready():
 	State.quest_bed_done = "start"
-	#State.current_subscene = "scene6" #akan dihapus
+	#State.current_subscene = "scene4" #akan dihapus
 	print(State.current_subscene)
 	var quest_title = preload("res://UI/PlayingInterface/QuestTitle.tscn")
 	quest_title_instance = quest_title.instantiate()
@@ -22,6 +22,8 @@ func _ready():
 		change_quest_title("Masuk ke rumah")
 		if !State.entered_house:
 			NavigationManager.spawn_door_tag = null
+	elif State.current_subscene == "scene17":
+		change_quest_title("Masuk ke rumah")
 	var anim = get_node_or_null("Fade Transition2/AnimationPlayer")
 	if anim:
 		# Node ditemukan → aman digunakan

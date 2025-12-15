@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bditqbx0itn4d"
+path="res://.godot/imported/hole.dialogue-d1ca3417e529dc56faa7fc760e517523.tres"
+
+[deps]
+
+source_file="res://Scene/Scene 18/Dialogue/hole.dialogue"
+dest_files=["res://.godot/imported/hole.dialogue-d1ca3417e529dc56faa7fc760e517523.tres"]
+
+[params]
+
+defaults=true

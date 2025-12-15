@@ -48,6 +48,17 @@ var grey_entering_car: bool
 var last_quest: bool
 var entered_house: bool
 
+#scene 17
+var quest_hole: bool
+
+
+#scene 19
+var entered_operating_room: bool
+var first_dialogue: bool
+
+#scene 20
+var quest_half_body: bool
+
 func debug_current_scene():
 	print("<===== Debugging Current Level/Scene Position START =====>")
 	print("current_subscene", current_subscene)

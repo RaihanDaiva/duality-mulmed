@@ -5,10 +5,40 @@ extends Node2D
 
 #Untuk navigasi ruangan harus menambahkan ini
 func _ready():
+	#State.entered_operating_room = true
+	#if State.entered_operating_room:
+	if State.current_subscene == "scene18":
+		State.current_subscene = "scene19"
+	
+	if State.current_subscene == "scene19":
+		$Grey/InteractionArea/CollisionShape2D.disabled = true
+		_talk()
+		#State.current_subscene = "scene19"
+	elif State.current_subscene == "scene20":
+		if !State.quest_half_body:
+			$Grey/InteractionArea/CollisionShape2D.disabled = true
+		else:
+			$Grey/InteractionArea/CollisionShape2D.disabled = false
+		
+	print(State.current_subscene)
+	
 	auto_setup_camera_from_tilemap()
 	if NavigationManager.spawn_door_tag != null:
 		_on_level_spawn(NavigationManager.spawn_door_tag)
+
+func _talk():
+	DialogueManager.dialogue_ended.connect(_on_dialogue_finished, CONNECT_ONE_SHOT)
 		
+	await get_tree().create_timer(1).timeout
+	DialogueManager.show_dialogue_balloon(
+		load("res://Scene/Scene 19/Dialogue/grey.dialogue"),
+		"start"
+	)
+	
+func _on_dialogue_finished(resource):
+	State.current_subscene = "scene20"
+	
+
 func _on_level_spawn(destination_tag: String):
 	var door_path = "Doors/Door_" + destination_tag
 	var door = get_node(door_path) as Door
