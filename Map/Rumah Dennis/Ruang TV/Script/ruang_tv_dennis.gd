@@ -32,6 +32,10 @@ func _ready():
 	elif State.current_subscene == "scene17":
 		change_quest_title("Cari Sesuatu")
 	auto_setup_camera_from_tilemap()
+	
+	if State.scene12_give_evidence:
+		$BlackOverlay.visible = true
+	
 	if NavigationManager.spawn_door_tag != null:
 		_on_level_spawn(NavigationManager.spawn_door_tag)
 		

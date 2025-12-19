@@ -7,6 +7,7 @@ extends Node2D
 func _ready():
 	#State.entered_operating_room = true
 	#if State.entered_operating_room:
+	print(State.debug_current_scene())	
 	if State.current_subscene == "scene18":
 		State.current_subscene = "scene19"
 	

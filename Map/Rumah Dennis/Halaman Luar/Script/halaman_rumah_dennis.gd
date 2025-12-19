@@ -24,6 +24,11 @@ func _ready():
 			NavigationManager.spawn_door_tag = null
 	elif State.current_subscene == "scene17":
 		change_quest_title("Masuk ke rumah")
+	
+	if State.scene12_give_evidence:
+		$Hujan.visible = true
+		$Environment/Cars2/InteractionArea/CollisionShape2D.disabled = true
+	
 	var anim = get_node_or_null("Fade Transition2/AnimationPlayer")
 	if anim:
 		# Node ditemukan → aman digunakan

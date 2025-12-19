@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bn3cuml3fac13" path="res://Map/TKP 1 Kasus Pembunuhan 1/Assets/Environments/Sprite/car-police.png" id="3_nj2ph"]
 [ext_resource type="Script" uid="uid://bikjeinljqycl" path="res://Map/Apartemen/Script/car_trigger.gd" id="5_7avvv"]
 [ext_resource type="Script" uid="uid://de8mllb2y05tt" path="res://Map/Apartemen/Script/grey.gd" id="7_6nes7"]
-[ext_resource type="Texture2D" uid="uid://7w3hjeonpn6w" path="res://NPC/Sprite/Policewoman_animated.png" id="8_xluw3"]
+[ext_resource type="Texture2D" uid="uid://2ij6b2mivna4" path="res://NPC/Sprite/silas-full-animate.png" id="7_bb6ll"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5ojq6"]
 texture = ExtResource("1_knwqu")
@@ -195,12 +195,12 @@ position = Vector2(0, -14)
 shape = SubResource("CircleShape2D_7avvv")
 
 [node name="Grey" type="CharacterBody2D" parent="."]
-position = Vector2(48, 72)
+position = Vector2(49, 129)
 script = ExtResource("7_6nes7")
 speed = 50.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Grey"]
-texture = ExtResource("8_xluw3")
+texture = ExtResource("7_bb6ll")
 hframes = 4
 vframes = 6
 

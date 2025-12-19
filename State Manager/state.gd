@@ -27,6 +27,7 @@ var quest_chair_done: bool
 #scene 9
 var quest_severed_done: String = ""
 var quest_lengan_done: bool
+var scene9_give_evidence: bool = false
 
 #scene 10
 var puzzle_scene10: bool
@@ -35,7 +36,8 @@ var puzzle_scene10: bool
 var have_key: bool
 
 #scene 12
-var have_feet: bool
+var have_feet: bool = false
+var scene12_give_evidence: bool = false
 
 #scene 14
 var puzzle_scene14: bool

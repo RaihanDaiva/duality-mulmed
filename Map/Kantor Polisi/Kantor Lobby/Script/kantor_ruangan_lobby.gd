@@ -35,6 +35,8 @@ func _ready():
 		else:
 			change_quest_title("Ke Luar Kantor")
 			State.current_subscene = "scene15"
+	elif State.current_subscene == "scene15":
+		change_quest_title("Ke Luar Kantor")
 	auto_setup_camera_from_tilemap()
 	#if State.current_subscene == "scene7" or "":
 		#if NavigationManager.spawn_door_tag != null:

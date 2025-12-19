@@ -11,7 +11,7 @@ func _ready():
 	var table = $Environment/Table
 	table.dialogue_finished.connect(_on_table_dialogue_finished)
 	
-	print(State.current_subscene)
+	print(State.debug_current_scene())
 	var quest_title = preload("res://UI/PlayingInterface/QuestTitle.tscn")
 	quest_title_instance = quest_title.instantiate()
 	add_child(quest_title_instance)
@@ -34,7 +34,8 @@ func _ready():
 			change_quest_title("Ke Meja Kerja")
 		else:
 			change_quest_title("Ke Luar Kantor")
-			
+	elif State.current_subscene == "scene15":
+		change_quest_title("Ke Luar Kantor")
 	
 	auto_setup_camera_from_tilemap()
 	if NavigationManager.spawn_door_tag != null:

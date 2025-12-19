@@ -16,8 +16,9 @@ extends StaticBody2D
 var dialogue_active: bool = false
 signal dialogue_finished
 
+# SEVERED
+
 func _ready():
-	State.current_subscene = "scene12"
 	# Setup interaction
 	if interaction_area and can_interact:
 		interaction_area.interact = Callable(self, "_talk")
@@ -27,6 +28,13 @@ func _ready():
 	
 	if fade_transition:
 		fade_transition.hide()
+		
+	if State.quest_lengan_done and State.current_subscene == "scene9":
+		State.quest_title = "Kembali ke Grey"
+		State.set_quest_title($"../..", true)
+		$".".visible = false
+		$CollisionShape2D.disabled = true
+		$InteractionArea.monitoring = false
 	
 	
 func _talk():

@@ -62,11 +62,11 @@ func _on_dialogue_finished(resource):
 	
 	#$"../../Fade Transition2/AnimationPlayer".play("fade_in")
 	
-	#await get_tree().create_timer(1.0).timeout
 	$"../Hole".visible = true
 	$"../Hole/CollisionShape2D".disabled = false
 	$"../../Doors/Door_S/CollisionShape2D".disabled = false
 	$InteractionArea/CollisionShape2D.disabled = true
+	#await get_tree().create_timer(1.0).timeout
 	
 	
 	if change_scene_after_dialogue and next_scene != "":

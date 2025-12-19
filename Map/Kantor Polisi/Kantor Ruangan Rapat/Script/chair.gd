@@ -57,6 +57,7 @@ func _on_dialogue_finished(resource):
 	emit_signal("dialogue_finished")
 	NavigationManager.spawn_door_tag = null
 	State.quest_table_done = "done"
+	State.quest_chair_done = true
 	if State.current_subscene == "scene7":
 		if State.quest_table_done == "done":
 			$InteractionArea/CollisionShape2D.disabled = true

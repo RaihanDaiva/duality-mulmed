@@ -8,6 +8,7 @@ var quest_title_node: Node2D
 #Untuk navigasi ruangan harus menambahkan ini
 func _ready():
 	print(State.quest_lengan_done)
+	print(State.debug_current_scene())
 	if State.quest_chair_done:
 		print("kontooooooooooooooollllllllllll")
 		State.current_subscene = "scene9"

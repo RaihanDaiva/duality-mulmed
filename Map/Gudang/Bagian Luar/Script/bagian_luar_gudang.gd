@@ -5,7 +5,8 @@ extends Node2D
 
 #Untuk navigasi ruangan harus menambahkan ini
 func _ready():
-	print(State.current_subscene)
+	print(State.debug_current_scene())
+	print(State.have_feet)
 	#State.current_subscene = "scene12"
 	if State.current_subscene == "scene10":
 		State.current_subscene = "scene11"
@@ -27,12 +28,19 @@ func _ready():
 	State.setup_quest_title($".")
 	if !State.have_feet:
 		State.quest_title = "Cari Cara Masuk Gudang"
+	elif State.have_feet and !State.scene12_give_evidence:
+		State.quest_title = "Kembali ke Grey"
+	elif State.scene12_give_evidence:
+		$Environment/Cars4/InteractionArea/CollisionShape2D.disabled = false
+		State.quest_title = "Masuk Mobil"
 	State.set_quest_title($".", true)
 		
 func _on_level_spawn(destination_tag: String):
 	var door_path = "Doors/Door_" + destination_tag
 	var door = get_node(door_path) as Door
 	NavigationManager.trigger_player_spawn(door.spawn.global_position, door.spawn_direction)
+	State.quest_title = "Cari Cara Masuk Gudang"
+	State.set_quest_title($".", true)
 
 func auto_setup_camera_from_tilemap():
 	if not tilemap or not camera:

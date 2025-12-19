@@ -30,6 +30,9 @@ func _ready():
 	
 	if fade_transition:
 		fade_transition.hide()
+		
+	if State.scene9_give_evidence and State.current_subscene == "scene9":
+		$"../Environment/Cars4/InteractionArea/CollisionShape2D".disabled = false
 	
 	play_idle_animation()
 
@@ -83,6 +86,7 @@ func _on_dialogue_finished(resource):
 			$"../Environment/Cars4/InteractionArea/CollisionShape2D".disabled = false
 			State.quest_title = "Masuk Ke Mobil"
 			State.set_quest_title($"..", true)
+			State.scene9_give_evidence = true
 			print("masuk mobil")
 	elif State.current_subscene == "scene12":
 		print("ini scene 12 yaaaaaaaaaaaaaaaaaaaaa")
@@ -90,6 +94,7 @@ func _on_dialogue_finished(resource):
 			$"../Cars4/InteractionArea/CollisionShape2D".disabled = false
 			State.quest_title = "Masuk Mobil"
 			State.set_quest_title($"../..", true)
+			State.scene12_give_evidence = true
 			print("masuk mobil")
 		
 	if State.current_subscene == "scene12":

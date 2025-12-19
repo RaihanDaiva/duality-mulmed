@@ -29,6 +29,8 @@ func _ready():
 			change_quest_title("Ke Ruangan Dennis")
 		else:
 			change_quest_title("Ke Luar Kantor")
+	elif State.current_subscene == "scene15":
+		change_quest_title("Ke Luar Kantor")
 	
 	auto_setup_camera_from_tilemap()
 	if NavigationManager.spawn_door_tag != null:

@@ -5,7 +5,7 @@ extends Node2D
 
 #Untuk navigasi ruangan harus menambahkan ini
 func _ready():
-	print(State.current_subscene)	
+	print(State.debug_current_scene())	
 	if State.current_subscene == "scene17":
 		State.current_subscene = "scene18"
 	elif State.current_subscene == "scene18":
