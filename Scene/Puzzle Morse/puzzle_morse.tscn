@@ -1,10 +1,11 @@
-[gd_scene load_steps=67 format=3 uid="uid://c40dflflmaxk8"]
+[gd_scene load_steps=68 format=3 uid="uid://c40dflflmaxk8"]
 
 [ext_resource type="Texture2D" uid="uid://bh25wx864s5o3" path="res://Scene/Puzzle Morse/Sprite/puzzle-completed.png" id="1_17pk2"]
 [ext_resource type="Script" uid="uid://c68drisu4h31a" path="res://Scene/Puzzle Morse/Script/puzzle_morse_logic.gd" id="1_njstn"]
 [ext_resource type="Texture2D" uid="uid://blw3dhacitx63" path="res://Scene/Puzzle Morse/Sprite/puzzle-sprite.png" id="2_5xcd0"]
 [ext_resource type="Texture2D" uid="uid://b020asigd3tlc" path="res://Scene/Puzzle Morse/Sprite/puzzle-phone.png" id="2_iukj3"]
 [ext_resource type="Texture2D" uid="uid://dr17t812f4qle" path="res://Scene/Puzzle Morse/Sprite/puzzle-file.png" id="2_npkbb"]
+[ext_resource type="Texture2D" uid="uid://8deeqe46n75s" path="res://Scene/Puzzle Morse/Sprite/puzzle-clue-1.png" id="3_06fke"]
 [ext_resource type="Texture2D" uid="uid://rhuvqrv8ic4v" path="res://Scene/Puzzle Morse/Sprite/battery-100.png" id="4_n0qce"]
 [ext_resource type="Texture2D" uid="uid://d137lbe5b1dq0" path="res://Scene/Puzzle Morse/Sprite/puzzle-book.png" id="4_npkbb"]
 [ext_resource type="Script" uid="uid://bbbuswcn84smb" path="res://Scene/Puzzle Morse/book_panel.gd" id="5_ip43j"]
@@ -39,6 +40,8 @@ bg_color = Color(0.8, 0.63706666, 0.424, 0.46666667)
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nl58u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1iegc"]
 
 [sub_resource type="Animation" id="Animation_ijets"]
 resource_name = "LabelEndAnimation"
@@ -157,7 +160,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(56, 16)]
+"values": [Vector2(-56.065, 16)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -169,7 +172,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 33)]
+"values": [Vector2(-83.09, 33)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -181,7 +184,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(97, 140)]
+"values": [Vector2(97, 170.75)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -193,12 +196,12 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(113, 20)]
+"values": [Vector2(225, 20)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("../File Panel:position")
+tracks/4/path = NodePath("File Panel:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -262,7 +265,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("../File Panel:position")
+tracks/4/path = NodePath("File Panel:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -321,12 +324,12 @@ tracks/3/keys = {
 "times": PackedFloat32Array(1, 2),
 "transitions": PackedFloat32Array(0.5, 1),
 "update": 0,
-"values": [Vector2(225, 20), Vector2(113, 20)]
+"values": [Vector2(225, 20), Vector2(60, 20)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("../File Panel:position")
+tracks/4/path = NodePath("File Panel:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -903,8 +906,6 @@ _data = {
 &"complete": SubResource("Animation_bj0rl")
 }
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1iegc"]
-
 [node name="Puzzle Morse" type="Control" groups=["puzzle_morse"]]
 z_index = 200
 layout_mode = 3
@@ -930,19 +931,23 @@ retry_button_path = NodePath("../Phone Panel/Game Over Panel/Retry Btn")
 game_over_panel_path = NodePath("../Phone Panel/Game Over Panel")
 
 [node name="Paper Panel" type="Panel" parent="CanvasLayer"]
-offset_left = 113.0
+offset_left = 225.0
 offset_top = 20.0
-offset_right = 146.18213
+offset_right = 258.18213
 offset_bottom = 39.999996
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_iukj3")
+
+[node name="Puzzle1" type="Sprite2D" parent="CanvasLayer/Paper Panel"]
+position = Vector2(165, 37)
+texture = ExtResource("3_06fke")
 
 [node name="Book Panel" type="Panel" parent="CanvasLayer"]
 z_index = 1
 offset_left = 97.0
 offset_top = 150.0
 offset_right = 311.0
-offset_bottom = 222.00078
+offset_bottom = 222.0009
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_npkbb")
 script = ExtResource("5_ip43j")
@@ -973,9 +978,9 @@ anchor_top = 0.5
 anchor_right = 0.44400004
 anchor_bottom = 0.5
 offset_left = -1.0
-offset_top = -0.00039672852
+offset_top = -0.00045776367
 offset_right = -1.0160065
-offset_bottom = 21.999603
+offset_bottom = 21.999542
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -1124,8 +1129,9 @@ theme_override_font_sizes/font_size = 8
 text = "Clue #3"
 
 [node name="Phone Panel" type="Panel" parent="CanvasLayer"]
+offset_left = -83.09
 offset_top = 33.0
-offset_right = 88.0
+offset_right = 4.9100037
 offset_bottom = 176.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_5png1")
@@ -1238,7 +1244,7 @@ texture = ExtResource("22_bl12v")
 
 [node name="Title" type="Sprite2D" parent="CanvasLayer"]
 z_index = 2
-position = Vector2(56, 16)
+position = Vector2(-56.065, 16)
 texture = ExtResource("6_1iegc")
 
 [node name="Label" type="Label" parent="CanvasLayer/Title"]
@@ -1250,6 +1256,37 @@ theme_override_colors/font_color = Color(0.8117647, 0.78431374, 0.62352943, 1)
 theme_override_font_sizes/font_size = 9
 text = "Selesaikan Teka-Teki!"
 metadata/_edit_use_anchors_ = true
+
+[node name="File Panel" type="Panel" parent="CanvasLayer"]
+z_index = -2
+offset_left = 40.0
+offset_top = -175.0
+offset_right = 320.0
+offset_bottom = 1.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_1iegc")
+
+[node name="CanvasLayer_File Panel#FileSprite" type="Sprite2D" parent="CanvasLayer/File Panel"]
+position = Vector2(145, 84)
+texture = ExtResource("2_npkbb")
+
+[node name="CanvasLayer_File Panel#ClueLabel" type="Label" parent="CanvasLayer/File Panel"]
+layout_mode = 0
+offset_left = 217.0
+offset_top = 4.0
+offset_right = 257.0
+offset_bottom = 18.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+text = "Clue #1"
+
+[node name="Paper Panel#Sprite2D" type="Sprite2D" parent="CanvasLayer/File Panel"]
+visible = false
+position = Vector2(103, 52)
+scale = Vector2(0.5019531, 0.50195307)
+texture = ExtResource("2_5xcd0")
+region_enabled = true
+region_rect = Rect2(231.8895, 29.056133, 128.13928, 180.99167)
 
 [node name="Objective" type="Node2D" parent="CanvasLayer"]
 visible = false
@@ -1312,38 +1349,6 @@ autoplay = "charging_animation-loop"
 libraries = {
 &"": SubResource("AnimationLibrary_3o3sq")
 }
-
-[node name="File Panel" type="Panel" parent="."]
-z_index = -2
-layout_mode = 0
-offset_left = 40.0
-offset_top = -175.0
-offset_right = 320.0
-offset_bottom = 1.0
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxEmpty_1iegc")
-
-[node name="CanvasLayer_File Panel#FileSprite" type="Sprite2D" parent="File Panel"]
-position = Vector2(145, 84)
-texture = ExtResource("2_npkbb")
-
-[node name="CanvasLayer_File Panel#ClueLabel" type="Label" parent="File Panel"]
-layout_mode = 0
-offset_left = 217.0
-offset_top = 4.0
-offset_right = 257.0
-offset_bottom = 18.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 10
-text = "Clue #1"
-
-[node name="Paper Panel#Sprite2D" type="Sprite2D" parent="File Panel"]
-visible = false
-position = Vector2(103, 52)
-scale = Vector2(0.5019531, 0.50195307)
-texture = ExtResource("2_5xcd0")
-region_enabled = true
-region_rect = Rect2(231.8895, 29.056133, 128.13928, 180.99167)
 
 [node name="Book Panel#Feedback Label" type="Label" parent="."]
 visible = false

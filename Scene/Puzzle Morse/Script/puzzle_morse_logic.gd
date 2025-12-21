@@ -10,7 +10,7 @@ extends Node2D
 
 # --- Puzzle configuration ---
 @export var correct_answer = [
-	["JAM", "JEM", "JOM"],   # Puzzle Answer for progress 1 and so on...
+	["RUMAH", "CERMIN", "47"],   # Puzzle Answer for progress 1 and so on...
 	["CI", "KO", "NENG"],
 	["JA", "JE", "JO"],
 ]
@@ -441,14 +441,18 @@ func check_puzzle_solved() -> void:
 		
 		if State.current_subscene == "scene14":
 			print("Parent Children: ", $"../..".get_child(0).get_children())
-			var jigsaw_animationplayer: AnimationPlayer = $"../..".get_child(0).get_child(14).get_child(1)
+			var jigsaw_animationplayer: AnimationPlayer = $"../..".get_child(0).get_child(15).get_child(1)
 			jigsaw_animationplayer.play("out")
 			#$"..".get_child(0).remove_child(get_child(12))
 			remove_child(get_parent())
 		
 		#$"..".get_child(13).visible = false
 		if get_parent() and get_parent().has_node("StartAnimation"):
-			get_parent().get_node("StartAnimation").play("puzzleEndAnimate")
+			var anim_player := get_parent().get_node("StartAnimation")
+			anim_player.play("puzzleEndAnimate")
+
+			await anim_player.animation_finished
+			anim_player.play("RESET")
 			
 		# visual akhir / animasi -> tunggu lalu play end animation jika ada
 		#await get_tree().create_timer(2).timeout
