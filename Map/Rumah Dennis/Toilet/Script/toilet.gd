@@ -19,6 +19,9 @@ func _ready():
 	auto_setup_camera_from_tilemap()
 	if NavigationManager.spawn_door_tag != null:
 		_on_level_spawn(NavigationManager.spawn_door_tag)
+	
+	if State.scene12_give_evidence:
+		$BlackOverlay.visible = true
 		
 func change_quest_title(new_title: String) -> void:
 	quest_title_instance._update_quest_title(new_title, true)

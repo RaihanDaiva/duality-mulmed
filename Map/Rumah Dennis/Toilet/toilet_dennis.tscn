@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dln8rm07i6pb3"]
+[gd_scene load_steps=17 format=3 uid="uid://dln8rm07i6pb3"]
 
 [ext_resource type="Script" uid="uid://b1ohx7i2x1fmt" path="res://Map/Rumah Dennis/Toilet/Script/toilet.gd" id="1_t2aed"]
 [ext_resource type="Texture2D" uid="uid://cur3llhqvgrw" path="res://Map/Rumah Dennis/Toilet/Sprite/furniture.png" id="2_c1qdy"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b0ijersfk1cqh" path="res://Map/Rumah Dennis/Ruang Tengah/Sprite/wall-outside2.png" id="4_krmnf"]
 [ext_resource type="PackedScene" uid="uid://btbp42qa7duve" path="res://Player/player.tscn" id="5_pqjry"]
 [ext_resource type="PackedScene" uid="uid://b6yrxvfy6uyiy" path="res://Map/Door/door.tscn" id="6_5qgau"]
+[ext_resource type="Texture2D" uid="uid://c7isjxraenmvq" path="res://Scene/Puzzle Morse/Sprite/black-screen.png" id="7_c1qdy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fycnw"]
 texture = ExtResource("2_c1qdy")
@@ -200,5 +201,11 @@ disabled = false
 
 [node name="Spawn" parent="Doors/Door_S" index="1"]
 position = Vector2(0, -19)
+
+[node name="BlackOverlay" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.44313726)
+position = Vector2(125.00001, 92)
+scale = Vector2(0.5893741, 0.6724081)
+texture = ExtResource("7_c1qdy")
 
 [editable path="Doors/Door_S"]

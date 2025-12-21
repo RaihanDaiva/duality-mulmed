@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bteqdw6l13e8k"]
+[gd_scene load_steps=24 format=3 uid="uid://bteqdw6l13e8k"]
 
 [ext_resource type="Script" uid="uid://dgcqgrklhnmqy" path="res://Map/Apartemen/Script/apartemen.gd" id="1_7avvv"]
 [ext_resource type="Texture2D" uid="uid://cc8vuk016hmf5" path="res://Map/TKP 1 Kasus Pembunuhan 1/Assets/Environments/Sprite/trotoar-tileset.png" id="1_knwqu"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://bikjeinljqycl" path="res://Map/Apartemen/Script/car_trigger.gd" id="5_7avvv"]
 [ext_resource type="Script" uid="uid://de8mllb2y05tt" path="res://Map/Apartemen/Script/grey.gd" id="7_6nes7"]
 [ext_resource type="Texture2D" uid="uid://2ij6b2mivna4" path="res://NPC/Sprite/silas-full-animate.png" id="7_bb6ll"]
+[ext_resource type="Texture2D" uid="uid://7br1bqm47tr5" path="res://Map/Rumah Dennis/Halaman Luar/Sprite/rain-overlay.png" id="8_7avvv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5ojq6"]
 texture = ExtResource("1_knwqu")
@@ -155,6 +156,29 @@ _data = {
 &"walk_up": SubResource("Animation_vtle1")
 }
 
+[sub_resource type="Animation" id="Animation_od26d"]
+resource_name = "rumah-dennis-hujan"
+length = 0.40001002
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hujan:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [null, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r1owp"]
+_data = {
+&"rumah-dennis-hujan": SubResource("Animation_od26d")
+}
+
 [node name="Apartemen" type="Node2D"]
 z_as_relative = false
 y_sort_enabled = true
@@ -218,5 +242,18 @@ shape = SubResource("CircleShape2D_7avvv")
 libraries = {
 &"": SubResource("AnimationLibrary_00tjw")
 }
+
+[node name="Hujan" type="Sprite2D" parent="."]
+z_index = 3
+position = Vector2(181, 98)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("8_7avvv")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_r1owp")
+}
+autoplay = "rumah-dennis-hujan"
 
 [connection signal="area_entered" from="Environment/Hit Area" to="Grey" method="_on_hit_area_area_entered"]

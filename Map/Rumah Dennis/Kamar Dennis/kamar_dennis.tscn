@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://b77vxoaccijaq"]
+[gd_scene load_steps=41 format=3 uid="uid://b77vxoaccijaq"]
 
 [ext_resource type="Script" uid="uid://654je0fson3i" path="res://Map/Rumah Dennis/Kamar Dennis/Scripts/kamar_dennis.gd" id="1_0jkl8"]
 [ext_resource type="Texture2D" uid="uid://bkjhma2pj112e" path="res://Map/Rumah Dennis/Kamar Dennis/Sprite/bed.png" id="1_m8nms"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://dky5l4bmp636h" path="res://Interaction Manager/Interaction Area/interaction_area.tscn" id="16_2il5v"]
 [ext_resource type="Texture2D" uid="uid://35khv2wm3ugl" path="res://icon.svg" id="16_sjr5x"]
 [ext_resource type="PackedScene" uid="uid://bs3lbwtbheymx" path="res://UI/MainMenu/fade_transition.tscn" id="17_2il5v"]
+[ext_resource type="Texture2D" uid="uid://c7isjxraenmvq" path="res://Scene/Puzzle Morse/Sprite/black-screen.png" id="21_sjr5x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ilb8h"]
 texture = ExtResource("1_m8nms")
@@ -330,6 +331,13 @@ offset_right = 381.0
 offset_bottom = 210.0
 
 [node name="Fade_timer" type="Timer" parent="Fade Transition2"]
+
+[node name="BlackOverlay" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.44313726)
+z_index = 2
+position = Vector2(76.671875, 77.04687)
+scale = Vector2(0.7232585, 0.9031333)
+texture = ExtResource("21_sjr5x")
 
 [editable path="Doors/Door_E"]
 [editable path="Doors/Door_S"]

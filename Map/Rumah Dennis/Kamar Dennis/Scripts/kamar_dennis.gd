@@ -53,6 +53,9 @@ func _ready():
 		if State.quest_bed:
 			$"Fade Transition2".visible = true
 			$"Fade Transition2/AnimationPlayer".play("fade_out")
+	
+	if State.scene12_give_evidence:
+		$BlackOverlay.visible = true
 		
 func change_quest_title(new_title: String) -> void:
 	quest_title_instance._update_quest_title(new_title, true)

@@ -11,7 +11,7 @@ extends Node2D
 # --- Puzzle configuration ---
 @export var correct_answer = [
 	["RUMAH", "CERMIN", "47"],   # Puzzle Answer for progress 1 and so on...
-	["CI", "KO", "NENG"],
+	["GUDANG", "GARAM", "DUAPULUH"],
 	["JA", "JE", "JO"],
 ]
 @export var hint_text: String = "Ada di dinding, menunjukkan waktu"
@@ -55,6 +55,7 @@ var battery_value := 4
 var load_jigsaw_level = preload("res://Scene/Puzzle Morse/jigsaw-level/level1.tscn")
 var jigsaw_level = load_jigsaw_level.instantiate()
 
+
 # ---------------------------
 func _ready() -> void:
 	print(State.current_subscene)
@@ -63,12 +64,14 @@ func _ready() -> void:
 	if State.current_subscene == "scene2":
 		if State.quest_dead_body_done == false:	
 			puzzle_progress = 1
+			$"../Paper Panel/Puzzle1".visible = true
 			level = 1
 			print("puzzle progress nya 1")
 	
 	elif State.current_subscene == "scene10":
 		if State.puzzle_scene10 == false:
 			puzzle_progress = 2
+			$"../Paper Panel/Puzzle2".visible = true
 			level = 1
 			print("puzzle progress nya 2")
 	
@@ -131,7 +134,7 @@ func _ready() -> void:
 			if player:
 				player.can_move = false
 				player.direction = Vector2.ZERO
-
+	
 	setup_connections()
 	reset_puzzle()
 	print(jigsaw_level.get_child(0))

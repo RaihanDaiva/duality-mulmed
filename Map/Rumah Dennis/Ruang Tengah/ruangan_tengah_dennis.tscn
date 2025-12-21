@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cehdibbybbcvj"]
+[gd_scene load_steps=29 format=3 uid="uid://cehdibbybbcvj"]
 
 [ext_resource type="Script" uid="uid://bniruuvjphse0" path="res://Map/Rumah Dennis/Ruang Tengah/Script/ruangan_tengah.gd" id="1_q8y8b"]
 [ext_resource type="Texture2D" uid="uid://cdr61m1ceuwl5" path="res://Map/Rumah Dennis/Ruang Tengah/Sprite/chair-front.png" id="2_0gnfr"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://b0ijersfk1cqh" path="res://Map/Rumah Dennis/Ruang Tengah/Sprite/wall-outside2.png" id="9_ewocm"]
 [ext_resource type="PackedScene" uid="uid://btbp42qa7duve" path="res://Player/player.tscn" id="10_pmljs"]
 [ext_resource type="PackedScene" uid="uid://b6yrxvfy6uyiy" path="res://Map/Door/door.tscn" id="11_vvj8l"]
+[ext_resource type="Texture2D" uid="uid://c7isjxraenmvq" path="res://Scene/Puzzle Morse/Sprite/black-screen.png" id="12_0gnfr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2vm66"]
 texture = ExtResource("2_0gnfr")
@@ -385,6 +386,14 @@ disabled = false
 
 [node name="Spawn" parent="Doors/Door_W2" index="1"]
 position = Vector2(25, 10)
+
+[node name="BlackOverlay" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.44313726)
+z_index = 1
+position = Vector2(124.000015, 70.546875)
+scale = Vector2(0.5893741, 0.93725395)
+texture = ExtResource("12_0gnfr")
 
 [editable path="Doors/Door_W"]
 [editable path="Doors/Door_N"]
