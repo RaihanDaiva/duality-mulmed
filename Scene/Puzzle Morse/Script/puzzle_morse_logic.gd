@@ -330,6 +330,9 @@ func on_game_over() -> void:
 	$"../Phone Panel/MorseButton".disabled = true
 	$"../Phone Panel/MorseButton".visible = false
 	$"../Phone Panel/MorseButton".button_pressed = false
+	$"../Phone Panel/CaesarButton".disabled = true
+	$"../Phone Panel/CaesarButton".visible = false
+	$"../Phone Panel/CaesarButton".button_pressed = false
 	puzzle_solved = true
 
 	show_feedback("GAME OVER!")
@@ -558,7 +561,9 @@ func _on_charge_battery_timer_timeout() -> void:
 		set_battery(battery_value)
 		battery_timer.stop()
 		$"../Phone Panel/MorseButton".disabled = false
+		$"../Phone Panel/CaesarButton".disabled = false
 		$"../Phone Panel/MorseButton".visible = true
+		$"../Phone Panel/CaesarButton".visible = true
 		$"../BatteryAnimation".play("charging_animation-end")
 		$"../PhoneAnimation".play("phone_on")
 		return
