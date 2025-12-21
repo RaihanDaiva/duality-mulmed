@@ -22,6 +22,8 @@ func _ready():
 		State.current_room = "kamar"
 		change_quest_title("Ke kasur")
 	elif State.current_subscene == "scene6":
+		if !State.wake_up:
+			_talk()
 		State.quest_car_done = "start"
 		State.quest_title = "ke luar rumah"
 		change_quest_title("Ke luar rumah")
@@ -56,6 +58,29 @@ func _ready():
 	
 	if State.scene12_give_evidence:
 		$BlackOverlay.visible = true
+
+func _talk():
+	var player = get_tree().get_first_node_in_group("player")
+	if player:
+		player.can_move = false
+		player.direction = Vector2.ZERO
+	
+	DialogueManager.dialogue_ended.connect(_on_dialogue_finished, CONNECT_ONE_SHOT)
+		
+	await get_tree().create_timer(1).timeout
+	DialogueManager.show_dialogue_balloon(
+		load("res://Scene/Scene 6/Dialogue/wake_up.dialogue"),
+		"start"
+	)
+	
+func _on_dialogue_finished(resource):
+	State.wake_up = true
+	if State.current_subscene == "scene6":
+		change_quest_title("Ke luar rumah")
+	
+	var player = get_tree().get_first_node_in_group("player")
+	if player:
+		player.can_move = true
 		
 func change_quest_title(new_title: String) -> void:
 	quest_title_instance._update_quest_title(new_title, true)

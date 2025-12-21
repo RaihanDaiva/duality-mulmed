@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://lavpyaxgd8j3"
+path="res://.godot/imported/SFX Heavy Rain and Thunder.mp3-eba79e5ab3a3f30c4c70f6a02a1e2979.mp3str"
+
+[deps]
+
+source_file="res://SFX/SFX Heavy Rain and Thunder.mp3"
+dest_files=["res://.godot/imported/SFX Heavy Rain and Thunder.mp3-eba79e5ab3a3f30c4c70f6a02a1e2979.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

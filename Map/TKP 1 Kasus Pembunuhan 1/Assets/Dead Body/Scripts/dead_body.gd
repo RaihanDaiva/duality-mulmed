@@ -91,7 +91,7 @@ func show_next_puzzle():
 	# Ubah Quest Title TO-DO: Lakukan kode ini memakai signal puzzle_completed dari puzzle_morse_logic.gd
 	if State.current_subscene == "scene2":
 		var parent = get_parent().get_parent()
-		parent.change_quest_title("Bicara ke polisi di gang")
+		parent.change_quest_title("Bicara ke polisi")
 
 	# Aktifkan (visible)
 	puzzle_scene.visible = true

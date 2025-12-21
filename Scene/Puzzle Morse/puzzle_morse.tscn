@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://dtf32rfpdmn84" path="res://Scene/Puzzle Morse/Sprite/battery-charge.png" id="9_nl58u"]
 [ext_resource type="Texture2D" uid="uid://mkx8x4618i4t" path="res://UI/Assets/checkbox-true.png" id="9_ti5iq"]
 [ext_resource type="Texture2D" uid="uid://dy417o1kyai0j" path="res://UI/Assets/checkbox-false.png" id="10_yi4ij"]
+[ext_resource type="FontFile" uid="uid://bro3sw64tmv4m" path="res://Fonts/VCR_OSD_MONO_1.001.ttf" id="13_bj0rl"]
 [ext_resource type="Texture2D" uid="uid://dbbpf0bnieskd" path="res://Scene/Puzzle Morse/Sprite/puzzle-phone-on.png" id="13_gdirq"]
 [ext_resource type="Texture2D" uid="uid://cehpg0m13uqiy" path="res://Scene/Puzzle Morse/Sprite/hint-caesar-btn.png" id="15_2b156"]
 [ext_resource type="Texture2D" uid="uid://bm6wdgx3betad" path="res://Scene/Puzzle Morse/Sprite/hint-morse-btn.png" id="18_ql585"]
@@ -1001,6 +1002,7 @@ grow_vertical = 2
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.08235294, 0.07058824, 0.2, 1)
+theme_override_fonts/font = ExtResource("13_bj0rl")
 theme_override_font_sizes/font_size = 10
 theme_override_styles/focus = SubResource("StyleBoxFlat_yi4ij")
 placeholder_text = "...."
@@ -1055,6 +1057,7 @@ offset_top = -4.0
 offset_right = 59.0
 offset_bottom = 10.0
 theme_override_colors/font_color = Color(0.083, 0.07000001, 0.2, 1)
+theme_override_fonts/font = ExtResource("13_bj0rl")
 theme_override_font_sizes/font_size = 10
 text = "Jam"
 
@@ -1064,6 +1067,7 @@ offset_top = -18.0
 offset_right = -10.0
 offset_bottom = -6.0
 theme_override_colors/font_color = Color(0.12941177, 0.1254902, 0.1254902, 1)
+theme_override_fonts/font = ExtResource("13_bj0rl")
 theme_override_font_sizes/font_size = 8
 text = "Clue #1"
 
@@ -1092,6 +1096,7 @@ offset_top = -3.0
 offset_right = 60.0
 offset_bottom = 11.0
 theme_override_colors/font_color = Color(0.083, 0.07000001, 0.2, 1)
+theme_override_fonts/font = ExtResource("13_bj0rl")
 theme_override_font_sizes/font_size = 10
 text = "Jam"
 
@@ -1101,6 +1106,7 @@ offset_top = -18.0
 offset_right = -10.0
 offset_bottom = -6.0
 theme_override_colors/font_color = Color(0.12941177, 0.1254902, 0.1254902, 1)
+theme_override_fonts/font = ExtResource("13_bj0rl")
 theme_override_font_sizes/font_size = 8
 text = "Clue #2"
 
@@ -1129,6 +1135,7 @@ offset_top = -3.0
 offset_right = 60.0
 offset_bottom = 11.0
 theme_override_colors/font_color = Color(0.083, 0.07000001, 0.2, 1)
+theme_override_fonts/font = ExtResource("13_bj0rl")
 theme_override_font_sizes/font_size = 10
 text = "Jam"
 
@@ -1138,6 +1145,7 @@ offset_top = -18.0
 offset_right = -10.0
 offset_bottom = -6.0
 theme_override_colors/font_color = Color(0.12941177, 0.1254902, 0.1254902, 1)
+theme_override_fonts/font = ExtResource("13_bj0rl")
 theme_override_font_sizes/font_size = 8
 text = "Clue #3"
 
@@ -1178,6 +1186,7 @@ offset_left = 15.0
 offset_top = 2.0
 offset_right = 48.0
 offset_bottom = 14.0
+theme_override_fonts/font = ExtResource("13_bj0rl")
 theme_override_font_sizes/font_size = 8
 text = "Isi ulang"
 
@@ -1262,12 +1271,13 @@ texture = ExtResource("6_1iegc")
 
 [node name="Label" type="Label" parent="CanvasLayer/Title"]
 offset_left = -48.0
-offset_top = -8.0
+offset_top = -5.0
 offset_right = 55.0
-offset_bottom = 15.0
+offset_bottom = 18.0
 theme_override_colors/font_color = Color(0.8117647, 0.78431374, 0.62352943, 1)
+theme_override_fonts/font = ExtResource("13_bj0rl")
 theme_override_font_sizes/font_size = 9
-text = "Selesaikan Teka-Teki!"
+text = "Selesaikan Puzzle!"
 metadata/_edit_use_anchors_ = true
 
 [node name="File Panel" type="Panel" parent="CanvasLayer"]
@@ -1290,6 +1300,7 @@ offset_top = 4.0
 offset_right = 257.0
 offset_bottom = 18.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("13_bj0rl")
 theme_override_font_sizes/font_size = 10
 text = "Clue #1"
 

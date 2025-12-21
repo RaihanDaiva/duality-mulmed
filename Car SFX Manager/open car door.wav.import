@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://3r6tdisvdi5o"
+path="res://.godot/imported/open car door.wav-a97ebdf8dbf2015a0df065fa841961b9.sample"
+
+[deps]
+
+source_file="res://Car SFX Manager/open car door.wav"
+dest_files=["res://.godot/imported/open car door.wav-a97ebdf8dbf2015a0df065fa841961b9.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

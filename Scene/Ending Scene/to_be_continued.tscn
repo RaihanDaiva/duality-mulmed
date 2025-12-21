@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://dkodyu8v4btjy"]
+
+[ext_resource type="Script" uid="uid://b4jpix27jwgby" path="res://Scene/Ending Scene/to_be_continued.gd" id="1_hx5qg"]
+[ext_resource type="Texture2D" uid="uid://cw5651pfadqnc" path="res://Scene/Ending Scene/duality-to-be-continued.png" id="1_n757a"]
+[ext_resource type="PackedScene" uid="uid://bs3lbwtbheymx" path="res://UI/MainMenu/fade_transition.tscn" id="2_2e0pj"]
+
+[node name="To Be Continued" type="Node2D"]
+script = ExtResource("1_hx5qg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(160, 89)
+texture = ExtResource("1_n757a")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Fade Transition2" parent="CanvasLayer" instance=ExtResource("2_2e0pj")]
+visible = false
+z_index = 1000
+offset_left = -20.0
+offset_top = -27.0
+offset_right = 337.0
+offset_bottom = 204.0
+
+[node name="Fade_timer" type="Timer" parent="CanvasLayer/Fade Transition2"]
+
+[editable path="CanvasLayer/Fade Transition2"]

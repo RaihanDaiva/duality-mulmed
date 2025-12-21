@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bri1u8fqu0pj3"
+path="res://.godot/imported/car close.ogg-1a2a314fade1d9b65b30134ff8b6c984.oggvorbisstr"
+
+[deps]
+
+source_file="res://SFX/car close.ogg"
+dest_files=["res://.godot/imported/car close.ogg-1a2a314fade1d9b65b30134ff8b6c984.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

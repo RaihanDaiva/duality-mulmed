@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://kpi3mxvq47r"
+path="res://.godot/imported/open & close car door.ogg-4d1c935f3be6058db036a2fca8a1de0a.oggvorbisstr"
+
+[deps]
+
+source_file="res://SFX/open & close car door.ogg"
+dest_files=["res://.godot/imported/open & close car door.ogg-4d1c935f3be6058db036a2fca8a1de0a.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

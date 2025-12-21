@@ -5,20 +5,29 @@ extends Node2D
 
 #Untuk navigasi ruangan harus menambahkan ini
 func _ready():
+	
+	State.grey_talked = false
+	if $Environment/Cars4.visible == false:
+		$Environment/Cars4.visible = true
+		
 	print(State.debug_current_scene())
 	print(State.have_feet)
-	#State.current_subscene = "scene12"
+	#State.current_subscene = "scene10"
 	if State.current_subscene == "scene10":
 		State.current_subscene = "scene11"
+		
+	if State.current_subscene == "scene11":
+		NavigationManager.spawn_door_tag = null
+		$"CanvasLayer/Fade Transition2".visible = true
+		$"CanvasLayer/Fade Transition2/AnimationPlayer".play("fade_out")
+		await CarSfxManager.play_open_close(0.6)
 	
 	if State.have_key:
 		$Doors/Door_N/CollisionShape2D.disabled = false
 		$Environment/Gate/InteractionArea/CollisionShape2D.disabled = true
-		
 		$Environment/Key.visible = false
 		$Environment/Key/CollisionShape2D.disabled = true
 		$Environment/Key/InteractionArea/CollisionShape2D.disabled = true
-		
 	else:
 		$Doors/Door_N/CollisionShape2D.disabled = true
 	auto_setup_camera_from_tilemap()

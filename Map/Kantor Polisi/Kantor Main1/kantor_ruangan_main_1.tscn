@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://o71kqbh5hqg0"]
+[gd_scene load_steps=48 format=3 uid="uid://o71kqbh5hqg0"]
 
 [ext_resource type="Texture2D" uid="uid://d1ugp8kv6m0kv" path="res://Map/Kantor Polisi/Kantor Main1/Sprite/bookshelf.png" id="1_ofkyl"]
 [ext_resource type="Script" uid="uid://dck5q6pxxwbj2" path="res://Map/Kantor Polisi/Kantor Main1/Script/kantor_ruangan_main_1.gd" id="1_udssi"]
@@ -18,6 +18,11 @@
 [ext_resource type="Texture2D" uid="uid://bvg787bkr7vac" path="res://Map/Kantor Polisi/Kantor Main1/Sprite/Tablee_and_sofa.png" id="14_yaqvv"]
 [ext_resource type="Texture2D" uid="uid://pdpop5fdbco5" path="res://Map/Kantor Polisi/Kantor Main1/Sprite/Table_and_printer.png" id="15_hhb2v"]
 [ext_resource type="PackedScene" uid="uid://btbp42qa7duve" path="res://Player/player.tscn" id="16_cy4id"]
+[ext_resource type="Texture2D" uid="uid://hogmfc7vua3k" path="res://Map/Kantor Polisi/Kantor Main1/Sprite/Office_table-1.png" id="18_a2l7a"]
+[ext_resource type="Texture2D" uid="uid://d37hd16jjrri0" path="res://Map/Kantor Polisi/Kantor Main1/Sprite/working_chair.png" id="19_qkxgg"]
+[ext_resource type="PackedScene" uid="uid://cj7epc3mv55qj" path="res://NPC/npc.tscn" id="19_yiv8a"]
+[ext_resource type="Texture2D" uid="uid://2ij6b2mivna4" path="res://NPC/Sprite/silas-full-animate.png" id="20_8vprn"]
+[ext_resource type="PackedScene" uid="uid://bs3lbwtbheymx" path="res://UI/MainMenu/fade_transition.tscn" id="21_8vprn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cy4id"]
 texture = ExtResource("1_ofkyl")
@@ -239,6 +244,8 @@ size = Vector2(15, 21)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vi6ff"]
 size = Vector2(48, 21)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ft0ip"]
+
 [node name="Kantor Ruangan Main 1" type="Node2D"]
 z_as_relative = false
 y_sort_enabled = true
@@ -328,7 +335,7 @@ position = Vector2(62, 84)
 
 [node name="Sprite2D" type="Sprite2D" parent="Environment/Office Table2"]
 position = Vector2(32, -7)
-texture = ExtResource("12_v3t6f")
+texture = ExtResource("18_a2l7a")
 region_rect = Rect2(64, 4, 32, 60)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Office Table2"]
@@ -341,10 +348,6 @@ shape = SubResource("RectangleShape2D_udssi")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Environment/Office Table2"]
 position = Vector2(32, 15)
-shape = SubResource("RectangleShape2D_udssi")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Environment/Office Table2"]
-position = Vector2(72, 15)
 shape = SubResource("RectangleShape2D_udssi")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="Environment/Office Table2"]
@@ -411,10 +414,50 @@ region_rect = Rect2(64, 4, 32, 60)
 position = Vector2(32, -3.5)
 shape = SubResource("RectangleShape2D_vi6ff")
 
+[node name="Chair" type="StaticBody2D" parent="Environment"]
+position = Vector2(102, 100)
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Chair"]
+position = Vector2(32, -7)
+texture = ExtResource("19_qkxgg")
+region_rect = Rect2(64, 4, 32, 60)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Chair"]
+position = Vector2(32, -3)
+shape = SubResource("RectangleShape2D_ft0ip")
+
 [node name="Player" parent="." instance=ExtResource("16_cy4id")]
-position = Vector2(183, 51)
+position = Vector2(152, 109)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
+[node name="Grey" parent="." instance=ExtResource("19_yiv8a")]
+visible = false
+position = Vector2(135, 91)
+npc_name = "Grey"
+idle_direction = "up"
+dialogue_file = "uid://kneo0ht4f5gx"
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" parent="Grey" index="1"]
+texture = ExtResource("20_8vprn")
+
+[node name="CollisionShape2D" parent="Grey/InteractionArea" index="0"]
+disabled = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Fade Transition2" parent="CanvasLayer" instance=ExtResource("21_8vprn")]
+visible = false
+z_index = 50
+offset_left = -48.0
+offset_top = -26.0
+offset_right = 362.0
+offset_bottom = 238.0
+
+[node name="Fade_timer" type="Timer" parent="CanvasLayer/Fade Transition2"]
+
 [editable path="Doors/Door_S"]
 [editable path="Doors/Door_S2"]
+[editable path="Grey"]
+[editable path="CanvasLayer/Fade Transition2"]

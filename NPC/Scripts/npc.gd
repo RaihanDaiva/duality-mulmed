@@ -19,7 +19,7 @@ var quest_title_instance
 signal change_title(new_title)
 
 func _ready():
-	#State.current_subscene = "scene9"
+	
 	print(State.quest_severed_done)
 	# Setup interaction
 	if interaction_area and can_interact:
@@ -96,6 +96,11 @@ func _on_dialogue_finished(resource):
 			State.set_quest_title($"../..", true)
 			State.scene12_give_evidence = true
 			print("masuk mobil")
+	elif State.current_subscene == "scene20":
+		if State.quest_half_body:
+			print("masuk nih anjay")
+			$"../CanvasLayer/Fade Transition2".visible = true
+			$"../CanvasLayer/Fade Transition2/AnimationPlayer".play("fade_in")
 		
 	if State.current_subscene == "scene12":
 		if State.have_feet:

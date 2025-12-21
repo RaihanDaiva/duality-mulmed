@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://yigihdb1ge7l"]
+[gd_scene load_steps=29 format=3 uid="uid://yigihdb1ge7l"]
 
 [ext_resource type="Script" uid="uid://tcin6evw2n5k" path="res://Map/Rumah Dennis/Halaman Luar/Script/halaman_rumah_dennis.gd" id="1_b4vcv"]
 [ext_resource type="Texture2D" uid="uid://cybicyjg5l2tb" path="res://Map/Rumah Dennis/Halaman Luar/Sprite/stone-slab.png" id="3_b4vcv"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://7br1bqm47tr5" path="res://Map/Rumah Dennis/Halaman Luar/Sprite/rain-overlay.png" id="11_aw5ni"]
 [ext_resource type="PackedScene" uid="uid://dky5l4bmp636h" path="res://Interaction Manager/Interaction Area/interaction_area.tscn" id="11_teeel"]
 [ext_resource type="PackedScene" uid="uid://bs3lbwtbheymx" path="res://UI/MainMenu/fade_transition.tscn" id="12_od26d"]
+[ext_resource type="AudioStream" uid="uid://lavpyaxgd8j3" path="res://SFX/SFX Heavy Rain and Thunder.mp3" id="16_3dgmd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_teeel"]
 texture = ExtResource("3_b4vcv")
@@ -269,8 +270,6 @@ shape = SubResource("CircleShape2D_6uno6")
 [node name="Player" parent="." instance=ExtResource("7_r1owp")]
 position = Vector2(77, 152)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
-
 [node name="Doors" type="Node2D" parent="."]
 
 [node name="Door_N" parent="Doors" instance=ExtResource("10_aw5ni")]
@@ -299,16 +298,22 @@ libraries = {
 }
 autoplay = "rumah-dennis-hujan"
 
-[node name="Fade Transition2" parent="." instance=ExtResource("12_od26d")]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Fade Transition2" parent="CanvasLayer" instance=ExtResource("12_od26d")]
 visible = false
-z_index = 50
+z_index = 1000
 offset_left = -20.0
 offset_top = -27.0
 offset_right = 337.0
 offset_bottom = 204.0
 
-[node name="Fade_timer" type="Timer" parent="Fade Transition2"]
+[node name="Fade_timer" type="Timer" parent="CanvasLayer/Fade Transition2"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_3dgmd")
+volume_db = -23.441
 
 [editable path="Environment/Cars2/InteractionArea"]
 [editable path="Doors/Door_N"]
-[editable path="Fade Transition2"]
+[editable path="CanvasLayer/Fade Transition2"]

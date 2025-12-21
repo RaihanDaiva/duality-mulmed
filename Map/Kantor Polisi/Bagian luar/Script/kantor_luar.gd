@@ -6,7 +6,7 @@ var quest_title_instance
 
 #Untuk navigasi ruangan harus menambahkan ini
 func _ready():
-	#State.current_subscene = "scene15"
+	#State.current_subscene = "scene9"
 	#State.puzzle_scene14 = true
 	print("status mobil awal bgt ",$Environment/Cars3/InteractionArea/CollisionShape2D.disabled)
 	print(State.puzzle_scene14)
@@ -15,8 +15,15 @@ func _ready():
 	quest_title_instance = quest_title.instantiate()
 	add_child(quest_title_instance)
 	
+	var anim = get_node_or_null("CanvasLayer/Fade Transition/AnimationPlayer")
+	
 	#Objective
 	if State.current_subscene == "scene7":
+		if !State.inside_office:
+			print("jangan ngeselin ajg")
+			$"CanvasLayer/Fade Transition".visible = true
+			$"CanvasLayer/Fade Transition/AnimationPlayer".play("fade_out")
+			await CarSfxManager.play_open_close(0.6)
 		change_quest_title("Masuk Ke Kantor")
 	elif State.current_subscene == "scene8":
 		if !State.quest_chair_done:
@@ -27,35 +34,39 @@ func _ready():
 	elif State.current_subscene == "scene9":
 		State.current_subscene = "scene10"
 	elif State.current_subscene == "scene12":
+		$"CanvasLayer/Fade Transition".visible = true
+		$"CanvasLayer/Fade Transition/AnimationPlayer".play("fade_out")
+		await CarSfxManager.play_open_close(0.6)
 		State.current_subscene = "scene13"
 		
 	if State.current_subscene == "scene10":
 		if !State.puzzle_scene10:
 			change_quest_title("Masuk Ke Kantor")
+			$"CanvasLayer/Fade Transition".visible = true
+			$"CanvasLayer/Fade Transition/AnimationPlayer".play("fade_out")
+			await CarSfxManager.play_open_close(0.6)
 		else:
 			change_quest_title("Masuk Ke Mobil")
 			$Environment/Cars3/InteractionArea/CollisionShape2D.disabled = false
 	elif State.current_subscene == "scene13":
 		if !State.puzzle_scene14:
 			change_quest_title("Masuk Ke Kantor")
+			change_quest_title("Masuk Ke Kantor")
+			$"CanvasLayer/Fade Transition".visible = true
+			$"CanvasLayer/Fade Transition/AnimationPlayer".play("fade_out")
 		else:
 			change_quest_title("Masuk Ke Mobil")
 			$Environment/Cars3/InteractionArea/CollisionShape2D.disabled = false
 	elif State.current_subscene == "scene15":
+		$Hujan.visible = true
+		$AudioStreamPlayer.playing = true
+		
 		print("status mobil before ",$Environment/Cars3/InteractionArea/CollisionShape2D.disabled)
 		change_quest_title("Masuk Ke Mobil")
 		print("telfon grey")
 		$Environment/Cars3/InteractionArea/CollisionShape2D.disabled = false
 		print("status mobil after ",$Environment/Cars3/InteractionArea/CollisionShape2D.disabled)
 
-	
-	var anim = get_node_or_null("Fade Transition2/AnimationPlayer")
-	if anim:
-		# Node ditemukan → aman digunakan
-		$"Fade Transition2/AnimationPlayer".play("fade_out")
-	else:
-		# Node tidak ditemukan → skip tanpa error
-		print("AnimationPlayer tidak ada, skip.")
 	auto_setup_camera_from_tilemap()
 	if NavigationManager.spawn_door_tag != null:
 		_on_level_spawn(NavigationManager.spawn_door_tag)

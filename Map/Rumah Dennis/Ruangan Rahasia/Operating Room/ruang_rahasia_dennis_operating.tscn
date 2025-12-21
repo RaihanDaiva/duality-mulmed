@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://61djfm56dfdt"]
+[gd_scene load_steps=29 format=3 uid="uid://61djfm56dfdt"]
 
 [ext_resource type="Script" uid="uid://6ykrjqtku217" path="res://Map/Rumah Dennis/Ruangan Rahasia/Operating Room/Script/ruang_rahasia_dennis_operating.gd" id="1_2jfu8"]
 [ext_resource type="Texture2D" uid="uid://dl5lolsltxpu8" path="res://Map/Rumah Dennis/Ruangan Rahasia/Operating Room/Sprite/dead-half-body.png" id="1_58sd5"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://b6yrxvfy6uyiy" path="res://Map/Door/door.tscn" id="10_6oad5"]
 [ext_resource type="PackedScene" uid="uid://cj7epc3mv55qj" path="res://NPC/npc.tscn" id="11_2q2li"]
 [ext_resource type="Texture2D" uid="uid://2ij6b2mivna4" path="res://NPC/Sprite/silas-full-animate.png" id="12_aw7ge"]
+[ext_resource type="PackedScene" uid="uid://bs3lbwtbheymx" path="res://UI/MainMenu/fade_transition.tscn" id="15_h43rx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ae1tg"]
 texture = ExtResource("1_58sd5")
@@ -243,6 +244,8 @@ size = Vector2(6, 6)
 radius = 21.023796
 
 [node name="Ruang Rahasia Dennis Operating" type="Node2D"]
+z_as_relative = false
+y_sort_enabled = true
 script = ExtResource("1_2jfu8")
 
 [node name="Environment" type="Node2D" parent="."]
@@ -336,9 +339,24 @@ position = Vector2(3, -6)
 position = Vector2(104, 76)
 npc_name = "Grey"
 dialogue_file = "uid://oi8kwdhpuax1"
+change_scene_after_dialogue = true
+next_scene = "uid://o71kqbh5hqg0"
 
 [node name="Sprite2D" parent="Grey" index="1"]
 texture = ExtResource("12_aw7ge")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Fade Transition2" parent="CanvasLayer" instance=ExtResource("15_h43rx")]
+visible = false
+z_index = 50
+offset_left = -48.0
+offset_top = -26.0
+offset_right = 362.0
+offset_bottom = 238.0
+
+[node name="Fade_timer" type="Timer" parent="CanvasLayer/Fade Transition2"]
+
 [editable path="Doors/Door_S"]
 [editable path="Grey"]
+[editable path="CanvasLayer/Fade Transition2"]

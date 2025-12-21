@@ -1,6 +1,8 @@
 ~ start
 if State.have_key:
-	Dennis: akhirnya bisa dibuka
+	Dennis: Terbuka! Sekarang aku bisa masuk
 else:
-	Dennis: aduh gaada kuncinya
+	Dennis: Pintu garasi ini tidak mau terbuka
+	Dennis: Yaiyalah, namanya juga terkunci
+	Dennis: Andaikan ada aku punya kuncinya
 => END

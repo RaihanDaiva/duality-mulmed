@@ -7,7 +7,7 @@ extends Node2D
 func _ready():
 	#State.entered_operating_room = true
 	#if State.entered_operating_room:
-	print(State.debug_current_scene())	
+	print(State.current_subscene)
 	if State.current_subscene == "scene18":
 		State.current_subscene = "scene19"
 	
@@ -28,6 +28,11 @@ func _ready():
 		_on_level_spawn(NavigationManager.spawn_door_tag)
 
 func _talk():
+	var player = get_tree().get_first_node_in_group("player")
+	if not player:
+		return
+	player.can_move = false
+	
 	DialogueManager.dialogue_ended.connect(_on_dialogue_finished, CONNECT_ONE_SHOT)
 		
 	await get_tree().create_timer(1).timeout
@@ -38,6 +43,13 @@ func _talk():
 	
 func _on_dialogue_finished(resource):
 	State.current_subscene = "scene20"
+	var player = get_tree().get_first_node_in_group("player")
+	if not player:
+		return
+	player.can_move = true
+	
+	#$"CanvasLayer/Fade Transition2".visible = true
+	#$"CanvasLayer/Fade Transition2/AnimationPlayer".play("fade_in")
 	
 
 func _on_level_spawn(destination_tag: String):

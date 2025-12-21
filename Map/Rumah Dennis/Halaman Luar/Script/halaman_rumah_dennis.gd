@@ -6,15 +6,23 @@ var quest_title_instance
 
 #Untuk navigasi ruangan harus menambahkan ini
 func _ready():
-	State.quest_bed_done = "start"
-	#State.current_subscene = "scene4" #akan dihapus
+	#State.quest_bed_done = "start"
+	#State.current_subscene = "scene6" #akan dihapus
+	#State.scene12_give_evidence = true
+	
 	print(State.current_subscene)
 	var quest_title = preload("res://UI/PlayingInterface/QuestTitle.tscn")
 	quest_title_instance = quest_title.instantiate()
 	add_child(quest_title_instance)
 	
+	#var anim = get_node_or_null("CanvasLayer/Fade Transition2/AnimationPlayer")
+	
 	#Objective
 	if State.current_subscene == "scene4":
+		if !State.inside_first:
+			$"CanvasLayer/Fade Transition2".visible = true
+			$"CanvasLayer/Fade Transition2/AnimationPlayer".play("fade_out")
+			await CarSfxManager.play_open_close(0.6)
 		change_quest_title("Masuk Ke Rumah")
 	elif State.current_subscene == "scene6":
 		change_quest_title("Masuk ke mobil")
@@ -26,8 +34,11 @@ func _ready():
 		change_quest_title("Masuk ke rumah")
 	
 	if State.scene12_give_evidence:
+		
 		$Hujan.visible = true
 		$Environment/Cars2/InteractionArea/CollisionShape2D.disabled = true
+		$AudioStreamPlayer.playing = true
+		
 	
 	var anim = get_node_or_null("Fade Transition2/AnimationPlayer")
 	if anim:

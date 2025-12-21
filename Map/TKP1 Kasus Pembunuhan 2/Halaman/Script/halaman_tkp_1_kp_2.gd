@@ -7,6 +7,7 @@ var quest_title_node: Node2D
 
 #Untuk navigasi ruangan harus menambahkan ini
 func _ready():
+	State.current_subscene = "scene9"
 	print(State.quest_lengan_done)
 	print(State.debug_current_scene())
 	if State.quest_chair_done:
@@ -14,8 +15,15 @@ func _ready():
 		State.current_subscene = "scene9"
 	
 	if State.current_subscene == "scene9":
-		if !State.quest_lengan_done:
-			NavigationManager.spawn_door_tag = null
+		if !State.inside_house:
+			print("goblok ih")
+			if !State.quest_lengan_done:
+				print("babi monyetd")
+				NavigationManager.spawn_door_tag = null
+			State.quest_title = "Masuk Ke Rumah TKP"
+			$"CanvasLayer/Fade Transition2".visible = true
+			$"CanvasLayer/Fade Transition2/AnimationPlayer".play("fade_out")
+			await CarSfxManager.play_open_close(0.6)
 		else:
 			if NavigationManager.spawn_door_tag != null:
 				_on_level_spawn(NavigationManager.spawn_door_tag)
@@ -25,8 +33,7 @@ func _ready():
 	State.debug_current_scene()
 	
 	State.setup_quest_title($".")
-	if State.quest_severed_done != "done":
-		State.quest_title = "Masuk Ke Rumah TKP"
+
 	State.set_quest_title($".", false)
 
 		

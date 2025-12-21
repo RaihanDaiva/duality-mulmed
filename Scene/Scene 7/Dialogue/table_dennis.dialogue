@@ -1,10 +1,49 @@
 ~ start
 if State.current_subscene == "scene7":
-	Dennis: Haduh tadi aku mimpi apa ya
-	Dennis: Hari ini ada rapat lagi
-	Dennis: Aku harus ke ruang rapat
+	Dennis: [Melihat mejanya dan melamun]
+	Dennis: Haduhhh...
+	Dennis: Aku masih kepikiran dengan mimpi tadi malam...
+	Dennis: Tadi malam aku mimpi apa ya...?
+	Dennis: Eh tunggu!
+	Dennis: Aku baru ingat kalau hari ini aku ada rapat
+	Dennis: Aku harus ke ruang rapat sekarang
 elif State.current_subscene == "scene10":
-	Dennis: Aduhh kayanya malem ini aku bakal begadang
+	Dennis: Huh?
+	Dennis: Inikan catatan yang ada di TKP rumah itu
+	Dennis: Rupanya Grey sudah melakukan tugasnya
+	Dennis: Yaampun cepat sekali dia
+	Dennis: Dia selalu ada di depan semua orang-orang
+	Dennis: Tak heran orang-orang kagum padanya
+	Dennis: Baiklah...
+	Dennis: Otak, jangan gagalkan aku
+	if State.puzzle_scene10:
+		Dennis: Tunggu dulu...
+		Dennis: Gudang Garam Duapuluh...
+		Dennis: Aku tahu Gudang ini...
+		Dennis: Ini adalah gudang yang tempatnya selalu sunyi
+		Dennis: Hampir tidak pernah ada tanda-tanda kegiatan di gudang ini
+		Dennis: Tapi aku pernah mendengar rumor dari seorang pekerja di dekatnya...
+		Dennis: Bahwa ada suara pada suatu malam di gudang ini
+		Dennis: Lebih baik aku segera ke sana
+		Dennis: Aku harus menelepon Grey
+		Dennis: [Menelepon Grey]
+		Grey: [Mengangkat teleponnya]
+		Dennis: Grey, ini aku...
+		Grey: 'Gudang Garam Duapuluh' ya?
+		Dennis: Ap- APA?! Bagaimana kau bisa tahu?
+		Grey: Heh, kau bukan orang pertama yang menyelesaikannya
+		Dennis: Kau benar-benar menikmati mimpi basahmu, kau mengintip pada catatan ini
+		Grey: Betul! Mengintip lebar-lebar HAHAHAH
+		Dennis: (Ini orang yak...)
+		Dennis: (Tapi dia kan forensik, jadi harusnya wajar)
+		Grey: Sekarang aku mengerti kenapa kau bisa gatal kalau melihat teka-teki
+		Grey: Kemarilah, aku sudah menunggumu di sini
+		Dennis: A- Kau sudah di lokasi?!
+		Grey: Selalu jadi yang terdepan
+		Grey: Ngomong-ngomong, aku punya firasat buruk tentang tempat ini...
+		Grey: Jadi ayok cepat, sebelum ada yang mencurigai kita
+		Grey: Aku belum masuk, harus ada yang menjaga tempat ini dari luar
+		Dennis: B-baiklah
 elif State.current_subscene == "scene14":
 	Dennis: Aduhh males
 => END

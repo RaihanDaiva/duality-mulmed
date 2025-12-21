@@ -4,6 +4,11 @@ var quest_title_instance
 var dialogue_active = false
 
 func _ready() -> void:
+	$"TKP 1 KP 1/CanvasLayer/Fade Transition2".visible = true
+	$"TKP 1 KP 1/CanvasLayer/Fade Transition2/AnimationPlayer".play("fade_out")
+	await get_tree().create_timer(1).timeout
+	$"TKP 1 KP 1/CanvasLayer".layer = 0
+	
 	await get_tree().process_frame
 	_talk()
 	State.current_subscene = "scene2"

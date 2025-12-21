@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bteqdw6l13e8k"]
+[gd_scene load_steps=25 format=3 uid="uid://bteqdw6l13e8k"]
 
 [ext_resource type="Script" uid="uid://dgcqgrklhnmqy" path="res://Map/Apartemen/Script/apartemen.gd" id="1_7avvv"]
 [ext_resource type="Texture2D" uid="uid://cc8vuk016hmf5" path="res://Map/TKP 1 Kasus Pembunuhan 1/Assets/Environments/Sprite/trotoar-tileset.png" id="1_knwqu"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://de8mllb2y05tt" path="res://Map/Apartemen/Script/grey.gd" id="7_6nes7"]
 [ext_resource type="Texture2D" uid="uid://2ij6b2mivna4" path="res://NPC/Sprite/silas-full-animate.png" id="7_bb6ll"]
 [ext_resource type="Texture2D" uid="uid://7br1bqm47tr5" path="res://Map/Rumah Dennis/Halaman Luar/Sprite/rain-overlay.png" id="8_7avvv"]
+[ext_resource type="AudioStream" uid="uid://lavpyaxgd8j3" path="res://SFX/SFX Heavy Rain and Thunder.mp3" id="9_6nes7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5ojq6"]
 texture = ExtResource("1_knwqu")
@@ -255,5 +256,9 @@ libraries = {
 &"": SubResource("AnimationLibrary_r1owp")
 }
 autoplay = "rumah-dennis-hujan"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_6nes7")
+volume_db = -23.441
 
 [connection signal="area_entered" from="Environment/Hit Area" to="Grey" method="_on_hit_area_area_entered"]

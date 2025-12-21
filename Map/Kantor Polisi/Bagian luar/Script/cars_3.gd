@@ -18,12 +18,15 @@ var dialogue_file := ""
 }
 
 @onready var interaction_area: Area2D = $InteractionArea
-@onready var fade_transition = $"Fade Transition" if has_node("Fade Transition") else null
+@onready var fade_transition = $"../../CanvasLayer/Fade Transition"
 
 var dialogue_active := false
 
 
 func _ready():
+	print("HAS FADE:", has_node("Fade Transition"))
+	print("TREE:", get_tree().current_scene)
+	print("nih yang kamu cari: ", fade_transition)
 	if not interaction_area:
 		return
 
@@ -38,7 +41,10 @@ func _ready():
 
 
 func _on_interact():
-	$"../../Player".visible = false
+	
+	#if State.current_subscene == "scene8":
+		#await CarSfxManager.play_open_close(0.6)
+	
 	var player = get_tree().get_first_node_in_group("player")
 	if not player:
 		return
@@ -55,6 +61,7 @@ func _on_interact():
 
 	# KHUSUS SCENE 15 → dialog grey
 	if State.current_subscene == "scene15":
+		$"../../Player".visible = false
 		DialogueManager.show_dialogue_balloon(
 			load("res://Scene/Scene 15 Part 1/Dialogue/grey.dialogue"),
 			"start"
@@ -100,9 +107,12 @@ func get_next_scene_from_state() -> String:
 func _play_fade():
 	if not fade_transition:
 		return
+		
+	await CarSfxManager.play_open_close(0.6)
 
 	fade_transition.show()
 	var anim = fade_transition.get_node("AnimationPlayer")
 	if anim:
+		print("babi ih sia")
 		anim.play("fade_in")
 		await anim.animation_finished

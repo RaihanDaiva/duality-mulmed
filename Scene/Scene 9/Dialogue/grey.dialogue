@@ -1,20 +1,96 @@
 ~ start
 if State.current_subscene == "scene9":
-	if State.quest_severed_done != "done":
-		Grey: Selamat siang pak, ini ada kasus pembunuhan. harus anda cari
-		Dennis: Oke baik laksanakan
+	if State.quest_severed_done != "done" and State.grey_talked == false:
+		Grey: Biar kutebak... mimpi buruk lagi?
+		Dennis: Hahah, ya begitulah
+		Grey: Kali ini apa lagi?
+		Dennis: Aku tidak ingat sepenuhnya
+		Dennis: Aku hanya ingat suara teriakkan wanita
+		Dennis: Dan suara hujan badai dengan petirnya
+		Grey: Aku tidak tahu soal teriakkan darimana
+		Grey: Tapi tadi hujan semalaman, jadi itu wajar kalau kau tidak nyenyak mendengar suara hujan
+		Grey: Apalagi kau orangnya benci suara keramaian dan paling mendambakan keheningan
+		Grey: Ngomong-ngomong, apa kata Letnan dan Sersan sebelum kau ke sini?
+		Dennis: Mereka bilang mereka tidak akan bisa monolongku lagi di kemudian hari...
+		Dennis: ...Dalam menutupi beberapa kelalaian yang sering kulakukan
+		Dennis: Kapten akan segera mengetahuinya
+		Grey: Aku juga akan berkata hal yang sama
+		Grey: Walaupun jujur saja, kami bertiga sangat membutuhkanmu...
+		Grey: ...dan aku-akui, kau tidak bisa digantikan begitu saja...
+		Grey: Tetapi kapten memiliki kekuatan orang dalam yang luar biasa
+		Grey: Jadi itu artinya jangan coba-coba berbuat masalah dengannya
+		Dennis: Yaa... aku mengerti, Grey
+		Grey: Sudahlah, ini kopi untuk memulai harimu
+		Grey: Aku belikan yang favoritmu
+		Dennis: Hahaha, terima kasih banyak, Grey
+		Grey: Kau selidiki rumah ini, aku akan menikmati kopi dan rokokku dulu
+		set State.grey_talked = true
+	elif State.quest_severed_done != "done" and State.grey_talked == true:
+		Grey: Kau selidiki rumah ini, aku akan menikmati kopi dan rokokku dulu
 	elif State.quest_severed_done == "done" and State.scene9_give_evidence == false:
-		Dennis: Ini saya menemukan 2 lengan dan sebuah notes
-		Grey: Yaallah ngeri banget
-		Dennis: Kamu ambil lengannya untuk tes forensik, lalu notesnya akan saya bawa ke kantor untuk di cari teka-tekinya ya
-		Grey: Siap pak
+		Dennis: Hei, Grey
+		Grey: Hai, Dennis
+		Grey: Kau temukan sesuatu?
+		Dennis: Di dalam ada mimpi basahmu
+		Dennis: Aku menemukan suatu potongan tangan di kamar mandi
+		Dennis: Ada suatu catatan atau kode disitu yang harus kupecahkan
+		Dennis: Jadi bisakah kau-
+		Grey: Melakukan forensik, dan membawa catatan itu ke meja kantormu?
+		Grey: Tenang saja, akan kulakukan selepas aku habiskan kopi dan rokokku ini
+		Grey: Kau pergi saja ke kantormu
+		Dennis: Ah... Baiklah...
 	elif State.scene9_give_evidence:
-		Grey: Silahkan Dennis masuk ke mobil, saya akan menyusul.
+		Grey: Kau pergi saja ke kantormu
 elif State.current_subscene == "scene11":
-	if State.have_key == false:
-		Grey: kau harus cari sesuatu untuk bisa masuk ke dalam
+	if State.have_key == false and State.grey_talked == false:
+		Dennis: Hei, Grey! Sedang apa kau di sini?
+		Grey: Sssssttt!
+		Dennis: Apa maksudmu ssatt ssstt-
+		Grey: Apakah ada yang mengikutimu?
+		Dennis: Ummmmmm
+		Grey: JAWAB AKU! APAKAH ADA YANG MENGIKUTIMU?
+		Dennis: TIDAK ADA!
+		Grey: Baguslah...
+		Dennis: Kenapa Grey? Ada apa?
+		Grey: Firasatku benar saja...
+		Grey: Selagi kau pergi, dan aku di sini...
+		Grey: Ada dua orang yang tak dikenal berkunjung ke dalam gudang ini
+		Grey: Aku terlalu panik sehingga aku harus bersembunyi sambil mengamati
+		Grey: Mereka membawa sesuatu, tetapi aku sepertinya mencium darah dari arah mereka
+		Grey: Aku juga mendengar sesuatu dari mereka...
+		Grey: [Meniru suara orang pertama] 'Kenapa kita harus ke gudang ini lagi?'
+		Grey: [Meniru suara orang kedua] 'Sudahlah, lakukan tugasmu. Kita dibayar oleh orang itu'
+		Grey: [Meniru suara orang kedua] 'Orang itu juga sudah menjamin keselamatan kita'
+		Grey: [Meniru suara orang kedua] 'Jadi jangan macam-macam dengan orang itu'
+		Dennis: APA? KENAPA KAU TIDAK MENELEPONKU LAGI SOAL INI?
+		Grey: Aku berusaha meneleponmu, tetapi sepertinya mereka memiliki Jammer
+		Grey: Karena begitu mereka pergi, ponselku kembali normal
+		Dennis: I- itu artinya...
+		Grey: Betul Dennis...
+		Grey: Ada yang tidak beres... orang-orang ini bukan orang biasa...
+		Grey: Rumornya pula, gudang ini selalu sunyi
+		Dennis: Ah! Pernah ada suatu rumor juga bahwa...
+		Dennis: Gudang ini sempat terdengar suara pada suatu malam
+		Grey: Rupanya kita benar-benar berurusan dengan orang yang tidak biasa
+		Grey: Terlebih lagi... darimana mereka mendapatkan Jammer itu?
+		Grey: Itu bukan sesuatu yang mudah didapatkan...
+		Dennis: Yaampunn...
+		Dennis: Kalau begitu bagaimana sekarang? Bagaimana dengan gudangnya?
+		Grey: Aku tidak akan mundur! Ayo kita periksa segera sebelum terlambat!
+		Grey: Aku akan berjaga di luar, kau cari jalan masuk dan periksa
+		set State.grey_talked = true
+	elif State.grey_talked == true:
+		Grey: Aku akan berjaga di luar, kau cari jalan masuk dan periksa
+
 elif State.current_subscene == "scene12":
 	if State.have_feet:
-		Dennis: aku menemukan sepasang kaki
-		Grey: Ih yaudah ayo ke kantor
+		Grey: Hei, apa yang kau temukan?
+		Dennis: Aku menemukan potongan mayat yang mereka bawa
+		Dennis: Aku juga menemukan potongan gambar
+		Dennis: Aku hanya bisa menyambungkannya di kantor nanti
+		Dennis: Aku membawa-
+		Grey: YAAMPUN DENNIS! KAU MEMBAWANYA JUGA?
+		Grey: YASUDAH, AYO KITA PERGI DARI SINI
+		Grey: Kita urus ini nanti setelah kita pergi dari sini!
+		Dennis: O- Okeokee!
 => END

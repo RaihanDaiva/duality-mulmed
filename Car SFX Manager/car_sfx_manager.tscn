@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cox14i81vwugq"]
+
+[ext_resource type="Script" uid="uid://oirrpmsltnfk" path="res://Car SFX Manager/car_sfx_manager.gd" id="1_68v32"]
+
+[node name="Car SFX Manager" type="Node2D"]
+script = ExtResource("1_68v32")

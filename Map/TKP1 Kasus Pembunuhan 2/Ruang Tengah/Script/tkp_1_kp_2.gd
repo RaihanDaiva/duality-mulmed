@@ -5,6 +5,7 @@ extends Node2D
 
 #Untuk navigasi ruangan harus menambahkan ini
 func _ready():
+	State.inside_house = true
 	#State.current_subscene = "scene9"
 	#State.quest_title = "tangan terputus" #nanti dihapus
 	auto_setup_camera_from_tilemap()
@@ -15,6 +16,7 @@ func _ready():
 	
 	if State.quest_severed_done != "done":
 		State.quest_title = "Cari Barang Bukti"
+		
 	State.set_quest_title($".", false)
 		
 func _on_level_spawn(destination_tag: String):

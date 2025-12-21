@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://d2jfkvajqdxem"]
+[gd_scene load_steps=8 format=3 uid="uid://d2jfkvajqdxem"]
 
 [ext_resource type="Script" uid="uid://bvaxlnrkbo1nf" path="res://UI/PlayingInterface/quest_title.gd" id="1_nrbe1"]
 [ext_resource type="Texture2D" uid="uid://c5ta84htpf7pi" path="res://Scene/Puzzle Morse/Sprite/puzzle-title.png" id="1_t55bn"]
+[ext_resource type="FontFile" uid="uid://bro3sw64tmv4m" path="res://Fonts/VCR_OSD_MONO_1.001.ttf" id="3_7w5lv"]
 
 [sub_resource type="Animation" id="Animation_7w5lv"]
 length = 0.001
@@ -81,12 +82,14 @@ size_flags_horizontal = 3
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.8117647, 0.78431374, 0.62352943, 1)
+theme_override_fonts/font = ExtResource("3_7w5lv")
 theme_override_font_sizes/font_size = 8
 text = "Quest Name"
 
 [node name="Label" type="Label" parent="CanvasLayer/Sprite2D/HBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.8117647, 0.78431374, 0.62352943, 1)
+theme_override_fonts/font = ExtResource("3_7w5lv")
 theme_override_font_sizes/font_size = 6
 text = "(Q)"
 

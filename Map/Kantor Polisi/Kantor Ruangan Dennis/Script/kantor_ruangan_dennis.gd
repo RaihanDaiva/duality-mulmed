@@ -6,7 +6,7 @@ var quest_title_instance
 
 #Untuk navigasi ruangan harus menambahkan ini
 func _ready():
-	#State.current_subscene = "scene10" #nanti dihapus
+	State.current_subscene = "scene10" #nanti dihapus
 	
 	var table = $Environment/Table
 	table.dialogue_finished.connect(_on_table_dialogue_finished)

@@ -18,25 +18,27 @@ var dialogue_file: String = ""
 
 @onready var interaction_area = $InteractionArea if has_node("InteractionArea") else null
 @onready var sprite = $Sprite2D
-@onready var fade_transition =  $"Fade Transition" if has_node("Fade Transition") else null
+@onready var fade_transition =  $"../../CanvasLayer/Fade Transition2"
 
 var dialogue_active: bool = false
 
 
 func _ready():
-
-
+	print("nihhh", fade_transition)
+	print("next scene: ",next_scene)
 	# Contoh kondisi disable interaction by state (punyamu)
 	if State.current_subscene == "scene4":
 		$InteractionArea/CollisionShape2D.disabled = true
 	elif State.current_subscene == "scene6":
 		$InteractionArea/CollisionShape2D.disabled = false
+	elif State.current_subscene == "scene9":
+		print("woi anjg")
 	elif State.current_subscene == "scene10":
 		$".".visible = false
 		$InteractionArea/CollisionShape2D.disabled = true
 		#
 		#$"../Cars3".visible = true
-		#$"../Cars3/InteractionArea/CollisionShape2D".disabled = false
+		#$"../Cars3/InteractionArea/CollisionShape2D".disabled = false		
 		
 	# --- SETUP INTERACTION ---
 	if interaction_area and can_interact:
@@ -89,12 +91,20 @@ func _on_dialogue_finished(resource):
 	print("after",NavigationManager.spawn_door_tag)
 	# Contoh update state punyamu
 	if State.current_subscene == "scene3":
+		#await CarSfxManager.play_open_close(0.6)
+		$"../../CanvasLayer/Fade Transition2".visible = true
+		$"../../CanvasLayer/Fade Transition2/AnimationPlayer".play("fade_in")
 		State.current_subscene = "scene4"
 	elif State.current_subscene == "scene6":
+		await CarSfxManager.play_open_close(0.6)
+		$"../../CanvasLayer/Fade Transition2".visible = true
+		$"../../CanvasLayer/Fade Transition2/AnimationPlayer".play("fade_in")
 		State.current_subscene = "scene7"
 	elif State.current_subscene == "scene9":
 		State.current_subscene = "scene10"
 	elif State.current_subscene == "scene12":
+		$"../../CanvasLayer/Fade Transition2/AnimationPlayer".play("fade_in")
+		await CarSfxManager.play_open_close(0.6)
 		State.current_subscene = "scene13"
 	
 	print("Dialog selesai dengan:", npc_name)
@@ -103,9 +113,11 @@ func _on_dialogue_finished(resource):
 	if player:
 		dialogue_active = false
 		player.can_move = true
-	
-	$"../../Fade Transition2/AnimationPlayer".play("fade_in")
-	
+	if State.current_subscene == "scene3":
+		$"../../CanvasLayer".layer = 100
+		#$"../../../CanvasLayer/Fade Transition2".visible = true
+		#$"../../../CanvasLayer/Fade Transition2/AnimationPlayer".play("fade_in")
+		
 	await get_tree().create_timer(1.0).timeout
 
 	if change_scene_after_dialogue and next_scene != "":
@@ -130,13 +142,22 @@ func show_next_puzzle():
 
 
 func change_to_scene():
-	if fade_transition:
-		fade_transition.show()
+	if State.current_subscene != "scene7":
+		print("SUBSCENE:", State.current_subscene)
+		print("FADE:", fade_transition)
 		var fade_anim = fade_transition.get_node("AnimationPlayer")
-		if fade_anim:
-			fade_anim.play("fade_in")
-			await fade_anim.animation_finished
-		
-		get_tree().change_scene_to_file(next_scene)
+
+		if fade_transition:
+			fade_transition.show()
+			print("===========>", fade_anim)
+			
+			if fade_anim:
+				await CarSfxManager.play_open_close(0.6)
+				fade_anim.play("fade_in")
+				await fade_anim.animation_finished
+			
+			get_tree().change_scene_to_file(next_scene)
+		else:
+			get_tree().change_scene_to_file(next_scene)
 	else:
 		get_tree().change_scene_to_file(next_scene)

@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://rd8ocrprox6q"]
+[gd_scene load_steps=12 format=3 uid="uid://rd8ocrprox6q"]
 
 [ext_resource type="Script" uid="uid://crf5jqag1y0hf" path="res://Scene/Scene 2/scene_2&3.gd" id="1_ijets"]
 [ext_resource type="PackedScene" uid="uid://vr5nfvkt2o68" path="res://Map/TKP 1 Kasus Pembunuhan 1/tkp_1_kp_1.tscn" id="1_px4qs"]
 [ext_resource type="Script" uid="uid://cd23hbo13sr1f" path="res://Scene/Scene 2/Script/cars_2.gd" id="2_nefi2"]
 [ext_resource type="PackedScene" uid="uid://dky5l4bmp636h" path="res://Interaction Manager/Interaction Area/interaction_area.tscn" id="3_4alwb"]
 [ext_resource type="Texture2D" uid="uid://c5ta84htpf7pi" path="res://Scene/Puzzle Morse/Sprite/puzzle-title.png" id="4_nefi2"]
+[ext_resource type="PackedScene" uid="uid://bs3lbwtbheymx" path="res://UI/MainMenu/fade_transition.tscn" id="6_ijets"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cu6uh"]
 radius = 13.152946
@@ -67,10 +68,6 @@ script = ExtResource("1_ijets")
 
 [node name="TKP 1 KP 1" parent="." instance=ExtResource("1_px4qs")]
 
-[node name="Fade Transition2" parent="TKP 1 KP 1" index="0"]
-visible = true
-z_index = 50
-
 [node name="Cars" parent="TKP 1 KP 1/Environment" index="1"]
 position = Vector2(89, 149)
 
@@ -89,21 +86,33 @@ next_scene = "uid://yigihdb1ge7l"
 shape = SubResource("CircleShape2D_cu6uh")
 disabled = true
 
-[node name="Player" parent="TKP 1 KP 1" index="2"]
+[node name="Player" parent="TKP 1 KP 1" index="1"]
 position = Vector2(206, 143)
 
-[node name="Dead Body" parent="TKP 1 KP 1" index="3"]
+[node name="Dead Body" parent="TKP 1 KP 1" index="2"]
 dialogue_file = "uid://cqlrkfni1xysl"
 
-[node name="NPC" parent="TKP 1 KP 1" index="4"]
+[node name="NPC" parent="TKP 1 KP 1" index="3"]
 dialogue_file = "uid://cf0oeippca43e"
 
-[node name="NPC2" parent="TKP 1 KP 1" index="5"]
+[node name="NPC2" parent="TKP 1 KP 1" index="4"]
 can_interact = true
 dialogue_file = "uid://besrkkhtisu6g"
 
-[node name="NPC3" parent="TKP 1 KP 1" index="6"]
+[node name="NPC3" parent="TKP 1 KP 1" index="5"]
 dialogue_file = "uid://lrhej0kx7t0l"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="TKP 1 KP 1"]
+layer = 100
+
+[node name="Fade Transition2" parent="TKP 1 KP 1/CanvasLayer" instance=ExtResource("6_ijets")]
+z_index = 20
+offset_left = -66.0
+offset_top = -37.0
+offset_right = 391.0
+offset_bottom = 238.0
+
+[node name="Fade_timer" type="Timer" parent="TKP 1 KP 1/CanvasLayer/Fade Transition2"]
 
 [node name="Objective" type="Node2D" parent="."]
 visible = false
@@ -137,10 +146,9 @@ libraries = {
 autoplay = "LabelStartAnimation"
 
 [editable path="TKP 1 KP 1"]
-[editable path="TKP 1 KP 1/Fade Transition2"]
 [editable path="TKP 1 KP 1/Environment/Cars2/InteractionArea"]
 [editable path="TKP 1 KP 1/Dead Body"]
-[editable path="TKP 1 KP 1/Dead Body/Fade Transition"]
 [editable path="TKP 1 KP 1/NPC"]
 [editable path="TKP 1 KP 1/NPC2"]
 [editable path="TKP 1 KP 1/NPC3"]
+[editable path="TKP 1 KP 1/CanvasLayer/Fade Transition2"]

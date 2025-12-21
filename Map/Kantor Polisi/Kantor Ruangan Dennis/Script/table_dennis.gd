@@ -122,6 +122,10 @@ func on_puzzle_completed():
 	
 	if State.current_subscene == "scene10":
 		State.puzzle_scene10 = true
+		DialogueManager.show_dialogue_balloon(
+		load("res://Scene/Scene 7/Dialogue/table_dennis.dialogue"),
+		dialogue_start
+	)
 	elif State.current_subscene == "scene14":
 		print("puzzle scene 14 done")
 		State.puzzle_scene14 = true

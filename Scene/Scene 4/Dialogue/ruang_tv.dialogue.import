@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://dk0mqonvqasyl"
+path="res://.godot/imported/ruang_tv.dialogue-4fc738a34abb5caaee22d1424ab3ba16.tres"
+
+[deps]
+
+source_file="res://Scene/Scene 4/Dialogue/ruang_tv.dialogue"
+dest_files=["res://.godot/imported/ruang_tv.dialogue-4fc738a34abb5caaee22d1424ab3ba16.tres"]
+
+[params]
+
+defaults=true

@@ -1,0 +1,6 @@
+~ start
+if State.current_subscene == "scene8":
+	Dennis: Aku harus bergegas. Grey pasti sudah menungguku
+elif State.current_subscene == "scene10":
+	Dennis: Aku harus bergegas. Grey pasti sudah menungguku
+=> END

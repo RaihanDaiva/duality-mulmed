@@ -15,11 +15,16 @@ var police_gang_talked: bool
 var give_puzzle_to_police_scene_3: bool
 var puzzle_scene2: bool
 
+#scene 4
+var inside_first: bool
+
 #scene 6
 var quest_bed: bool
+var wake_up: bool
 
 #scene 7
 var quest_table_done: String = ""
+var inside_office: bool
 
 #scene 8
 var quest_chair_done: bool
@@ -27,7 +32,9 @@ var quest_chair_done: bool
 #scene 9
 var quest_severed_done: String = ""
 var quest_lengan_done: bool
+var inside_house: bool
 var scene9_give_evidence: bool = false
+var grey_talked: bool
 
 #scene 10
 var puzzle_scene10: bool

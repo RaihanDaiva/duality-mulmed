@@ -25,6 +25,12 @@ func _ready():
 		_on_level_spawn(NavigationManager.spawn_door_tag)
 
 func _talk():
+	var player = get_tree().get_first_node_in_group("player")
+	if not player:
+		return
+	player.can_move = false
+	player.direction = Vector2.ZERO
+	
 	DialogueManager.dialogue_ended.connect(_on_dialogue_finished, CONNECT_ONE_SHOT)
 		
 	await get_tree().create_timer(1).timeout
@@ -35,6 +41,10 @@ func _talk():
 	
 func _on_dialogue_finished(resource):
 	State.current_subscene = "scene18"
+	var player = get_tree().get_first_node_in_group("player")
+	if not player:
+		return
+	player.can_move = true
 
 func _on_level_spawn(destination_tag: String):
 	var door_path = "Doors/Door_" + destination_tag

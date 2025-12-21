@@ -334,8 +334,8 @@ y_sort_enabled = true
 position = Vector2(73, 149)
 script = ExtResource("10_an47s")
 npc_name = "Cars"
-use_dialogue = false
 idle_direction = "none"
+dialogue_file = "uid://bn03osc2oqr84"
 change_scene_after_dialogue = true
 next_scene = "uid://cem6hp7riqudu"
 
@@ -357,8 +357,6 @@ disabled = true
 
 [node name="Player" parent="." instance=ExtResource("7_cow1f")]
 position = Vector2(78, 165)
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
 
 [node name="Doors" type="Node2D" parent="."]
 
@@ -382,13 +380,19 @@ dialogue_file = "uid://kneo0ht4f5gx"
 [node name="Sprite2D" parent="Grey" index="1"]
 texture = ExtResource("13_cow1f")
 
-[node name="Fade Transition" parent="." instance=ExtResource("16_sdu2y")]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Fade Transition2" parent="CanvasLayer" instance=ExtResource("16_sdu2y")]
 visible = false
 z_index = 50
+offset_left = -48.0
+offset_top = -26.0
+offset_right = 362.0
+offset_bottom = 238.0
 
-[node name="Fade_timer" type="Timer" parent="Fade Transition"]
+[node name="Fade_timer" type="Timer" parent="CanvasLayer/Fade Transition2"]
 
 [editable path="Environment/Cars4/InteractionArea"]
 [editable path="Doors/Door_N2"]
 [editable path="Grey"]
-[editable path="Fade Transition"]
+[editable path="CanvasLayer/Fade Transition2"]

@@ -16,6 +16,8 @@ func _ready():
 	add_child(quest_title_instance)
 	
 	if State.current_subscene == "scene4": 
+		if !State.inside_first:
+			_talk()
 		if State.current_room == "kamar":
 			change_quest_title("Ke kasur")
 		elif State.current_room == "ruang tengah" or State.current_room == "ruang tv":
@@ -38,6 +40,28 @@ func _ready():
 	
 	if NavigationManager.spawn_door_tag != null:
 		_on_level_spawn(NavigationManager.spawn_door_tag)
+		
+func _talk():
+	var player = get_tree().get_first_node_in_group("player")
+	if player:
+		player.can_move = false
+		player.direction = Vector2.ZERO
+	
+	DialogueManager.dialogue_ended.connect(_on_dialogue_finished, CONNECT_ONE_SHOT)
+		
+	await get_tree().create_timer(1).timeout
+	DialogueManager.show_dialogue_balloon(
+		load("res://Scene/Scene 4/Dialogue/ruang_tv.dialogue"),
+		"start"
+	)
+	
+func _on_dialogue_finished(resource):
+	State.inside_first = true
+	
+	var player = get_tree().get_first_node_in_group("player")
+	if player:
+		player.can_move = true
+	
 		
 func change_quest_title(new_title: String) -> void:
 	quest_title_instance._update_quest_title(new_title, true)
