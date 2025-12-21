@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://c40dflflmaxk8"]
+[gd_scene load_steps=67 format=3 uid="uid://c40dflflmaxk8"]
 
 [ext_resource type="Texture2D" uid="uid://bh25wx864s5o3" path="res://Scene/Puzzle Morse/Sprite/puzzle-completed.png" id="1_17pk2"]
 [ext_resource type="Script" uid="uid://c68drisu4h31a" path="res://Scene/Puzzle Morse/Script/puzzle_morse_logic.gd" id="1_njstn"]
@@ -21,8 +21,10 @@
 [ext_resource type="Texture2D" uid="uid://mkx8x4618i4t" path="res://UI/Assets/checkbox-true.png" id="9_ti5iq"]
 [ext_resource type="Texture2D" uid="uid://dy417o1kyai0j" path="res://UI/Assets/checkbox-false.png" id="10_yi4ij"]
 [ext_resource type="Texture2D" uid="uid://dbbpf0bnieskd" path="res://Scene/Puzzle Morse/Sprite/puzzle-phone-on.png" id="13_gdirq"]
+[ext_resource type="Texture2D" uid="uid://cehpg0m13uqiy" path="res://Scene/Puzzle Morse/Sprite/hint-caesar-btn.png" id="15_2b156"]
 [ext_resource type="Texture2D" uid="uid://bm6wdgx3betad" path="res://Scene/Puzzle Morse/Sprite/hint-morse-btn.png" id="18_ql585"]
 [ext_resource type="Texture2D" uid="uid://dpeb70uex4m63" path="res://Scene/Puzzle Morse/Sprite/hint-morse-display.png" id="19_0qn4g"]
+[ext_resource type="Texture2D" uid="uid://b0pxnbi6p3mak" path="res://Scene/Puzzle Morse/Sprite/hint-caesar-display.png" id="22_bl12v"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iukj3"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -1178,12 +1180,21 @@ hframes = 15
 
 [node name="MorseButton" type="Button" parent="CanvasLayer/Phone Panel"]
 layout_mode = 0
-offset_left = 17.0
+offset_left = 16.0
 offset_top = 31.0
-offset_right = 71.0
+offset_right = 70.0
 offset_bottom = 53.0
 toggle_mode = true
 icon = ExtResource("18_ql585")
+
+[node name="CaesarButton" type="Button" parent="CanvasLayer/Phone Panel"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 55.0
+offset_right = 70.0
+offset_bottom = 77.0
+toggle_mode = true
+icon = ExtResource("15_2b156")
 
 [node name="BatteryPanel" type="Panel" parent="CanvasLayer/Phone Panel"]
 layout_mode = 0
@@ -1220,6 +1231,10 @@ texture = ExtResource("8_5jmm6")
 [node name="MorseHint" type="Sprite2D" parent="CanvasLayer/Phone Panel"]
 position = Vector2(200, -100)
 texture = ExtResource("19_0qn4g")
+
+[node name="CaesarHint" type="Sprite2D" parent="CanvasLayer/Phone Panel"]
+position = Vector2(200, -100)
+texture = ExtResource("22_bl12v")
 
 [node name="Title" type="Sprite2D" parent="CanvasLayer"]
 z_index = 2
@@ -1346,5 +1361,6 @@ theme_override_font_sizes/font_size = 8
 [connection signal="mouse_exited" from="CanvasLayer/Book Panel/HAnswerContainer/Submit Btn" to="CanvasLayer/Puzzle Morse Logic" method="_on_submit_btn_mouse_exited"]
 [connection signal="mouse_entered" from="CanvasLayer/Book Panel/Hint Btn" to="CanvasLayer/Puzzle Morse Logic" method="_on_hint_btn_mouse_entered"]
 [connection signal="toggled" from="CanvasLayer/Phone Panel/MorseButton" to="CanvasLayer/Puzzle Morse Logic" method="_on_morse_button_toggled"]
+[connection signal="toggled" from="CanvasLayer/Phone Panel/CaesarButton" to="CanvasLayer/Puzzle Morse Logic" method="_on_caesar_button_toggled"]
 [connection signal="timeout" from="CanvasLayer/Phone Panel/ChargeBatteryTimer" to="CanvasLayer/Puzzle Morse Logic" method="_on_charge_battery_timer_timeout"]
 [connection signal="animation_finished" from="CanvasLayer/PuzzleCompleteAnimation" to="CanvasLayer/Puzzle Morse Logic" method="_on_puzzle_complete_animation_animation_finished"]

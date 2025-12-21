@@ -600,6 +600,7 @@ func _on_morse_button_toggled(toggled_on: bool) -> void:
 	tween.set_trans(Tween.TRANS_BACK)
 	
 	if toggled_on:
+		$"../Phone Panel/CaesarButton".button_pressed = false
 		tween.tween_property(morse_hint, "position", Vector2(200,39), 0.5)
 	else:
 		tween.tween_property(morse_hint, "position", Vector2(200,-100), 0.5)
@@ -610,3 +611,16 @@ func _on_puzzle_complete_animation_animation_finished(anim_name: StringName) -> 
 		var tween_alpha = create_tween()
 		tween_alpha.tween_interval(1)
 		tween_alpha.tween_property($"../PuzzleCompleted", "modulate:a", 0, 0.5)
+
+
+func _on_caesar_button_toggled(toggled_on: bool) -> void:
+	var morse_hint = $"../Phone Panel/CaesarHint"
+	var tween = create_tween()
+	tween.set_ease(Tween.EASE_OUT)
+	tween.set_trans(Tween.TRANS_BACK)
+	
+	if toggled_on:
+		$"../Phone Panel/MorseButton".button_pressed = false
+		tween.tween_property(morse_hint, "position", Vector2(200,39), 0.5)
+	else:
+		tween.tween_property(morse_hint, "position", Vector2(200,-100), 0.5)
