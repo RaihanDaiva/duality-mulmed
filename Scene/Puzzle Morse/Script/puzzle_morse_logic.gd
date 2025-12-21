@@ -12,7 +12,7 @@ extends Node2D
 @export var correct_answer = [
 	["RUMAH", "CERMIN", "47"],   # Puzzle Answer for progress 1 and so on...
 	["GUDANG", "GARAM", "DUAPULUH"],
-	["JA", "JE", "JO"],
+	["BAWAH TANAH", "PENYIMPANAN", "TERKUBUR"],
 ]
 @export var hint_text: String = "Ada di dinding, menunjukkan waktu"
 @export_file("*.tscn") var next_scene: String = ""  # Scene selanjutnya setelah berhasil
@@ -78,6 +78,7 @@ func _ready() -> void:
 	elif State.current_subscene == "scene14":
 		if State.puzzle_scene14 == false:
 			puzzle_progress = 3
+			$"../Paper Panel/Puzzle3".visible = true
 			level = 1
 			total_clue = 4
 			print("puzzle progress nya 3")

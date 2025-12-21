@@ -75,7 +75,7 @@ position = Vector2(-95, 6)
 index = 0
 
 [node name="PuzzlePiece2" parent="PuzzleJigsaw" instance=ExtResource("2_wkqnn")]
-position = Vector2(20, 83)
+position = Vector2(83, -8)
 index = 1
 
 [node name="Sprite2D" parent="PuzzleJigsaw/PuzzlePiece2" index="0"]

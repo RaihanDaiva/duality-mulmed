@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://c40dflflmaxk8"]
+[gd_scene load_steps=70 format=3 uid="uid://c40dflflmaxk8"]
 
 [ext_resource type="Texture2D" uid="uid://bh25wx864s5o3" path="res://Scene/Puzzle Morse/Sprite/puzzle-completed.png" id="1_17pk2"]
 [ext_resource type="Script" uid="uid://c68drisu4h31a" path="res://Scene/Puzzle Morse/Script/puzzle_morse_logic.gd" id="1_njstn"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cl3fjdvkrr15d" path="res://Scene/Puzzle Morse/Sprite/puzzle-clue-2.png" id="4_fres6"]
 [ext_resource type="Texture2D" uid="uid://rhuvqrv8ic4v" path="res://Scene/Puzzle Morse/Sprite/battery-100.png" id="4_n0qce"]
 [ext_resource type="Texture2D" uid="uid://d137lbe5b1dq0" path="res://Scene/Puzzle Morse/Sprite/puzzle-book.png" id="4_npkbb"]
+[ext_resource type="Texture2D" uid="uid://b1caxaqndikve" path="res://Scene/Puzzle Morse/Sprite/puzzle-clue-3.png" id="5_bj0rl"]
 [ext_resource type="Script" uid="uid://bbbuswcn84smb" path="res://Scene/Puzzle Morse/book_panel.gd" id="5_ip43j"]
 [ext_resource type="Texture2D" uid="uid://c3oolhhbrg45" path="res://Scene/Puzzle Morse/Sprite/battery-75.png" id="5_lbaaj"]
 [ext_resource type="Texture2D" uid="uid://c5ta84htpf7pi" path="res://Scene/Puzzle Morse/Sprite/puzzle-title.png" id="6_1iegc"]
@@ -948,6 +949,11 @@ texture = ExtResource("3_06fke")
 visible = false
 position = Vector2(165.15, 37)
 texture = ExtResource("4_fres6")
+
+[node name="Puzzle3" type="Sprite2D" parent="CanvasLayer/Paper Panel"]
+visible = false
+position = Vector2(165, 99)
+texture = ExtResource("5_bj0rl")
 
 [node name="Book Panel" type="Panel" parent="CanvasLayer"]
 z_index = 1
