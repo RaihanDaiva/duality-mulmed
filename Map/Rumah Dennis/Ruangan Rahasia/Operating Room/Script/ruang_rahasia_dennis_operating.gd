@@ -26,6 +26,14 @@ func _ready():
 	auto_setup_camera_from_tilemap()
 	if NavigationManager.spawn_door_tag != null:
 		_on_level_spawn(NavigationManager.spawn_door_tag)
+		
+	State.setup_quest_title($".")
+	if State.current_subscene == "scene19":
+		if !State.quest_half_body:
+			State.quest_title = "Cek Mayat"
+		else:
+			State.quest_title = "Berikan Ke Grey"
+	State.set_quest_title($".", true)
 
 func _talk():
 	var player = get_tree().get_first_node_in_group("player")

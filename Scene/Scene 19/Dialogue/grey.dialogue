@@ -1,24 +1,58 @@
 ~ start
 if State.entered_operating_room == false:
-	Grey: "Dennis... sejak kapan kau merenovasi rumah?" 
-	Grey: "Kenapa ada rongga kosong di balik lemari ini?"
-	Dennis: "Jangan konyol. Itu tembok beton biasa."
-	Grey: "Tidak, suaranya kopong. Kemarilah, bantu aku mendorongnya."
+	Grey: Wow...
+	Grey: Lihat tempat ini...
+	Grey: Sekarang aku berpikir bahwa kau adalah Frankenstein
+	Grey: Atau mungkin Dracula...
+	Dennis: (Makin-makin ini orang...)
+	Dennis: (Ini orang nanti bakalan manggil aku banyak nama)
+	Dennis: Sungguh mengerikan tempatnya...
+	Grey: Ya tentu saja, Sherlock
+	Grey: Interior ini sangat kuno
+	Grey: Dan sangat menakjubkan, aku belum pernah melihat interior seperti ini
+	Grey: Walaupun... iya...
+	Grey: Rasanya seperti ada yang terkurung di bawah sini sejak lama sekali
+	Grey: Kau yakin kau tidak tahu tempat ini ada?
+	Grey: Maksudku, Dennis... aku mencium bau amis
+	Grey: Darimana asalnya?
+	Dennis: Grey, kau sendiri yang merasakannnya...
+	Dennis: Saat kau di atas sana, kau tidak menciumnya juga kan?
+	Grey: Poin yang bagus
+	Dennis: Ya, untuk suatu alasan mereka bisa menutupinya dengan sangat baik
+	Grey: Tapi dari mana bau ini berasal?
+	Dennis: Sepertinya kita akan mengetahuinya dengan segara
+	Grey: Baiklah kalau begitu, ayo kita tetap mencari 
+	set State.entered_operating_room = true
 else:
-	Grey: "Dennis..."
-	Grey: "...bukankah ini... mayat?"
-	Dennis: "A- Aku... tidak tahu harus berkata apa..."
-	Grey: "Dennis..."
-	Dennis: "GR- GREY PERCAYALAH PADAKU! AKU TIDAK TAHU APA-APA SAMA SEKALI MENGENAI RUANGAN INI!"
-	Grey: "DENNIS, TENANGLAH! LIHAT MATAKU! AKU PERCAYA PADAMU! KAU SENDIRI YANG BILANG BAHWA KAU BARU PINDAH KE RUMAH INI, BUKAN?"
-	Dennis: "I- iya.."
-	Grey: "Kalau begitu bisa dipastikan kalau kau tidak terlibat dalam hal ini"
-	Grey: "Selagi aku mencari 'tempat tersembunyi' yang dikatakan di foto itu tadi, aku tidak sengaja menemukan surat kepemilikan tanah mu dan tanggal kepemilikannya jauh sekali setelah foto itu diambil"
-	Grey: "Jadi ya, itu sesuai dengan apa yang kau bilang"
-	Dennis: "Sy- Syukurlah..."
-	Grey: "Lagipula jika kau meyadari kalau kau terlibat dalam hal ini, sudah sedari awal seharusnya kau tidak menelepon dan memintaku untuk menginvestigasi rumah ini, bukan?"
-	Dennis: "Ah, iya, benar juga"
-	Grey: "Baiklah kalau begitu, sekarang... ayok kita lanjutkan investigasi kita. Aku akan mengecek mayat, sementara kau akan mengecek sekitar"
-	Dennis: "Ba- Baiklah..."
-	Dennis: (Aku lega Grey percaya padaku. Tapi... perasaan ini... Kenapa ruangan ini terasa begitu akrab?)
+	Dennis: ASTAGAA!!!
+	Grey: AMISS SEKALII!!!!
+	Grey: YAAMPUNN BAU APA INI!!???
+	Grey: DINGIN SEKALII HAWANYA!!
+	Grey: !!!
+	Dennis: Apa yang...
+	Grey: Dennis...
+	Grey: ...bukankah ini... mayat?
+	Dennis: A- Aku... tidak tahu harus berkata apa...
+	Grey: Dennis...
+	Dennis: GR- GREY PERCAYALAH PADAKU!
+	Dennis: A- AKU TIDAK TAHU APA-APA SAMA SEKALI MENGENAI RUANGAN INI!
+	Grey: DENNIS, TENANGLAH! LIHAT MATAKU! AKU PERCAYA PADAMU!
+	Grey: KAU SENDIRI YANG BILANG BAHWA KAU BARU PINDAH KE RUMAH INI, BUKAN?
+	Dennis: I- iya..
+	Grey: Kalau begitu bisa dipastikan kalau kau tidak terlibat dalam hal ini
+	Grey: Selagi aku mencari 'tempat tersembunyi' yang dikatakan di foto itu tadi...
+	Grey: Aku tidak sengaja menemukan surat kepemilikan tanah mu...
+	Grey: Dan tanggal kepemilikannya jauh sekali setelah foto itu diambil
+	Grey: Jadi ya, itu sesuai dengan apa yang kau bilang
+	Dennis: Sy- Syukurlah...
+	Grey: Lagipula jika kau meyadari kalau kau terlibat dalam hal ini...
+	Grey: Sudah sedari awal seharusnya kau tidak menelepon...
+	Grey: Dan tidak memintaku untuk membantumu, bukan?
+	Dennis: Ah, iya, benar juga
+	Grey: Baiklah kalau begitu, sekarang... ayok kita lanjutkan investigasi kita
+	Dennis: Ba- Baiklah...
+	Dennis: (Aku lega Grey percaya padaku...)
+	Dennis: (Tapi... perasaan ini...)
+	Dennis: (Kenapa ruangan ini terasa begitu akrab?)
+	
 => END

@@ -570,7 +570,7 @@ layer_5/tile_data = PackedInt32Array(524305, 12, 0, 589841, 12, 1, 655377, 12, 2
 [node name="Cars3" type="StaticBody2D" parent="Environment"]
 z_as_relative = false
 y_sort_enabled = true
-position = Vector2(213, 171)
+position = Vector2(69, 171)
 script = ExtResource("21_es3ha")
 dialogue_file = "uid://dnsgrp7d0nwu0"
 
@@ -591,7 +591,7 @@ shape = SubResource("CircleShape2D_571mw")
 disabled = true
 
 [node name="Player" parent="." instance=ExtResource("17_ix8yo")]
-position = Vector2(216, 196)
+position = Vector2(72, 190)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 

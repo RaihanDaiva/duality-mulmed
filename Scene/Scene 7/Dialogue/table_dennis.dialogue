@@ -8,14 +8,6 @@ if State.current_subscene == "scene7":
 	Dennis: Aku baru ingat kalau hari ini aku ada rapat
 	Dennis: Aku harus ke ruang rapat sekarang
 elif State.current_subscene == "scene10":
-	Dennis: Huh?
-	Dennis: Inikan catatan yang ada di TKP rumah itu
-	Dennis: Rupanya Grey sudah melakukan tugasnya
-	Dennis: Yaampun cepat sekali dia
-	Dennis: Dia selalu ada di depan semua orang-orang
-	Dennis: Tak heran orang-orang kagum padanya
-	Dennis: Baiklah...
-	Dennis: Otak, jangan gagalkan aku
 	if State.puzzle_scene10:
 		Dennis: Tunggu dulu...
 		Dennis: Gudang Garam Duapuluh...
@@ -44,6 +36,30 @@ elif State.current_subscene == "scene10":
 		Grey: Jadi ayok cepat, sebelum ada yang mencurigai kita
 		Grey: Aku belum masuk, harus ada yang menjaga tempat ini dari luar
 		Dennis: B-baiklah
+	else:
+		Dennis: Huh?
+		Dennis: Inikan catatan yang ada di TKP rumah itu
+		Dennis: Rupanya Grey sudah melakukan tugasnya
+		Dennis: Yaampun cepat sekali dia
+		Dennis: Dia selalu ada di depan semua orang-orang
+		Dennis: Tak heran orang-orang kagum padanya
+		Dennis: Baiklah...
+		Dennis: Otak, jangan gagalkan aku
 elif State.current_subscene == "scene14":
-	Dennis: Aduhh males
+	if State.puzzle_scene14 == false:
+		Dennis: Hari yang panjang...
+		Dennis: Aku harus sambungkan potongan-potongan foto itu...
+		Dennis: Baiklah...
+		Dennis: Otak, jangan gagalkan aku
+	elif State.puzzle_scene14 ==  true:
+		Dennis: Tunggu dulu...
+		Dennis: Inikan...
+		Dennis: RUMAHKUU!?!?
+		Dennis: TI- TIDAK MUNGKIN!!
+		Dennis: RUMAHKU TIDAK TERLIBAT APA-APA
+		Dennis: AKU TIDAK TERLIBAT APA-APA
+		Dennis: DARIMANA DIA MENDAPATKAN GAMBAR INI?
+		Dennis: HADUH...
+		Dennis: KOK BISA??
+		Dennis: LALU APA MAKSUD CATATAN DI BELAKANG FOTO INI?!
 => END

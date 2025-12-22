@@ -67,8 +67,8 @@ func _on_dialogue_finished(resource):
 	#$"../../Fade Transition2/AnimationPlayer".play("fade_in")
 	
 	await get_tree().create_timer(1.0).timeout
-	if change_scene_after_dialogue and next_scene != "":
-		change_to_scene()
+	#if change_scene_after_dialogue and next_scene != "":
+		#change_to_scene()
 	
 	if State.current_subscene == "scene10":
 		$InteractionArea/CollisionShape2D.disabled = true
@@ -76,6 +76,9 @@ func _on_dialogue_finished(resource):
 	elif State.current_subscene == "scene14":
 		$InteractionArea/CollisionShape2D.disabled = true
 		show_next_puzzle()
+		if State.puzzle_scene14:
+			print("foto belakangggg")
+			change_to_scene()
 		
 func show_next_puzzle():
 	print("\nShowing Puzzle....\n")
@@ -129,4 +132,10 @@ func on_puzzle_completed():
 	elif State.current_subscene == "scene14":
 		print("puzzle scene 14 done")
 		State.puzzle_scene14 = true
+		
+		DialogueManager.dialogue_ended.connect(_on_dialogue_finished, CONNECT_ONE_SHOT)
+		DialogueManager.show_dialogue_balloon(
+		load("res://Scene/Scene 7/Dialogue/table_dennis.dialogue"),
+		dialogue_start
+	)
 	

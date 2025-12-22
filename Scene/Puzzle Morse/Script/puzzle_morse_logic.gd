@@ -409,8 +409,11 @@ func go_to_next_scene() -> void:
 # ---------------------------
 # Helper: cari node player dari group "player"
 func _get_player():
-	var p = get_tree().get_first_node_in_group("player")
-	return p
+	if State.current_subscene != "scene14":
+		var p = get_tree().get_first_node_in_group("player")
+		return p
+	else:
+		pass
 
 # ---------------------------
 # Public helper methods

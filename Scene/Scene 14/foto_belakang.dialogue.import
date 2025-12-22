@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://dgoqxi6y2nx8m"
+path="res://.godot/imported/foto_belakang.dialogue-131d0f1902af32cfc0cc666d67db7456.tres"
+
+[deps]
+
+source_file="res://Scene/Scene 14/foto_belakang.dialogue"
+dest_files=["res://.godot/imported/foto_belakang.dialogue-131d0f1902af32cfc0cc666d67db7456.tres"]
+
+[params]
+
+defaults=true

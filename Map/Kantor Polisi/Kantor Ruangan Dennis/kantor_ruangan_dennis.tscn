@@ -344,6 +344,8 @@ shape = SubResource("RectangleShape2D_bmtox")
 position = Vector2(126, 95)
 script = ExtResource("17_61bjf")
 dialogue_file = "uid://f1cdv0535fix"
+change_scene_after_dialogue = true
+next_scene = "uid://dopinns18hjj4"
 next_puzzle = "uid://c40dflflmaxk8"
 
 [node name="Sprite2D" type="Sprite2D" parent="Environment/Table"]

@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://3hq85b3fm5tq"
+path="res://.godot/imported/kantor_ruangan_dennis.dialogue-a33031ee8ce272e52634114fee2e024d.tres"
+
+[deps]
+
+source_file="res://Scene/Scene 14/kantor_ruangan_dennis.dialogue"
+dest_files=["res://.godot/imported/kantor_ruangan_dennis.dialogue-a33031ee8ce272e52634114fee2e024d.tres"]
+
+[params]
+
+defaults=true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://b77vxoaccijaq"]
+[gd_scene load_steps=43 format=3 uid="uid://b77vxoaccijaq"]
 
 [ext_resource type="Script" uid="uid://654je0fson3i" path="res://Map/Rumah Dennis/Kamar Dennis/Scripts/kamar_dennis.gd" id="1_0jkl8"]
 [ext_resource type="Texture2D" uid="uid://bkjhma2pj112e" path="res://Map/Rumah Dennis/Kamar Dennis/Sprite/bed.png" id="1_m8nms"]
@@ -21,6 +21,8 @@
 [ext_resource type="Texture2D" uid="uid://35khv2wm3ugl" path="res://icon.svg" id="16_sjr5x"]
 [ext_resource type="PackedScene" uid="uid://bs3lbwtbheymx" path="res://UI/MainMenu/fade_transition.tscn" id="17_2il5v"]
 [ext_resource type="Texture2D" uid="uid://c7isjxraenmvq" path="res://Scene/Puzzle Morse/Sprite/black-screen.png" id="21_sjr5x"]
+[ext_resource type="PackedScene" uid="uid://cj7epc3mv55qj" path="res://NPC/npc.tscn" id="22_mbnka"]
+[ext_resource type="Texture2D" uid="uid://2ij6b2mivna4" path="res://NPC/Sprite/silas-full-animate.png" id="23_0okap"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ilb8h"]
 texture = ExtResource("1_m8nms")
@@ -339,7 +341,25 @@ position = Vector2(76.671875, 77.04687)
 scale = Vector2(0.7232585, 0.9031333)
 texture = ExtResource("21_sjr5x")
 
+[node name="Grey" parent="." instance=ExtResource("22_mbnka")]
+visible = false
+position = Vector2(126, 81)
+npc_name = "Grey"
+idle_direction = "side_left"
+dialogue_file = "uid://c0bshvgsey4ar"
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" parent="Grey" index="0"]
+disabled = true
+
+[node name="Sprite2D" parent="Grey" index="1"]
+texture = ExtResource("23_0okap")
+
+[node name="CollisionShape2D" parent="Grey/InteractionArea" index="0"]
+disabled = true
+
 [editable path="Doors/Door_E"]
 [editable path="Doors/Door_S"]
 [editable path="Bed/InteractionArea"]
 [editable path="Fade Transition2"]
+[editable path="Grey"]

@@ -5,7 +5,8 @@ extends Node2D
 
 #Untuk navigasi ruangan harus menambahkan ini
 func _ready():
-	print(State.debug_current_scene())	
+	#State.current_subscene = "scene18"
+	print(State.current_subscene)	
 	if State.current_subscene == "scene17":
 		State.current_subscene = "scene18"
 	elif State.current_subscene == "scene18":
@@ -23,6 +24,11 @@ func _ready():
 	auto_setup_camera_from_tilemap()
 	if NavigationManager.spawn_door_tag != null:
 		_on_level_spawn(NavigationManager.spawn_door_tag)
+		
+	State.setup_quest_title($".")
+	if State.current_subscene == "scene18":
+		State.quest_title = "Selidiki ruangan"
+	State.set_quest_title($".", true)
 
 func _talk():
 	var player = get_tree().get_first_node_in_group("player")

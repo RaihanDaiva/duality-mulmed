@@ -211,6 +211,7 @@ stretch_mode = 5
 script = ExtResource("5_jhcbk")
 
 [node name="Options" type="TextureButton" parent="VBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(70, 10)
 layout_mode = 2
 size_flags_horizontal = 4

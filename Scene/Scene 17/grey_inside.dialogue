@@ -1,0 +1,14 @@
+~ start
+if State.grey_talked_scene17  == false:
+	Dennis: Ada arah baru, Grey?
+	Grey: Belum, aku juga masih mencari suratmu itu
+	Dennis: Ahh, baiklah
+	Dennis: Ohiya, aku lupa dengan apa yang kau bilang tadi...
+	Dennis: Kalau kau pelakunya, apa yang akan kau lakukan dengan jalan masuk termpat tersembunyi itu?
+	Grey: Akan kututupi jalan masuknya menggunakan tembok kopong
+	Grey: Atau kututupinya dengan lantai kopong kalau jalan masuknya ada di kaki kita
+	set State.grey_talked_scene17 = true
+if State.grey_talked_scene17  == true:
+	Grey: Kalau aku pelakunya, akan kututupi jalan masuk tempat tersembunyi itu menggunakan tembok kopong
+	Grey: Atau kututupinya dengan lantai kopong kalau jalan masuknya ada di kaki kita
+=> END

@@ -11,6 +11,7 @@ func update_interactables():
 		
 #Untuk navigasi ruangan harus menambahkan ini
 func _ready():
+	#State.current_subscene = "scene17"
 	State.current_room = "kamar"
 	print(State.current_subscene)
 	var quest_title = preload("res://UI/PlayingInterface/QuestTitle.tscn")
@@ -29,6 +30,8 @@ func _ready():
 		change_quest_title("Ke luar rumah")
 	elif State.current_subscene == "scene17":
 		change_quest_title("Cari Sesuatu")
+		$Grey.visible = true
+		$Grey/CollisionShape2D.disabled = false
 		print("quest hole ",State.quest_hole)
 		if !State.quest_hole:
 			$Environment/Hole.visible = false
@@ -40,6 +43,7 @@ func _ready():
 			$Environment/Hole/CollisionShape2D.disabled = false
 			$Doors/Door_S/CollisionShape2D.disabled = false
 	elif State.current_subscene == "scene18" or "scene19":
+		change_quest_title("Masuk ke bawah")
 		$"Environment/Hole Interaction/InteractionArea/CollisionShape2D".disabled = true
 		$Environment/Hole.visible = true
 		$Environment/Hole/CollisionShape2D.disabled = false

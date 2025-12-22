@@ -1,3 +1,42 @@
 ~ start
-Dennis: Akhirnya.. hening juga
+if State.current_subscene == "scene4":
+	Dennis: Akhirnya.. hening juga
+elif State.current_subscene == "scene17":
+	Dennis: Rumahku istanaku
+	Dennis: Tak kusangka rumahku, di mana aku merasakan damai, malah terlibat dalam suatu kasus
+	Dennis: Apa yang sudah kau temukan, Grey?
+	Grey: Tidak, aku belum memulai. Aku menunggumu, namun aku akan mencari
+	Dennis: Ah, kalau begitu ayok kita mulai sekarang
+	Dennis: Ingat, yang utamakan kita cari adalah 'Tempat tersembunyi' itu
+	Grey: Tenang saja, aku tidak lupa dengan itu
+	Dennis: Ohiya namun... apakah kau memiliki ide bahwa bagaimana 'tempat tersembunyi' itu disembunyikan?
+	Grey: Mana kutahu tempatnya di mana. Kita kan mau nyari
+	Dennis: Bukan di mana, Grey! Bagaimana?
+	Dennis: Maksudku, kalau kau menjadi pelakunya... bagaimana caranya kau menyembunyikan tempat tersebut?
+	Grey: Kalau aku menjadi pelakunya...? Hmmmmm....
+	Grey: Pertama aku akan pilih rumah ini, terutama kalau aku Davy Jones
+	Dennis: Bisakah kau hentikan itu? Dan berhentilah menyebutku Davy Jones
+	Grey: HAHAHAHAH TENANGLAH
+	Grey: Cobalah santai walaupun terdesak seperti ini
+	Grey: Ingat, aku temanmu
+	Grey: Bagaimanapun... Hmmmm kalau aku jadi pelakunya...
+	Grey: Mungkin akan kututupi jalan masuknya menggunakan tembok kopong, tembok palsu, dan juga lemari atau furnitur tinggi lainnya
+	Grey: Atau...
+	Dennis: Atau?
+	Grey: Atau kututupinya dengan karpet atau lantai kopong apabila jalan masuknya ada di kaki kita
+	Dennis: Ahhh terima kasih, Grey. Kurasa itu cukup membantuku
+	Dennis: Sepertinya itu cukup untuk memberikanku petunjuk dalam mencarinya
+	Grey: Tidak masalah, semoga beruntung meginvestigasi istanamu, Luigi
+	Dennis: (Bagus, sekarang dia memanggilku Luigi)
+	Grey: Hey, apakah kau ingat di mana kau menaruh surat kepemilikan tanahmu itu?
+	Dennis: Uhhhh, haha, maaf aku tidak ingat
+	Grey: Haduhhh, kau ini ya. Disaat kau perlu sesuatu kau malah lupa menaruhnya
+	Grey: Untuk sebuah detektif yang populer, kau itu cukup ceroboh
+	Grey: Baiklah kalau begitu, ayo kita cari bersama-sama
+	Grey: Izinkan aku untuk menginvestigasi kamarmu
+	Grey: Aku akan mencari suratmu, sementara kau fokus mencari tempat itu
+	Dennis: Kenapa harus aku?
+	Grey: Karena kau yang punya rumahnya
+	Dennis: (Bukannya kebalik ya kalau memang begitu)
+	set State.inside_first_scene17 = true
 => END

@@ -31,7 +31,14 @@ func _ready():
 		State.current_subscene = "scene17"
 		State.entered_house = true
 		change_quest_title("Cari Sesuatu")
-	elif State.current_subscene == "scene17":
+	
+	if State.current_subscene == "scene17":
+		print("masuk ruangg tv")
+		if !State.inside_first_scene17:
+			_talk()
+		$Grey.visible = true
+		$Grey/CollisionShape2D.disabled = false
+		$Grey/InteractionArea/CollisionShape2D.disabled = false
 		change_quest_title("Cari Sesuatu")
 	auto_setup_camera_from_tilemap()
 	
@@ -48,13 +55,14 @@ func _talk():
 		player.direction = Vector2.ZERO
 	
 	DialogueManager.dialogue_ended.connect(_on_dialogue_finished, CONNECT_ONE_SHOT)
-		
-	await get_tree().create_timer(1).timeout
-	DialogueManager.show_dialogue_balloon(
-		load("res://Scene/Scene 4/Dialogue/ruang_tv.dialogue"),
-		"start"
-	)
 	
+	if State.current_subscene == "scene4" or State.current_subscene == "scene17" :
+		await get_tree().create_timer(1).timeout
+		DialogueManager.show_dialogue_balloon(
+			load("res://Scene/Scene 4/Dialogue/ruang_tv.dialogue"),
+			"start"
+		)
+		
 func _on_dialogue_finished(resource):
 	State.inside_first = true
 	

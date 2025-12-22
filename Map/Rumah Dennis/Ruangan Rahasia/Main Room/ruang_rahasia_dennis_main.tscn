@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://b2frs74kq1guf"]
+[gd_scene load_steps=31 format=3 uid="uid://b2frs74kq1guf"]
 
 [ext_resource type="Texture2D" uid="uid://drwqeethujg2l" path="res://Map/Rumah Dennis/Ruangan Rahasia/Main Room/Sprite/cabinet-open.png" id="1_6hlpn"]
 [ext_resource type="Script" uid="uid://cvbqbyiot0p4t" path="res://Map/Rumah Dennis/Ruangan Rahasia/Main Room/Script/ruang_rahasia_dennis_main.gd" id="1_rla01"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cme056l2iexj3" path="res://Map/Rumah Dennis/Ruangan Rahasia/Main Room/Sprite/wall(1).png" id="6_h3nwx"]
 [ext_resource type="Texture2D" uid="uid://cdcjtciq0hiwh" path="res://Map/Rumah Dennis/Ruangan Rahasia/Main Room/Sprite/workbench.png" id="7_cc3j6"]
 [ext_resource type="PackedScene" uid="uid://btbp42qa7duve" path="res://Player/player.tscn" id="8_c1m6b"]
+[ext_resource type="Script" uid="uid://chhymh6ngebjg" path="res://Scene/Scene 12/cardboard.gd" id="9_cc3j6"]
 [ext_resource type="PackedScene" uid="uid://b6yrxvfy6uyiy" path="res://Map/Door/door.tscn" id="9_rb8rg"]
 [ext_resource type="PackedScene" uid="uid://cj7epc3mv55qj" path="res://NPC/npc.tscn" id="11_h3nwx"]
 [ext_resource type="Texture2D" uid="uid://2ij6b2mivna4" path="res://NPC/Sprite/silas-full-animate.png" id="12_cc3j6"]
@@ -248,6 +249,9 @@ size = Vector2(19, 56)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rb8rg"]
 size = Vector2(12, 13)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k0bh6"]
+size = Vector2(48, 18)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h3nwx"]
 size = Vector2(12, 13)
 
@@ -332,6 +336,18 @@ texture = ExtResource("4_rla01")
 position = Vector2(0, 17.5)
 shape = SubResource("RectangleShape2D_rb8rg")
 
+[node name="Workbench 2" type="CharacterBody2D" parent="Environment"]
+position = Vector2(224, 115)
+script = ExtResource("9_cc3j6")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Workbench 2"]
+texture = ExtResource("7_cc3j6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Workbench 2"]
+position = Vector2(0, 7)
+shape = SubResource("RectangleShape2D_k0bh6")
+
 [node name="Doors" type="Node2D" parent="."]
 position = Vector2(136, 56)
 
@@ -345,7 +361,7 @@ spawn_direction = "down"
 disabled = false
 
 [node name="Spawn" parent="Doors/Door_N" index="1"]
-position = Vector2(0, 22)
+position = Vector2(0, 24)
 
 [node name="Door_S" parent="Doors" instance=ExtResource("9_rb8rg")]
 position = Vector2(-32, 65)

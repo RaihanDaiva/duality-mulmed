@@ -7,7 +7,7 @@ var quest_title_instance
 #Untuk navigasi ruangan harus menambahkan ini
 func _ready():
 	#State.quest_bed_done = "start"
-	#State.current_subscene = "scene6" #akan dihapus
+	#State.current_subscene = "scene16" #akan dihapus
 	#State.scene12_give_evidence = true
 	
 	print(State.current_subscene)
@@ -30,8 +30,12 @@ func _ready():
 		change_quest_title("Masuk ke rumah")
 		if !State.entered_house:
 			NavigationManager.spawn_door_tag = null
-	elif State.current_subscene == "scene17":
+		if !State.inside_first_scene17:
+			_talk()
+			$Grey.visible = true
+			$Grey/CollisionShape2D.disabled = false
 		change_quest_title("Masuk ke rumah")
+
 	
 	if State.scene12_give_evidence:
 		
@@ -50,7 +54,19 @@ func _ready():
 	auto_setup_camera_from_tilemap()
 	if NavigationManager.spawn_door_tag != null:
 		_on_level_spawn(NavigationManager.spawn_door_tag)
+
+func _talk():
+	DialogueManager.dialogue_ended.connect(_on_dialogue_finished, CONNECT_ONE_SHOT)
 		
+	await get_tree().create_timer(1).timeout
+	DialogueManager.show_dialogue_balloon(
+		load("res://Scene/Scene 17/grey.dialogue"),
+		"start"
+	)
+	
+func _on_dialogue_finished(resource):
+	pass
+
 func change_quest_title(new_title: String) -> void:
 	quest_title_instance._update_quest_title(new_title, true)
 		

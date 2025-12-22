@@ -3,6 +3,7 @@ var dialogue_active = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	#State.current_subscene = "scene16"
 	$AudioStreamPlayer.playing  = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

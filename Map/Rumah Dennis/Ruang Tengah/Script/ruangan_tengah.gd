@@ -6,7 +6,7 @@ var quest_title_instance
 
 #Untuk navigasi ruangan harus menambahkan ini
 func _ready():
-	#State.current_subscene = "scene6"
+	#State.current_subscene = "scene17"
 	State.current_room = "ruang tengah"
 	State.quest_bed_done = "not yet"
 	print(State.current_room) 

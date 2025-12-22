@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dv0moxmpjlif5"]
+[gd_scene load_steps=27 format=3 uid="uid://dv0moxmpjlif5"]
 
 [ext_resource type="PackedScene" uid="uid://btbp42qa7duve" path="res://Player/player.tscn" id="1_0mau2"]
 [ext_resource type="Script" uid="uid://bqukoy7pu2k5v" path="res://Map/Rumah Dennis/Ruang TV/Script/ruang_tv_dennis.gd" id="1_a3of4"]
@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://btr55ohhehejk" path="res://Map/Rumah Dennis/Ruang TV/Sprite/sofa-back.png" id="8_yg2a7"]
 [ext_resource type="Texture2D" uid="uid://cieyfdkq3fd7d" path="res://Map/Rumah Dennis/Ruang TV/Sprite/table-small.png" id="9_dn33a"]
 [ext_resource type="Texture2D" uid="uid://c7isjxraenmvq" path="res://Scene/Puzzle Morse/Sprite/black-screen.png" id="13_1pe7c"]
+[ext_resource type="PackedScene" uid="uid://cj7epc3mv55qj" path="res://NPC/npc.tscn" id="14_wn5ls"]
+[ext_resource type="Texture2D" uid="uid://2ij6b2mivna4" path="res://NPC/Sprite/silas-full-animate.png" id="15_4wq51"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s0h5h"]
 texture = ExtResource("1_nlnep")
@@ -206,7 +208,7 @@ disabled = false
 position = Vector2(1, -17)
 
 [node name="Player" parent="." instance=ExtResource("1_0mau2")]
-position = Vector2(132, 190)
+position = Vector2(100, 190)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
@@ -217,5 +219,23 @@ position = Vector2(124.000015, 121.00001)
 scale = Vector2(0.5893741, 0.6724081)
 texture = ExtResource("13_1pe7c")
 
+[node name="Grey" parent="." instance=ExtResource("14_wn5ls")]
+visible = false
+position = Vector2(142, 182)
+npc_name = "Grey"
+idle_direction = "side_left"
+dialogue_file = "uid://c0bshvgsey4ar"
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" parent="Grey" index="0"]
+disabled = true
+
+[node name="Sprite2D" parent="Grey" index="1"]
+texture = ExtResource("15_4wq51")
+
+[node name="CollisionShape2D" parent="Grey/InteractionArea" index="0"]
+disabled = true
+
 [editable path="Doors/Door_E2"]
 [editable path="Doors/Door_S"]
+[editable path="Grey"]

@@ -48,6 +48,7 @@ var scene12_give_evidence: bool = false
 
 #scene 14
 var puzzle_scene14: bool
+var dennis_talked: bool
 
 #scene 15 part 2
 var grey_entering_car: bool
@@ -58,6 +59,8 @@ var entered_house: bool
 
 #scene 17
 var quest_hole: bool
+var inside_first_scene17: bool
+var grey_talked_scene17: bool
 
 
 #scene 19

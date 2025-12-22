@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://yigihdb1ge7l"]
+[gd_scene load_steps=31 format=3 uid="uid://yigihdb1ge7l"]
 
 [ext_resource type="Script" uid="uid://tcin6evw2n5k" path="res://Map/Rumah Dennis/Halaman Luar/Script/halaman_rumah_dennis.gd" id="1_b4vcv"]
 [ext_resource type="Texture2D" uid="uid://cybicyjg5l2tb" path="res://Map/Rumah Dennis/Halaman Luar/Sprite/stone-slab.png" id="3_b4vcv"]
@@ -16,6 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://dky5l4bmp636h" path="res://Interaction Manager/Interaction Area/interaction_area.tscn" id="11_teeel"]
 [ext_resource type="PackedScene" uid="uid://bs3lbwtbheymx" path="res://UI/MainMenu/fade_transition.tscn" id="12_od26d"]
 [ext_resource type="AudioStream" uid="uid://lavpyaxgd8j3" path="res://SFX/SFX Heavy Rain and Thunder.mp3" id="16_3dgmd"]
+[ext_resource type="PackedScene" uid="uid://cj7epc3mv55qj" path="res://NPC/npc.tscn" id="17_iq6m0"]
+[ext_resource type="Texture2D" uid="uid://2ij6b2mivna4" path="res://NPC/Sprite/silas-full-animate.png" id="18_6uno6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_teeel"]
 texture = ExtResource("3_b4vcv")
@@ -268,7 +270,7 @@ texture = ExtResource("10_3dgmd")
 shape = SubResource("CircleShape2D_6uno6")
 
 [node name="Player" parent="." instance=ExtResource("7_r1owp")]
-position = Vector2(77, 152)
+position = Vector2(72, 180)
 
 [node name="Doors" type="Node2D" parent="."]
 
@@ -314,6 +316,21 @@ offset_bottom = 204.0
 stream = ExtResource("16_3dgmd")
 volume_db = -23.441
 
+[node name="Grey" parent="." instance=ExtResource("17_iq6m0")]
+visible = false
+position = Vector2(58, 131)
+npc_name = "Grey"
+can_interact = false
+dialogue_file = "uid://kneo0ht4f5gx"
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" parent="Grey" index="0"]
+disabled = true
+
+[node name="Sprite2D" parent="Grey" index="1"]
+texture = ExtResource("18_6uno6")
+
 [editable path="Environment/Cars2/InteractionArea"]
 [editable path="Doors/Door_N"]
 [editable path="CanvasLayer/Fade Transition2"]
+[editable path="Grey"]

@@ -6,7 +6,8 @@ var quest_title_instance
 
 #Untuk navigasi ruangan harus menambahkan ini
 func _ready():
-	State.current_subscene = "scene10" #nanti dihapus
+	#State.current_subscene = "scene10" #nanti dihapus
+	
 	
 	var table = $Environment/Table
 	table.dialogue_finished.connect(_on_table_dialogue_finished)
@@ -33,14 +34,30 @@ func _ready():
 		if !State.puzzle_scene14:
 			change_quest_title("Ke Meja Kerja")
 		else:
+			NavigationManager.spawn_door_tag = null
 			change_quest_title("Ke Luar Kantor")
+			if !State.dennis_talked:
+				_talk()
 	elif State.current_subscene == "scene15":
 		change_quest_title("Ke Luar Kantor")
-	
+		
 	auto_setup_camera_from_tilemap()
 	if NavigationManager.spawn_door_tag != null:
 		_on_level_spawn(NavigationManager.spawn_door_tag)
+
+
+func _talk():
+	DialogueManager.dialogue_ended.connect(_on_dialogue_finished, CONNECT_ONE_SHOT)
 		
+	await get_tree().create_timer(1).timeout
+	DialogueManager.show_dialogue_balloon(
+		load("res://Scene/Scene 14/kantor_ruangan_dennis.dialogue"),
+		"start"
+	)
+	
+func _on_dialogue_finished(resource):
+	get_tree().change_scene_to_file("res://Map/Kantor Polisi/Kantor Ruangan Dennis/kantor_ruangan_dennis.tscn")
+
 func _on_table_dialogue_finished():
 	#if State.quest_table_done == "done":
 	if State.current_subscene == "scene7":

@@ -330,7 +330,6 @@ destination_door_tag = "N"
 
 [node name="CollisionShape2D" parent="Doors/Door_S" index="0"]
 position = Vector2(3, 15)
-disabled = false
 
 [node name="Spawn" parent="Doors/Door_S" index="1"]
 position = Vector2(3, -6)
